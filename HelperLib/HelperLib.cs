@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Xml.Linq;
+//using Ionic.Zip;
 using RGiesecke.DllExport;
 
 namespace HelperLib
@@ -96,36 +101,124 @@ namespace HelperLib
         [DllExport("RemoveJapaneseCards", CallingConvention = CallingConvention.StdCall)]
         public static void RemoveJapaneseCards([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
-            var ud = Path.Combine(path, "UserData");
-            if (!Directory.Exists(ud)) return;
-            foreach (var filename in FilesToDeleteForTranslation)
-                SafeFileDelete(Path.Combine(ud, filename));
+            try
+            {
+                var ud = Path.Combine(path, "UserData");
+                if (!Directory.Exists(ud)) return;
+                foreach (var filename in FilesToDeleteForTranslation)
+                    SafeFileDelete(Path.Combine(ud, filename));
+            }
+            catch (Exception e)
+            {
+                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
+            }
         }
 
         [DllExport("RemoveNonstandardListfiles", CallingConvention = CallingConvention.StdCall)]
         public static void RemoveNonstandardListfiles([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
-            var ld = Path.Combine(path, @"abdata\list\characustom");
-            if (!Directory.Exists(ld)) return;
-            foreach (var filePath in Directory.GetFiles(ld))
+            try
             {
-                if (!IsStandardListFile(filePath))
+                var ld = Path.Combine(path, @"abdata\list\characustom");
+                if (!Directory.Exists(ld)) return;
+                foreach (var filePath in Directory.GetFiles(ld))
                 {
-                    SafeFileDelete(filePath);
+                    if (!IsStandardListFile(filePath))
+                    {
+                        SafeFileDelete(filePath);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
             }
         }
 
         [DllExport("RemoveSideloaderDuplicates", CallingConvention = CallingConvention.StdCall)]
         public static void RemoveSideloaderDuplicates([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
-            var ld = Path.Combine(path, @"mods");
-            if (!Directory.Exists(ld)) return;
+            try
+            {
+                var ld = Path.Combine(path, @"mods");
+                if (!Directory.Exists(ld)) return;
 
-            var modDuplicates = from file in Directory.GetFiles(ld, "*", SearchOption.AllDirectories)
-                where file.EndsWith(".zip", StringComparison.OrdinalIgnoreCase)
-                      || file.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase)
-                group file by Path.GetFileNameWithoutExtension(file);
+                var allMods = (from file in Directory.GetFiles(ld, "*", SearchOption.AllDirectories)
+                               where file.EndsWith(".zip", StringComparison.OrdinalIgnoreCase)
+                                     || FileHasZipmodExtension(file)
+                               select file).ToList();
+
+                SideloaderCleanupByManifest(allMods);
+                SideloaderCleanupByFilename(allMods.Where(File.Exists));
+            }
+            catch (Exception e)
+            {
+                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
+            }
+        }
+
+        private static void SideloaderCleanupByManifest(IEnumerable<string> allMods)
+        {
+            var mods = new List<SideloaderModInfo>();
+
+            foreach (var mod in allMods)
+            {
+                try
+                {
+                    using (var zs = new FileStream(mod, FileMode.Open, FileAccess.Read))
+                    using (var zf = new ZipArchive(zs))
+                    {
+                        var manifestEntry = zf.Entries.FirstOrDefault(x =>
+                            x.Name.Equals("manifest.xml", StringComparison.OrdinalIgnoreCase));
+
+                        if (manifestEntry == null)
+                        {
+                            if (FileHasZipmodExtension(mod))
+                                throw new InvalidDataException("zipmod has no manifest");
+                            continue;
+                        }
+
+                        using (var fileStream = manifestEntry.Open())
+                        {
+                            var manifest = XDocument.Load(fileStream, LoadOptions.None);
+
+                            if (manifest.Root == null || !manifest.Root.HasElements)
+                                throw new InvalidDataException("The manifest.xml file is in an invalid format");
+
+                            var guid = manifest.Root.Element("guid")?.Value;
+                            if (string.IsNullOrWhiteSpace(guid))
+                                continue;
+
+                            mods.Add(new SideloaderModInfo(mod, guid,
+                                manifest.Root.Element("version")?.Value));
+                        }
+                    }
+                }
+                catch (SystemException)
+                {
+                    // Kill it with fire
+                    SafeFileDelete(mod);
+                }
+            }
+
+            foreach (var modGroup in mods.GroupBy(x => x.Guid))
+            {
+                var orderedMods = modGroup.All(x => !string.IsNullOrWhiteSpace(x.Version))
+                    ? modGroup.OrderByDescending(x => x.Version, new VersionComparer())
+                    : modGroup.OrderByDescending(x => File.GetLastWriteTime(x.Path));
+
+                // Prefer .zipmod extension and then longer paths (so the mod has either longer name or is arranged in a subdirectory)
+                orderedMods = orderedMods.ThenByDescending(x => FileHasZipmodExtension(x.Path))
+                    .ThenByDescending(x => x.Path.Length);
+
+                foreach (var oldMod in orderedMods.Skip(1))
+                    SafeFileDelete(oldMod.Path);
+            }
+        }
+
+        private static void SideloaderCleanupByFilename(IEnumerable<string> allMods)
+        {
+            var modDuplicates = allMods.GroupBy(Path.GetFileNameWithoutExtension);
 
             foreach (var modVersions in modDuplicates)
             {
@@ -133,10 +226,15 @@ namespace HelperLib
 
                 // Figure out the newest mod and remove all others. Favor .zipmod versions if both have the same creation date
                 var orderedVersions = modVersions.OrderByDescending(File.GetLastWriteTime)
-                    .ThenByDescending(x => x.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase));
+                    .ThenByDescending(FileHasZipmodExtension);
                 foreach (var oldModPath in orderedVersions.Skip(1))
                     SafeFileDelete(oldModPath);
             }
+        }
+
+        private static bool FileHasZipmodExtension(string fileName)
+        {
+            return fileName.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase);
         }
 
         private static void SafeFileDelete(string file)
@@ -163,6 +261,52 @@ namespace HelperLib
                     return false;
 
             return true;
+        }
+
+        private class SideloaderModInfo
+        {
+            public readonly string Guid;
+            public readonly string Path;
+            public readonly string Version;
+
+            public SideloaderModInfo(string path, string guid, string version)
+            {
+                Path = path;
+                Guid = guid;
+                Version = version;
+            }
+        }
+
+        public class VersionComparer : IComparer<string>
+        {
+            public int Compare(string x, string y)
+            {
+                if (x == y) return 0;
+                var version = new { First = GetVersion(x), Second = GetVersion(y) };
+                var limit = Math.Max(version.First.Length, version.Second.Length);
+                for (var i = 0; i < limit; i++)
+                {
+                    var first = version.First.ElementAtOrDefault(i);
+                    var second = version.Second.ElementAtOrDefault(i);
+                    var result = first.CompareTo(second);
+                    if (result != 0)
+                        return result;
+                }
+                return version.First.Length.CompareTo(version.Second.Length);
+            }
+
+            private IComparable[] GetVersion(string version)
+            {
+                return (from part in version.Trim().Split('.', ' ', '-', ',', '_')
+                        select Parse(part)).ToArray();
+            }
+
+            private IComparable Parse(string version)
+            {
+                if (int.TryParse(version, out var result))
+                    return result;
+                return version;
+            }
         }
     }
 }
