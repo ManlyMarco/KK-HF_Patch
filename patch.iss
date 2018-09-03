@@ -153,10 +153,10 @@ Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; Valu
  
 [Tasks]
 Name: desktopicon; Description: "Create a &desktop icon"; Components: TL\EnglishLauncher 
-Name: delete; Description: "Delete old mods before installation (recommended if you have issues or when updating from very old versions)"; 
+Name: delete; Description: "Delete old mods before installation (recommended if you have issues, or when updating an old game install to refresh it)"; 
 Name: delete\Sidemods; Description: "Delete sideloader mods folder (Deletes ALL old sideloader mods. Some mods can be automatically deleted as needed even if this is disabled.)"; Flags: unchecked 
 Name: delete\Plugins; Description: "Delete BepInEx plugins folder (Deletes old, potentially outdated or no longer necessary plugins. Resets plugin settings and AutoTranslator cache)"; Flags: unchecked 
-Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.2 or older.)"; Flags: unchecked 
+Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.2 or older, or from repacks like flashbangz.)"; Flags: unchecked 
 
 [Icons]
 Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSettingGameStudioVREN.exe"; IconFilename: "{app}\InitSettingGameStudioVREN.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu English launcher"; Tasks: desktopicon
