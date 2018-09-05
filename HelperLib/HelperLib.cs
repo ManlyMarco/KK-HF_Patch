@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
-//using Ionic.Zip;
 using RGiesecke.DllExport;
 
 namespace HelperLib
@@ -251,7 +250,10 @@ namespace HelperLib
 
         private static bool IsStandardListFile(string fileName)
         {
-            return IsDigitsOnly(Path.GetFileNameWithoutExtension(fileName));
+            // Get rid of invalid files like .csv .zipmod or other junk that people somehow manage to put there
+            return !fileName.EndsWith(".unity3d", StringComparison.OrdinalIgnoreCase)
+                // Official list files only have numbers in them while all custom ones seem to have at least one letter, so this is enough
+                || IsDigitsOnly(Path.GetFileNameWithoutExtension(fileName));
         }
 
         private static bool IsDigitsOnly(string str)
