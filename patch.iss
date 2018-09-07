@@ -86,15 +86,15 @@ Source: "Input\_TL\translation_eng.nicknames 1.3 BadOne\*"; DestDir: "{app}"; Fl
 Source: "Input\_TL\HSubs v4\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: TL\HSubs
 
 Source: "Input\_Uncensor\[Demosaic][1.0][AUTOMATIC1111]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: UNC 
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4.zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\Normal 
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[rounderBalls].zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\NormalBalls
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[dark].zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\Dark
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[dark+roundBalls].zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\DarkBalls 
-Source: "Input\_Uncensor\[Male][Uncensor]KK_LO_pussy_v0.5.zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\LO
+Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4.zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\Normal 
+Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[rounderBalls].zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\NormalBalls
+Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[dark].zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\Dark
+Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[dark+roundBalls].zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\DarkBalls 
+Source: "Input\_Uncensor\[Male][Uncensor]KK_LO_pussy_v0.5.zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Male\LO
  
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][FUncensor][moderchan]funcensor01.zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Female\Chan
-Source: "Input\_Uncensor\[Female][Uncensor]KK_LO_pussy_v0.5.zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Female\LO 
-Source: "Input\_Uncensor\[moderchan]Tongue Texture v1.1.zip"; DestDir: "{app}\Input\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Tongue
+Source: "Input\_Uncensor\zipmod.uncensors\[enk][FUncensor][moderchan]funcensor01.zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Female\Chan
+Source: "Input\_Uncensor\[Female][Uncensor]KK_LO_pussy_v0.5.zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Female\LO 
+Source: "Input\_Uncensor\[moderchan]Tongue Texture v1.1.zip"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Tongue
  
 Source: "Input\Sideloader Modpack\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack
 Source: "Input\Hardmod Pack\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\Hard
