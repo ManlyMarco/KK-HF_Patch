@@ -112,11 +112,13 @@ Source: "Input\_Misc\[Koikatu][CheatTools][v1.6][MarC0]\*"; DestDir: "{app}"; Fl
 Source: "Input\_Misc\Full save\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: MISC\FullSave 
 Source: "Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: MISC\Meme
 
-[InstallDelete] 
+[InstallDelete]
+; Clean up old translations 
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Images"; Components: TL\UItranslation 
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Text"; Components: TL\EnglishTranslation
 Type: filesandordirs; Name: "{app}\BepInEx\translation\scenario"; Components: TL\EnglishStory
- 
+
+; Clean up old modpacks 
 Type: filesandordirs; Name: "{app}\mods\Uncensor"; Components: UNC 
 Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"; Components: Modpack                                                                                                 
 Type: filesandordirs; Name: "{app}\mods\Sideloader Only Mods"; Components: Modpack
@@ -124,8 +126,17 @@ Type: filesandordirs; Name: "{app}\mods\Sideloader Only Mods"; Components: Modpa
 ; Always not necessary
 Type: files; Name: "{app}\0Harmony.dll"
 Type: files; Name: "{app}\BepInEx.dll" 
+Type: files; Name: "{app}\Mono.Cecil.dll"            
+      
+; Junk                                               
+Type: files; Name: "{app}\*.log"                    
+Type: files; Name: "{app}\*.pdb"  
+; Yikes, someone extracted a sideloader mod...
+Type: files; Name: "{app}\manifest.xml"          
+
 ; Needed to migrate from BepInEx 3.x to 4.x 
 Type: files; Name: "{app}\BepInEx.Patcher.exe"; Components: BepInEx 
+
 ; Patch resets all assembly modifications so these files are useless, need to run patcher again anyways 
 Type: files; Name: "{app}\Koikatu_Data\Managed\0Harmony.dll"; Components: Patch 
 Type: files; Name: "{app}\Koikatu_Data\Managed\BepInEx.dll"; Components: Patch 
@@ -136,10 +147,12 @@ Type: files; Name: "{app}\KoikatuVR_Data\Managed\BepInEx.dll"; Components: Patch
 Type: files; Name: "{app}\Koikatu_Data\Managed\BepInEx.Bootstrapper.dll"; Components: Patch 
 Type: files; Name: "{app}\CharaStudio_Data\Managed\BepInEx.Bootstrapper.dll"; Components: Patch 
 Type: files; Name: "{app}\KoikatuVR_Data\Managed\BepInEx.Bootstrapper.dll"; Components: Patch
+
 ; Replaced with a fresh version, so no need for backups 
 Type: files; Name: "{app}\Koikatu_Data\Managed\UnityEngine.dll.bak"; Components: Patch
 Type: files; Name: "{app}\CharaStudio_Data\Managed\UnityEngine.dll.bak"; Components: Patch 
 Type: files; Name: "{app}\KoikatuVR_Data\Managed\UnityEngine.dll.bak"; Components: Patch 
+
 ; IPA, useless because patched assemblies are replaced 
 Type: files; Name: "{app}\Koikatu_Data\Managed\IllusionInjector.dll"; Components: Patch 
 Type: files; Name: "{app}\Koikatu_Data\Managed\IllusionPlugin.dll"; Components: Patch 
@@ -150,6 +163,7 @@ Type: files; Name: "{app}\CharaStudio_Data\Managed\IllusionPlugin.xml"; Componen
 Type: files; Name: "{app}\KoikatuVR_Data\Managed\IllusionInjector.dll"; Components: Patch 
 Type: files; Name: "{app}\KoikatuVR_Data\Managed\IllusionPlugin.dll"; Components: Patch 
 Type: files; Name: "{app}\KoikatuVR_Data\Managed\IllusionPlugin.xml"; Components: Patch 
+Type: files; Name: "{app}\IPA.exe"; Components: Patch 
 
 [Registry]
 Root: HKCU; Subkey: "Software\Illusion"; Components: MISC\FIX
@@ -163,6 +177,7 @@ Name: delete; Description: "Delete old mods before installation (recommended if 
 Name: delete\Sidemods; Description: "Delete sideloader mods folder (Deletes ALL old sideloader mods.)"; Flags: unchecked 
 Name: delete\Plugins; Description: "Delete BepInEx plugins folder (Deletes old, potentially outdated or no longer necessary plugins. Resets plugin settings and AutoTranslator cache.)"; Flags: unchecked 
 Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.2 or older, or from repacks like flashbangz.)"; Flags: unchecked     
+Name: delete\PW; Description: "Delete Patchwork install and Plugins folder"; Flags: unchecked     
 Name: fixSideloaderDupes; Description: "Remove duplicate sideloader mods (Leave only newest versions, recommended.)"; 
 
 [Icons]
@@ -188,6 +203,8 @@ procedure RemoveSideloaderDuplicates(path: String);
 external 'RemoveSideloaderDuplicates@files:HelperLib.dll stdcall';
 
 function NextButtonClick(CurPageID: Integer): Boolean;
+var
+  ResultCode: Integer;   
 begin
   // allow the setup turning to the next page
   Result := True;
@@ -198,7 +215,13 @@ begin
     if (IsTaskSelected('delete\Sidemods')) then
       DelTree(ExpandConstant('{app}\mods'), True, True, True);
     if (IsTaskSelected('delete\Listfiles')) then
-      RemoveNonstandardListfiles(ExpandConstant('{app}')); 
+      RemoveNonstandardListfiles(ExpandConstant('{app}'));      
+    if (IsTaskSelected('delete\PW')) then
+	begin            
+      DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
+      DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
+      Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+    end;
   end;
 
   // After install completes
