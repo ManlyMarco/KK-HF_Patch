@@ -208,6 +208,13 @@ var
 begin
   // allow the setup turning to the next page
   Result := True;
+
+  if (CurPageID = wpSelectDir) then
+  begin       
+    if (FileExists(ExpandConstant('{app}\manifest.xml'))) then
+      SuppressibleMsgBox('WARNINIG - A sideloader mod was likely extracted inside the game directory. Some game files might be corrupted. Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
+  end;
+
   if (CurPageID = wpReady) then
   begin
     if (IsTaskSelected('delete\Plugins')) then
