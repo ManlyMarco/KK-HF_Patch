@@ -23,7 +23,7 @@ Name: "custom"; Description: "Custom installation"; Flags: iscustom
  
 [Components]
 Name: "Patch"; Description: "Patch 08/31 and free DLC by Illusion + Game repair"; Types: full custom bare none extra; Flags: fixed 
-Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework"; Types: full custom bare extra; Flags: fixed 
+Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework (auto-update)"; Types: full custom bare extra; Flags: fixed 
 Name: "BepInEx\Dev"; Description: "Developer version with dnSpy debugging"; 
 Name: "BepisPlugins"; Description: "BepisPlugins r5.1"; Types: full custom bare extra; Flags: fixed 
 
@@ -172,13 +172,15 @@ Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; Components: MISC\FIX
 Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; ValueName: "INSTALLDIR"; ValueData: "{app}\"; Components: MISC\FIX
  
 [Tasks]
-Name: desktopicon; Description: "Create a &desktop icon"; Components: TL\EnglishLauncher 
-Name: delete; Description: "Delete old mods before installation (recommended if you have issues, or when updating an old game install to refresh it)"; 
-Name: delete\Sidemods; Description: "Delete sideloader mods folder (Deletes ALL old sideloader mods.)"; Flags: unchecked 
-Name: delete\Plugins; Description: "Delete BepInEx plugins folder (Deletes old, potentially outdated or no longer necessary plugins. Resets plugin settings and AutoTranslator cache.)"; Flags: unchecked 
-Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.2 or older, or from repacks like flashbangz.)"; Flags: unchecked     
-Name: delete\PW; Description: "Delete Patchwork install and Plugins folder"; Flags: unchecked     
-Name: fixSideloaderDupes; Description: "Remove duplicate sideloader mods (Leave only newest versions, recommended.)"; 
+Name: desktopicon; Description: "Create a &desktop icon"; Components: TL\EnglishLauncher; Flags: unchecked          
+Name: delete; Description: "Delete old mods before installation (Recommended if you have issues and when updating very old game installations)"; 
+Name: delete\Sidemods; Description: "Delete ALL existing sideloader mods"; Flags: unchecked 
+Name: delete\Plugins; Description: "Delete BepInEx folder (Deletes old plugins and translations, and resets plugin settings and AutoTranslator cache. Recommended if you have issues)"; Flags: unchecked 
+Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.2 or older, or from repacks like flashbangz.)"; Flags: unchecked    
+Name: fixSideloaderDupes; Description: "Delete duplicate sideloader mods after installation (Newest versions are kept. Recommended)";  
+Name: PW; Description: "Uninstall Patchwork if installed and delete Plugins folder (Optional, will free up some disk space. Make sure your PW version is compatible with current game update. If you have issues, run the game without PW)"; Flags: unchecked    
+; IPA is always removed, can't go around that. Unchecking is disabled in code, this task has to stay at the same index for it to work 
+Name: IPA; Description: "Uninstall IPA if installed (Use BepInEx IPA loader instead. Has to be removed for BepInEx to work correctly)";
 
 [Icons]
 Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSettingGameStudioVREN.exe"; IconFilename: "{app}\InitSettingGameStudioVREN.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu English launcher"; Tasks: desktopicon
@@ -202,6 +204,15 @@ external 'RemoveNonstandardListfiles@files:HelperLib.dll stdcall';
 procedure RemoveSideloaderDuplicates(path: String);
 external 'RemoveSideloaderDuplicates@files:HelperLib.dll stdcall';
 
+procedure CurPageChanged(CurPageID: Integer);
+begin
+  if CurPageID = wpSelectTasks then
+  begin
+    { Disable IPA task to keep it checked }
+    WizardForm.TasksList.ItemEnabled[7] := False;
+  end;
+end;
+
 function NextButtonClick(CurPageID: Integer): Boolean;
 var
   ResultCode: Integer;   
@@ -214,7 +225,7 @@ begin
     if (FileExists(ExpandConstant('{app}\manifest.xml'))) then
       SuppressibleMsgBox('WARNINIG - A sideloader mod was likely extracted inside the game directory. Some game files might be corrupted. Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
   end;
-
+  
   if (CurPageID = wpReady) then
   begin
     if (IsTaskSelected('delete\Plugins')) then
@@ -223,7 +234,7 @@ begin
       DelTree(ExpandConstant('{app}\mods'), True, True, True);
     if (IsTaskSelected('delete\Listfiles')) then
       RemoveNonstandardListfiles(ExpandConstant('{app}'));      
-    if (IsTaskSelected('delete\PW')) then
+    if (IsTaskSelected('PW')) then
 	begin            
       DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
       DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
