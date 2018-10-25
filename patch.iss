@@ -1,7 +1,7 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "1.9"
+#define VERSION "1.9.1"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -34,7 +34,7 @@ Name: "TL\EnglishTranslation"; Description: "bbepis/KoikatsuTranslation 4-09-201
 Name: "TL\romanization"; Description: "Nickname romanization 1.3 by BadOne"; Types: full extra
 Name: "TL\EnglishLauncher"; Description: "English Launchers v1.0 by user539"; Types: full extra
 Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 2.15.3"; Types: full extra      
-Name: "TL\HSubs"; Description: "KKSubs 0.8.6 (Translated subtitles)"; Types: extra
+;Name: "TL\HSubs"; Description: "KKSubs 0.8.6 (Translated subtitles)"; Types: extra
 
 Name: "UNC"; Description: "Demosaic 1.0 by AUTOMATIC1111"; Types: full extra; Flags: checkablealone 
 Name: "UNC\Male"; Description: "Male uncensor"; Types: full extra     
@@ -69,7 +69,8 @@ Name: "FIX\Bra"; Description: "Bra Push-Up Mod v0.1.1 (Bras affect breast shape)
 Name: "FIX\Collider"; Description: "Atari 2.1 by Stinger722 (Breast and hair collisions)"; Types: extra 
 Name: "FIX\SkirtFix"; Description: "Vanilla Skirt Fix by Stinger722 (Less clipping)"; Types: extra   
 Name: "FIX\Pupils"; Description: "Smaller Heart Pupil v1.1 (Better-looking ahegao eyes)"; Types: extra             
-Name: "FIX\KK_Ahegao"; Description: "KK_Ahegao v1.6 (Make girl cum 3 times for ahegao)"; Types: extra             
+Name: "FIX\KK_Ahegao"; Description: "KK_Ahegao v1.6 (Make girl cum 3 times for ahegao)"; Types: extra          
+Name: "FIX\GraphicsSettings"; Description: "GraphicsSettings v1.0 (More game settings, allows better quality)"; Types: extra                 
 ;Name: "FIX\KK_ForceHighPoly"; Description: "KK_ForceHighPoly v1.0 (Full-quality characters in school)"; Types: extra 
 
 Name: "MISC"; Description: "Other"; 
@@ -104,7 +105,7 @@ Source: "Input\_TL\eng_story[29-07-2018]\*"; DestDir: "{app}"; Flags: ignorevers
 Source: "Input\_TL\KoikatsuTranslation-master[4-09-2018]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation
 Source: "Input\_TL\XUnity.AutoTranslator-BepIn-2.15.3\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\AutoTranslator
 Source: "Input\_TL\translation_eng.nicknames 1.3 BadOne\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\romanization             
-Source: "Input\_TL\KKSubs.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: TL\HSubs
+;Source: "Input\_TL\KKSubs.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: TL\HSubs
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -144,6 +145,7 @@ Source: "Input\_Fix\[Stinger722]Vanilla Skirt Fix.zipmod"; DestDir: "{app}\mods"
 Source: "Input\_Fix\[DeathWeasel]Smaller Heart Pupil v1.1.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\Pupils 
 Source: "Input\_Fix\KK_Ahegao.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_Ahegao 
 ;Source: "Input\_Fix\KK_ForceHighPoly\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_ForceHighPoly 
+Source: "Input\_Fix\GraphicsSettings.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\GraphicsSettings 
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
@@ -161,8 +163,8 @@ Source: "Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesub
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Images"; Components: TL\UItranslation 
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Text"; Components: TL\EnglishTranslation
 Type: filesandordirs; Name: "{app}\BepInEx\translation\scenario"; Components: TL\EnglishStory   
-Type: files; Name: "{app}\BepInEx\hsubs.dll"; Components: TL\HSubs 
-Type: files; Name: "{app}\BepInEx\KKSubs.dll" 
+;Type: files; Name: "{app}\BepInEx\hsubs.dll"; Components: TL\HSubs 
+Type: files; Name: "{app}\BepInEx\MakerLag.dll"; Components: FIX\FixCompilation
 
 ; Clean up old modpacks 
 Type: filesandordirs; Name: "{app}\mods\Uncensor"; Components: UNC 
@@ -185,8 +187,9 @@ Type: files; Name: "{app}\BepInEx.Patcher.exe"; Components: BepInEx
 
 ; Potentially incompatible or buggy plugins
 Type: files; Name: "{app}\BepInEx\IPA\KoikPlugins.dll"
-Type: files; Name: "{app}\BepInEx\MakerLag.dll"; Components: FIX\FixCompilation
 Type: files; Name: "{app}\BepInEx\KK_ForceHighPoly.dll"
+Type: files; Name: "{app}\BepInEx\KKSubs.dll" 
+Type: files; Name: "{app}\BepInEx\FixCompilation.dll"
 
 ; Patch resets all assembly modifications so these files are useless, need to run patcher again anyways 
 Type: files; Name: "{app}\Koikatu_Data\Managed\0Harmony.dll"; Components: Patch 
