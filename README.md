@@ -11,7 +11,7 @@ Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page fo
 
 **Notes:**
 - You can choose what mods you want, but for beginners it's recommended to leave the default settings.
-- If you have installed a repack (e.g. FlashBangZ) or are updating from old patch, tell HF Patch to delete all old mods.
+- If you have installed a repack (e.g. FlashBangZ repack) or are updating from old patch, tell HF Patch to delete all old mods.
 
 ## Important notes, please read
 - This patch requires the full game to be already installed. If you want to use the VR module, also install it before patching!
