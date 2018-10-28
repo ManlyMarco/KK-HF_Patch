@@ -14,7 +14,7 @@ Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page fo
 - If you have installed a repack (e.g. FlashBangZ repack) or are updating from old patch, tell HF Patch to delete all old mods.
 
 ## What mods are included?
-You can see all of the included mods [here](https://github.com/ManlyMarco/KK-HF_Patch/blob/master/patch.iss#L24-L85) (lines that contain mods are highlighted).
+You can see a list of all included mods [here](https://github.com/ManlyMarco/KK-HF_Patch/blob/master/patch.iss#L24-L85) (lines that contain mods are highlighted, Description contains the mod name and version number).
 
 ## Important notes, please read
 - This patch requires the full game to be already installed. If you want to use the VR module, also install it before patching!
