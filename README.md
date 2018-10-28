@@ -11,12 +11,12 @@ Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page fo
 
 **Notes:**
 - You can choose what mods you want, but for beginners it's recommended to leave the default settings.
-- If you have installed a repack or are updating from old patch, tell HF Patch to delete all old mods.
+- If you have installed a repack (e.g. FlashBangZ) or are updating from old patch, tell HF Patch to delete all old mods.
 
 ## Important notes, please read
 - This patch requires the full game to be already installed. If you want to use the VR module, also install it before patching!
 Sideloader Modpack by Anon11 is included - it adds large amounts of new content and allows you to load most custom character cards. It is updated periodically here.
-- If you have installed a previous HF Patch or separate mods it is recommended to remove ALL mods when prompted. This will prevent any potential mod conflicts or outdated mods causing problems.
+- If you have installed a previous HF Patch, repack like FlashBangZ or separate mods it is recommended to remove ALL mods when prompted. This will prevent any potential mod conflicts or outdated mods causing problems.
 - You can run this patch as many times as you want and nothing will break. All mods are optional to install, and most can be removed by running the patch again.
 - It's recommended to install all content mods if you plan to download character cards - they might be required by some (or many) cards.
 You can use this patch to fix many broken game/mod installs.
