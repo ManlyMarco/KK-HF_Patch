@@ -66,7 +66,7 @@ Name: "FIX\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.1 (Needed for so
 
 Name: "FIX\OutdoorSex"; Description: "Super Outdoor Sex 2.0 (More H locations on some maps)"; Types: extra full 
 Name: "FIX\KK_CharaMakerLoadedSound"; Description: "KK_CharaMakerLoadedSound v1.0 (Makes a sound when maker loads)"; Types: extra full
-Name: "FIX\KK_StudioSceneLoadedSound"; Description: "KK_StudioSceneLoadedSound v1.0 (Makes a sound when a scene loads)"; Types: extra
+Name: "FIX\KK_StudioSceneLoadedSound"; Description: "KK_StudioSceneLoadedSound v1.0 (Makes a sound when a scene loads)"; Types: extra full
         
 Name: "FIX\Gameplay"; Description: "Gameplay mod v1.0 (Can force no condom insert, other tweaks)"; Types: extra 
 Name: "FIX\Bra"; Description: "Bra Push-Up Mod v0.1.1 (Bras affect breast shape)"; Types: extra 
@@ -86,14 +86,14 @@ Name: "MISC\Trainer"; Description: "Cheat tools v2.0 (Trainer and debugger)"; Ty
 Name: "MISC\FullSave"; Description: "Unlock all events and memories"; Types: extra
 Name: "MISC\UnlockHPositions"; Description: "UnlockHPositions 2018-11-04 (Unlocks all positions)"; Types: extra
 ;Name: "MISC\SaveEditor"; Description: "Koikatsu Save Data Editor V12 by kiletw"; Types: extra
-Name: "MISC\Meme"; Description: "Custom intro voices v2 (top kek)"; Types: extra
+Name: "MISC\Meme"; Description: "Custom intro voices v3 (gachiGasm)"; Types: extra
 Name: "MISC\FIX"; Description: "Fix game registry (e.g. after moving to different folder)"; Types: bare full extra
  
 [Files]
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Source: "Input\koikatu_02plus_cdp1026pfer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "Input\koikatu_02plus_cdp1026pfer\UserData"; Components: Patch
+Source: "Input\koikatu_02plus_cdp1026pfer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
 Source: "Input\koikatu_02plus_cdp1026pfer\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
 Source: "Input\Studio_mods\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch
 Source: "Input\Bad settings fix\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch
@@ -110,7 +110,7 @@ Source: "Input\BepisPlugins.IPAdir\*"; DestDir: "{app}"; Flags: ignoreversion re
 Source: "Input\_TL\Translation_2.5\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: TL\UItranslation
 Source: "Input\_TL\[Koikatu English Launchers] [v1.0]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishLauncher
 Source: "Input\_TL\eng_story[29-07-2018]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishStory
-Source: "Input\_TL\KoikatsuTranslation-master[4-09-2018]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: Input\_TL\KoikatsuTranslation-master[4-09-2018]\UserData\*; Components: TL\EnglishTranslation
+Source: "Input\_TL\KoikatsuTranslation-master[4-09-2018]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\EnglishTranslation
 Source: "Input\_TL\KoikatsuTranslation-master[4-09-2018]\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation\UserData
 Source: "Input\_TL\XUnity.AutoTranslator-BepIn-2.15.4\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\AutoTranslator
 Source: "Input\_TL\translation_eng.nicknames 1.3 BadOne\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\romanization             
@@ -246,7 +246,7 @@ Name: delete\Sidemods; Description: "Delete ALL existing sideloader mods"; Flags
 Name: delete\Plugins; Description: "Delete BepInEx folder (Deletes old plugins and translations, and resets plugin settings and AutoTranslator cache. Recommended if you have issues)"; Flags: unchecked 
 Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.7 or older, or from repacks like flashbangz.)"    
 Name: fixSideloaderDupes; Description: "Delete duplicate sideloader mods after installation (Newest versions are kept. Recommended)";  
-Name: PW; Description: "Uninstall Patchwork if installed and delete Plugins folder (Optional, will free up some disk space. Make sure your PW version is compatible with current game update. If you have issues, run the game without PW)"; Flags: unchecked    
+Name: PW; Description: "Uninstall Patchwork if installed and delete Plugins folder (Optional, will free up some disk space. If you intend to use PW, make sure your version is compatible with the current game update. If you have issues, run the game without PW)"; Flags: unchecked    
 ; IPA is always removed, can't go around that. Unchecking is disabled in code, this task has to stay at the same index for it to work 
 Name: IPA; Description: "Uninstall IPA if installed (Use BepInEx IPA loader instead. Has to be removed for BepInEx to work correctly)";
 
