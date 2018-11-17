@@ -127,6 +127,16 @@ namespace HelperLib
                         SafeFileDelete(filePath);
                     }
                 }
+
+                var hld = Path.Combine(path, @"abdata\h\list");
+                if (!Directory.Exists(hld)) return;
+                foreach (var filePath in Directory.GetFiles(hld))
+                {
+                    if (!IsStandardHListFile(filePath))
+                    {
+                        SafeFileDelete(filePath);
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -251,9 +261,23 @@ namespace HelperLib
         private static bool IsStandardListFile(string fileName)
         {
             // Get rid of invalid files like .csv .zipmod or other junk that people somehow manage to put there
-            return !fileName.EndsWith(".unity3d", StringComparison.OrdinalIgnoreCase)
+            return fileName.EndsWith(".unity3d", StringComparison.OrdinalIgnoreCase)
                 // Official list files only have numbers in them while all custom ones seem to have at least one letter, so this is enough
-                || IsDigitsOnly(Path.GetFileNameWithoutExtension(fileName));
+                && IsDigitsOnly(Path.GetFileNameWithoutExtension(fileName));
+        }
+
+        private static bool IsStandardHListFile(string fileName)
+        {
+            // Get rid of invalid files like .csv .zipmod or other junk that people somehow manage to put there
+            if (fileName.EndsWith(".unity3d", StringComparison.OrdinalIgnoreCase))
+            {
+                // 13_00.unity3d filename format
+                var name = Path.GetFileNameWithoutExtension(fileName);
+
+                if(name.Length == 5 && name[2] == '_')
+                    return true;
+            }
+            return false;
         }
 
         private static bool IsDigitsOnly(string str)
