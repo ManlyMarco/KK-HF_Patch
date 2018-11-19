@@ -61,6 +61,7 @@ Name: "FIX\KK_GUIDMigration"; Description: "KK_GUIDMigration v1.1.1 (Improves ca
 Name: "FIX\KK_CutsceneLockupFix"; Description: "KK_CutsceneLockupFix v1.0 (Fixes some mods crashing story)"; Types: extra full 
 Name: "FIX\FixCompilation"; Description: "FixCompilation 2018-11-04 (Improves performance)"; Types: full extra
 Name: "FIX\FixShaderDropdown"; Description: "FixShaderDropdown v1.0 (Expands shader menu)"; Types: full extra 
+Name: "FIX\KK_PersonalityCorrector"; Description: "KK_PersonalityCorrector v1.1 (Fixes story crashes with some cards)"; Types: full extra 
 Name: "FIX\DefaultParamEditor"; Description: "DefaultParamEditor 2018-11-04 (Set custom default studio settings) + Improved setting set"; Types: full extra 
 Name: "FIX\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.1 (Needed for some scenes)"; Types: full extra
 
@@ -68,7 +69,7 @@ Name: "FIX\OutdoorSex"; Description: "Super Outdoor Sex 2.0 (More H locations on
 Name: "FIX\KK_CharaMakerLoadedSound"; Description: "KK_CharaMakerLoadedSound v1.0 (Makes a sound when maker loads)"; Types: extra full
 Name: "FIX\KK_StudioSceneLoadedSound"; Description: "KK_StudioSceneLoadedSound v1.0 (Makes a sound when a scene loads)"; Types: extra full
         
-Name: "FIX\Gameplay"; Description: "Gameplay mod v1.0 (Can force no condom insert, other tweaks)"; Types: extra 
+Name: "FIX\Gameplay"; Description: "Gameplay mod v1.1 (Can force no condom insert, other tweaks)"; Types: extra 
 Name: "FIX\Bra"; Description: "Bra Push-Up Mod v0.1.1 (Bras affect breast shape)"; Types: extra 
 Name: "FIX\Collider"; Description: "Atari 2.1 by Stinger722 (Breast and hair collisions)"; Types: extra 
 Name: "FIX\SkirtFix"; Description: "Vanilla Skirt Fix by Stinger722 (Less clipping)"; Types: extra   
@@ -148,8 +149,9 @@ Source: "Input\_Fix\[uppervolta]Super Outdoor Sex 2.0.zipmod"; DestDir: "{app}\m
 Source: "Input\_Fix\KK_StudioSceneLoadedSound\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_StudioSceneLoadedSound 
 Source: "Input\_Fix\KK_CharaMakerLoadedSound\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_CharaMakerLoadedSound 
 Source: "Input\_Fix\KK_CutsceneLockupFix\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_CutsceneLockupFix 
+Source: "Input\_Fix\KK_PersonalityCorrector.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_PersonalityCorrector 
 
-Source: "Input\_Fix\Koikatu-Gameplay-Mod_v1.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: FIX\Gameplay 
+Source: "Input\_Fix\KoikatuGameplayMod.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion solidbreak; Components: FIX\Gameplay 
 Source: "Input\_Fix\Bra_Push-Up_Mod_v0.1.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\Bra 
 Source: "Input\_Fix\atari2.1 (normal bust).zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\Collider 
 Source: "Input\_Fix\[Stinger722]Vanilla Skirt Fix.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\SkirtFix 
@@ -287,12 +289,6 @@ begin
       
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\KoikPlugins.dll'))) then
       SuppressibleMsgBox('WARNINIG - KoikPlugins was detected and will be removed if you start installation to avoid potential compatibility issues (settings will not be removed).'#13#10''#13#10'Please follow KoikPlugins manual on how to install it again after patching is done.', mbError, MB_OK, 0);
-      
-    if (FileExists(ExpandConstant('{app}\manifest.xml'))) then
-    begin
-      SuppressibleMsgBox('WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 7, coCheckWithChildren);
-    end;
     
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifier.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudio.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudioNEO.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\HSStudioNEOExtSave.dll')) or FileExists(ExpandConstant('{app}\BepInEx\FlashBangZ.dll'))) then
     begin
@@ -315,6 +311,24 @@ begin
     begin
       if(SuppressibleMsgBox('WARNINIG - Koikatu.exe was not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.'#13#10''#13#10'Are you sure that this directory is correct?', mbError, MB_YESNO, 0) = IDNO) then
         Result := False;
+    end;
+    
+    if (not FileExists(ExpandConstant('{app}\abdata\sound\setting\object\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\sound3dsettingdata\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\soundsettingdata\00.unity3d'))) then
+    begin
+      SuppressibleMsgBox('ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.', mbError, MB_OK, 0);
+      Result := False;
+    end;
+    
+    if (FileExists(ExpandConstant('{app}\manifest.xml'))) then
+    begin
+      SuppressibleMsgBox('WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 7, coCheckWithChildren);
+    end;
+    
+    if (FileExists(ExpandConstant('{app}\manifest.xml'))) then
+    begin
+      SuppressibleMsgBox('WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 7, coCheckWithChildren);
     end;
   end;
   
