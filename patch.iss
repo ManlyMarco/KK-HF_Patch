@@ -12,6 +12,7 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=708576
 LZMANumFastBytes=273
 DiskSpanning=yes
+DiskSliceSize=1566000000
 DefaultDirName={reg:HKCU\Software\Illusion\Koikatu\koikatu,INSTALLDIR}
 
 [Types] 
