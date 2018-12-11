@@ -1,3 +1,4 @@
+![preview](https://user-images.githubusercontent.com/39247311/49796741-cf723180-fd3d-11e8-8b8a-2d4d3de6b568.PNG)
 # HF Patch for Koikatu! / Koikatsu!
 Patch with all updates and mods necessary to play the game fully uncensored and translated to English. It can repair most broken game installations and return the game to a mostly stock state. Most content mods are also included, so it's possible to load most cards and scenes.
 
