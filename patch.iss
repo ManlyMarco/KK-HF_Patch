@@ -1,7 +1,7 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "2.1"
+#define VERSION "2.2"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -346,15 +346,32 @@ begin
         Result := False;
     end;
     
-    if (not FileExists(ExpandConstant('{app}\abdata\sound\setting\object\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\sound3dsettingdata\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\soundsettingdata\00.unity3d'))) then
+    if Result = True then
     begin
-      SuppressibleMsgBox('ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.', mbError, MB_OK, 0);
-      Result := False;
-    end;
-    
-    if (FileExists(ExpandConstant('{app}\manifest.xml'))) then
-    begin
-      SuppressibleMsgBox('WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
+      // Check for file corruptions
+      if (not FileExists(ExpandConstant('{app}\abdata\sound\setting\object\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\sound3dsettingdata\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\soundsettingdata\00.unity3d'))) then
+      begin
+        MsgBox('ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.', mbError, MB_OK);
+        Result := False;
+      end
+      else 
+      begin
+        // Check for missing paid DLC
+        if not FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\17.unity3d')) then
+        begin
+          SuppressibleMsgBox('NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.', mbInformation, MB_OK, 0);
+        end;
+        if not FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\20.unity3d')) then
+        begin
+          SuppressibleMsgBox('NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.', mbInformation, MB_OK, 0);
+        end;
+      end;
+      
+      // Check for extracted zipmods
+      if (Result = True and FileExists(ExpandConstant('{app}\manifest.xml'))) then
+      begin
+        SuppressibleMsgBox('WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
+      end;
     end;
   end;
   
@@ -365,9 +382,9 @@ begin
     if (IsTaskSelected('delete\Sidemods')) then
       DelTree(ExpandConstant('{app}\mods'), True, True, True);
     if (IsTaskSelected('delete\Listfiles')) then
-      RemoveNonstandardListfiles(ExpandConstant('{app}'));      
+      RemoveNonstandardListfiles(ExpandConstant('{app}'));
     if (IsTaskSelected('PW')) then
-	begin            
+    begin            
       DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
       DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
       Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
@@ -393,19 +410,19 @@ begin
   NeedsRestart := false;
   try
     // Close the game if it's running
-    Exec('taskkill', '/F /IM CharaStudio');
-    Exec('taskkill', '/F /IM Koikatu');
-    Exec('taskkill', '/F /IM KoikatuVR');
-    Exec('taskkill', '/F /IM InitSetting');
-    Exec('taskkill', '/F /IM InitSettingEN');
-    Exec('taskkill', '/F /IM InitSettingGameStudioVREN');
-    Exec('taskkill', '/F /IM BepInEx.Patcher');
+    Exec('taskkill', '/F /IM CharaStudio.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM Koikatu.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM KoikatuVR.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM InitSetting.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM InitSettingEN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM InitSettingGameStudioVREN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM BepInEx.Patcher.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
     
     // Fix file permissions
     //if (FileExists('takeown'))
-    Exec('takeown', ExpandConstant('/f "{app}" /r /SKIPSL /d y'), '', SW_SHOW, ewWaitUntilTerminated, ResultCode);
+    Exec('takeown', ExpandConstant('/f "{app}" /r /SKIPSL /d y'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
     //if (FileExists('icacls'))
-    Exec('icacls', ExpandConstant('"{app}" /grant everyone:F /t /c /l'), '', SW_SHOW, ewWaitUntilTerminated, ResultCode);
+    Exec('icacls', ExpandConstant('"{app}" /grant everyone:F /t /c /l'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
   except
     ShowExceptionMessage();
   end;
