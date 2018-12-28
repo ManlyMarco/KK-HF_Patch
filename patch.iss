@@ -294,7 +294,7 @@ Filename: "https://discord.gg/Szumqcu"; Description: "Join Koikatsu! discord cha
 Filename: "http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussion/5921249-illusion-koikatu-コイカツ！-discussion-and-faq"; Description: "Open HongFire release thread"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent 
 
 ; If user didn't select new bepinex install or if debug version is selected, run old version patcher if it exists
-Filename: "{app}\BepInEx.Patcher.exe"; Flags: runascurrentuser skipifdoesntexist waituntilterminated 
+Filename: "{app}\BepInEx.Patcher.exe"; Flags: runascurrentuser skipifdoesntexist waituntilterminated; Description: "Setting up BepInEx for dnSpy debugging"
 
 [Code]
 procedure RemoveJapaneseCards(path: String);
@@ -355,7 +355,6 @@ begin
     if (FileExists(ExpandConstant('{app}\manifest.xml'))) then
     begin
       SuppressibleMsgBox('WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 7, coCheckWithChildren);
     end;
   end;
   
@@ -387,3 +386,27 @@ begin
   end;
 end;
 
+function PrepareToInstall(var NeedsRestart: Boolean): String;
+var
+  ResultCode:   Integer;
+begin
+  NeedsRestart := false;
+  try
+    // Close the game if it's running
+    Exec('taskkill', '/F /IM CharaStudio');
+    Exec('taskkill', '/F /IM Koikatu');
+    Exec('taskkill', '/F /IM KoikatuVR');
+    Exec('taskkill', '/F /IM InitSetting');
+    Exec('taskkill', '/F /IM InitSettingEN');
+    Exec('taskkill', '/F /IM InitSettingGameStudioVREN');
+    Exec('taskkill', '/F /IM BepInEx.Patcher');
+    
+    // Fix file permissions
+    //if (FileExists('takeown'))
+    Exec('takeown', ExpandConstant('/f "{app}" /r /SKIPSL /d y'), '', SW_SHOW, ewWaitUntilTerminated, ResultCode);
+    //if (FileExists('icacls'))
+    Exec('icacls', ExpandConstant('"{app}" /grant everyone:F /t /c /l'), '', SW_SHOW, ewWaitUntilTerminated, ResultCode);
+  except
+    ShowExceptionMessage();
+  end;
+end;
