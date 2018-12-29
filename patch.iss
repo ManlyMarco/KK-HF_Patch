@@ -29,7 +29,9 @@ Name: "custom"; Description: "Custom installation"; Flags: iscustom
 
 [Components]
 Name: "Patch"; Description: "Patch and free DLC up to 12/21 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
-Name: "Patch\UserData"; Description: "Default cards, scenes and backgrounds"; Types: full_en full extra custom;
+Name: "Patch\VR"; Description: "KoikatuVR Patch 08/14 by Illusion (install if you use VR module)";
+Name: "Patch\UserData"; Description: "Default cards, scenes and backgrounds";
+
 Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework (auto-update)"; Types: full_en full extra custom bare; Flags: fixed
 Name: "BepInEx\Dev"; Description: "Developer version with dnSpy debugging";
 Name: "BepisPlugins"; Description: "BepisPlugins r7"; Types: full_en full extra custom bare; Flags: fixed
@@ -113,6 +115,8 @@ Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\koikatu_02plus_cdp1221degbr_all\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
 Source: "Input\koikatu_02plus_cdp1221degbr_all\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
+Source: "Input\koikatu_02plus_vr\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch\VR
+
 Source: "Input\Bad settings fix\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch
 
 Source: "Input\BepInEx_x86_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: BepInEx; Check: "not IsWin64"
@@ -412,7 +416,7 @@ end;
 
 function PrepareToInstall(var NeedsRestart: Boolean): String;
 var
-  ResultCode:   Integer;
+  ResultCode: Integer;
 begin
   NeedsRestart := false;
   try
