@@ -39,7 +39,7 @@ Name: "BepisPlugins"; Description: "BepisPlugins r7"; Types: full_en full extra 
 Name: "TL"; Description: "English translation"; Types: full_en extra
 Name: "TL\UItranslation"; Description: "UI Graphics translation v2.6"; Types: full_en extra
 Name: "TL\EnglishStory"; Description: "Koikatsu partial story translation 29-07-2018 by xmex"; Types: full_en extra
-Name: "TL\EnglishTranslation"; Description: "bbepis/KoikatsuTranslation 4-09-2018"; Types: full_en extra
+Name: "TL\EnglishTranslation"; Description: "bbepis/KoikatsuTranslation 30-12-2018"; Types: full_en extra
 Name: "TL\EnglishTranslation\UserData"; Description: "Translated cards, scenes and backgrounds (overrides defaults)"; Types: full_en extra
 Name: "TL\romanization"; Description: "Nickname romanization 1.3 by BadOne"; Types: full_en extra
 Name: "TL\EnglishLauncher"; Description: "English Launchers v1.0 by user539"; Types: full_en extra
@@ -131,8 +131,12 @@ Source: "Input\BepisPlugins.IPAdir\*"; DestDir: "{app}"; Flags: ignoreversion re
 Source: "Input\_TL\English image translation\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: TL\UItranslation
 Source: "Input\_TL\[Koikatu English Launchers] [v1.0]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishLauncher
 Source: "Input\_TL\eng_story[29-07-2018]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishStory
-Source: "Input\_TL\KoikatsuTranslation-master[4-09-2018]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\EnglishTranslation
-Source: "Input\_TL\KoikatsuTranslation-master[4-09-2018]\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation\UserData
+
+Source: "Input\_TL\KoikatsuTranslation-master\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\EnglishTranslation
+Source: "Input\_TL\KoikatsuTranslation-master\UserData\names\*"; DestDir: "{app}\UserData\names"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation
+
+Source: "Input\_TL\KoikatsuTranslation-master\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation\UserData
+
 Source: "Input\_TL\XUnity.AutoTranslator-BepIn-2.16.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\AutoTranslator
 Source: "Input\_TL\translation_eng.nicknames 1.3 BadOne\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\romanization
 ;Source: "Input\_TL\KKSubs.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: TL\HSubs
