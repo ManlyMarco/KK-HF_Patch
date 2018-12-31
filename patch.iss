@@ -47,18 +47,18 @@ Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 2.16.0"; Types: f
 ;Name: "TL\HSubs"; Description: "KKSubs 0.8.6 (Translated subtitles)"; Types: extra
 
 Name: "UNC"; Description: "Uncensor"; Types: full_en full extra
-Name: "UNC\Demosaic"; Description: "Demosaic 1.0 by AUTOMATIC1111"; Types: full_en full extra custom; Flags: fixed
+Name: "UNC\Demosaic"; Description: "Demosaic 1.0 by AUTOMATIC1111"; Types: full_en full extra custom
 Name: "UNC\Model"; Description: "Uncensored models"; Types: full_en full extra
 Name: "UNC\Model\FutaRoy"; Description: "FutaBoy male (color-matching with skin, but deforms badly in H scenes) + Roy12 female uncensor (detailed vagina model) (anonversion2)"; Flags: exclusive
-Name: "UNC\Model\Separate"; Description: "Separate models"; Flags: exclusive
-Name: "UNC\Model\Separate\Male"; Description: "Male uncensor"
+Name: "UNC\Model\Separate"; Description: "Separate models"; Flags: exclusive; Types: full_en full extra
+Name: "UNC\Model\Separate\Male"; Description: "Male uncensor"; Types: full_en full extra
 Name: "UNC\Model\Separate\Male\Normal"; Description: "whatsadick4 - Skin color"; Flags: exclusive
 Name: "UNC\Model\Separate\Male\NormalBalls"; Description: "whatsadick4 - Skin color with balls"; Flags: exclusive; Types: full_en full extra
 Name: "UNC\Model\Separate\Male\Dark"; Description: "whatsadick4 - Dark color"; Flags: exclusive
 Name: "UNC\Model\Separate\Male\DarkBalls"; Description: "whatsadick4 - Dark color with balls"; Flags: exclusive
 Name: "UNC\Model\Separate\Male\LO"; Description: "KK LO pussy v0.5 - Textured with balls"; Flags: exclusive
 
-Name: "UNC\Model\Separate\Female"; Description: "Female uncensor"
+Name: "UNC\Model\Separate\Female"; Description: "Female uncensor"; Types: full_en full extra
 Name: "UNC\Model\Separate\Female\Chan"; Description: "Normal vagina model by moderchan"; Flags: exclusive; Types: full_en full extra
 Name: "UNC\Model\Separate\Female\LO"; Description: "KK LO pussy v0.5 (Loli slit)"; Flags: exclusive
 Name: "UNC\Tongue"; Description: "Tongue Texture v1.1 by moderchan"; Types: full_en full extra
@@ -287,6 +287,7 @@ Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; Valu
 
 [Tasks]
 Name: desktopicon; Description: "Create a game &desktop icon"; Components: TL\EnglishLauncher; Flags: unchecked
+Name: desktopicon\jp; Description: "Create a game &desktop icon"; Components: not TL\EnglishLauncher; Flags: unchecked
 ;Name: editordesktopicon; Description: "Create a save editor desktop icon"; Components: MISC\SaveEditor; Flags: unchecked
 Name: delete; Description: "Delete old mods before installation (Recommended if you have issues and when updating very old game installations)";
 Name: delete\Sidemods; Description: "Delete ALL existing sideloader mods"
@@ -298,11 +299,14 @@ Name: PW; Description: "Uninstall Patchwork if installed and delete Plugins fold
 Name: IPA; Description: "Uninstall IPA if installed (Use BepInEx IPA loader instead. Has to be removed for BepInEx to work correctly)";
 
 [Icons]
-Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSettingGameStudioVREN.exe"; IconFilename: "{app}\InitSettingGameStudioVREN.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu English launcher"; Tasks: desktopicon
+Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSettingEN.exe"; IconFilename: "{app}\InitSettingEN.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu English launcher"; Tasks: desktopicon
+Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSetting.exe"; IconFilename: "{app}\InitSetting.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu launcher"; Tasks: desktopicon\jp
 ;Name: "{userdesktop}\Koikatsu save editor"; Filename: "{app}\_Tools\KoikatuSaveDataEdit\gui.exe"; IconFilename: "{app}\_Tools\KoikatuSaveDataEdit\gui.exe"; WorkingDir: "{app}\_Tools\KoikatuSaveDataEdit\"; Comment: "Koikatsu save editor"; Tasks: editordesktopicon
 
 [Run]
-Filename: "{app}\InitSettingGameStudioVREN.exe"; Description: "&Run Koikatsu"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist unchecked; Components: TL\EnglishLauncher
+Filename: "{app}\InitSettingEN.exe"; Description: "&Run Koikatsu"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist; Components: TL\EnglishLauncher
+Filename: "{app}\InitSetting.exe"; Description: "&Run Koikatsu"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist; Components: not TL\EnglishLauncher
+
 Filename: "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"; Description: "Open Koikatsu wiki (FAQ, English manual)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
 Filename: "https://discord.gg/Szumqcu"; Description: "Join Koikatsu! discord channel (Help, updates, sharing)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
 
