@@ -272,7 +272,7 @@ Type: files; Name: "{app}\BepInEx\ObjectTreeDebugKK.dll"; Components: MISC\Train
 ;Type: files; Name: "{app}\KoikatuVR_Data\Managed\IllusionPlugin.xml"; Components: Patch
 Type: files; Name: "{app}\IPA.exe"; Components: Patch
 
-; Clean dlls completely to problems bugs with copied/unnecessary/old dlls. All dlls are included in the patch data
+; Clean dlls completely to fix problems with copied/unnecessary/old dlls. All dlls are included in the patch data
 Type: filesandordirs; Name: "{app}\CharaStudio_Data\Managed"; Components: Patch
 Type: filesandordirs; Name: "{app}\CharaStudio_Data\Mono"; Components: Patch
 Type: filesandordirs; Name: "{app}\Koikatu_Data\Managed"; Components: Patch
