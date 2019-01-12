@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -140,7 +141,9 @@ namespace HelperLib
                 var s = r.Element("Size").Value;
                 var w = int.Parse(r.Element("Width").Value);
                 var h = int.Parse(r.Element("Height").Value);
-                if (w < 200 || h < 200 || w <= h || !s.Contains(w.ToString()) || !s.Contains(h.ToString()))
+                if (w < 200 || h < 200 || w <= h 
+                    || !s.Contains(w.ToString(CultureInfo.InvariantCulture)) 
+                    || !s.Contains(h.ToString(CultureInfo.InvariantCulture)))
                     throw new Exception();
 
                 var _ = float.Parse(r.Element("FullScreen").Value);
