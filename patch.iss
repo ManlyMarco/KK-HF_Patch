@@ -1,11 +1,14 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "2.2"
+#define VERSION "2.3"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
 [Setup]
+CloseApplications=yes
+RestartApplications=no
+CloseApplicationsFilter=*.exe,*.dll
 Compression=lzma2/ultra64
 ;lzma2/ultra64 | zip
 LZMAUseSeparateProcess=yes
@@ -29,7 +32,7 @@ Name: "custom"; Description: "Custom installation"; Flags: iscustom
 
 [Components]
 Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
-Name: "Patch\VR"; Description: "KoikatuVR Patch 08/14 by Illusion (install if you use VR module)";
+Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)";
 Name: "Patch\UserData"; Description: "Default cards, scenes and backgrounds";
 
 Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework (auto-update)"; Types: full_en full extra custom bare; Flags: fixed
@@ -113,9 +116,9 @@ Name: "MISC\FIX"; Description: "Fix game registry (e.g. after moving to differen
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Source: "Input\koikatu_02plus_cdp1221degbr_all\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
-Source: "Input\koikatu_02plus_cdp1221degbr_all\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
-Source: "Input\koikatu_02plus_vr\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch\VR
+Source: "Input\koikatu_02plus_cdp0111hnybsu\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
+Source: "Input\koikatu_02plus_cdp0111hnybsu\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
+Source: "Input\koikatu_03vr_d0111\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch\VR
 
 Source: "Input\BepInEx_x86_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: BepInEx; Check: "not IsWin64"
 Source: "Input\BepInEx_x64_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx; Check: IsWin64
@@ -287,9 +290,10 @@ Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; Valu
 Name: desktopicon; Description: "Create a game &desktop icon"; Components: TL\EnglishLauncher; Flags: unchecked
 Name: desktopicon\jp; Description: "Create a game &desktop icon"; Components: not TL\EnglishLauncher; Flags: unchecked
 ;Name: editordesktopicon; Description: "Create a save editor desktop icon"; Components: MISC\SaveEditor; Flags: unchecked
-Name: delete; Description: "Delete old mods before installation (Recommended if you have issues and when updating very old game installations)";
+Name: delete; Description: "Delete old mods before installation (Recommended, helps avoid common issues)";
 Name: delete\Sidemods; Description: "Delete ALL existing sideloader mods"
-Name: delete\Plugins; Description: "Delete BepInEx folder (Deletes old plugins and translations, and resets plugin settings and AutoTranslator cache. Recommended if you have issues or when updating from old repacks)"
+Name: delete\Plugins; Description: "Delete BepInEx folder (Deletes old plugins and translations. Recommended if you have issues or when updating from old repacks)"
+Name: delete\Plugins\Config; Description: "Reset plugin settings (Recommended if you have issues)"; Flags: unchecked
 Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.7 or older, or from repacks like flashbangz)"
 Name: fixSideloaderDupes; Description: "Delete duplicate sideloader mods after installation (Newest versions are kept. Recommended)";
 Name: PW; Description: "Uninstall Patchwork if installed and delete Plugins folder (Optional, will free up some disk space. If you intend to use PW, make sure your version is compatible with the current game update. If you have issues, run the game without PW)"; Flags: unchecked
@@ -395,22 +399,6 @@ begin
     end;
   end;
 
-  if (CurPageID = wpReady) then
-  begin
-    if (IsTaskSelected('delete\Plugins')) then
-      DelTree(ExpandConstant('{app}\BepInEx'), True, True, True);
-    if (IsTaskSelected('delete\Sidemods')) then
-      DelTree(ExpandConstant('{app}\mods'), True, True, True);
-    if (IsTaskSelected('delete\Listfiles')) then
-      RemoveNonstandardListfiles(ExpandConstant('{app}'));
-    if (IsTaskSelected('PW')) then
-    begin
-      DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
-      DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
-      Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
-    end;
-  end;
-
   // After install completes
   if (CurPageID = wpFinished) then
   begin
@@ -447,5 +435,33 @@ begin
     Exec('icacls', ExpandConstant('"{app}" /grant everyone:F /t /c /l'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
   except
     ShowExceptionMessage();
+  end;
+  
+  // Backup plugin settings
+  if (not IsTaskSelected('delete\Plugins\Config')) then
+    FileCopy(ExpandConstant('{app}\BepInEx\config.ini'), ExpandConstant('{app}\config.ini'), false);
+  
+  // Remove BepInEx folder
+  if (IsTaskSelected('delete\Plugins')) then
+    DelTree(ExpandConstant('{app}\BepInEx'), True, True, True);
+  
+  // Restore the settings and remove the backup
+  if (not IsTaskSelected('delete\Plugins\Config')) then
+  begin
+    FileCopy(ExpandConstant('{app}\config.ini'), ExpandConstant('{app}\BepInEx\config.ini'), false);
+    DeleteFile(ExpandConstant('{app}\config.ini'));
+  end;
+    
+  if (IsTaskSelected('delete\Sidemods')) then
+    DelTree(ExpandConstant('{app}\mods'), True, True, True);
+    
+  if (IsTaskSelected('delete\Listfiles')) then
+    RemoveNonstandardListfiles(ExpandConstant('{app}'));
+    
+  if (IsTaskSelected('PW')) then
+  begin
+    DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
+    DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
+    Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
   end;
 end;
