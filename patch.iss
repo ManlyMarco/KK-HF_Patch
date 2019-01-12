@@ -23,12 +23,12 @@ Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "jp"; MessagesFile: "compiler:Languages\Japanese.isl"
 
 [Types]
-Name: "full_en"; Description: "Recommended installation"; Languages: en;
-Name: "full"; Description: "Recommended installation"; Languages: jp;
-Name: "extra"; Description: "Full installation"
-Name: "bare"; Description: "Update and repair"
-Name: "none"; Description: "Skip BepInEx install (NOT RECOMMENDED)"
-Name: "custom"; Description: "Custom installation"; Flags: iscustom
+Name: "full_en"; Description: "{cm:fullInstall}"; Languages: en;
+Name: "full"; Description: "{cm:fullInstall}"; Languages: jp;
+Name: "extra"; Description: "{cm:extraInstall}"
+Name: "bare"; Description: "{cm:bareInstall}"
+Name: "none"; Description: "{cm:noneInstall}"
+Name: "custom"; Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
 Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion (uses the AIO) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
@@ -85,7 +85,8 @@ Name: "FIX\KK_PersonalityCorrector"; Description: "KK_PersonalityCorrector v1.2 
 Name: "FIX\DefaultParamEditor"; Description: "DefaultParamEditor 2018-11-04 (Set custom default studio settings) + Improved setting set"; Types: full_en full extra
 Name: "FIX\CharaStateX"; Description: "CharaStateX 2019-01-10 (Can edit state of multiple charas in studio at once)"; Types: full_en full extra
 Name: "FIX\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.1 (Needed for some scenes)"; Types: full_en full extra
-Name: "FIX\KK_InputHotkeyBlock"; Description: "KK_InputHotkeyBlock v1.0 (Blocks keybinds while typing)"; Types: full_en full extra
+Name: "FIX\KK_InputHotkeyBlock"; Description: "KK_InputHotkeyBlock v1.0 (Blocks plugin keybinds while typing)"; Types: full_en full extra
+Name: "FIX\HideStudioUI"; Description: "HideStudioUI (Press space)"; Types: full_en full extra
 
 Name: "FIX\OutdoorSex"; Description: "Super Outdoor Sex 2.0 (More H locations on some maps)"; Types: full_en full extra
 Name: "FIX\KK_CharaMakerLoadedSound"; Description: "KK_CharaMakerLoadedSound v1.0 (Makes a sound when maker loads)"; Types: full_en full extra
@@ -184,6 +185,7 @@ Source: "Input\_Fix\FixShaderDropdown.dll"; DestDir: "{app}\BepInEx"; Flags: ign
 Source: "Input\_Fix\CharaStateX.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\CharaStateX
 Source: "Input\_Fix\KK_InvisibleBody.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_InvisibleBody
 Source: "Input\_Fix\KK_InputHotkeyBlock.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_InputHotkeyBlock
+Source: "Input\_Fix\HideStudioUI.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\HideStudioUI
 
 Source: "Input\_Fix\[uppervolta]Super Outdoor Sex 2.0.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\OutdoorSex
 Source: "Input\_Fix\KK_StudioSceneLoadedSound\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_StudioSceneLoadedSound
@@ -294,6 +296,30 @@ Root: HKCU; Subkey: "Software\Illusion\Koikatu"; Components: MISC\FIX
 Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; Components: MISC\FIX
 Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; ValueName: "INSTALLDIR"; ValueData: "{app}\"; Components: MISC\FIX
 
+[CustomMessages]
+fullInstall=Recommended installation
+jp.fullInstall=推奨インストール
+extraInstall=Extra installation
+bareInstall=Update and repair
+noneInstall=Skip BepInEx install (NOT RECOMMENDED)
+customInstall=Custom installation
+
+MsgInvalidModsDetected=WARNINIG - Outdated or useless plugins/files were detected in your BepInEx directory. To avoid issues all mods will be deleted.
+MsgKplugDetected=WARNINIG - KoikPlugins was detected and will be removed if you start installation to avoid potential compatibility issues (settings will not be removed).'#13#10''#13#10'Please follow KoikPlugins manual on how to install it again after patching is done.
+MsgIncompatibleModsDetected=WARNINIG - Incompatible mods have been detected in your game folder! You are using very outdated mods or mods from other games in Koikatsu, which WILL cause problems. All old mods will have to be removed to fix this.
+MsgExeNotFound=WARNINIG - Koikatu.exe was not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.'#13#10''#13#10'Are you sure that this directory is correct?
+MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.
+MsgMissingDLC1=NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC2=NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.
+MsgExtractedZipmod=WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.
+
+RunGame=&Run Koikatsu
+RunWiki=Open Koikatsu wiki (FAQ, English manual)
+RunDiscord=Join Koikatsu! discord channel (Help, updates, sharing)
+RunHF=Open HongFire release thread
+
+IconGame=Koikatsu launcher
+
 [Tasks]
 Name: desktopicon; Description: "Create a game &desktop icon"; Components: TL\EnglishLauncher; Flags: unchecked
 Name: desktopicon\jp; Description: "Create a game &desktop icon"; Components: not TL\EnglishLauncher; Flags: unchecked
@@ -310,17 +336,17 @@ Name: IPA; Description: "Uninstall IPA if installed (Use BepInEx IPA loader inst
 
 [Icons]
 Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSettingEN.exe"; IconFilename: "{app}\InitSettingEN.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu English launcher"; Tasks: desktopicon
-Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSetting.exe"; IconFilename: "{app}\InitSetting.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu launcher"; Tasks: desktopicon\jp
+Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSetting.exe"; IconFilename: "{app}\InitSetting.exe"; WorkingDir: "{app}\"; Comment: "{cm:IconGame}"; Tasks: desktopicon\jp
 ;Name: "{userdesktop}\Koikatsu save editor"; Filename: "{app}\_Tools\KoikatuSaveDataEdit\gui.exe"; IconFilename: "{app}\_Tools\KoikatuSaveDataEdit\gui.exe"; WorkingDir: "{app}\_Tools\KoikatuSaveDataEdit\"; Comment: "Koikatsu save editor"; Tasks: editordesktopicon
 
 [Run]
-Filename: "{app}\InitSettingEN.exe"; Description: "&Run Koikatsu"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist; Components: TL\EnglishLauncher
-Filename: "{app}\InitSetting.exe"; Description: "&Run Koikatsu"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist; Components: not TL\EnglishLauncher
+Filename: "{app}\InitSettingEN.exe"; Description: "{cm:RunGame}"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist; Components: TL\EnglishLauncher
+Filename: "{app}\InitSetting.exe"; Description: "{cm:RunGame}"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist; Components: not TL\EnglishLauncher
 
-Filename: "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"; Description: "Open Koikatsu wiki (FAQ, English manual)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
-Filename: "https://discord.gg/Szumqcu"; Description: "Join Koikatsu! discord channel (Help, updates, sharing)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
+Filename: "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"; Description: "{cm:RunWiki}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
+Filename: "https://discord.gg/Szumqcu"; Description: "{cm:RunDiscord}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
 
-Filename: "http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussion/5921249-illusion-koikatu-コイカツ！-discussion-and-faq"; Description: "Open HongFire release thread"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
+Filename: "http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussion/5921249-illusion-koikatu-コイカツ！-discussion-and-faq"; Description: "{cm:RunHF}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
 
 ; If user didn't select new bepinex install or if debug version is selected, run old version patcher if it exists
 Filename: "{app}\BepInEx.Patcher.exe"; Flags: runascurrentuser skipifdoesntexist waituntilterminated; Description: "Setting up BepInEx for dnSpy debugging"
@@ -348,17 +374,17 @@ begin
     // If garbage plugins are detected, delete all old mods by default
     if(FileExists(ExpandConstant('{app}\BepInEx\CardCacher.dll')) or FileExists(ExpandConstant('{app}\BepInEx\0Harmony.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Assembly-CSharp.dll'))) then
     begin
-      SuppressibleMsgBox('WARNINIG - Outdated or useless plugins/files were detected in your BepInEx directory. It is recommended to remove all old mods to avoid issues.', mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 7, coCheckWithChildren);
+      SuppressibleMsgBox(ExpandConstant('{cm:MsgInvalidModsDetected}'), mbError, MB_OK, 0);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
     end;
 
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\KoikPlugins.dll'))) then
-      SuppressibleMsgBox('WARNINIG - KoikPlugins was detected and will be removed if you start installation to avoid potential compatibility issues (settings will not be removed).'#13#10''#13#10'Please follow KoikPlugins manual on how to install it again after patching is done.', mbError, MB_OK, 0);
+      SuppressibleMsgBox(ExpandConstant('{cm:MsgKplugDetected}'), mbError, MB_OK, 0);
 
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifier.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudio.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudioNEO.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\HSStudioNEOExtSave.dll')) or FileExists(ExpandConstant('{app}\BepInEx\FlashBangZ.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\KK_gaugeslider.dll'))) then
     begin
-      SuppressibleMsgBox('WARNINIG - Incompatible mods have been detected in your game folder! You are using very outdated mods or mods from other games in Koikatsu, which WILL cause problems. All old mods need to be removed to fix this.'#13#10''#13#10'Note: The FlashBangZ repack is known to include incompatible and useless mods that cause issues. In case you use it, in the future consider using the original game installer instead. It will most likely save you a lot of problems.', mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 7, coCheckWithChildren);
+      SuppressibleMsgBox(ExpandConstant('{cm:MsgIncompatibleModsDetected}'), mbError, MB_OK, 0);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
     end;
   end;
 end;
@@ -374,7 +400,7 @@ begin
   begin
     if (not FileExists(ExpandConstant('{app}\Koikatu.exe'))) then
     begin
-      if(SuppressibleMsgBox('WARNINIG - Koikatu.exe was not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.'#13#10''#13#10'Are you sure that this directory is correct?', mbError, MB_YESNO, 0) = IDNO) then
+      if(SuppressibleMsgBox(ExpandConstant('{cm:MsgExeNotFound}'), mbError, MB_YESNO, 0) = IDNO) then
         Result := False;
     end;
 
@@ -383,7 +409,7 @@ begin
       // Check for file corruptions
       if (not FileExists(ExpandConstant('{app}\abdata\sound\setting\object\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\sound3dsettingdata\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\soundsettingdata\00.unity3d'))) then
       begin
-        MsgBox('ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.', mbError, MB_OK);
+        MsgBox(ExpandConstant('{cm:MsgMissingGameFiles}'), mbError, MB_OK);
         Result := False;
       end
       else
@@ -391,18 +417,18 @@ begin
         // Check for missing paid DLC
         if not FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\17.unity3d')) then
         begin
-          SuppressibleMsgBox('NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.', mbInformation, MB_OK, 0);
+          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC1}'), mbInformation, MB_OK, 0);
         end;
         if not FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\20.unity3d')) then
         begin
-          SuppressibleMsgBox('NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.', mbInformation, MB_OK, 0);
+          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC2}'), mbInformation, MB_OK, 0);
         end;
       end;
 
       // Check for extracted zipmods
       if (Result = True and FileExists(ExpandConstant('{app}\manifest.xml'))) then
       begin
-        SuppressibleMsgBox('WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.', mbError, MB_OK, 0);
+        SuppressibleMsgBox(ExpandConstant('{cm:MsgExtractedZipmod}'), mbError, MB_OK, 0);
       end;
     end;
   end;
