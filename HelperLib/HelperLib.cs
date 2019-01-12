@@ -118,7 +118,7 @@ namespace HelperLib
             try
             {
                 var r = XDocument.Parse(File.ReadAllText(ud)).Root;
-                
+
                 var s = r.Element("Size").Value;
                 var w = int.Parse(r.Element("Width").Value);
                 var h = int.Parse(r.Element("Height").Value);
@@ -159,22 +159,38 @@ namespace HelperLib
             try
             {
                 var ld = Path.Combine(path, @"abdata\list\characustom");
-                if (!Directory.Exists(ld)) return;
-                foreach (var filePath in Directory.GetFiles(ld))
+                if (Directory.Exists(ld))
                 {
-                    if (!IsStandardListFile(filePath))
+                    foreach (var filePath in Directory.GetFiles(ld))
                     {
-                        SafeFileDelete(filePath);
+                        if (!IsStandardListFile(filePath))
+                        {
+                            SafeFileDelete(filePath);
+                        }
                     }
                 }
 
                 var hld = Path.Combine(path, @"abdata\h\list");
-                if (!Directory.Exists(hld)) return;
-                foreach (var filePath in Directory.GetFiles(hld))
+                if (Directory.Exists(hld))
                 {
-                    if (!IsStandardHListFile(filePath))
+                    foreach (var filePath in Directory.GetFiles(hld))
                     {
-                        SafeFileDelete(filePath);
+                        if (!IsStandardHListFile(filePath))
+                        {
+                            SafeFileDelete(filePath);
+                        }
+                    }
+                }
+
+                var sld = Path.Combine(path, @"abdata\studio\info");
+                if (Directory.Exists(sld))
+                {
+                    foreach (var filePath in Directory.GetFiles(sld))
+                    {
+                        if (!IsStandardListFile(filePath))
+                        {
+                            SafeFileDelete(filePath);
+                        }
                     }
                 }
             }
