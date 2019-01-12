@@ -31,7 +31,7 @@ Name: "none"; Description: "Skip BepInEx install (NOT RECOMMENDED)"
 Name: "custom"; Description: "Custom installation"; Flags: iscustom
 
 [Components]
-Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
+Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion (uses the AIO) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
 Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)";
 Name: "Patch\UserData"; Description: "Default cards, scenes and backgrounds";
 
@@ -42,12 +42,14 @@ Name: "BepisPlugins"; Description: "BepisPlugins r7"; Types: full_en full extra 
 Name: "TL"; Description: "English translation"; Types: full_en extra
 Name: "TL\UItranslation"; Description: "UI Graphics translation v2.6"; Types: full_en extra
 Name: "TL\EnglishStory"; Description: "Koikatsu partial story translation 29-07-2018 by xmex"; Types: full_en extra
-Name: "TL\EnglishTranslation"; Description: "bbepis/KoikatsuTranslation 30-12-2018"; Types: full_en extra
-Name: "TL\EnglishTranslation\UserData"; Description: "Translated cards, scenes and backgrounds (overrides defaults)"; Types: full_en extra
+Name: "TL\EnglishTranslation"; Description: "bbepis/KoikatsuTranslation 31-12-2018"; Types: full_en extra
+Name: "TL\EnglishTranslation\UserData"; Description: "Translated cards, scenes and backgrounds (they overwrite defaults)"; Types: full_en extra
+Name: "TL\FriendlySky"; Description: "FriendlySky/KoikatsuENG 2018-05-05"; Types: full_en extra
+Name: "TL\Plugins"; Description: "DeathWeasel1337/Koikatsu-Plugin-Translations 2019-01-06"; Types: full_en extra
 Name: "TL\romanization"; Description: "Nickname romanization 1.3 by BadOne"; Types: full_en extra
 Name: "TL\EnglishLauncher"; Description: "English Launchers v1.0 by user539"; Types: full_en extra
 Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 2.16.0"; Types: full_en extra
-;Name: "TL\HSubs"; Description: "KKSubs 0.8.6 (Translated subtitles)"; Types: extra
+Name: "TL\KK_Subtitles"; Description: "KK_Subtitles v1.1"; Types: extra
 
 Name: "UNC"; Description: "Uncensor"; Types: full_en full extra
 Name: "UNC\Demosaic"; Description: "Demosaic 1.0 by AUTOMATIC1111"; Types: full_en full extra custom
@@ -66,20 +68,22 @@ Name: "UNC\Model\Separate\Female\Chan"; Description: "Normal vagina model by mod
 Name: "UNC\Model\Separate\Female\LO"; Description: "KK LO pussy v0.5 (Loli slit)"; Flags: exclusive
 Name: "UNC\Tongue"; Description: "Tongue Texture v1.1 by moderchan"; Types: full_en full extra
 
-Name: "Modpack"; Description: "Sideloader Modpack 28-12-2018 (Lots of additional content for making characters. Needed to properly load most character cards and scenes)"; Types: full_en full extra
-Name: "ModpackStudio"; Description: "Studio Sideloader Modpack 28-12-2018 (Additional content for making Studio scenes. Needed to properly load some scenes)"; Types: full_en full extra
+Name: "Modpack"; Description: "Sideloader Modpack 7-1-2019 (Lots of additional content for making characters. Needed to properly load most character cards and scenes)"; Types: full_en full extra
+Name: "ModpackStudio"; Description: "Studio Sideloader Modpack 2-1-2019 (Additional content for making Studio scenes. Needed to properly load some scenes)"; Types: full_en full extra
 
 Name: "FIX"; Description: "Fixes and improvements"; Types: extra
 Name: "FIX\MoreAccessories"; Description: "MoreAccessories 1.0.3 by Joan6694 (Needed to use and edit some characters)"; Types: full_en full extra
 Name: "FIX\KKABMX"; Description: "KKABMX v2.2 (More sliders in maker, needed to use and edit some characters)"; Types: full_en full extra
-Name: "FIX\KSOX"; Description: "KSOX v2.1 (Add overlays to maker, needed to use and edit some characters)"; Types: full_en full extra
+Name: "FIX\KSOX"; Description: "KSOX v2.2 (Add overlays to maker, needed to use and edit some characters)"; Types: full_en full extra
+Name: "FIX\KSOX\KK_SkinEffects"; Description: "Additional Skin Effects v1 (Add simple effects for sweating, shower, bukkake and deflowering)"; Types: extra
 Name: "FIX\KKPE"; Description: "KKPE 1.1.0 by Joan6694 (Advanced studio controls)"; Types: full_en full extra
-Name: "FIX\KK_GUIDMigration"; Description: "KK_GUIDMigration v1.2 (Improves card and scene compatibility)"; Types: full_en full extra
+Name: "FIX\KK_GUIDMigration"; Description: "KK_GUIDMigration v1.2.2 (Improves card and scene compatibility)"; Types: full_en full extra
 Name: "FIX\KK_CutsceneLockupFix"; Description: "KK_CutsceneLockupFix v1.0 (Fixes some mods crashing story)"; Types: full_en full extra
-Name: "FIX\FixCompilation"; Description: "FixCompilation 2018-11-04 (Improves performance)"; Types: full_en full extra
+Name: "FIX\FixCompilation"; Description: "FixCompilation 2019-01-10 (Improves performance)"; Types: full_en full extra
 Name: "FIX\FixShaderDropdown"; Description: "FixShaderDropdown v1.0 (Expands shader menu)"; Types: full_en full extra
 Name: "FIX\KK_PersonalityCorrector"; Description: "KK_PersonalityCorrector v1.2 (Fixes story crashes with some cards)"; Types: full_en full extra
 Name: "FIX\DefaultParamEditor"; Description: "DefaultParamEditor 2018-11-04 (Set custom default studio settings) + Improved setting set"; Types: full_en full extra
+Name: "FIX\CharaStateX"; Description: "CharaStateX 2019-01-10 (Can edit state of multiple charas in studio at once)"; Types: full_en full extra
 Name: "FIX\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.1 (Needed for some scenes)"; Types: full_en full extra
 Name: "FIX\KK_InputHotkeyBlock"; Description: "KK_InputHotkeyBlock v1.0 (Blocks keybinds while typing)"; Types: full_en full extra
 
@@ -107,7 +111,7 @@ Name: "MISC\KKUS"; Description: "KKUS v1.0.0 (Search boxes, studio and maker imp
 Name: "MISC\FPS"; Description: "FPS Counter v1.2"; Types: extra
 Name: "MISC\Trainer"; Description: "Cheat tools v2.1 (Trainer and debugger)"; Types: extra
 Name: "MISC\FullSave"; Description: "Unlock all events and memories"; Types: extra
-Name: "MISC\UnlockHPositions"; Description: "UnlockHPositions 2018-11-04 (Unlocks all positions)"; Types: extra
+Name: "MISC\UnlockHPositions"; Description: "UnlockHPositions 2018-11-04 hotfix (Unlocks all positions)"; Types: extra
 ;Name: "MISC\SaveEditor"; Description: "Koikatsu Save Data Editor V12 by kiletw"; Types: extra
 Name: "MISC\Meme"; Description: "Custom intro voices v4 (gachiGasm)"; Types: extra
 Name: "MISC\FIX"; Description: "Fix game registry (e.g. after moving to different folder)"; Types: bare full_en full extra
@@ -138,9 +142,12 @@ Source: "Input\_TL\KoikatsuTranslation-master\UserData\names\*"; DestDir: "{app}
 
 Source: "Input\_TL\KoikatsuTranslation-master\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation\UserData
 
+Source: "Input\_TL\FriendlySky translations\*"; DestDir: "{app}\BepInEx\translation\Text\FriendlySky translations"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\FriendlySky
+Source: "Input\_TL\Plugin translations\*"; DestDir: "{app}\BepInEx\translation\Text\Plugins"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\Plugins
+
 Source: "Input\_TL\XUnity.AutoTranslator-BepIn-2.16.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\AutoTranslator
 Source: "Input\_TL\translation_eng.nicknames 1.3 BadOne\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\romanization
-;Source: "Input\_TL\KKSubs.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: TL\HSubs
+Source: "Input\_TL\KK_Subtitles.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: TL\KK_Subtitles
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -174,6 +181,7 @@ Source: "Input\_Fix\KK_GUIDMigration\*"; DestDir: "{app}\BepInEx"; Flags: ignore
 Source: "Input\_Fix\FixCompilation.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\FixCompilation
 Source: "Input\_Fix\DefaultParamEditor\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\DefaultParamEditor
 Source: "Input\_Fix\FixShaderDropdown.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\FixShaderDropdown
+Source: "Input\_Fix\CharaStateX.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\CharaStateX
 Source: "Input\_Fix\KK_InvisibleBody.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_InvisibleBody
 Source: "Input\_Fix\KK_InputHotkeyBlock.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_InputHotkeyBlock
 
