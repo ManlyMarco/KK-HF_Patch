@@ -5,6 +5,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Xml.Linq;
 using RGiesecke.DllExport;
 
@@ -96,6 +97,45 @@ namespace HelperLib
             @"coordinate\ショートパレオ（単色）.png",
             @"coordinate\ショートパレオ.png"
         };
+
+        private static readonly string GoodSettings =
+@"<?xml version=""1.0"" encoding=""utf-16""?>
+<Setting>
+  <Size>1280 x 720 (16 : 9)</Size>
+  <Width>1280</Width>
+  <Height>720</Height>
+  <Quality>2</Quality>
+  <FullScreen>false</FullScreen>
+  <Display>0</Display>
+  <Language>0</Language>
+</Setting>";
+
+        [DllExport("FixConfig", CallingConvention = CallingConvention.StdCall)]
+        public static void FixConfig([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            var ud = Path.Combine(path, "UserData\\setup.xml");
+
+            try
+            {
+                var r = XDocument.Parse(File.ReadAllText(ud)).Root;
+                
+                var s = r.Element("Size").Value;
+                var w = int.Parse(r.Element("Width").Value);
+                var h = int.Parse(r.Element("Height").Value);
+                if (w < 200 || h < 200 || w <= h || !s.Contains(w.ToString()) || !s.Contains(h.ToString()))
+                    throw new Exception();
+
+                var _ = float.Parse(r.Element("FullScreen").Value);
+                _ = int.Parse(r.Element("Quality").Value);
+                _ = int.Parse(r.Element("Display").Value);
+                _ = int.Parse(r.Element("Language").Value);
+            }
+            catch (Exception e)
+            {
+                File.Delete(ud);
+                File.WriteAllText(ud, GoodSettings, Encoding.Unicode);
+            }
+        }
 
         [DllExport("RemoveJapaneseCards", CallingConvention = CallingConvention.StdCall)]
         public static void RemoveJapaneseCards([MarshalAs(UnmanagedType.LPWStr)] string path)
@@ -274,7 +314,7 @@ namespace HelperLib
                 // 13_00.unity3d filename format
                 var name = Path.GetFileNameWithoutExtension(fileName);
 
-                if(name.Length == 5 && name[2] == '_')
+                if (name.Length == 5 && name[2] == '_')
                     return true;
             }
             return false;

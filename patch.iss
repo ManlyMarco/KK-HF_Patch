@@ -28,7 +28,7 @@ Name: "none"; Description: "Skip BepInEx install (NOT RECOMMENDED)"
 Name: "custom"; Description: "Custom installation"; Flags: iscustom
 
 [Components]
-Name: "Patch"; Description: "Patch and free DLC up to 12/21 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
+Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
 Name: "Patch\VR"; Description: "KoikatuVR Patch 08/14 by Illusion (install if you use VR module)";
 Name: "Patch\UserData"; Description: "Default cards, scenes and backgrounds";
 
@@ -116,8 +116,6 @@ Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 Source: "Input\koikatu_02plus_cdp1221degbr_all\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
 Source: "Input\koikatu_02plus_cdp1221degbr_all\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
 Source: "Input\koikatu_02plus_vr\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch\VR
-
-Source: "Input\Bad settings fix\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch
 
 Source: "Input\BepInEx_x86_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: BepInEx; Check: "not IsWin64"
 Source: "Input\BepInEx_x64_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx; Check: IsWin64
@@ -316,6 +314,9 @@ Filename: "http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussio
 Filename: "{app}\BepInEx.Patcher.exe"; Flags: runascurrentuser skipifdoesntexist waituntilterminated; Description: "Setting up BepInEx for dnSpy debugging"
 
 [Code]
+procedure FixConfig(path: String);
+external 'FixConfig@files:HelperLib.dll stdcall';
+
 procedure RemoveJapaneseCards(path: String);
 external 'RemoveJapaneseCards@files:HelperLib.dll stdcall';
 
@@ -419,6 +420,8 @@ begin
     // Always clean up sideloader mods in case user already messed up
     if IsComponentSelected('fixSideloaderDupes') then
         RemoveSideloaderDuplicates(ExpandConstant('{app}'));
+        
+    FixConfig(ExpandConstant('{app}'));
   end;
 end;
 
