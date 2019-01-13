@@ -22,6 +22,8 @@ DefaultDirName={reg:HKCU\Software\Illusion\Koikatu\koikatu,INSTALLDIR}
 Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "jp"; MessagesFile: "compiler:Languages\Japanese.isl"
 
+#include "Translations.iss"
+
 [Types]
 Name: "full_en"; Description: "{cm:fullInstall}"; Languages: en;
 Name: "full"; Description: "{cm:fullInstall}"; Languages: jp;
@@ -33,13 +35,13 @@ Name: "custom"; Description: "{cm:customInstall}"; Flags: iscustom
 [Components]
 Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion (uses the AIO) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
 Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)";
-Name: "Patch\UserData"; Description: "Default cards, scenes and backgrounds";
+Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
-Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework (auto-update)"; Types: full_en full extra custom bare; Flags: fixed
-Name: "BepInEx\Dev"; Description: "Developer version with dnSpy debugging";
+Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework"; Types: full_en full extra custom bare; Flags: fixed
+Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
 Name: "BepisPlugins"; Description: "BepisPlugins r7"; Types: full_en full extra custom bare; Flags: fixed
 
-Name: "TL"; Description: "English translation"; Types: full_en extra
+Name: "TL"; Description: "{cm:CompTL}"; Types: full_en extra
 Name: "TL\UItranslation"; Description: "UI Graphics translation v2.6"; Types: full_en extra
 Name: "TL\EnglishStory"; Description: "Koikatsu partial story translation 29-07-2018 by xmex"; Types: full_en extra
 Name: "TL\EnglishTranslation"; Description: "bbepis/KoikatsuTranslation 31-12-2018"; Types: full_en extra
@@ -51,7 +53,7 @@ Name: "TL\EnglishLauncher"; Description: "English Launchers v1.0 by user539"; Ty
 Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 2.16.0"; Types: full_en extra
 Name: "TL\KK_Subtitles"; Description: "KK_Subtitles v1.1"; Types: extra
 
-Name: "UNC"; Description: "Uncensor"; Types: full_en full extra
+Name: "UNC"; Description: "{cm:CompUNC}"; Types: full_en full extra
 Name: "UNC\Demosaic"; Description: "Demosaic 1.0 by AUTOMATIC1111"; Types: full_en full extra custom
 Name: "UNC\Model"; Description: "Uncensored models"; Types: full_en full extra
 Name: "UNC\Model\FutaRoy"; Description: "FutaBoy male (color-matching with skin, but deforms badly in H scenes) + Roy12 female uncensor (detailed vagina model) (anonversion2)"; Flags: exclusive
@@ -71,7 +73,7 @@ Name: "UNC\Tongue"; Description: "Tongue Texture v1.1 by moderchan"; Types: full
 Name: "Modpack"; Description: "Sideloader Modpack 7-1-2019 (Lots of additional content for making characters. Needed to properly load most character cards and scenes)"; Types: full_en full extra
 Name: "ModpackStudio"; Description: "Studio Sideloader Modpack 2-1-2019 (Additional content for making Studio scenes. Needed to properly load some scenes)"; Types: full_en full extra
 
-Name: "FIX"; Description: "Fixes and improvements"; Types: extra
+Name: "FIX"; Description: "{cm:CompFIX}"; Types: extra
 Name: "FIX\MoreAccessories"; Description: "MoreAccessories 1.0.3 by Joan6694 (Needed to use and edit some characters)"; Types: full_en full extra
 Name: "FIX\KKABMX"; Description: "KKABMX v2.2 (More sliders in maker, needed to use and edit some characters)"; Types: full_en full extra
 Name: "FIX\KSOX"; Description: "KSOX v2.2 (Add overlays to maker, needed to use and edit some characters)"; Types: full_en full extra
@@ -102,7 +104,7 @@ Name: "FIX\GraphicsSettings"; Description: "GraphicsSettings 2018-11-04 (More ga
 Name: "FIX\KK_ForceHighPoly"; Description: "KK_ForceHighPoly v1.1 (Full-quality characters in school, very resource-heavy)"; Types: extra
 Name: "FIX\KK_BetterColorPicker"; Description: "KK_BetterColorPicker v1.0 (Select color from anywhere on screen in maker, useful for copying colors from reference images)"; Types: full_en full extra
 
-Name: "MISC"; Description: "Other";
+Name: "MISC"; Description: "{cm:CompMISC}";
 Name: "MISC\URL"; Description: "Use custom Character Database (Connects to non-IP-blocked character DB)"; Types: full_en bare custom extra
 Name: "MISC\DragAndDrop"; Description: "Drag and drop character cards v1.2.2"; Types: full_en full extra
 Name: "MISC\KK_ReloadCharaListOnChange"; Description: "KK_ReloadCharaListOnChange v1.4"; Types: full_en full extra
@@ -296,43 +298,19 @@ Root: HKCU; Subkey: "Software\Illusion\Koikatu"; Components: MISC\FIX
 Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; Components: MISC\FIX
 Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; ValueName: "INSTALLDIR"; ValueData: "{app}\"; Components: MISC\FIX
 
-[CustomMessages]
-fullInstall=Recommended installation
-jp.fullInstall=推奨インストール
-extraInstall=Extra installation
-bareInstall=Update and repair
-noneInstall=Skip BepInEx install (NOT RECOMMENDED)
-customInstall=Custom installation
-
-MsgInvalidModsDetected=WARNINIG - Outdated or useless plugins/files were detected in your BepInEx directory. To avoid issues all mods will be deleted.
-MsgKplugDetected=WARNINIG - KoikPlugins was detected and will be removed if you start installation to avoid potential compatibility issues (settings will not be removed).'#13#10''#13#10'Please follow KoikPlugins manual on how to install it again after patching is done.
-MsgIncompatibleModsDetected=WARNINIG - Incompatible mods have been detected in your game folder! You are using very outdated mods or mods from other games in Koikatsu, which WILL cause problems. All old mods will have to be removed to fix this.
-MsgExeNotFound=WARNINIG - Koikatu.exe was not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.'#13#10''#13#10'Are you sure that this directory is correct?
-MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.
-MsgMissingDLC1=NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.
-MsgMissingDLC2=NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.'#13#10''#13#10'If you want to use it, install it BEFORE running HF Patch.
-MsgExtractedZipmod=WARNINIG - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.'#13#10''#13#10'Repair will be attempted, but if you still have problems you will have to reinstall the game.
-
-RunGame=&Run Koikatsu
-RunWiki=Open Koikatsu wiki (FAQ, English manual)
-RunDiscord=Join Koikatsu! discord channel (Help, updates, sharing)
-RunHF=Open HongFire release thread
-
-IconGame=Koikatsu launcher
-
 [Tasks]
-Name: desktopicon; Description: "Create a game &desktop icon"; Components: TL\EnglishLauncher; Flags: unchecked
-Name: desktopicon\jp; Description: "Create a game &desktop icon"; Components: not TL\EnglishLauncher; Flags: unchecked
+Name: desktopicon; Description: "{cm:TaskIcon}"; Components: TL\EnglishLauncher; Flags: unchecked
+Name: desktopicon\jp; Description: "{cm:TaskIcon}"; Components: not TL\EnglishLauncher; Flags: unchecked
 ;Name: editordesktopicon; Description: "Create a save editor desktop icon"; Components: MISC\SaveEditor; Flags: unchecked
-Name: delete; Description: "Delete old mods before installation (Recommended, helps avoid common issues)";
-Name: delete\Sidemods; Description: "Delete ALL existing sideloader mods"
-Name: delete\Plugins; Description: "Delete BepInEx folder (Deletes old plugins and translations. Recommended if you have issues or when updating from old repacks)"
-Name: delete\Plugins\Config; Description: "Reset plugin settings (Recommended if you have issues)"; Flags: unchecked
-Name: delete\Listfiles; Description: "Delete custom listfiles (Disables old-style content mods (hardmods). Recommended when upgrading from HF Patch v1.7 or older, or from repacks like flashbangz)"
-Name: fixSideloaderDupes; Description: "Delete duplicate sideloader mods after installation (Newest versions are kept. Recommended)";
-Name: PW; Description: "Uninstall Patchwork if installed and delete Plugins folder (Optional, will free up some disk space. If you intend to use PW, make sure your version is compatible with the current game update. If you have issues, run the game without PW)"; Flags: unchecked
+Name: delete; Description: "{cm:TaskDelete}";
+Name: delete\Sidemods; Description: "{cm:TaskDeleteSide}"
+Name: delete\Plugins; Description: "{cm:TaskDeletePlugins}";
+Name: delete\Config; Description: "{cm:TaskDeletePluginSettings}"; Flags: unchecked
+Name: delete\Listfiles; Description: "{cm:TaskDeleteLst}"
+Name: fixSideloaderDupes; Description: "{cm:TaskSideDupes}";
+Name: PW; Description: "{cm:TaskPW}"; Flags: unchecked
 ; IPA is always removed, can't go around that. Unchecking is disabled in code, this task has to stay at the same index for it to work
-Name: IPA; Description: "Uninstall IPA if installed (Use BepInEx IPA loader instead. Has to be removed for BepInEx to work correctly)";
+Name: IPA; Description: "{cm:TaskIPA}";
 
 [Icons]
 Name: "{userdesktop}\{#NAME}"; Filename: "{app}\InitSettingEN.exe"; IconFilename: "{app}\InitSettingEN.exe"; WorkingDir: "{app}\"; Comment: "Koikatsu English launcher"; Tasks: desktopicon
@@ -472,18 +450,23 @@ begin
   end;
   
   // Backup plugin settings
-  if (not IsTaskSelected('delete\Plugins\Config')) then
+  if (not IsTaskSelected('delete\Config')) then
     FileCopy(ExpandConstant('{app}\BepInEx\config.ini'), ExpandConstant('{app}\config.ini'), false);
   
   // Remove BepInEx folder
   if (IsTaskSelected('delete\Plugins')) then
     DelTree(ExpandConstant('{app}\BepInEx'), True, True, True);
   
-  // Restore the settings and remove the backup
-  if (not IsTaskSelected('delete\Plugins\Config')) then
+  if (not IsTaskSelected('delete\Config')) then
   begin
+    // Restore the settings and remove the backup
     FileCopy(ExpandConstant('{app}\config.ini'), ExpandConstant('{app}\BepInEx\config.ini'), false);
     DeleteFile(ExpandConstant('{app}\config.ini'));
+  end
+  else
+  begin
+    // Or remove settings
+    DeleteFile(ExpandConstant('{app}\BepInEx\config.ini'));
   end;
     
   if (IsTaskSelected('delete\Sidemods')) then
