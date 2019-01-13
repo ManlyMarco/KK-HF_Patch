@@ -12,8 +12,9 @@ CloseApplicationsFilter=*.exe,*.dll
 Compression=lzma2/ultra64
 ;lzma2/ultra64 | zip
 LZMAUseSeparateProcess=yes
-;LZMADictionarySize=708576
+LZMADictionarySize=308576
 LZMANumFastBytes=273
+LZMANumBlockThreads=2
 DiskSpanning=yes
 DiskSliceSize=1566000000
 DefaultDirName={reg:HKCU\Software\Illusion\Koikatu\koikatu,INSTALLDIR}
@@ -39,7 +40,7 @@ Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
 Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework"; Types: full_en full extra custom bare; Flags: fixed
 Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
-Name: "BepisPlugins"; Description: "BepisPlugins r7"; Types: full_en full extra custom bare; Flags: fixed
+Name: "BepisPlugins"; Description: "BepisPlugins r7 c46c75e"; Types: full_en full extra custom bare; Flags: fixed
 
 Name: "TL"; Description: "{cm:CompTL}"; Types: full_en extra
 Name: "TL\UItranslation"; Description: "UI Graphics translation v2.6"; Types: full_en extra
@@ -99,7 +100,7 @@ Name: "FIX\Bra"; Description: "Bra Push-Up Mod / KK_Kiyase 0.2.0 (Bras affect br
 Name: "FIX\Collider"; Description: "Atari 2.1 by Stinger722 (Breast and hair collisions)"; Types: extra
 Name: "FIX\SkirtFix"; Description: "Vanilla Skirt Fix by Stinger722 (Less clipping)"; Types: extra
 Name: "FIX\Pupils"; Description: "Smaller Heart Pupil v1.1 (Better-looking ahegao eyes)"; Types: full_en full extra
-Name: "FIX\KK_Ahegao"; Description: "KK_Ahegao v1.6 (Make girl cum 3 times for ahegao)"; Types: extra
+;Name: "FIX\KK_Ahegao"; Description: "KK_Ahegao v1.6 (Make girl cum 3 times for ahegao)"; Types: extra
 Name: "FIX\GraphicsSettings"; Description: "GraphicsSettings 2018-11-04 (More game settings, allows better quality)"; Types: extra
 Name: "FIX\KK_ForceHighPoly"; Description: "KK_ForceHighPoly v1.1 (Full-quality characters in school, very resource-heavy)"; Types: extra
 Name: "FIX\KK_BetterColorPicker"; Description: "KK_BetterColorPicker v1.0 (Select color from anywhere on screen in maker, useful for copying colors from reference images)"; Types: full_en full extra
@@ -180,6 +181,7 @@ Source: "Input\_Fix\MoreAccessories.dll"; DestDir: "{app}\BepInEx"; Flags: ignor
 Source: "Input\_Fix\KKPE.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KKPE
 Source: "Input\_Fix\KKABMX\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KKABMX
 Source: "Input\_Fix\KSOX\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KSOX
+Source: "Input\_Fix\KK_SkinEffects.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KSOX\KK_SkinEffects
 Source: "Input\_Fix\KK_GUIDMigration\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_GUIDMigration
 Source: "Input\_Fix\FixCompilation.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\FixCompilation
 Source: "Input\_Fix\DefaultParamEditor\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\DefaultParamEditor
@@ -200,7 +202,7 @@ Source: "Input\_Fix\KK_Kiyase\*"; DestDir: "{app}"; Flags: ignoreversion recurse
 Source: "Input\_Fix\atari2.1 (normal bust).zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\Collider
 Source: "Input\_Fix\[Stinger722]Vanilla Skirt Fix.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\SkirtFix
 Source: "Input\_Fix\[DeathWeasel]Smaller Heart Pupil v1.1.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\Pupils
-Source: "Input\_Fix\KK_Ahegao.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_Ahegao
+;Source: "Input\_Fix\KK_Ahegao.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_Ahegao
 Source: "Input\_Fix\KK_ForceHighPoly.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_ForceHighPoly
 Source: "Input\_Fix\GraphicsSettings.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\GraphicsSettings
 Source: "Input\_Fix\KK_BetterColorPicker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_BetterColorPicker
@@ -254,6 +256,7 @@ Type: files; Name: "{app}\BepInEx\KK_ForceHighPoly.dll"
 Type: files; Name: "{app}\BepInEx\KKSubs.dll"
 Type: files; Name: "{app}\BepInEx\HSubs.dll"
 Type: files; Name: "{app}\BepInEx\FixCompilation.dll"
+Type: files; Name: "{app}\BepInEx\KK_Ahegao.dll"
 Type: files; Name: "{app}\BepInEx\ObjectTreeDebugKK.dll"; Components: MISC\Trainer
 
 ; Patch resets all assembly modifications so these files are useless, need to run patcher again anyways
