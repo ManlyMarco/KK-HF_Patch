@@ -85,7 +85,7 @@ Name: "FIX\FixCompilation"; Description: "FixCompilation 2019-01-10 (Improves pe
 Name: "FIX\FixShaderDropdown"; Description: "FixShaderDropdown v1.0 (Expands shader menu)"; Types: full_en full extra
 Name: "FIX\KK_PersonalityCorrector"; Description: "KK_PersonalityCorrector v1.2 (Fixes story crashes with some cards)"; Types: full_en full extra
 Name: "FIX\DefaultParamEditor"; Description: "DefaultParamEditor 2018-11-04 (Set custom default studio settings) + Improved setting set"; Types: full_en full extra
-Name: "FIX\CharaStateX"; Description: "CharaStateX 2019-01-10 (Can edit state of multiple charas in studio at once)"; Types: full_en full extra
+Name: "FIX\CharaStateX"; Description: "CharaStateX 2019-01-13 (Can edit state of multiple charas in studio at once)"; Types: full_en full extra
 Name: "FIX\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.1 (Needed for some scenes)"; Types: full_en full extra
 Name: "FIX\KK_InputHotkeyBlock"; Description: "KK_InputHotkeyBlock v1.0 (Blocks plugin keybinds while typing)"; Types: full_en full extra
 Name: "FIX\HideStudioUI"; Description: "HideStudioUI (Press space)"; Types: full_en full extra
@@ -225,9 +225,9 @@ Source: "Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesub
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Images"; Components: TL\UItranslation
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Text"; Components: TL\EnglishTranslation
 Type: filesandordirs; Name: "{app}\BepInEx\translation\scenario"; Components: TL\EnglishStory
-;Type: files; Name: "{app}\BepInEx\hsubs.dll"; Components: TL\HSubs
 Type: files; Name: "{app}\BepInEx\MakerLag.dll"; Components: FIX\FixCompilation
 Type: files; Name: "{app}\BepInEx\KKSceneBrowserFolders.dll"; Components: MISC\KK_BrowserFolders
+Type: files; Name: "{app}\InitSettingGameStudioVREN.exe"; Components: TL\EnglishLauncher
 
 ; Clean up old modpacks
 Type: filesandordirs; Name: "{app}\mods\Uncensor"; Components: UNC
