@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using RGiesecke.DllExport;
 
@@ -146,16 +147,23 @@ namespace HelperLib
                     || !s.Contains(h.ToString(CultureInfo.InvariantCulture)))
                     throw new Exception();
 
-                var _ = float.Parse(r.Element("FullScreen").Value);
-                _ = int.Parse(r.Element("Quality").Value);
-                _ = int.Parse(r.Element("Display").Value);
-                _ = int.Parse(r.Element("Language").Value);
+                var _ = bool.Parse(r.Element("FullScreen").Value);
+                CheckRange(r.Element("Quality").Value, 0, 2);
+                CheckRange(r.Element("Display").Value, 0, Screen.AllScreens.Length);
+                CheckRange(r.Element("Language").Value, 0, 2);
             }
             catch (Exception e)
             {
                 File.Delete(ud);
                 File.WriteAllText(ud, GoodSettings, Encoding.Unicode);
             }
+        }
+
+        private static void CheckRange(string instr, int min, int max)
+        {
+            var val = int.Parse(instr);
+            if(min > val || val > max)
+                throw new Exception();
         }
 
         [DllExport("RemoveJapaneseCards", CallingConvention = CallingConvention.StdCall)]

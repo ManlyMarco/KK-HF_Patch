@@ -16,5 +16,11 @@ namespace HelperLib.Tests
         {
             HelperLib.RemoveSideloaderDuplicates(@"D:\_Koikatu\_koikatu hf patch test");
         }
+
+        [TestMethod()]
+        public void FixConfigTest()
+        {
+            HelperLib.FixConfig(@"D:\_Koikatu\_koikatu hf patch test");
+        }
     }
 }
