@@ -35,7 +35,7 @@ Name: "custom"; Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
 Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion (uses the AIO) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
-Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)";
+Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)"; Types: full_en full extra custom bare none; Check: VRInstalled
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
 Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework"; Types: full_en full extra custom bare; Flags: fixed
@@ -124,9 +124,11 @@ Name: "MISC\FIX"; Description: "Fix game registry (e.g. after moving to differen
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Source: "Input\koikatu_02plus_cdp0111hnybsu\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
-Source: "Input\koikatu_02plus_cdp0111hnybsu\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
-Source: "Input\koikatu_03vr_d0111\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch\VR
+Source: "Input\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
+Source: "Input\koikatu_02plus_cdp0201hbtks\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
+Source: "Input\koikatu_02plus_cdp0201hbtks_as\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch; Check: AfterSchoolInstalled
+
+Source: "Input\koikatu_03vr_d0111\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch\VR; Check: VRInstalled
 
 Source: "Input\BepInEx_x86_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: BepInEx; Check: "not IsWin64"
 Source: "Input\BepInEx_x64_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx; Check: IsWin64
@@ -370,6 +372,16 @@ begin
   end;
 end;
 
+function VRInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\KoikatuVR_Data\resources.assets"'));
+end;
+
+function AfterSchoolInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\20.unity3d'));
+end;
+
 function NextButtonClick(CurPageID: Integer): Boolean;
 var
   ResultCode: Integer;
@@ -400,7 +412,7 @@ begin
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC1}'), mbInformation, MB_OK, 0);
         end;
-        if not FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\20.unity3d')) then
+        if not AfterSchoolInstalled() then
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC2}'), mbInformation, MB_OK, 0);
         end;
