@@ -335,6 +335,9 @@ Filename: "http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussio
 Filename: "{app}\BepInEx.Patcher.exe"; Flags: runascurrentuser skipifdoesntexist waituntilterminated; Description: "Setting up BepInEx for dnSpy debugging"
 
 [Code]
+procedure SetConfigDefaults(path: String, uncensorSelector: Boolean, gameplayMod: Boolean);
+external 'SetConfigDefaults@files:HelperLib.dll stdcall';
+
 procedure FixConfig(path: String);
 external 'FixConfig@files:HelperLib.dll stdcall';
 
@@ -496,4 +499,6 @@ begin
     DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
     Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
   end;
+  
+  SetConfigDefaults(ExpandConstant('{app}'), IsComponentSelected('UNC\Selector\Pack'), IsComponentSelected('Feature\Gameplay'));
 end;
