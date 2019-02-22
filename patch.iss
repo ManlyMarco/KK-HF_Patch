@@ -1,7 +1,7 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "2.3"
+#define VERSION "2.4"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -34,193 +34,231 @@ Name: "none"; Description: "{cm:noneInstall}"
 Name: "custom"; Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
-Name: "Patch"; Description: "Patch and free DLC up to 01/11 by Illusion (uses the AIO) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
-Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)"; Types: full_en full extra custom bare none; Check: VRInstalled
+Name: "Patch"; Description: "Patch and free DLC up to 02/01 by Illusion (uses the AIO) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
+Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)"; Types: full_en full extra custom bare none
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
-Name: "BepInEx"; Description: "BepInEx v4.1 Unity plugin framework"; Types: full_en full extra custom bare; Flags: fixed
+Name: "BepInEx"; Description: "BepInEx v4.1.1 Unity plugin framework"; Types: full_en full extra custom bare; Flags: fixed
 Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
-Name: "BepisPlugins"; Description: "BepisPlugins r7 c46c75e"; Types: full_en full extra custom bare; Flags: fixed
+Name: "BepisPlugins"; Description: "BepisPlugins r8"; Types: full_en full extra custom bare; Flags: fixed
+
+Name: "KKAPI"; Description: "KKAPI v1.0 (Modding API needed by many plugins)"; Types: full_en full extra custom bare; Flags: fixed
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "TL"; Description: "{cm:CompTL}"; Types: full_en extra
-Name: "TL\UItranslation"; Description: "UI Graphics translation v2.6"; Types: full_en extra
-Name: "TL\EnglishStory"; Description: "Koikatsu partial story translation 29-07-2018 by xmex"; Types: full_en extra
+
+Name: "TL\UItranslation"; Description: "UI Graphics translation v2.7"; Types: full_en extra
 Name: "TL\EnglishTranslation"; Description: "bbepis/KoikatsuTranslation 31-12-2018"; Types: full_en extra
 Name: "TL\EnglishTranslation\UserData"; Description: "Translated cards, scenes and backgrounds (they overwrite defaults)"; Types: full_en extra
-Name: "TL\FriendlySky"; Description: "FriendlySky/KoikatsuENG 2018-05-05"; Types: full_en extra
+
+Name: "TL\EnglishTranslation2"; Description: "DeathWeasel1337/Koikatsu-Translations v1"; Types: full_en extra
 Name: "TL\Plugins"; Description: "DeathWeasel1337/Koikatsu-Plugin-Translations 2019-01-06"; Types: full_en extra
 Name: "TL\romanization"; Description: "Nickname romanization 1.3 by BadOne"; Types: full_en extra
+
 Name: "TL\EnglishLauncher"; Description: "English Launchers v1.0 by user539"; Types: full_en extra
-Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 2.16.0"; Types: full_en extra
 Name: "TL\KK_Subtitles"; Description: "KK_Subtitles v1.1"; Types: extra
 
-Name: "UNC"; Description: "{cm:CompUNC}"; Types: full_en full extra
-Name: "UNC\Demosaic"; Description: "Demosaic 1.0 by AUTOMATIC1111"; Types: full_en full extra custom
-Name: "UNC\Model"; Description: "Uncensored models"; Types: full_en full extra
-Name: "UNC\Model\FutaRoy"; Description: "FutaBoy male (color-matching with skin, but deforms badly in H scenes) + Roy12 female uncensor (detailed vagina model) (anonversion2)"; Flags: exclusive
-Name: "UNC\Model\Separate"; Description: "Separate models"; Flags: exclusive; Types: full_en full extra
-Name: "UNC\Model\Separate\Male"; Description: "Male uncensor"; Types: full_en full extra
-Name: "UNC\Model\Separate\Male\Normal"; Description: "whatsadick4 - Skin color"; Flags: exclusive
-Name: "UNC\Model\Separate\Male\NormalBalls"; Description: "whatsadick4 - Skin color with balls"; Flags: exclusive; Types: full_en full extra
-Name: "UNC\Model\Separate\Male\Dark"; Description: "whatsadick4 - Dark color"; Flags: exclusive
-Name: "UNC\Model\Separate\Male\DarkBalls"; Description: "whatsadick4 - Dark color with balls"; Flags: exclusive
-Name: "UNC\Model\Separate\Male\LO"; Description: "KK LO pussy v0.5 - Textured with balls"; Flags: exclusive
+Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 3.0.0"; Types: full_en extra
 
-Name: "UNC\Model\Separate\Female"; Description: "Female uncensor"; Types: full_en full extra
-Name: "UNC\Model\Separate\Female\Chan"; Description: "Normal vagina model by moderchan"; Flags: exclusive; Types: full_en full extra
-Name: "UNC\Model\Separate\Female\LO"; Description: "KK LO pussy v0.5 (Loli slit)"; Flags: exclusive
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Name: "UNC"; Description: "{cm:CompUNC}"; Types: full_en full extra
+
+Name: "UNC\Selector"; Description: "Uncensor Selector v2.5"; Types: full_en full extra
+Name: "UNC\Selector\Pack"; Description: "Uncensor pack 21/2/2019"; Types: full_en full extra
+
 Name: "UNC\Tongue"; Description: "Tongue Texture v1.1 by moderchan"; Types: full_en full extra
 
-Name: "Modpack"; Description: "Sideloader Modpack 7-1-2019 (Lots of additional content for making characters. Needed to properly load most character cards and scenes)"; Types: full_en full extra
-Name: "ModpackStudio"; Description: "Studio Sideloader Modpack 2-1-2019 (Additional content for making Studio scenes. Needed to properly load some scenes)"; Types: full_en full extra
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Name: "Content"; Description: "Additional content for character and scene creation (Needed to properly load most character cards and scenes)"; Types: full_en full extra
+
+Name: "Content\Modpack"; Description: "Sideloader Modpack 21-2-2019 (Lots of additional content for making characters"; Types: full_en full extra
+Name: "Content\ModpackStudio"; Description: "Studio Sideloader Modpack 18-2-2019 (Additional content for making Studio scenes)"; Types: full_en full extra
+Name: "Content\KK_GUIDMigration"; Description: "KK_GUIDMigration v1.3 (Improves card and scene compatibility)"; Types: full_en full extra
+Name: "Content\KK_ClothingUnlocker"; Description: "KK_ClothingUnlocker v1.0 (Can use female clothes in male maker and vice versa)"; Types: full_en full extra
+
+Name: "Content\MoreAccessories"; Description: "MoreAccessories 1.0.3 by Joan6694 (Unlocks accessory limit)"; Types: full_en full extra
+Name: "Content\KKABMX"; Description: "KKABMX v2.3 (More sliders in maker)"; Types: full_en full extra
+Name: "Content\KSOX"; Description: "Koikatsu Overlay Mods v4.1.1 (Custom body, clothes and eye textures)"; Types: full_en full extra
+Name: "Content\KSOX\KK_SkinEffects"; Description: "Additional Skin Effects v1.2 (Effects for sweating, crying, bukkake and deflowering)"; Types: full_en full extra
+Name: "Content\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.1 (Hide character body in studio)"; Types: full_en full extra
+Name: "Content\KK_AnimationController"; Description: "KK_AnimationController v1.2 (Create custom animations in studio)"; Types: full_en full extra
+Name: "Content\KKPE"; Description: "KKPE 1.1.0 by Joan6694 (Advanced studio controls)"; Types: full_en full extra
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "FIX"; Description: "{cm:CompFIX}"; Types: extra
-Name: "FIX\MoreAccessories"; Description: "MoreAccessories 1.0.3 by Joan6694 (Needed to use and edit some characters)"; Types: full_en full extra
-Name: "FIX\KKABMX"; Description: "KKABMX v2.2 (More sliders in maker, needed to use and edit some characters)"; Types: full_en full extra
-Name: "FIX\KSOX"; Description: "KSOX v2.2 (Add overlays to maker, needed to use and edit some characters)"; Types: full_en full extra
-Name: "FIX\KSOX\KK_SkinEffects"; Description: "Additional Skin Effects v1 (Add simple effects for sweating, shower, bukkake and deflowering)"; Types: full_en full extra
-Name: "FIX\KKPE"; Description: "KKPE 1.1.0 by Joan6694 (Advanced studio controls)"; Types: full_en full extra
-Name: "FIX\KK_GUIDMigration"; Description: "KK_GUIDMigration v1.2.2 (Improves card and scene compatibility)"; Types: full_en full extra
-Name: "FIX\KK_CutsceneLockupFix"; Description: "KK_CutsceneLockupFix v1.0 (Fixes some mods crashing story)"; Types: full_en full extra
+
 Name: "FIX\FixCompilation"; Description: "FixCompilation 2019-01-10 (Improves performance)"; Types: full_en full extra
+Name: "FIX\KK_CutsceneLockupFix"; Description: "KK_CutsceneLockupFix v1.0 (Fixes some mods crashing story)"; Types: full_en full extra
+Name: "FIX\KK_PersonalityCorrector"; Description: "KK_PersonalityCorrector v1.3.1 (Fixes story crashes with some cards)"; Types: full_en full extra
+
+Name: "FIX\KK_InputHotkeyBlock"; Description: "KK_InputHotkeyBlock v1.1 (Blocks plugin keybinds while typing)"; Types: full_en full extra
 Name: "FIX\FixShaderDropdown"; Description: "FixShaderDropdown v1.0 (Expands shader menu)"; Types: full_en full extra
-Name: "FIX\KK_PersonalityCorrector"; Description: "KK_PersonalityCorrector v1.2 (Fixes story crashes with some cards)"; Types: full_en full extra
-Name: "FIX\DefaultParamEditor"; Description: "DefaultParamEditor 2018-11-04 (Set custom default studio settings) + Improved setting set"; Types: full_en full extra
+Name: "FIX\HideStudioUI"; Description: "HideStudioUI v1.2 (Press space)"; Types: full_en full extra
+
 Name: "FIX\CharaStateX"; Description: "CharaStateX 2019-01-13 (Can edit state of multiple charas in studio at once)"; Types: full_en full extra
-Name: "FIX\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.1 (Needed for some scenes)"; Types: full_en full extra
-Name: "FIX\KK_InputHotkeyBlock"; Description: "KK_InputHotkeyBlock v1.0 (Blocks plugin keybinds while typing)"; Types: full_en full extra
-Name: "FIX\HideStudioUI"; Description: "HideStudioUI (Press space)"; Types: full_en full extra
+Name: "FIX\KK_ReloadCharaListOnChange"; Description: "KK_ReloadCharaListOnChange v1.4"; Types: full_en full extra
 
-Name: "FIX\OutdoorSex"; Description: "Super Outdoor Sex 2.0 (More H locations on some maps)"; Types: full_en full extra
-Name: "FIX\KK_CharaMakerLoadedSound"; Description: "KK_CharaMakerLoadedSound v1.0 (Makes a sound when maker loads)"; Types: full_en full extra
-Name: "FIX\KK_StudioSceneLoadedSound"; Description: "KK_StudioSceneLoadedSound v1.0 (Makes a sound when a scene loads)"; Types: full_en full extra
+Name: "FIX\URL"; Description: "Use custom Character Database (Connects to non-IP-blocked character DB)"; Types: full_en bare custom extra
 
-Name: "FIX\Gameplay"; Description: "Gameplay mod v1.2 (Can force no condom insert, load 99 characters in school, other tweaks)"; Types: extra
-Name: "FIX\Bra"; Description: "Bra Push-Up Mod / KK_Kiyase 0.2.0 (Bras affect breast shape)"; Types: extra
-Name: "FIX\Collider"; Description: "Atari 2.1 by Stinger722 (Breast and hair collisions)"; Types: extra
-Name: "FIX\SkirtFix"; Description: "Vanilla Skirt Fix by Stinger722 (Less clipping)"; Types: extra
-Name: "FIX\Pupils"; Description: "Smaller Heart Pupil v1.1 (Better-looking ahegao eyes)"; Types: full_en full extra
-Name: "FIX\KK_Ahegao"; Description: "KK_Ahegao v1.8 (Make girl cum 3 times for ahegao)"; Types: full_en full extra
-Name: "FIX\GraphicsSettings"; Description: "GraphicsSettings 2018-11-04 (More game settings, allows better quality)"; Types: extra
-Name: "FIX\KK_ForceHighPoly"; Description: "KK_ForceHighPoly v1.1 (Full-quality characters in school, very resource-heavy)"; Types: extra
-Name: "FIX\KK_BetterColorPicker"; Description: "KK_BetterColorPicker v1.0 (Select color from anywhere on screen in maker, useful for copying colors from reference images)"; Types: full_en full extra
+Name: "FIX\SkirtFix"; Description: "Vanilla Skirt Fix by Stinger722 (Less clipping, subjective)"
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Name: "Feature"; Description: "Improvements and additional features"; Types: extra
+Name: "Feature\KKUS"; Description: "KKUS v1.0.0 (Search boxes, studio and maker improvements)"; Types: full_en full extra
+Name: "Feature\DragAndDrop"; Description: "Drag and drop character cards and scenes v1.3"; Types: full_en full extra
+Name: "Feature\KK_BrowserFolders"; Description: "KK_BrowserFolders v1.2.1 (Folder support in chara/scene select screens)"; Types: full_en full extra
+Name: "Feature\KK_ClothesLoadOption"; Description: "KK_ClothesLoadOption 0.0.0 (Can load only some parts of coordinate cards)"; Types: full_en full extra
+Name: "Feature\KK_BetterColorPicker"; Description: "KK_BetterColorPicker v1.0 (Select color from anywhere on screen in maker, useful for copying colors from reference images)"; Types: full_en full extra
+Name: "Feature\KK_CharaMakerLoadedSound"; Description: "KK_CharaMakerLoadedSound v1.0 (Makes a sound when maker loads)"; Types: full_en full extra
+Name: "Feature\KK_StudioSceneLoadedSound"; Description: "KK_StudioSceneLoadedSound v1.0 (Makes a sound when a scene loads)"; Types: full_en full extra
+
+Name: "Feature\KK_Ahegao"; Description: "KK_Ahegao v1.8 (Make girl cum 3 times for ahegao)"; Types: full_en full extra
+Name: "Feature\Pupils"; Description: "Smaller Heart Pupil v1.1 (Better-looking ahegao eyes)"; Types: full_en full extra
+Name: "Feature\OutdoorSex"; Description: "Super Outdoor Sex 2.0 (More H locations on some maps)"; Types: full_en full extra
+
+Name: "Feature\KK_BecomeTrap"; Description: "Koikatsu: Become Trap v1.1 (Can mark a male as a trap in maker, changes gameplay)"; Types: full_en full extra
+Name: "Feature\KK_EyeShaking"; Description: "KK_EyeShaking v1.0 (Adds excited eyes effect to H scenes)"; Types: full_en full extra
+Name: "Feature\Gameplay"; Description: "Gameplay mod v1.2 (Can force no condom insert, load 99 characters in school, other tweaks)"; Types: extra
+
+Name: "Feature\Bra"; Description: "Bra Push-Up Mod / KK_Kiyase 0.2.0 (Bras affect breast shape)"; Types: extra
+Name: "Feature\KK_ForceHighPoly"; Description: "KK_ForceHighPoly v1.1 (Full-quality characters in school, very resource-heavy, experimental)"
+
+Name: "Feature\GraphicsSettings"; Description: "GraphicsSettings 2018-11-04 (More game settings, allows better/worse quality)"; Types: extra
+Name: "Feature\DefaultParamEditor"; Description: "DefaultParamEditor 2018-11-04 (Set custom default studio settings)"; Types: extra
+
+Name: "Feature\Colliders"; Description: "KK_Colliders v1.0 and FloorCollider v0.1 (Add physics to characters, experimental)"; Types: extra
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "MISC"; Description: "{cm:CompMISC}";
-Name: "MISC\URL"; Description: "Use custom Character Database (Connects to non-IP-blocked character DB)"; Types: full_en bare custom extra
-Name: "MISC\DragAndDrop"; Description: "Drag and drop character cards v1.2.2"; Types: full_en full extra
-Name: "MISC\KK_ReloadCharaListOnChange"; Description: "KK_ReloadCharaListOnChange v1.4"; Types: full_en full extra
-Name: "MISC\KK_BrowserFolders"; Description: "KK_BrowserFolders v1.2 (Folder support in main game and studio chara/scene select screens)"; Types: full_en full extra
-Name: "MISC\KK_ClothesLoadOption"; Description: "KK_ClothesLoadOption 0.0.0 (Can load only some parts of coordinate cards)"; Types: full_en full extra
-Name: "MISC\KKUS"; Description: "KKUS v1.0.0 (Search boxes, studio and maker improvements)"; Types: full_en full extra
-Name: "MISC\FPS"; Description: "FPS Counter v1.2"; Types: extra
-Name: "MISC\Trainer"; Description: "Cheat tools v2.1 (Trainer and debugger)"; Types: extra
-Name: "MISC\FullSave"; Description: "Unlock all events and memories"; Types: extra
+
+Name: "MISC\FPS"; Description: "FPS Counter v1.3 (Useful for performance testing)"; Types: extra
+Name: "MISC\Trainer"; Description: "Cheat tools v2.2 (Trainer and debugger)"; Types: extra
+
 Name: "MISC\UnlockHPositions"; Description: "UnlockHPositions 2018-11-04 hotfix (Unlocks all positions)"; Types: extra
+Name: "MISC\FullSave"; Description: "Unlock all events and memories"; Types: extra
+
 ;Name: "MISC\SaveEditor"; Description: "Koikatsu Save Data Editor V12 by kiletw"; Types: extra
-Name: "MISC\Meme"; Description: "Custom intro voices v4 (gachiGasm)"; Types: extra
+Name: "MISC\Meme"; Description: "Custom intro voices v4.69 (Pepega)"; Types: extra
+
 Name: "MISC\FIX"; Description: "Fix game registry (e.g. after moving to different folder)"; Types: bare full_en full extra
 
 [Files]
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Source: "Input\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
-Source: "Input\koikatu_02plus_cdp0201hbtks\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
-Source: "Input\koikatu_02plus_cdp0201hbtks_as\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch; Check: AfterSchoolInstalled
 
-Source: "Input\koikatu_03vr_d0111\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch\VR; Check: VRInstalled
+Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
+Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
+Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_as\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch; Check: AfterSchoolInstalled
 
-Source: "Input\BepInEx_x86_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: BepInEx; Check: "not IsWin64"
-Source: "Input\BepInEx_x64_v4.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx; Check: IsWin64
+Source: "Input\_Patch\koikatu_03vr_d0111\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Patch\VR; Check: VRInstalled
+
+Source: "Input\BepInEx_x86_v4.1.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: BepInEx; Check: "not IsWin64"
+Source: "Input\BepInEx_x64_v4.1.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx; Check: IsWin64
 Source: "Input\BepInEx_Dev\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev;
+
 Source: "Input\BepisPlugins\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepisPlugins
 ; Create empty IPA directory if it doesn't exist to avoid the IPA dir doesn't exist message on game start
 Source: "Input\BepisPlugins.IPAdir\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepisPlugins
 
+Source: "Input\KKAPI.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: KKAPI
+
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_TL\English image translation\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: TL\UItranslation
-Source: "Input\_TL\[Koikatu English Launchers] [v1.0]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishLauncher
-Source: "Input\_TL\eng_story[29-07-2018]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishStory
+Source: "Input\_TL\KoikatsuImageTranslation_v2.7\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: TL\UItranslation
 
 Source: "Input\_TL\KoikatsuTranslation-master\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\EnglishTranslation
+Source: "Input\_TL\KoikatsuTranslation-master\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation\UserData
 Source: "Input\_TL\KoikatsuTranslation-master\UserData\names\*"; DestDir: "{app}\UserData\names"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation
 
-Source: "Input\_TL\KoikatsuTranslation-master\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishTranslation\UserData
-
-Source: "Input\_TL\FriendlySky translations\*"; DestDir: "{app}\BepInEx\translation\Text\FriendlySky translations"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\FriendlySky
+Source: "Input\_TL\Koikatsu-Translations-master_v1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\EnglishTranslation2
 Source: "Input\_TL\Plugin translations\*"; DestDir: "{app}\BepInEx\translation\Text\Plugins"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: TL\Plugins
-
-Source: "Input\_TL\XUnity.AutoTranslator-BepIn-2.16.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\AutoTranslator
 Source: "Input\_TL\translation_eng.nicknames 1.3 BadOne\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\romanization
+
+Source: "Input\_TL\[Koikatu English Launchers] [v1.0]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\EnglishLauncher
 Source: "Input\_TL\KK_Subtitles.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: TL\KK_Subtitles
 
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\_Uncensor\[Demosaic][1.0][AUTOMATIC1111]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: UNC\Demosaic
-
-Source: "Input\_Uncensor\FutaRoy\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: UNC\Model\FutaRoy
-
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4.zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion; Components: UNC\Model\Separate\Male\Normal
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[rounderBalls].zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion; Components: UNC\Model\Separate\Male\NormalBalls
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[dark].zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion; Components: UNC\Model\Separate\Male\Dark
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][MUncensor]whatsadick4[dark+roundBalls].zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion; Components: UNC\Model\Separate\Male\DarkBalls
-Source: "Input\_Uncensor\[Male][Uncensor]KK_LO_pussy_v0.5.zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion; Components: UNC\Model\Separate\Male\LO
-
-Source: "Input\_Uncensor\zipmod.uncensors\[enk][FUncensor][moderchan]funcensor01.zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion; Components: UNC\Model\Separate\Female\Chan
-Source: "Input\_Uncensor\[Female][Uncensor]KK_LO_pussy_v0.5.zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion; Components: UNC\Model\Separate\Female\LO
-
-Source: "Input\_Uncensor\[moderchan]Tongue Texture v1.1.zipmod"; DestDir: "{app}\mods\Uncensor"; Flags: ignoreversion solidbreak; Components: UNC\Tongue
+Source: "Input\_TL\XUnity.AutoTranslator-BepIn-3.0.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: TL\AutoTranslator
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\Sideloader Modpack\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack
-Source: "Input\Sideloader Modpack - Studio\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: ModpackStudio
+Source: "Input\_Uncensor\\KK_UncensorSelector.v2.5\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: UNC\Selector
+Source: "Input\_Uncensor\Uncensors and body mods\*"; DestDir: "{app}\mods\Uncensors and body mods"; Flags: ignoreversion recursesubdirs; Components: UNC\Selector\Pack
+
+Source: "Input\_Uncensor\[moderchan]Tongue Texture v1.1.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Tongue
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Fix\MoreAccessories.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\MoreAccessories
-Source: "Input\_Fix\KKPE.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KKPE
-Source: "Input\_Fix\KKABMX\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KKABMX
-Source: "Input\_Fix\KSOX\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KSOX
-Source: "Input\_Fix\KK_SkinEffects.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KSOX\KK_SkinEffects
-Source: "Input\_Fix\KK_GUIDMigration\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_GUIDMigration
+Source: "Input\_Content\Sideloader Modpack\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\Modpack
+Source: "Input\_Content\Sideloader Modpack - Studio\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\ModpackStudio
+Source: "Input\_Content\KK_GUIDMigration.v1.3\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\KK_GUIDMigration
+Source: "Input\_Content\KK_ClothingUnlocker.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion solidbreak; Components: Content\KK_ClothingUnlocker
+
+Source: "Input\_Content\MoreAccessories.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion solidbreak; Components: Content\MoreAccessories
+Source: "Input\_Content\KKABMX_v2.3\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Content\KKABMX
+Source: "Input\_Content\Koikatsu Overlay Mods v4.1.1\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Content\KSOX
+Source: "Input\_Content\KK_SkinEffects.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Content\KSOX\KK_SkinEffects
+Source: "Input\_Content\KK_InvisibleBody.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Content\KK_InvisibleBody
+Source: "Input\_Content\KK_AnimationController.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Content\KK_AnimationController
+Source: "Input\_Content\KKPE.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Content\KKPE
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Source: "Input\_Fix\FixCompilation.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\FixCompilation
-Source: "Input\_Fix\DefaultParamEditor\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\DefaultParamEditor
-Source: "Input\_Fix\FixShaderDropdown.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\FixShaderDropdown
-Source: "Input\_Fix\CharaStateX.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\CharaStateX
-Source: "Input\_Fix\KK_InvisibleBody.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_InvisibleBody
-Source: "Input\_Fix\KK_InputHotkeyBlock.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_InputHotkeyBlock
-Source: "Input\_Fix\HideStudioUI.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\HideStudioUI
-
-Source: "Input\_Fix\[uppervolta]Super Outdoor Sex 2.0.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\OutdoorSex
-Source: "Input\_Fix\KK_StudioSceneLoadedSound\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_StudioSceneLoadedSound
-Source: "Input\_Fix\KK_CharaMakerLoadedSound\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_CharaMakerLoadedSound
-Source: "Input\_Fix\KK_CutsceneLockupFix\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_CutsceneLockupFix
+Source: "Input\_Fix\KK_CutsceneLockupFix.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_CutsceneLockupFix
 Source: "Input\_Fix\KK_PersonalityCorrector.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_PersonalityCorrector
 
-Source: "Input\_Fix\KoikatuGameplayMod.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion solidbreak; Components: FIX\Gameplay
-Source: "Input\_Fix\KK_Kiyase\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\Bra
-Source: "Input\_Fix\atari2.1 (normal bust).zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\Collider
+Source: "Input\_Fix\KK_InputHotkeyBlock.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_InputHotkeyBlock
+Source: "Input\_Fix\FixShaderDropdown.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\FixShaderDropdown
+Source: "Input\_Fix\HideStudioUI.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\HideStudioUI
+
+Source: "Input\_Fix\CharaStateX.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\CharaStateX
+Source: "Input\_FIX\KK_ReloadCharaListOnChange.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_ReloadCharaListOnChange
+
+Source: "Input\_Fix\[Character Database][various] fixed\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: FIX\URL
+
 Source: "Input\_Fix\[Stinger722]Vanilla Skirt Fix.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\SkirtFix
-Source: "Input\_Fix\[DeathWeasel]Smaller Heart Pupil v1.1.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\Pupils
-Source: "Input\_Fix\KK_Ahegao.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_Ahegao
-Source: "Input\_Fix\KK_ForceHighPoly.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_ForceHighPoly
-Source: "Input\_Fix\GraphicsSettings.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\GraphicsSettings
-Source: "Input\_Fix\KK_BetterColorPicker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_BetterColorPicker
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Fix\[Character Database][various] fixed\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: MISC\URL
-Source: "Input\_Misc\DragAndDrop.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\DragAndDrop
-Source: "Input\_Misc\KK_ReloadCharaListOnChange.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\KK_ReloadCharaListOnChange
-Source: "Input\_Misc\KK_BrowserFolders.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\KK_BrowserFolders
-Source: "Input\_Misc\KK_ClothesLoadOption.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\KK_ClothesLoadOption
-Source: "Input\_Misc\KKUS.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\KKUS
-Source: "Input\_Misc\[FPS Counter][MarC0][v1.2]\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: MISC\FPS
-Source: "Input\_Misc\CheatTools.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\Trainer
+Source: "Input\_Feature\KKUS.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KKUS
+Source: "Input\_Feature\DragAndDrop.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\DragAndDrop
+Source: "Input\_Feature\KK_BrowserFolders.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_BrowserFolders
+Source: "Input\_Feature\KK_ClothesLoadOption.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_ClothesLoadOption
+Source: "Input\_Feature\KK_BetterColorPicker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\KK_BetterColorPicker
+Source: "Input\_Feature\KK_StudioSceneLoadedSound\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Feature\KK_StudioSceneLoadedSound
+Source: "Input\_Feature\KK_CharaMakerLoadedSound\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Feature\KK_CharaMakerLoadedSound
+
+Source: "Input\_Feature\KK_Ahegao.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_Ahegao
+Source: "Input\_Feature\[DeathWeasel]Smaller Heart Pupil v1.1.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Feature\Pupils
+Source: "Input\_Feature\[uppervolta]Super Outdoor Sex 2.0.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Feature\OutdoorSex
+
+Source: "Input\_Feature\KK_BecomeTrap_v1.1\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\KK_BecomeTrap
+Source: "Input\_Feature\KK_EyeShaking.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_EyeShaking
+Source: "Input\_Feature\KoikatuGameplayMod.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\Gameplay
+
+Source: "Input\_Feature\KK_Kiyase\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\Bra
+Source: "Input\_Feature\KK_ForceHighPoly.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_ForceHighPoly
+
+Source: "Input\_Feature\GraphicsSettings.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\GraphicsSettings
+Source: "Input\_Feature\DefaultParamEditor\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Feature\DefaultParamEditor
+
+Source: "Input\_Feature\Colliders\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Feature\Colliders
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Source: "Input\_Misc\FPSCounter.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\FPS
+Source: "Input\_Misc\KoikatuCheatTools_v2.2\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: MISC\Trainer
+
 Source: "Input\_Misc\UnlockHPositions.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: MISC\UnlockHPositions
 Source: "Input\_Misc\Full save\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: MISC\FullSave
+
 ;Source: "Input\_Misc\KoikatuSaveDataEdit\*"; DestDir: "{app}\_Tools\KoikatuSaveDataEdit"; Flags: ignoreversion recursesubdirs; Components: MISC\SaveEditor
 Source: "Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: MISC\Meme
 
@@ -228,15 +266,16 @@ Source: "Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesub
 ; Clean up old translations
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Images"; Components: TL\UItranslation
 Type: filesandordirs; Name: "{app}\BepInEx\translation\Text"; Components: TL\EnglishTranslation
-Type: filesandordirs; Name: "{app}\BepInEx\translation\scenario"; Components: TL\EnglishStory
-Type: files; Name: "{app}\BepInEx\MakerLag.dll"; Components: FIX\FixCompilation
-Type: files; Name: "{app}\BepInEx\KKSceneBrowserFolders.dll"; Components: MISC\KK_BrowserFolders
+Type: filesandordirs; Name: "{app}\BepInEx\translation\scenario"; Components: TL\EnglishTranslation2
+;Type: files; Name: "{app}\BepInEx\MakerLag.dll"; Components: FIX\FixCompilation
+Type: files; Name: "{app}\BepInEx\KKSceneBrowserFolders.dll"; Components: Feature\KK_BrowserFolders
 Type: files; Name: "{app}\InitSettingGameStudioVREN.exe"; Components: TL\EnglishLauncher
 
 ; Clean up old modpacks
-Type: filesandordirs; Name: "{app}\mods\Uncensor"; Components: UNC
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"; Components: Modpack
-Type: filesandordirs; Name: "{app}\mods\Sideloader Only Mods"; Components: Modpack
+Type: filesandordirs; Name: "{app}\mods\Sideloader Only Mods"; Components: Content\Modpack
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"; Components: Content\Modpack
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Studio"; Components: Content\ModpackStudio
+Type: filesandordirs; Name: "{app}\BepInEx\introclips"; Components: MISC\Meme
 
 ; Always not necessary
 Type: files; Name: "{app}\0Harmony.dll"
@@ -253,6 +292,7 @@ Type: files; Name: "{app}\manifest.xml"
 Type: files; Name: "{app}\BepInEx.Patcher.exe"; Components: BepInEx
 
 ; Potentially incompatible, outdated or buggy plugins
+Type: files; Name: "{app}\mods\atari2.1 (normal bust).zipmod"
 Type: files; Name: "{app}\BepInEx\IPA\KoikPlugins.dll"
 Type: files; Name: "{app}\BepInEx\KK_ForceHighPoly.dll"
 Type: files; Name: "{app}\BepInEx\KKSubs.dll"
@@ -260,6 +300,13 @@ Type: files; Name: "{app}\BepInEx\HSubs.dll"
 Type: files; Name: "{app}\BepInEx\FixCompilation.dll"
 Type: files; Name: "{app}\BepInEx\KK_Ahegao.dll"
 Type: files; Name: "{app}\BepInEx\ObjectTreeDebugKK.dll"; Components: MISC\Trainer
+Type: files; Name: "{app}\BepInEx\MakerAPI.dll"; Components: KKAPI
+
+; Clean up old uncensors
+Type: filesandordirs; Name: "{app}\mods\Uncensor"; Components: UNC\Selector
+Type: files; Name: "{app}\BepInEx\Demosaic.dll"; Components: UNC\Selector
+Type: files; Name: "{app}\BepInEx\CartoonUncensor.dll"; Components: UNC\Selector
+Type: files; Name: "{app}\BepInEx\AlexaeBubbleGum.dll"; Components: UNC\Selector
 
 ; Patch resets all assembly modifications so these files are useless, need to run patcher again anyways
 ;Type: files; Name: "{app}\Koikatu_Data\Managed\0Harmony.dll"; Components: Patch
@@ -335,7 +382,7 @@ Filename: "http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussio
 Filename: "{app}\BepInEx.Patcher.exe"; Flags: runascurrentuser skipifdoesntexist waituntilterminated; Description: "Setting up BepInEx for dnSpy debugging"
 
 [Code]
-procedure SetConfigDefaults(path: String, uncensorSelector: Boolean, gameplayMod: Boolean);
+procedure SetConfigDefaults(path: String; uncensorSelector: Boolean; gameplayMod: Boolean);
 external 'SetConfigDefaults@files:HelperLib.dll stdcall';
 
 procedure FixConfig(path: String);
@@ -349,6 +396,16 @@ external 'RemoveNonstandardListfiles@files:HelperLib.dll stdcall';
 
 procedure RemoveSideloaderDuplicates(path: String);
 external 'RemoveSideloaderDuplicates@files:HelperLib.dll stdcall';
+
+function VRInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\KoikatuVR_Data\resources.assets'));
+end;
+
+function AfterSchoolInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\20.unity3d'));
+end;
 
 procedure CurPageChanged(CurPageID: Integer);
 begin
@@ -372,17 +429,9 @@ begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgIncompatibleModsDetected}'), mbError, MB_OK, 0);
       WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
     end;
+    
+    WizardForm.ComponentsList.Checked[1] := VRInstalled();
   end;
-end;
-
-function VRInstalled(): Boolean;
-begin
-  Result := FileExists(ExpandConstant('{app}\KoikatuVR_Data\resources.assets"'));
-end;
-
-function AfterSchoolInstalled(): Boolean;
-begin
-  Result := FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\20.unity3d'));
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
@@ -419,10 +468,13 @@ begin
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC2}'), mbInformation, MB_OK, 0);
         end;
+        
+        WizardForm.ComponentsList.Checked[1] := VRInstalled();
+        WizardForm.ComponentsList.ItemEnabled[1] := VRInstalled();
       end;
 
       // Check for extracted zipmods
-      if (Result = True and FileExists(ExpandConstant('{app}\manifest.xml'))) then
+      if FileExists(ExpandConstant('{app}\manifest.xml')) then
       begin
         SuppressibleMsgBox(ExpandConstant('{cm:MsgExtractedZipmod}'), mbError, MB_OK, 0);
       end;

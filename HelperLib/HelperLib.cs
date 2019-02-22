@@ -134,26 +134,36 @@ namespace HelperLib
         public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path, bool uncensorSelector, bool gameplayMod)
         {
             var ud = Path.Combine(path, @"BepInEx\config.ini");
-            var contents = File.ReadAllLines(ud).ToList();
 
-            if (contents.All(x => x.Trim() != "[KK_UncensorSelector]"))
+            try
             {
-                File.AppendAllLines(ud, new []
+                if (!File.Exists(ud)) File.WriteAllText(ud, string.Empty);
+
+                var contents = File.ReadAllLines(ud).ToList();
+
+                if (uncensorSelector && contents.All(x => x.Trim() != "[KK_UncensorSelector]"))
                 {
-                    "[KK_UncensorSelector]",
-                    "DefaultFemaleUncensor=moderchan",
-                    "DefaultMaleUncensor=SoS"
-                });
+                    File.AppendAllLines(ud, new[]
+                    {
+                        "[KK_UncensorSelector]",
+                        "DefaultFemaleUncensor=moderchan",
+                        "DefaultMaleUncensor=SoS"
+                    });
+                }
+
+                if (gameplayMod && contents.All(x => x.Trim() != "[marco-gameplaymod]"))
+                {
+                    File.AppendAllLines(ud, new[]
+                    {
+                        "[marco-gameplaymod]",
+                        "LewdDecay=False",
+                        "DecreaseLewd=False"
+                    });
+                }
             }
-
-            if (contents.All(x => x.Trim() != "[marco-gameplaymod]"))
+            catch (Exception e)
             {
-                File.AppendAllLines(ud, new[]
-                {
-                    "[marco-gameplaymod]",
-                    "LewdDecay=False",
-                    "DecreaseLewd=False"
-                });
+                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
             }
         }
 
