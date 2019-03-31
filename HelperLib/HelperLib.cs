@@ -129,11 +129,11 @@ namespace HelperLib
   <Display>0</Display>
   <Language>0</Language>
 </Setting>";
-        
+
         [DllExport("FixConfig", CallingConvention = CallingConvention.StdCall)]
         public static void FixConfig([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
-            var ud = Path.Combine(path, "UserData\\setup.xml");
+            var ud = Path.Combine(path, @"UserData\setup.xml");
 
             try
             {
@@ -142,8 +142,8 @@ namespace HelperLib
                 var s = r.Element("Size").Value;
                 var w = int.Parse(r.Element("Width").Value);
                 var h = int.Parse(r.Element("Height").Value);
-                if (w < 200 || h < 200 || w <= h 
-                    || !s.Contains(w.ToString(CultureInfo.InvariantCulture)) 
+                if (w < 200 || h < 200 || w <= h
+                    || !s.Contains(w.ToString(CultureInfo.InvariantCulture))
                     || !s.Contains(h.ToString(CultureInfo.InvariantCulture)))
                     throw new Exception();
 
@@ -156,13 +156,35 @@ namespace HelperLib
             {
                 File.Delete(ud);
                 File.WriteAllText(ud, GoodSettings, Encoding.Unicode);
+                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), @"Fixed corrupted " + ud + Environment.NewLine + e + Environment.NewLine);
+            }
+
+            var sysDir = Path.Combine(path, @"UserData\config\system.xml");
+            try
+            {
+                var sysConfig = XDocument.Parse(sysDir);
+
+                var etc = sysConfig.Root?.Element("Etc") ?? throw new Exception();
+                etc.SetElementValue("loadHeadAccessory", "False");
+                etc.SetElementValue("loadAllAccessory", "True");
+
+                var add = sysConfig.Root.Element("Add") ?? throw new Exception();
+                add.SetElementValue("TalkTimeNoneWalkStop", "True");
+                add.SetElementValue("OtherClassRegisterMax", "True");
+                add.SetElementValue("AINotPlayerTarget", "True");
+                add.SetElementValue("AINotPlayerTargetCommunication", "True");
+            }
+            catch (Exception e)
+            {
+                File.Delete(sysDir);
+                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), @"Reset corrupted " + sysDir + Environment.NewLine + e + Environment.NewLine);
             }
         }
 
         private static void CheckRange(string instr, int min, int max)
         {
             var val = int.Parse(instr);
-            if(min > val || val > max)
+            if (min > val || val > max)
                 throw new Exception();
         }
 
@@ -178,7 +200,7 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
+                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), e + Environment.NewLine);
             }
         }
 
@@ -225,7 +247,7 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
+                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), e + Environment.NewLine);
             }
         }
 
@@ -247,7 +269,7 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
+                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), e + Environment.NewLine);
             }
         }
 
