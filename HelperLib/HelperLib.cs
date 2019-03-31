@@ -129,44 +129,7 @@ namespace HelperLib
   <Display>0</Display>
   <Language>0</Language>
 </Setting>";
-
-        [DllExport("SetConfigDefaults", CallingConvention = CallingConvention.StdCall)]
-        public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path, bool uncensorSelector, bool gameplayMod)
-        {
-            var ud = Path.Combine(path, @"BepInEx\config.ini");
-
-            try
-            {
-                if (!File.Exists(ud)) File.WriteAllText(ud, string.Empty);
-
-                var contents = File.ReadAllLines(ud).ToList();
-
-                if (uncensorSelector && contents.All(x => x.Trim() != "[KK_UncensorSelector]"))
-                {
-                    File.AppendAllLines(ud, new[]
-                    {
-                        "[KK_UncensorSelector]",
-                        "DefaultFemaleUncensor=moderchan",
-                        "DefaultMaleUncensor=SoS"
-                    });
-                }
-
-                if (gameplayMod && contents.All(x => x.Trim() != "[marco-gameplaymod]"))
-                {
-                    File.AppendAllLines(ud, new[]
-                    {
-                        "[marco-gameplaymod]",
-                        "LewdDecay=False",
-                        "DecreaseLewd=False"
-                    });
-                }
-            }
-            catch (Exception e)
-            {
-                File.AppendAllText(Assembly.GetExecutingAssembly().Location + ".log", e + Environment.NewLine);
-            }
-        }
-
+        
         [DllExport("FixConfig", CallingConvention = CallingConvention.StdCall)]
         public static void FixConfig([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
