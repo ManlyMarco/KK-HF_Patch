@@ -20,7 +20,7 @@ namespace HelperLib.Tests
         [TestMethod()]
         public void FixConfigTest()
         {
-            HelperLib.FixConfig(@"D:\_Koikatu\_koikatu hf patch test");
+            HelperLib.FixConfig(@"D:\Games\Koikatsu");
         }
     }
 }

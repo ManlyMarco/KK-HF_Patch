@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -137,20 +136,23 @@ namespace HelperLib
 
             try
             {
-                var r = XDocument.Parse(File.ReadAllText(ud)).Root;
+                using (var reader = File.OpenRead(ud))
+                {
+                    var r = XDocument.Load(reader).Root;
 
-                var s = r.Element("Size").Value;
-                var w = int.Parse(r.Element("Width").Value);
-                var h = int.Parse(r.Element("Height").Value);
-                if (w < 200 || h < 200 || w <= h
-                    || !s.Contains(w.ToString(CultureInfo.InvariantCulture))
-                    || !s.Contains(h.ToString(CultureInfo.InvariantCulture)))
-                    throw new Exception();
+                    var s = r.Element("Size").Value;
+                    var w = int.Parse(r.Element("Width").Value);
+                    var h = int.Parse(r.Element("Height").Value);
+                    if (w < 200 || h < 200 || w <= h
+                        || !s.Contains(w.ToString(CultureInfo.InvariantCulture))
+                        || !s.Contains(h.ToString(CultureInfo.InvariantCulture)))
+                        throw new Exception();
 
-                var _ = bool.Parse(r.Element("FullScreen").Value);
-                CheckRange(r.Element("Quality").Value, 0, 2);
-                CheckRange(r.Element("Display").Value, 0, Screen.AllScreens.Length);
-                CheckRange(r.Element("Language").Value, 0, 2);
+                    var _ = bool.Parse(r.Element("FullScreen").Value);
+                    CheckRange(r.Element("Quality").Value, 0, 2);
+                    CheckRange(r.Element("Display").Value, 0, Screen.AllScreens.Length);
+                    CheckRange(r.Element("Language").Value, 0, 2);
+                }
             }
             catch (Exception e)
             {
@@ -162,17 +164,23 @@ namespace HelperLib
             var sysDir = Path.Combine(path, @"UserData\config\system.xml");
             try
             {
-                var sysConfig = XDocument.Parse(sysDir);
+                using (var reader = File.OpenRead(sysDir))
+                {
+                    var sysConfig = XDocument.Load(reader);
 
-                var etc = sysConfig.Root?.Element("Etc") ?? throw new Exception();
-                etc.SetElementValue("loadHeadAccessory", "False");
-                etc.SetElementValue("loadAllAccessory", "True");
+                    var etc = sysConfig.Root?.Element("Etc") ?? throw new Exception();
+                    etc.SetElementValue("loadHeadAccessory", "False");
+                    etc.SetElementValue("loadAllAccessory", "True");
 
-                var add = sysConfig.Root.Element("Add") ?? throw new Exception();
-                add.SetElementValue("TalkTimeNoneWalkStop", "True");
-                add.SetElementValue("OtherClassRegisterMax", "True");
-                add.SetElementValue("AINotPlayerTarget", "True");
-                add.SetElementValue("AINotPlayerTargetCommunication", "True");
+                    var add = sysConfig.Root.Element("Add") ?? throw new Exception();
+                    add.SetElementValue("TalkTimeNoneWalkStop", "True");
+                    add.SetElementValue("OtherClassRegisterMax", "True");
+                    add.SetElementValue("AINotPlayerTarget", "True");
+                    add.SetElementValue("AINotPlayerTargetCommunication", "True");
+
+                    reader.Dispose();
+                    sysConfig.Save(sysDir);
+                }
             }
             catch (Exception e)
             {
