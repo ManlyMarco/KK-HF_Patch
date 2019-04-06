@@ -14,6 +14,20 @@ namespace HelperLib
 {
     public class HelperLib
     {
+        private const string LogFileName = "HF_Patch.log";
+
+        private static void AppendLog(string targetDirectory, object message)
+        {
+            try
+            {
+                File.AppendAllText(Path.Combine(targetDirectory, LogFileName), message.ToString() + Environment.NewLine);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
         private static readonly string[] FilesToDeleteForTranslation =
         {
             @"bg\チャペル_夕.png",
@@ -156,9 +170,15 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                File.Delete(ud);
-                File.WriteAllText(ud, GoodSettings, Encoding.Unicode);
-                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), @"Fixed corrupted " + ud + Environment.NewLine + e + Environment.NewLine);
+                try
+                {
+                    File.Delete(ud);
+                    File.WriteAllText(ud, GoodSettings, Encoding.Unicode);
+
+                    if (!(e is FileNotFoundException))
+                        AppendLog(path, @"Fixed corrupted " + ud + "; Cause:" + e.Message);
+                }
+                catch { }
             }
 
             var sysDir = Path.Combine(path, @"UserData\config\system.xml");
@@ -184,8 +204,14 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                File.Delete(sysDir);
-                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), @"Reset corrupted " + sysDir + Environment.NewLine + e + Environment.NewLine);
+                try
+                {
+                    File.Delete(sysDir);
+
+                    if (!(e is FileNotFoundException))
+                        AppendLog(path, @"Reset corrupted " + sysDir + Environment.NewLine + e + Environment.NewLine);
+                }
+                catch { }
             }
         }
 
@@ -208,7 +234,7 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), e + Environment.NewLine);
+                AppendLog(path, e);
             }
         }
 
@@ -223,9 +249,7 @@ namespace HelperLib
                     foreach (var filePath in Directory.GetFiles(ld))
                     {
                         if (!IsStandardListFile(filePath))
-                        {
                             SafeFileDelete(filePath);
-                        }
                     }
                 }
 
@@ -235,9 +259,7 @@ namespace HelperLib
                     foreach (var filePath in Directory.GetFiles(hld))
                     {
                         if (!IsStandardHListFile(filePath))
-                        {
                             SafeFileDelete(filePath);
-                        }
                     }
                 }
 
@@ -247,15 +269,13 @@ namespace HelperLib
                     foreach (var filePath in Directory.GetFiles(sld))
                     {
                         if (!IsStandardListFile(filePath))
-                        {
                             SafeFileDelete(filePath);
-                        }
                     }
                 }
             }
             catch (Exception e)
             {
-                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), e + Environment.NewLine);
+                AppendLog(path, e);
             }
         }
 
@@ -277,66 +297,74 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                File.AppendAllText(Path.Combine(path, "HF_Patch.log"), e + Environment.NewLine);
+                AppendLog(path, e);
             }
         }
 
         private static void SideloaderCleanupByManifest(IEnumerable<string> allMods)
         {
-            var mods = new List<SideloaderModInfo>();
-
-            foreach (var mod in allMods)
+            try
             {
-                try
+                var mods = new List<SideloaderModInfo>();
+
+                foreach (var mod in allMods)
                 {
-                    using (var zs = new FileStream(mod, FileMode.Open, FileAccess.Read))
-                    using (var zf = new ZipArchive(zs))
+                    try
                     {
-                        var manifestEntry = zf.Entries.FirstOrDefault(x =>
-                            x.Name.Equals("manifest.xml", StringComparison.OrdinalIgnoreCase));
-
-                        if (manifestEntry == null)
+                        using (var zs = new FileStream(mod, FileMode.Open, FileAccess.Read))
+                        using (var zf = new ZipArchive(zs))
                         {
-                            if (FileHasZipmodExtension(mod))
-                                throw new InvalidDataException("zipmod has no manifest");
-                            continue;
-                        }
+                            var manifestEntry = zf.Entries.FirstOrDefault(
+                                x =>
+                                    x.Name.Equals("manifest.xml", StringComparison.OrdinalIgnoreCase));
 
-                        using (var fileStream = manifestEntry.Open())
-                        {
-                            var manifest = XDocument.Load(fileStream, LoadOptions.None);
-
-                            if (manifest.Root == null || !manifest.Root.HasElements)
-                                throw new InvalidDataException("The manifest.xml file is in an invalid format");
-
-                            var guid = manifest.Root.Element("guid")?.Value;
-                            if (string.IsNullOrWhiteSpace(guid))
+                            if (manifestEntry == null)
+                            {
+                                if (FileHasZipmodExtension(mod))
+                                    throw new InvalidDataException("zipmod has no manifest");
                                 continue;
+                            }
 
-                            mods.Add(new SideloaderModInfo(mod, guid,
-                                manifest.Root.Element("version")?.Value));
+                            using (var fileStream = manifestEntry.Open())
+                            {
+                                var manifest = XDocument.Load(fileStream, LoadOptions.None);
+
+                                if (manifest.Root == null || !manifest.Root.HasElements)
+                                    throw new InvalidDataException("The manifest.xml file is in an invalid format");
+
+                                var guid = manifest.Root.Element("guid")?.Value;
+                                if (string.IsNullOrWhiteSpace(guid))
+                                    continue;
+
+                                mods.Add(new SideloaderModInfo(mod, guid,
+                                        manifest.Root.Element("version")?.Value));
+                            }
                         }
                     }
+                    catch (SystemException)
+                    {
+                        // Kill it with fire
+                        SafeFileDelete(mod);
+                    }
                 }
-                catch (SystemException)
+
+                foreach (var modGroup in mods.GroupBy(x => x.Guid))
                 {
-                    // Kill it with fire
-                    SafeFileDelete(mod);
+                    var orderedMods = modGroup.All(x => !string.IsNullOrWhiteSpace(x.Version))
+                        ? modGroup.OrderByDescending(x => x.Version, new VersionComparer())
+                        : modGroup.OrderByDescending(x => File.GetLastWriteTime(x.Path));
+
+                    // Prefer .zipmod extension and then longer paths (so the mod has either longer name or is arranged in a subdirectory)
+                    orderedMods = orderedMods.ThenByDescending(x => FileHasZipmodExtension(x.Path))
+                        .ThenByDescending(x => x.Path.Length);
+
+                    foreach (var oldMod in orderedMods.Skip(1))
+                        SafeFileDelete(oldMod.Path);
                 }
             }
-
-            foreach (var modGroup in mods.GroupBy(x => x.Guid))
+            catch (Exception ex)
             {
-                var orderedMods = modGroup.All(x => !string.IsNullOrWhiteSpace(x.Version))
-                    ? modGroup.OrderByDescending(x => x.Version, new VersionComparer())
-                    : modGroup.OrderByDescending(x => File.GetLastWriteTime(x.Path));
-
-                // Prefer .zipmod extension and then longer paths (so the mod has either longer name or is arranged in a subdirectory)
-                orderedMods = orderedMods.ThenByDescending(x => FileHasZipmodExtension(x.Path))
-                    .ThenByDescending(x => x.Path.Length);
-
-                foreach (var oldMod in orderedMods.Skip(1))
-                    SafeFileDelete(oldMod.Path);
+                Console.WriteLine(ex);
             }
         }
 
