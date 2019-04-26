@@ -13,6 +13,7 @@ MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is t
 MsgMissingDLC1=NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.%n%nIf you want to use it, install it BEFORE running HF Patch.
 MsgMissingDLC2=NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.%n%nIf you want to use it, install it BEFORE running HF Patch.
 MsgExtractedZipmod=WARNING - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.%n%nRepair will be attempted, but if you still have problems you will have to reinstall the game.
+MsgEmotionCreatorsDetected=ERROR - EmotionCreators files have been detected! If you installed EmotionCreators to the same folder as Koikatsu, you have broken Koikatsu game files. To fix this you will need to reinstall both games to separate directories!
 
 RunGame=&Run Koikatsu
 RunWiki=Open Koikatsu wiki (FAQ, English manual)
@@ -53,6 +54,7 @@ jp.MsgMissingGameFiles=エラー - 重要なゲームファイルがありませ
 jp.MsgMissingDLC1=注意 - 「コイカツ！性格追加発売記念水着データVer.2018-08-31」のアップデートが欠けています。 それは3つの新しい個性と新しいアイテムを加えます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
 jp.MsgMissingDLC2==注意 - 「コイカツ！ アフタースクールVer.2018-12-21」のアップデートが欠けています。 四つの新しい人格、3Pや他のいくつかのゲームプレイの機能が追加されます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
 jp.MsgExtractedZipmod=警告 - Sideloader modがゲームディレクトリ内に抽出されたようです。 一部のゲームファイルが破損している可能性があります。%n%n修復を試みますが、それでも問題が解決しない場合は、ゲームを再インストールする必要があります。
+jp.MsgEmotionCreatorsDetected=エラー - 「エモーション・クリエイター」を「コイカツ」と同じフォルダにインストールした場合は、「コイカツ」ゲームファイルが壊れています。修正するには、両方のゲームを別々のディレクトリに再インストールする必要があります。
 
 jp.RunGame=ゲームを始める
 jp.RunWiki=オープン英語Koikatsuのwiki（FAQ、マニュアル）

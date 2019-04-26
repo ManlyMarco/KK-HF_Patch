@@ -157,7 +157,7 @@ Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "UserData"; Components: Patch
+Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "\UserData\bg\*,\UserData\cardframe\*,\UserData\chara\*,\UserData\coordinate\*,\UserData\frame\*,\UserData\Studio\scene\*"; Components: Patch
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_as\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch; Check: AfterSchoolInstalled
 
@@ -169,7 +169,7 @@ Source: "Input\BepInEx_Dev\*"; DestDir: "{app}"; Flags: ignoreversion recursesub
 
 Source: "Input\BepisPlugins\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepisPlugins
 ; Create empty IPA directory if it doesn't exist to avoid the IPA dir doesn't exist message on game start
-Source: "Input\BepisPlugins.IPAdir\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepisPlugins
+;Source: "Input\BepisPlugins.IPAdir\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepisPlugins
 
 Source: "Input\KKAPI.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: KKAPI
 
@@ -456,6 +456,15 @@ begin
         Result := False;
     end;
 
+    if Result = True then
+    begin
+      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))) then
+      begin
+        MsgBox(ExpandConstant('{cm:MsgEmotionCreatorsDetected}'), mbError, MB_OK);
+        Result := False;
+      end
+    end;
+    
     if Result = True then
     begin
       // Check for file corruptions
