@@ -143,6 +143,32 @@ namespace HelperLib
   <Language>0</Language>
 </Setting>";
 
+        [DllExport("SetConfigDefaults", CallingConvention = CallingConvention.StdCall)]
+        public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            var ud = Path.Combine(path, @"BepInEx\config.ini");
+
+            try
+            {
+                if (!File.Exists(ud)) File.WriteAllText(ud, string.Empty);
+
+                var contents = File.ReadAllLines(ud).ToList();
+
+                if (contents.All(x => x.Trim() != "[KK_ForceHighPoly]"))
+                {
+                    File.AppendAllLines(ud, new[]
+                    {
+                        "[KK_ForceHighPoly]",
+                        "Enabled=False"
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, "Failed trying to set config.ini defaults: " + e);
+            }
+        }
+
         [DllExport("FixConfig", CallingConvention = CallingConvention.StdCall)]
         public static void FixConfig([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
