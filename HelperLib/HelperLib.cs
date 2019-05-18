@@ -217,12 +217,18 @@ namespace HelperLib
                     var etc = sysConfig.Root?.Element("Etc") ?? throw new Exception();
                     etc.SetElementValue("loadHeadAccessory", "False");
                     etc.SetElementValue("loadAllAccessory", "True");
+                    etc.SetElementValue("SemenType", "1");
+
+                    // Reset shadow type if it's invalid
+                    if (!int.TryParse(etc.Element("rampId")?.Value, out var res) || res > 1000000)
+                        etc.SetElementValue("rampId", "0");
 
                     var add = sysConfig.Root.Element("Add") ?? throw new Exception();
                     add.SetElementValue("TalkTimeNoneWalkStop", "True");
                     add.SetElementValue("OtherClassRegisterMax", "True");
-                    add.SetElementValue("AINotPlayerTarget", "True");
+                    add.SetElementValue("AINotPlayerTarget", "False");
                     add.SetElementValue("AINotPlayerTargetCommunication", "True");
+                    add.SetElementValue("AIActionCorrectionH", "30");
 
                     reader.Dispose();
                     sysConfig.Save(sysDir);
