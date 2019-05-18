@@ -1,5 +1,5 @@
 [Setup]
-AppPublisher=MarC0
+AppPublisher=ManlyMarco
 
 AppVersion={#VERSION}
 VersionInfoVersion={#VERSION}

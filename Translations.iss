@@ -61,7 +61,7 @@ jp.RunWiki=オープン英語Koikatsuのwiki（FAQ、マニュアル）
 jp.RunDiscord=英語のDiscordチャンネルに参加する（ヘルプ、アップデート、カード、モッズの共有）
 jp.RunHF=HongFireディスカッションスレッドを開く（英語）
 
-jp.IconGame=こいかつ！ ランチャー
+jp.IconGame=コイカツ！ ランチャー
 
 jp.TaskIcon=ゲームのデスクトップアイコンを作成する
 jp.TaskDelete=インストール前に古いmodを削除します（問題を回避したい場合に推奨）
