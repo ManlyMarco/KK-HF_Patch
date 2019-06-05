@@ -169,6 +169,27 @@ namespace HelperLib
             }
         }
 
+        [DllExport("WriteVersionFile", CallingConvention = CallingConvention.StdCall)]
+        public static void WriteVersionFile([MarshalAs(UnmanagedType.LPWStr)] string path, [MarshalAs(UnmanagedType.LPWStr)] string version)
+        {
+            var verPath = Path.Combine(path, @"version");
+            try
+            {
+                var contents = File.Exists(verPath) ? File.ReadAllText(verPath).Trim() : string.Empty;
+
+                if (!string.IsNullOrEmpty(contents))
+                    contents += "; ";
+
+                contents += "HF Patch v" + version;
+
+                File.WriteAllText(verPath, contents);
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, "Failed trying to write version file: " + e);
+            }
+        }
+
         [DllExport("FixConfig", CallingConvention = CallingConvention.StdCall)]
         public static void FixConfig([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
