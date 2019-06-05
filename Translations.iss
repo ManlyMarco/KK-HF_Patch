@@ -10,8 +10,12 @@ MsgKplugDetected=WARNING - KoikPlugins was detected and will be removed if you s
 MsgIncompatibleModsDetected=WARNING - Incompatible mods have been detected in your game folder! You are using very outdated mods or mods from other games in Koikatsu, which WILL cause problems. All old mods will have to be removed to fix this.
 MsgExeNotFound=WARNING - Koikatu.exe was not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.%n%nAre you sure that this directory is correct?
 MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.
+
 MsgMissingDLC1=NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.%n%nIf you want to use it, install it BEFORE running HF Patch.
 MsgMissingDLC2=NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.%n%nIf you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC3=NOTICE - You are missing the Koikatu! Yoyaku preorder DLC (emocre_yoyaku). It adds 1 new personality and some clothes and head types.%n%nIf you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC4=NOTICE - You are missing the Koikatu! Darkness preorder expansion (emocre_dkn_01f). It adds MMF/dark content to the game.%n%nIf you want to use it, install it BEFORE running HF Patch.
+
 MsgExtractedZipmod=WARNING - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.%n%nRepair will be attempted, but if you still have problems you will have to reinstall the game.
 MsgEmotionCreatorsDetected=ERROR - EmotionCreators files have been detected! If you installed EmotionCreators to the same folder as Koikatsu, you have broken Koikatsu game files. To fix this you will need to reinstall both games to separate directories!
 
@@ -51,8 +55,12 @@ jp.MsgKplugDetected=警告 - 互換性の問題を回避するためにインス
 jp.MsgIncompatibleModsDetected=警告 - あなたのゲームフォルダで互換性のない改造が検出されました！ あなたは非常に古くなったモッズを使っているか、Koikatsuの他のゲームのモッズを使っています。 これを修正するには、古いモッズをすべて削除する必要があります。
 jp.MsgExeNotFound=警告 - Koikatu.exeが選択されたディレクトリに見つかりませんでした。 正しく動作させるためには、このパッチをKoikatsuのメインゲームディレクトリに直接インストールする必要があります。%n%nこのディレクトリが正しいことを確認していますか？
 jp.MsgMissingGameFiles=エラー - 重要なゲームファイルがありません。これがゲームディレクトリであることを確認してください。 ディレクトリが正しい場合は、ゲームを再インストールする必要があります。
+
 jp.MsgMissingDLC1=注意 - 「コイカツ！性格追加発売記念水着データVer.2018-08-31」のアップデートが欠けています。 それは3つの新しい個性と新しいアイテムを加えます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
-jp.MsgMissingDLC2==注意 - 「コイカツ！ アフタースクールVer.2018-12-21」のアップデートが欠けています。 四つの新しい人格、3Pや他のいくつかのゲームプレイの機能が追加されます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
+jp.MsgMissingDLC2=注意 - 「コイカツ！アフタースクールVer.2018-12-21」のアップデートが欠けています。 四つの新しい人格、3Pや他のいくつかのゲームプレイの機能が追加されます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
+jp.MsgMissingDLC3=NOTICE - You are missing the Koikatu! Yoyaku preorder expansion (emocre_yoyaku). It adds 1 new personality and some clothes and head types.%n%nIf you want to use it, install it BEFORE running HF Patch.
+jp.MsgMissingDLC4=注意 - 「コイカツ！ダークネス」のアップデートが欠けています。 このアップデートはMMFとダークコンテンツを追加します。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
+
 jp.MsgExtractedZipmod=警告 - Sideloader modがゲームディレクトリ内に抽出されたようです。 一部のゲームファイルが破損している可能性があります。%n%n修復を試みますが、それでも問題が解決しない場合は、ゲームを再インストールする必要があります。
 jp.MsgEmotionCreatorsDetected=エラー - 「エモーション・クリエイター」を「コイカツ」と同じフォルダにインストールした場合は、「コイカツ」ゲームファイルが壊れています。修正するには、両方のゲームを別々のディレクトリに再インストールする必要があります。
 

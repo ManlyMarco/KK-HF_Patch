@@ -1,7 +1,7 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "2.6"
+#define VERSION "2.7"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -33,7 +33,7 @@ Name: "none"; Description: "{cm:noneInstall}"
 Name: "custom"; Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
-Name: "Patch"; Description: "Patch and free DLC up to 02/01 by Illusion (uses the AIO) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
+Name: "Patch"; Description: "Patch and free DLC up to 02/01 by Illusion (compatible with Darkness) + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
 Name: "Patch\VR"; Description: "KoikatuVR Patch 01/11 by Illusion (install if you use VR module)"; Types: full_en full extra custom bare none
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
@@ -173,6 +173,7 @@ Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: "\UserData\bg\*,\UserData\cardframe\*,\UserData\chara\*,\UserData\coordinate\*,\UserData\frame\*,\UserData\Studio\scene\*"; Components: Patch
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks\UserData\*"; DestDir: "{app}\UserData"; Flags: ignoreversion recursesubdirs; Components: Patch\UserData
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_as\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch; Check: AfterSchoolInstalled
+Source: "Input\_Patch\emocre_dkn_01f_diff\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Patch; Check: DarknessInstalled
 
 Source: "Input\_Patch\koikatu_03vr_d0111\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Patch\VR; Check: VRInstalled
 
@@ -440,9 +441,24 @@ begin
   Result := FileExists(ExpandConstant('{app}\KoikatuVR_Data\resources.assets'));
 end;
 
+function SummerExpInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\17.unity3d'));
+end;
+
 function AfterSchoolInstalled(): Boolean;
 begin
   Result := FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\20.unity3d'));
+end;
+
+function YoyakuInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\50.unity3d'));
+end;
+
+function DarknessInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\abdata\adv\scenario\c21\darkness.unity3d'));
 end;
 
 procedure CurPageChanged(CurPageID: Integer);
@@ -507,13 +523,21 @@ begin
       else
       begin
         // Check for missing paid DLC
-        if not FileExists(ExpandConstant('{app}\abdata\etcetra\list\config\17.unity3d')) then
+        if not SummerExpInstalled() then
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC1}'), mbInformation, MB_OK, 0);
         end;
         if not AfterSchoolInstalled() then
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC2}'), mbInformation, MB_OK, 0);
+        end;
+        if not YoyakuInstalled() then
+        begin
+          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC3}'), mbInformation, MB_OK, 0);
+        end;
+        if not DarknessInstalled() then
+        begin
+          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC4}'), mbInformation, MB_OK, 0);
         end;
         
         WizardForm.ComponentsList.Checked[1] := VRInstalled();
