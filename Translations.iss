@@ -8,8 +8,8 @@ customInstall=Custom installation
 MsgInvalidModsDetected=WARNING - Outdated or useless plugins/files were detected in your BepInEx directory. To avoid issues all mods will be deleted.
 MsgKplugDetected=WARNING - KoikPlugins was detected and will be removed if you start installation to avoid potential compatibility issues (settings will not be removed).%n%nPlease follow KoikPlugins manual on how to install it again after patching is done.
 MsgIncompatibleModsDetected=WARNING - Incompatible mods have been detected in your game folder! You are using very outdated mods or mods from other games in Koikatsu, which WILL cause problems. All old mods will have to be removed to fix this.
-MsgExeNotFound=WARNING - Koikatu.exe was not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.%n%nAre you sure that this directory is correct?
-MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game.
+MsgExeNotFound=WARNING - Koikatu or Koikatsu Party files were not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.%n%nAre you sure that this directory is correct?
+MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game or verify game files on steam.
 
 MsgMissingDLC1=NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.%n%nIf you want to use it, install it BEFORE running HF Patch.
 MsgMissingDLC2=NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.%n%nIf you want to use it, install it BEFORE running HF Patch.
@@ -37,7 +37,7 @@ TaskPW=Uninstall Patchwork if installed and delete Plugins folder (Optional, wil
 TaskIPA=Uninstall IPA if installed (Has to be removed for BepInEx to work correctly. Use BepInEx/IPA to load IPA plugins instead.)
 
 CompDev=Developer version with dnSpy debugging
-CompTL=English translation
+CompTL=English translation (does not overwrite Koikatsu Party translations, fills in the gaps)
 CompDefCards=Default cards, scenes and backgrounds
 CompUNC=Uncensor
 CompFIX=Important fixes
@@ -53,7 +53,7 @@ jp.customInstall=カスタムインストール
 jp.MsgInvalidModsDetected=警告 - あなたのBepInExディレクトリで古いまたは無用なプラグイン/ファイルが検出されました。 問題を避けるために、すべてのmodは削除されます。
 jp.MsgKplugDetected=警告 - 互換性の問題を回避するためにインストールを開始すると、KoikPluginsは削除されます（設定は削除されません）。%n%n後でそれをインストールする方法についてはKoikPluginsマニュアルに従ってください
 jp.MsgIncompatibleModsDetected=警告 - あなたのゲームフォルダで互換性のない改造が検出されました！ あなたは非常に古くなったモッズを使っているか、Koikatsuの他のゲームのモッズを使っています。 これを修正するには、古いモッズをすべて削除する必要があります。
-jp.MsgExeNotFound=警告 - Koikatu.exeが選択されたディレクトリに見つかりませんでした。 正しく動作させるためには、このパッチをKoikatsuのメインゲームディレクトリに直接インストールする必要があります。%n%nこのディレクトリが正しいことを確認していますか？
+jp.MsgExeNotFound=警告 - コイカツ！が選択されたディレクトリに見つかりませんでした。 正しく動作させるためには、このパッチをKoikatsuのメインゲームディレクトリに直接インストールする必要があります。%n%nこのディレクトリが正しいことを確認していますか？
 jp.MsgMissingGameFiles=エラー - 重要なゲームファイルがありません。これがゲームディレクトリであることを確認してください。 ディレクトリが正しい場合は、ゲームを再インストールする必要があります。
 
 jp.MsgMissingDLC1=注意 - 「コイカツ！性格追加発売記念水着データVer.2018-08-31」のアップデートが欠けています。 それは3つの新しい個性と新しいアイテムを加えます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
