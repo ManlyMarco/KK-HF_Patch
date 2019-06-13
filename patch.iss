@@ -281,7 +281,7 @@ Source: "Input\_Feature\KK_EyeShaking.dll"; DestDir: "{app}\BepInEx"; Flags: ign
 Source: "Input\_Feature\KoikatuGameplayMod.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\Gameplay
 Source: "Input\_Feature\KK_NightDarkener.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_NightDarkener
 Source: "Input\_Feature\KK_ExperienceLogic.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_ExperienceLogic
-Source: "Input\_Feature\KK_MoveMapFromCharaList.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_MoveMapFromCharaList
+Source: "Input\_Feature\KK_MoveMapFromCharaList.dll"; DestDir: "{app}\BepInEx\IPA"; Flags: ignoreversion; Components: Feature\KK_MoveMapFromCharaList
 
 Source: "Input\_Feature\KK_Kiyase\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\Bra
 Source: "Input\_Feature\KK_ForceHighPoly.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_ForceHighPoly
