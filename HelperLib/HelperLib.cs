@@ -14,7 +14,7 @@ namespace HelperLib
 {
     public class HelperLib
     {
-        private const string LogFileName = "HF_Patch.log";
+        private const string LogFileName = "HF_Patch_log.txt";
 
         private static void AppendLog(string targetDirectory, object message)
         {
@@ -150,18 +150,48 @@ namespace HelperLib
 
             try
             {
-                if (!File.Exists(ud)) File.WriteAllText(ud, string.Empty);
+                if (!File.Exists(ud))
+                {
+                    Directory.CreateDirectory(Path.Combine(path, @"BepInEx"));
+                    File.WriteAllText(ud, string.Empty);
+                }
 
                 var contents = File.ReadAllLines(ud).ToList();
 
-                if (contents.All(x => x.Trim() != "[KK_ForceHighPoly]"))
+                // Prevent toasters exploding by default
+                if (contents.All(x => !x.Contains("[KK_ForceHighPoly]")))
                 {
-                    File.AppendAllLines(ud, new[]
-                    {
-                        "[KK_ForceHighPoly]",
-                        "Enabled=False"
-                    });
+                    contents.Add("");
+                    contents.Add("[KK_ForceHighPoly]");
+                    contents.Add("Enabled=False");
                 }
+
+                // Best tool in the shed
+                if (contents.All(x => !x.Contains("[KK_UncensorSelector]")))
+                {
+                    contents.Add("");
+                    contents.Add("[KK_UncensorSelector]");
+                    contents.Add("DefaultMalePenis=SoS");
+                }
+
+                // Fix VMD for darkness
+                var vmdIndex = contents.FindIndex(s => s.ToLower().Contains("[VMDPlay]".ToLower()));
+                if (vmdIndex >= 0)
+                {
+                    var i = contents.FindIndex(vmdIndex, s => s.StartsWith("CacheGagEyesTexture"));
+                    if (i > vmdIndex)
+                        contents[i] = "CacheGagEyesTexture=False";
+                    else
+                        contents.Insert(vmdIndex + 1, "CacheGagEyesTexture=False");
+                }
+                else
+                {
+                    contents.Add("");
+                    contents.Add("[VMDPlay]");
+                    contents.Add("CacheGagEyesTexture=False");
+                }
+
+                File.WriteAllLines(ud, contents.ToArray());
             }
             catch (Exception e)
             {
@@ -194,7 +224,7 @@ namespace HelperLib
         public static void FixConfig([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
             var ud = Path.Combine(path, @"UserData\setup.xml");
-
+            
             try
             {
                 using (var reader = File.OpenRead(ud))
