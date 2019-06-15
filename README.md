@@ -1,10 +1,10 @@
 ![preview](https://user-images.githubusercontent.com/39247311/49796741-cf723180-fd3d-11e8-8b8a-2d4d3de6b568.PNG)
 # HF Patch for Koikatu! and Koikatsu Party!
-A patch for Koikatu and Koikatsu Party with all free updates, fan-made English translations and essential mods. It will allow you to load all character cards and scenes and give you countless gameplay improvements while still keeping the original, uncluttered and clean feel of the game.
+A patch for [Koikatu](http://www.illusion.jp/preview/koikatu/index.php) and [Koikatsu Party](https://steamcommunity.com/app/1073440) with all free updates, fan-made English translations and essential mods. It will allow you to load all character cards and scenes and give you countless gameplay improvements while still keeping the original, uncluttered and clean feel of the game.
 
 All content is tested and fixed (or removed) as needed before each update, providing a stable platform for further modding. HF Patch can also repair many common issues, try it if you have issues.
 
-HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately.
+HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the game [on Steam](https://steamcommunity.com/app/1073440). Until the expansions are localized and released on Steam, their Japanese versions can be bought [here](https://dlsoft.dmm.co.jp/detail/illusion_0024/) and [here](https://dlsoft.dmm.co.jp/detail/illusion_0026/).
 
 - Koikatu Darkness DLC is supported since HF Patch version v2.6
 - Koikatsu Party (Steam release) is supported since HF Patch version v2.7.1
