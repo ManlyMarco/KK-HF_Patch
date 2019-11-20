@@ -178,7 +178,7 @@ namespace HelperLib
                 var vmdIndex = contents.FindIndex(s => s.ToLower().Contains("[VMDPlay]".ToLower()));
                 if (vmdIndex >= 0)
                 {
-                    var i = contents.FindIndex(vmdIndex, s => s.StartsWith("CacheGagEyesTexture"));
+                    var i = contents.FindIndex(vmdIndex, s => s.IndexOf("CacheGagEyesTexture", StringComparison.OrdinalIgnoreCase) >= 0);
                     if (i > vmdIndex)
                         contents[i] = "CacheGagEyesTexture=False";
                     else
