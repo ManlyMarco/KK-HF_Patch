@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
@@ -132,7 +133,7 @@ namespace HelperLib
         };
 
         private static readonly string GoodSettings =
-@"<?xml version=""1.0"" encoding=""utf-16""?>
+            @"<?xml version=""1.0"" encoding=""utf-16""?>
 <Setting>
   <Size>1280 x 720 (16 : 9)</Size>
   <Width>1280</Width>
@@ -224,7 +225,7 @@ namespace HelperLib
         public static void FixConfig([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
             var ud = Path.Combine(path, @"UserData\setup.xml");
-            
+
             try
             {
                 using (var reader = File.OpenRead(ud))
@@ -303,6 +304,113 @@ namespace HelperLib
             var val = int.Parse(instr);
             if (min > val || val > max)
                 throw new Exception();
+        }
+
+        [DllExport("CreateBackup", CallingConvention = CallingConvention.StdCall)]
+        public static void CreateBackup([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            try
+            {
+                var fullPath = Path.GetFullPath(path);
+                var bepinPath = Path.Combine(fullPath, "BepInEx");
+                if (!Directory.Exists(bepinPath)) return;
+
+                using (var file = File.OpenWrite(Path.Combine(fullPath, $"BepInEx_Backup_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.zip")))
+                using (var zip = new ZipArchive(file, ZipArchiveMode.Create, false, Encoding.UTF8))
+                {
+                    foreach (var toAdd in Directory.GetFiles(bepinPath, "*", SearchOption.AllDirectories))
+                    {
+                        try
+                        {
+                            using (var toAddStream = File.OpenRead(toAdd))
+                            {
+                                var entry = zip.CreateEntry(toAdd.Substring(bepinPath.Length + 1), CompressionLevel.Fastest);
+                                using (var entryStream = entry.Open())
+                                    toAddStream.CopyTo(entryStream);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            AppendLog(path, $"Failed to add file {toAdd} to backup - {ex}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendLog(path, $"Failed to create backup - {ex}");
+            }
+        }
+
+        [DllExport("RemoveModsExceptModpacks", CallingConvention = CallingConvention.StdCall)]
+        public static void RemoveModsExceptModpacks([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            try
+            {
+                var modsPath = Path.GetFullPath(Path.Combine(path, "mods"));
+                if (!Directory.Exists(modsPath)) return;
+
+                var acceptableDirs = new[]{
+                    "Sideloader Modpack"                        ,
+                    "Sideloader Modpack - Compatibility Pack"   ,
+                    "Sideloader Modpack - Fixes"                ,
+                    "Sideloader Modpack - KK_MaterialEditor"    ,
+                    "Sideloader Modpack - KK_UncensorSelector"  ,
+                    "Sideloader Modpack - Maps"                 ,
+                    "Sideloader Modpack - Studio"               ,
+                };
+
+                var fullAcceptableDirs = acceptableDirs.Select(s => Path.Combine(modsPath, s) + "\\").ToArray();
+
+                foreach (var file in Directory.GetFiles(modsPath, "*", SearchOption.AllDirectories))
+                {
+                    if (fullAcceptableDirs.Any(x => file.StartsWith(x, StringComparison.OrdinalIgnoreCase))) continue;
+
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch (Exception ex)
+                    {
+                        AppendLog(path, $"Failed to remove file {file} from mods directory - {ex}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendLog(path, $"Failed to remove old mods from the mods directory - {ex}");
+            }
+        }
+
+        [DllExport("StartAutoUpdate", CallingConvention = CallingConvention.StdCall)]
+        public static void StartAutoUpdate([MarshalAs(UnmanagedType.LPWStr)] string path, bool sm, bool smcp, bool smf, bool smme, bool smus, bool smmap, bool smstu)
+        {
+            var args = new StringBuilder();
+
+            var fullPath = Path.GetFullPath(path).TrimEnd('\\', '/');
+            args.Append($"\"{fullPath}\"");
+
+            args.Append(" -guid:\"patch_common\"");
+            args.Append(" -guid:\"patch_common_extras\"");
+            args.Append(" -guid:\"patch_kk\"");
+            args.Append(" -guid:\"patch_kkp\"");
+            args.Append(" -guid:\"patch_kkp_special\"");
+            args.Append(" -guid:\"patch_as\"");
+            args.Append(" -guid:\"patch_dkn\"");
+
+            if (sm) args.Append(" -guid:\"Sideloader Modpack\"");
+            if (smcp) args.Append(" -guid:\"Sideloader Modpack - Compatibility Pack\"");
+            if (smf) args.Append(" -guid:\"Sideloader Modpack - Fixes\"");
+            if (smme) args.Append(" -guid:\"Sideloader Modpack - KK_MaterialEditor\"");
+            if (smus) args.Append(" -guid:\"Sideloader Modpack - KK_UncensorSelector\"");
+            if (smmap) args.Append(" -guid:\"Sideloader Modpack - Maps\"");
+            if (smstu) args.Append(" -guid:\"Sideloader Modpack - Studio\"");
+
+            var psi = new ProcessStartInfo(Path.Combine(fullPath, @"[UTILITY] KKManager\StandaloneUpdater.exe"), args.ToString());
+            psi.UseShellExecute = false;
+
+            var p = Process.Start(psi);
+            p.WaitForExit();
         }
 
         [DllExport("RemoveJapaneseCards", CallingConvention = CallingConvention.StdCall)]
@@ -434,8 +542,8 @@ namespace HelperLib
                 foreach (var modGroup in mods.GroupBy(x => x.Guid))
                 {
                     var orderedMods = modGroup.All(x => !string.IsNullOrWhiteSpace(x.Version))
-                        ? modGroup.OrderByDescending(x => x.Version, new VersionComparer())
-                        : modGroup.OrderByDescending(x => File.GetLastWriteTime(x.Path));
+                        ? modGroup.OrderByDescending(x => x.Path.ToLower().Contains("mods\\sideloader modpack")).ThenByDescending(x => x.Version, new VersionComparer())
+                        : modGroup.OrderByDescending(x => x.Path.ToLower().Contains("mods\\sideloader modpack")).ThenByDescending(x => File.GetLastWriteTime(x.Path));
 
                     // Prefer .zipmod extension and then longer paths (so the mod has either longer name or is arranged in a subdirectory)
                     orderedMods = orderedMods.ThenByDescending(x => FileHasZipmodExtension(x.Path))

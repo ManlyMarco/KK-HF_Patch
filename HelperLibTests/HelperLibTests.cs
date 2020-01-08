@@ -22,5 +22,17 @@ namespace HelperLib.Tests
         {
             HelperLib.FixConfig(@"D:\Games\Koikatsu");
         }
+
+        [TestMethod()]
+        public void CreateBackupTest()
+        {
+            HelperLib.CreateBackup(@"D:\Games\Koikatsu");
+        }
+
+        [TestMethod()]
+        public void RemoveModsExceptModpacksTest()
+        {
+            HelperLib.RemoveModsExceptModpacks(@"D:\Games\Koikatsu");
+        }
     }
 }

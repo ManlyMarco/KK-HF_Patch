@@ -4,8 +4,8 @@ AppPublisher=ManlyMarco
 AppVersion={#VERSION}
 VersionInfoVersion={#VERSION}
 
-AppName={#NAME} HF Patch
-OutputBaseFilename={#NAME} HF Patch v{#VERSION}
+AppName=HF Patch for Koikatu! and Koikatsu Party
+OutputBaseFilename=Koikatsu HF Patch v{#VERSION}
 
 Uninstallable=no
 DisableProgramGroupPage=yes
