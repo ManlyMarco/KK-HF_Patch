@@ -85,7 +85,7 @@ Name: "Content\KK_HairAccessoryCustomizer"; Description: "KK_HairAccessoryCustom
 Name: "Content\KK_MaterialEditor"; Description: "KK_MaterialEditor v1.9.2 (adds advanced material controls to maker and studio)"; Types: full_en full extra_en extra
 Name: "Content\KK_MaterialEditor\Modpack"; Description: "Sideloader Modpack - KK_MaterialEditor (Web download)(Materials for use with KK_MaterialEditor)"; Types: full_en full extra_en extra
 
-Name: "Content\MoreAccessories"; Description: "MoreAccessories 1.0.7 by Joan6694 (Unlocks accessory limit)"; Types: full_en full extra_en extra
+Name: "Content\MoreAccessories"; Description: "MoreAccessories 1.0.8 RC (Unlocks accessory limit)"; Types: full_en full extra_en extra
 Name: "Content\KKABMX"; Description: "KKABMX v3.5 (More sliders in maker)"; Types: full_en full extra_en extra
 Name: "Content\KKABMX\Pregnancy"; Description: "KK_Pregnancy v1.1.2 (Adds pregnancy to gameplay, maker and studio)"; Types: full_en full extra_en extra
 
@@ -340,7 +340,7 @@ Source: "Input\_Feature\DefaultParamEditor\*"; DestDir: "{app}\BepInEx"; Flags: 
 Source: "Input\_Feature\Colliders\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Feature\Colliders
 
 Source: "Input\_Feature\ClothingStateMenu.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\ClothingStateMenu
-Source: "Input\_Feature\KK_HeightBar\*"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs; Components: Feature\HeightBar
+Source: "Input\_Feature\KK_HeightBar\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\HeightBar
 Source: "Input\_Feature\KK_RemoveToRecycleBin.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_RemoveToRecycleBin
 
 Source: "Input\_Feature\CharacterRandomizer.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_RandomCharacterGenerator
@@ -415,6 +415,8 @@ Type: files; Name: "{app}\BepInEx.dll"
 Type: files; Name: "{app}\Mono.Cecil.dll"
 
 ; Junk
+Type: filesandordirs; Name: "{app}\BepInEx\bepinex4_backup"
+Type: filesandordirs; Name: "{app}\BepInEx\cache"
 Type: files; Name: "{app}\*.log"
 Type: files; Name: "{app}\*.pdb"
 Type: files; Name: "{app}\changelog.txt"
@@ -707,7 +709,7 @@ begin
     
     if (KoikatuInstalled() and PartyInstalled()) then
     begin
-      SuppressibleMsgBox('WARNING: Both Koikatu! and Koikatsu Party have been detected in the installation folder. This can cause issues with some mods if they have different versions for each of these games, and some mods will not be installed at all. It is recommended to keep these two games in separate directories if you need them both for some reason.', mbInformation, MB_OK, 0);
+      SuppressibleMsgBox('WARNING: Both Koikatu! and Koikatsu Party have been detected in the installation folder. This can cause issues with some mods if they have different versions for each of these games, and some mods will not be installed at all. It is recommended to keep these two games in separate directories if you need them both for some reason.%n%nIf you only use Koikatsu Party then please remove Koikatu.exe and Koikatu_data from your game folder before continuing.', mbInformation, MB_OK, 0);
     end;
 
     if Result = True then
@@ -806,6 +808,8 @@ begin
     // Or only remove plugins
     if (IsTaskSelected('delete\Plugins')) then begin
       DelTree(ExpandConstant('{app}\BepInEx\plugins'), True, True, True);
+      DelTree(ExpandConstant('{app}\BepInEx\patchers'), True, True, True);
+      DelTree(ExpandConstant('{app}\BepInEx\IPA'), True, True, True);
       Exec(ExpandConstant('{cmd}'), '/c del *.dll', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
     end;
   end;

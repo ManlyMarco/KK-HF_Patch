@@ -27,10 +27,10 @@ RunHF=Open HongFire release thread
 IconGame=Koikatsu launcher
 
 TaskIcon=Create a game &desktop icon
-TaskDelete=Delete old mods before installation (Recommended if you want to avoid any issues)
-TaskDeleteSide=Delete ALL existing sideloader mods
-TaskDeletePlugins=Delete BepInEx folder (Deletes old plugins and translations. Recommended if you have issues or when updating from old repacks)
-TaskDeletePluginSettings=Reset plugin settings (Recommended if you have issues)
+TaskDelete=Clean up old mods (Recommended if you want to avoid any issues)
+TaskDeleteSide=Delete existing sideloader mods (Everything except for Sideloader Modpacks)
+TaskDeletePlugins=Delete BepInEx plugins (Recommended if you have issues or when updating from old repacks)
+TaskDeletePluginSettings=Delete plugin settings (Recommended if you have issues or when updating from old repacks)
 TaskDeleteLst=Delete custom listfiles (Disable hardmods, they will be replaced with sideloader mods. Always recommended)
 TaskSideDupes=Delete duplicate sideloader mods after installation (Only the newest versions are kept. Always recommended)
 TaskPW=Uninstall Patchwork if installed and delete Plugins folder (Optional, will free up some disk space. If you intend to use PW, make sure your version is compatible with the current game update. If you have issues, run the game without PW)
@@ -73,8 +73,8 @@ jp.IconGame=コイカツ！ ランチャー
 
 jp.TaskIcon=ゲームのデスクトップアイコンを作成する
 jp.TaskDelete=インストール前に古いmodを削除します（問題を回避したい場合に推奨）
-jp.TaskDeleteSide=既存のSideloader modをすべて削除します
-jp.TaskDeletePlugins=BepInExフォルダを削除（古いプラグインを削除します。問題がある場合や古いバージョンを更新する場合に推奨）
+jp.TaskDeleteSide=既存のSideloader modを削除します（Sideloader Modpackを除く）
+jp.TaskDeletePlugins=BepInExプラグインを削除する（古いプラグインを削除します。問題がある場合や古いバージョンを更新する場合に推奨）
 jp.TaskDeletePluginSettings=プラグイン設定をリセットする（問題がある場合に推奨）
 jp.TaskDeleteLst=カスタムリストファイルを削除します（代わりにSideloader modが使用されます。常に推奨）
 jp.TaskSideDupes=インストール後に重複したSideloader modを削除します（最新バージョンは保持されます。常に推奨されます）。
