@@ -312,19 +312,28 @@ namespace HelperLib
             try
             {
                 var fullPath = Path.GetFullPath(path);
-                var bepinPath = Path.Combine(fullPath, "BepInEx");
-                if (!Directory.Exists(bepinPath)) return;
+                var filesToBackup = new List<string>();
 
-                using (var file = File.OpenWrite(Path.Combine(fullPath, $"BepInEx_Backup_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.zip")))
+                var bepinPath = Path.Combine(fullPath, "BepInEx");
+                if (Directory.Exists(bepinPath))
+                    filesToBackup.AddRange(Directory.GetFiles(bepinPath, "*", SearchOption.AllDirectories));
+
+                var patchworkPath = Path.Combine(fullPath, "plugins");
+                if (Directory.Exists(patchworkPath))
+                    filesToBackup.AddRange(Directory.GetFiles(patchworkPath, "*", SearchOption.AllDirectories));
+
+                if (!filesToBackup.Any()) return;
+
+                using (var file = File.OpenWrite(Path.Combine(fullPath, $"Plugin_Backup_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.zip")))
                 using (var zip = new ZipArchive(file, ZipArchiveMode.Create, false, Encoding.UTF8))
                 {
-                    foreach (var toAdd in Directory.GetFiles(bepinPath, "*", SearchOption.AllDirectories))
+                    foreach (var toAdd in filesToBackup)
                     {
                         try
                         {
                             using (var toAddStream = File.OpenRead(toAdd))
                             {
-                                var entry = zip.CreateEntry(toAdd.Substring(bepinPath.Length + 1), CompressionLevel.Fastest);
+                                var entry = zip.CreateEntry(toAdd.Substring(fullPath.Length + 1), CompressionLevel.Fastest);
                                 using (var entryStream = entry.Open())
                                     toAddStream.CopyTo(entryStream);
                             }

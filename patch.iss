@@ -185,7 +185,7 @@ Name:  "Feature\KK_StudioTextPlugin"                  ; Description: "KK_StudioT
 Name: "MISC"; Description: "{cm:CompMISC}";
 
 Name: "MISC\FPS"; Description: "FPS Counter v2.2 (Useful for performance testing)"; Types: extra_en extra
-Name: "MISC\Trainer"; Description: "Cheat tools v2.6 + Runtime Unity Editor v1.10 (Trainer and debugger)"; Types: full_en full extra_en extra
+Name: "MISC\Trainer"; Description: "Cheat tools v2.6 + Runtime Unity Editor v1.11 (Trainer and debugger)"; Types: full_en full extra_en extra
 
 Name: "MISC\UnlockHPositions"; Description: "UnlockHPositions 2019-08-09 (Unlocks all positions)"
 Name: "MISC\FullSave"; Description: "Unlock all events and memories"
@@ -535,7 +535,7 @@ Name: delete\Plugins; Description: "{cm:TaskDeletePlugins}";
 Name: delete\Config; Description: "{cm:TaskDeletePluginSettings}"; Flags: unchecked
 Name: delete\Listfiles; Description: "{cm:TaskDeleteLst}"
 Name: fixSideloaderDupes; Description: "{cm:TaskSideDupes}";
-Name: PW; Description: "{cm:TaskPW}"; Flags: unchecked
+Name: PW; Description: "{cm:TaskPW}";
 ; IPA is always removed, can't go around that. Unchecking is disabled in code, this task has to stay at the same index for it to work
 Name: IPA; Description: "{cm:TaskIPA}";
 
