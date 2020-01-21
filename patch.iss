@@ -1,7 +1,7 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "3.0"
+#define VERSION "3.0.1"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -36,7 +36,7 @@ Name: "none";     Description: "{cm:noneInstall}"
 Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
-Name: "Patch"; Description: "Official patches + CharaStudio + KK Party Special Patch (Web download)"; Types: full_en full extra_en extra custom bare none; Flags: fixed
+Name: "Patch"; Description: "Official patches + CharaStudio + KK Party Special Patch"; Types: full_en full extra_en extra custom bare none; Flags: fixed
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
 Name: "BepInEx"; Description: "BepInEx v5.0.1 Plugin framework + BepIn4Patcher v1.0 + IPALoaderX v1.2.1 + MessageCenter v1.1 + ConfigurationManager v15.1"; Types: full_en full extra_en extra custom bare; Flags: fixed 
@@ -47,7 +47,7 @@ Name: "ResourceRedirector"; Description: "XUnity.ResourceRedirector v1.1.1 (Modd
 
 Name: "BepisPlugins"; Description: "BepisPlugins r13.0.3 (Essential plugins)"; Types: full_en full extra_en extra custom bare; Flags: fixed
 
-Name: "KKManager"; Description: "KKManager v0.9 (Used to download some of the updates)"; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "KKManager"; Description: "KKManager v0.9.1 (Used to download some of the updates)"; Types: full_en full extra_en extra custom bare; Flags: fixed
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@ Name: "TL\KK_Subtitles"; Description: "Maker and H-scene Subtitles v1.4 (Warning
 Name: "UNC"; Description: "{cm:CompUNC}"; Types: full_en full extra_en extra
 
 Name: "UNC\Selector"; Description: "KK_UncensorSelector v3.9 (NEEDS Koikatsu Overlay Mods!)"; Types: full_en full extra_en extra
-Name: "UNC\Selector\Pack"; Description: "Sideloader Modpack - KK_UncensorSelector (Web download)(Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
+Name: "UNC\Selector\Pack"; Description: "Sideloader Modpack - KK_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
 
 Name: "UNC\Tongue"; Description: "Tongue Texture v1.1 by moderchan + Outline Fix"; Types: full_en full extra_en extra
 
@@ -74,16 +74,16 @@ Name: "UNC\Tongue"; Description: "Tongue Texture v1.1 by moderchan + Outline Fix
 
 Name: "Content"; Description: "Additional content for character and scene creation (Needed to properly load most character cards and scenes)"; Types: full_en full extra_en extra
 
-Name: "Content\Modpack"; Description: "Sideloader Modpack (Web download)(Lots of additional content for making characters)"; Types: full_en full extra_en extra
-Name: "Content\ModpackCompat"; Description: "Sideloader Modpack - Compatibility Pack (Web download)(Deprecated mods for backwards compatibility)"; Types: full_en full extra_en extra
-Name: "Content\ModpackStudio"; Description: "Sideloader Modpack - Studio (Web download)(Additional content for making Studio scenes)"; Types: full_en full extra_en extra
-Name: "Content\ModpackMaps"; Description: "Sideloader Modpack - Maps (Web download)(Additional maps)"; Types: full_en full extra_en extra
+Name: "Content\Modpack"; Description: "Sideloader Modpack (Lots of additional content for making characters)"; Types: full_en full extra_en extra
+Name: "Content\ModpackCompat"; Description: "Sideloader Modpack - Compatibility Pack (Deprecated mods for backwards compatibility)"; Types: full_en full extra_en extra
+Name: "Content\ModpackStudio"; Description: "Sideloader Modpack - Studio (Additional content for making Studio scenes)"; Types: full_en full extra_en extra
+Name: "Content\ModpackMaps"; Description: "Sideloader Modpack - Maps (Additional maps)"; Types: full_en full extra_en extra
 
 Name: "Content\KK_ClothingUnlocker"; Description: "KK_ClothingUnlocker v1.1 (Can use female clothes in male maker and vice versa)"; Types: full_en full extra_en extra
 Name: "Content\KK_HairAccessoryCustomizer"; Description: "KK_HairAccessoryCustomizer v1.1.3 (adds advanced controls for hair accessories)"; Types: full_en full extra_en extra
 
 Name: "Content\KK_MaterialEditor"; Description: "KK_MaterialEditor v1.9.2 (adds advanced material controls to maker and studio)"; Types: full_en full extra_en extra
-Name: "Content\KK_MaterialEditor\Modpack"; Description: "Sideloader Modpack - KK_MaterialEditor (Web download)(Materials for use with KK_MaterialEditor)"; Types: full_en full extra_en extra
+Name: "Content\KK_MaterialEditor\Modpack"; Description: "Sideloader Modpack - KK_MaterialEditor (Materials for use with KK_MaterialEditor)"; Types: full_en full extra_en extra
 
 Name: "Content\MoreAccessories"; Description: "MoreAccessories 1.0.8 RC (Unlocks accessory limit)"; Types: full_en full extra_en extra
 Name: "Content\KKABMX"; Description: "KKABMX v3.5 (More sliders in maker)"; Types: full_en full extra_en extra
@@ -102,7 +102,7 @@ Name: "Content\KK_MoreAccessoryParents"; Description: "KK_MoreAccessoryParents v
 
 Name: "FIX"; Description: "{cm:CompFIX}"; Types: extra_en extra
 
-Name: "FIX\ModpackFixes"; Description: "Sideloader Modpack - Fixes (Web download)(Fixes to some of the official content)"; Types: full_en full extra_en extra
+Name: "FIX\ModpackFixes"; Description: "Sideloader Modpack - Fixes (Fixes to some of the official content)"; Types: full_en full extra_en extra
 Name: "FIX\KoikatuFixes"; Description: "KoikatuFixes v1.8 (A collection of important fixes)"; Types: full_en full extra_en extra
 Name: "FIX\KK_ListOverride"; Description: "KK_ListOverride v1.0 + half-open pantyhose fix"; Types: full_en full extra_en extra
 
@@ -148,7 +148,7 @@ Name: "Feature\KK_MoanSoftly"; Description: "KK_MoanSoftly v1.0 (Quieter breathi
 Name: "Feature\KK_ExperienceLogic"; Description: "KK_ExperienceLogic v1.0.1 (Girls can get experienced status with only vaginal or only anal experience)"; Types: full_en full extra_en extra
 Name: "Feature\KK_MoveMapFromCharaList"; Description: "KK_MoveMapFromCharaList v0.0.2"; Types: full_en full extra_en extra
 
-Name: "Feature\Bra"; Description: "KK_PushUp v1.0.1 (Bras affect breast shape, replaces Kiyase)"; Types: full_en full extra_en extra
+Name: "Feature\Bra"; Description: "KK_PushUp v1.1 (Bras affect breast shape, replaces Kiyase)"; Types: full_en full extra_en extra
 Name: "Feature\KK_ForceHighPoly"; Description: "KK_ForceHighPoly v1.2 (Full-quality characters in school, enable in plugin settings)"; Types: full_en full extra_en extra
 
 Name: "Feature\GraphicsSettings"; Description: "GraphicsSettings v1.1 (More game settings, allows better/worse quality)"; Types: full_en full extra_en extra
@@ -205,7 +205,7 @@ Source: "Input\_Patch\empty_ud\*"; DestDir: "{app}"; Flags: ignoreversion recurs
 Source: "Input\KKManager\*"; DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: KKManager
 
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_ud\*"; DestDir: "{app}\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: KoikatuInstalled
-Source: "Input\_Patch\extras\UserData\*"; DestDir: "{app}\UserData\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: KoikatuInstalled
+;Source: "Input\_Patch\extras\UserData\*"; DestDir: "{app}\UserData\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: KoikatuInstalled
 
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_ud\UserData\Studio\scene\*"; DestDir: "{app}\UserData\Studio\scene"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: PartyInstalled
 
@@ -583,8 +583,7 @@ external 'RemoveSideloaderDuplicates@files:HelperLib.dll stdcall';
 procedure RemoveModsExceptModpacks(path: String);
 external 'RemoveModsExceptModpacks@files:HelperLib.dll stdcall';
 
-//public static void StartAutoUpdate([MarshalAs(UnmanagedType.LPWStr)] string path, bool sm, bool smcp, bool smf, bool smme, bool smus, bool smmap, bool smstu)
-procedure StartAutoUpdate(path: String; sm, smcp, smf, smme, smus, smmap, smstu: Boolean);
+procedure StartAutoUpdate(path, installer: String; sm, smcp, smf, smme, smus, smmap, smstu: Boolean);
 external 'StartAutoUpdate@files:HelperLib.dll stdcall';
 
 //function VRInstalled(): Boolean;
@@ -663,7 +662,7 @@ begin
   if CurStep = ssPostInstall then
   begin
     // Run automatic update before further options
-    StartAutoUpdate(ExpandConstant('{app}'), IsComponentSelected('Content\Modpack'), IsComponentSelected('Content\ModpackCompat'), IsComponentSelected('FIX\ModpackFixes'), IsComponentSelected('Content\KK_MaterialEditor\Modpack'), IsComponentSelected('UNC\Selector\Pack'), IsComponentSelected('Content\ModpackMaps'), IsComponentSelected('Content\ModpackStudio'));
+    StartAutoUpdate(ExpandConstant('{app}'), ExpandConstant('{src}'), IsComponentSelected('Content\Modpack'), IsComponentSelected('Content\ModpackCompat'), IsComponentSelected('FIX\ModpackFixes'), IsComponentSelected('Content\KK_MaterialEditor\Modpack'), IsComponentSelected('UNC\Selector\Pack'), IsComponentSelected('Content\ModpackMaps'), IsComponentSelected('Content\ModpackStudio'));
     
     // Removing this causes game to fall back to original font
     if IsTaskSelected('partyfont') then begin
@@ -774,6 +773,8 @@ begin
     Exec('taskkill', '/F /IM InitSettingGameStudioVREN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
     Exec('taskkill', '/F /IM Initial Settings.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
     Exec('taskkill', '/F /IM BepInEx.Patcher.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM KKManager.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM StandaloneUpdater.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
     
     // Often needed after fixing permissions to unlock the files so the permissions can be written, without this access to them is always denied
     //Exec('taskkill', '/F /IM explorer.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);

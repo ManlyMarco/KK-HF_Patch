@@ -392,12 +392,16 @@ namespace HelperLib
         }
 
         [DllExport("StartAutoUpdate", CallingConvention = CallingConvention.StdCall)]
-        public static void StartAutoUpdate([MarshalAs(UnmanagedType.LPWStr)] string path, bool sm, bool smcp, bool smf, bool smme, bool smus, bool smmap, bool smstu)
+        public static void StartAutoUpdate([MarshalAs(UnmanagedType.LPWStr)] string path, [MarshalAs(UnmanagedType.LPWStr)] string installer, bool sm, bool smcp, bool smf, bool smme, bool smus, bool smmap, bool smstu)
         {
             var args = new StringBuilder();
 
             var fullPath = Path.GetFullPath(path).TrimEnd('\\', '/');
             args.Append($"\"{fullPath}\"");
+            
+            // Use bin files if available. If none are present updater will fall back to its default sources
+            foreach (var file in Directory.GetFiles(installer, "Koikatsu HF Patch v*.bin"))
+                args.Append($" \"{Path.GetFullPath(file)}\"");
 
             args.Append(" -guid:\"patch_common\"");
             args.Append(" -guid:\"patch_common_extras\"");
