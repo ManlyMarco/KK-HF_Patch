@@ -1,7 +1,7 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "3.0.1"
+#define VERSION "3.0.2"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -47,7 +47,7 @@ Name: "ResourceRedirector"; Description: "XUnity.ResourceRedirector v1.1.1 (Modd
 
 Name: "BepisPlugins"; Description: "BepisPlugins r13.0.3 (Essential plugins)"; Types: full_en full extra_en extra custom bare; Flags: fixed
 
-Name: "KKManager"; Description: "KKManager v0.9.1 (Used to download some of the updates)"; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "KKManager"; Description: "KKManager v0.9.2 (Used to download some of the updates)"; Types: full_en full extra_en extra custom bare; Flags: fixed
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -97,13 +97,14 @@ Name: "Content\KK_InvisibleBody"; Description: "KK_InvisibleBody v1.3.2 (Hide ch
 Name: "Content\NodesConstraints"; Description: "NodesConstraints v1.0.1 (Create custom animations in studio)"; Types: full_en full extra_en extra
 Name: "Content\KKPE"; Description: "KKPE v2.10.1 (Advanced studio controls)"; Types: full_en full extra_en extra
 Name: "Content\KK_MoreAccessoryParents"; Description: "KK_MoreAccessoryParents v1.0 (More parent options for accessories)"; Types: full_en full extra_en extra
+Name: "Content\AddPose"; Description: "[moderchan]Add Pose v1.6 (Adds more poses to maker, but the pose list will become slow)"
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "FIX"; Description: "{cm:CompFIX}"; Types: extra_en extra
 
 Name: "FIX\ModpackFixes"; Description: "Sideloader Modpack - Fixes (Fixes to some of the official content)"; Types: full_en full extra_en extra
-Name: "FIX\KoikatuFixes"; Description: "KoikatuFixes v1.8 (A collection of important fixes)"; Types: full_en full extra_en extra
+Name: "FIX\KoikatuFixes"; Description: "KoikatuFixes v1.8_2b2b1d03 (A collection of important fixes)"; Types: full_en full extra_en extra
 Name: "FIX\KK_ListOverride"; Description: "KK_ListOverride v1.0 + half-open pantyhose fix"; Types: full_en full extra_en extra
 
 Name: "FIX\KK_InputHotkeyBlock"; Description: "KK_InputHotkeyBlock v1.2 (Blocks plugin keybinds while typing)"; Types: full_en full extra_en extra
@@ -282,6 +283,7 @@ Source: "Input\_Content\KK_InvisibleBody\*"; DestDir: "{app}"; Flags: ignorevers
 Source: "Input\_Content\NodesConstraints.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Content\NodesConstraints
 Source: "Input\_Content\KKPE\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\KKPE
 Source: "Input\_Content\KK_MoreAccessoryParents.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Content\KK_MoreAccessoryParents
+Source: "Input\_Content\[moderchan]Add Pose v1.6.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Content\AddPose
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -295,7 +297,7 @@ Source: "Input\_Fix\HideAllUI.Koikatu.dll"; DestDir: "{app}\BepInEx\plugins"; Fl
 Source: "Input\_Fix\CharaStateX.Koikatu.dll"; DestDir: "{app}\BepInEx\plugins\KeelPlugins"; Flags: ignoreversion; Components: FIX\CharaStateX
 Source: "Input\_FIX\KK_ReloadCharaListOnChange.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: FIX\KK_ReloadCharaListOnChange
 
-Source: "Input\_FIX\Liquid extension\*"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\LiquidExtension
+Source: "Input\_FIX\Liquid extension\*"; DestDir: "{app}\mods"; Flags: ignoreversion recursesubdirs; Components: FIX\LiquidExtension
 Source: "Input\_FIX\KK_MaleJuice\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\KK_MaleJuice
 
 Source: "Input\_Fix\[Character Database][various] fixed\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\URL
