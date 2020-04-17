@@ -147,34 +147,33 @@ namespace HelperLib
         [DllExport("SetConfigDefaults", CallingConvention = CallingConvention.StdCall)]
         public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
-            var ud = Path.Combine(path, @"BepInEx\config.ini");
-
             try
             {
+                Directory.CreateDirectory(Path.Combine(path, @"BepInEx\\config"));
+
+                var uncp = Path.Combine(path, @"BepInEx\com.deathweasel.bepinex.uncensorselector.cfg");
+                if (File.Exists(uncp))
+                {
+                    File.WriteAllText(uncp, File.ReadAllText(uncp).Replace("Default Male Penis = Random", "Default Male Penis = SoS"));
+                }
+                else
+                {
+                    File.WriteAllText(uncp, "[Config]\n\nDefault Male Penis = SoS");
+                }
+
+                var fhip = Path.Combine(path, @"BepInEx\com.deathweasel.bepinex.forcehighpoly.cfg");
+                if (!File.Exists(fhip))
+                {
+                    File.WriteAllText(fhip, "[Config]\n\nHigh poly mode = false");
+                }
+
+                var ud = Path.Combine(path, @"BepInEx\config.ini");
                 if (!File.Exists(ud))
                 {
-                    Directory.CreateDirectory(Path.Combine(path, @"BepInEx"));
                     File.WriteAllText(ud, string.Empty);
                 }
 
                 var contents = File.ReadAllLines(ud).ToList();
-
-                // Prevent toasters exploding by default
-                if (contents.All(x => !x.Contains("[KK_ForceHighPoly]")))
-                {
-                    contents.Add("");
-                    contents.Add("[KK_ForceHighPoly]");
-                    contents.Add("Enabled=False");
-                }
-
-                // Best tool in the shed
-                if (contents.All(x => !x.Contains("[KK_UncensorSelector]")))
-                {
-                    contents.Add("");
-                    contents.Add("[KK_UncensorSelector]");
-                    contents.Add("DefaultMalePenis=SoS");
-                }
-
                 // Fix VMD for darkness
                 var vmdIndex = contents.FindIndex(s => s.ToLower().Contains("[VMDPlay]".ToLower()));
                 if (vmdIndex >= 0)
@@ -196,7 +195,7 @@ namespace HelperLib
             }
             catch (Exception e)
             {
-                AppendLog(path, "Failed trying to set config.ini defaults: " + e);
+                AppendLog(path, "Failed trying to set config defaults: " + e);
             }
         }
 
@@ -213,7 +212,9 @@ namespace HelperLib
 
                 contents += "HF Patch v" + version;
 
+                if (File.Exists(verPath)) File.SetAttributes(verPath, FileAttributes.Normal);
                 File.WriteAllText(verPath, contents);
+                File.SetAttributes(verPath, FileAttributes.Hidden | FileAttributes.Archive);
             }
             catch (Exception e)
             {
@@ -398,7 +399,7 @@ namespace HelperLib
 
             var fullPath = Path.GetFullPath(path).TrimEnd('\\', '/');
             args.Append($"\"{fullPath}\"");
-            
+
             // Use bin files if available. If none are present updater will fall back to its default sources
             foreach (var file in Directory.GetFiles(installer, "Koikatsu HF Patch v*.bin"))
                 args.Append($" \"{Path.GetFullPath(file)}\"");
