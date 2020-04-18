@@ -210,6 +210,7 @@ Name: "MISC\FIX"; Description: "Fix game registry (e.g. after moving to differen
 
 [Files]
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
+Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\DirectXRedist2010"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall; Check: DirectXRedistNeedsInstall
  
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -573,6 +574,8 @@ Name: "{userdesktop}\{#NAME}"; Filename: "{app}\Initial Settings.exe"; IconFilen
 ;Name: "{userdesktop}\Koikatsu save editor"; Filename: "{app}\_Tools\KoikatuSaveDataEdit\gui.exe"; IconFilename: "{app}\_Tools\KoikatuSaveDataEdit\gui.exe"; WorkingDir: "{app}\_Tools\KoikatuSaveDataEdit\"; Comment: "Koikatsu save editor"; Tasks: editordesktopicon
 
 [Run]
+Filename: "{tmp}\DirectXRedist2010\DXSETUP.exe"; Parameters: "/silent"; Description: "Installing DirectX redistributables"; Flags: skipifdoesntexist
+
 Filename: "{app}\start.bat"; Description: "{cm:RunGame}"; Flags: postinstall runascurrentuser nowait skipifsilent skipifdoesntexist
 
 Filename: "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"; Description: "{cm:RunWiki}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
@@ -643,6 +646,11 @@ end;
 function PartyInstalled(): Boolean;
 begin
   Result := FileExists(ExpandConstant('{app}\Koikatsu Party_Data\resources.assets'));
+end;
+
+function DirectXRedistNeedsInstall(): Boolean;
+begin
+  Result := not RegKeyExists(HKLM, 'SOFTWARE\WOW6432Node\Valve\Steam\Apps\CommonRedist\DirectX\Jun2010')
 end;
 
 procedure CurPageChanged(CurPageID: Integer);
