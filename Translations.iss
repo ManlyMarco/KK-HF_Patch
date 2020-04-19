@@ -27,9 +27,9 @@ RunHF=Open HongFire release thread
 IconGame=Koikatsu launcher
 
 TaskIcon=Create a game &desktop icon
-TaskDelete=Clean up old mods (Recommended if you want to avoid any issues)
+TaskDelete=Clean up old mods (Helps fix and avoid issues. Your old plugins will be backed up to a .zip inside game root.)
 TaskDeleteSide=Delete existing sideloader mods (Everything except for Sideloader Modpacks)
-TaskDeletePlugins=Delete BepInEx plugins (Recommended if you have issues or when updating from old repacks)
+TaskDeletePlugins=Delete BepInEx plugins (Always recommended. Do not disable unless you know what you are doing)
 TaskDeletePluginSettings=Delete plugin settings (Recommended if you have issues or when updating from old repacks)
 TaskDeleteLst=Delete custom listfiles (Disable hardmods, they will be replaced with sideloader mods. Always recommended)
 TaskSideDupes=Delete duplicate sideloader mods after installation (Only the newest versions are kept. Always recommended)
