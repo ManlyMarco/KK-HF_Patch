@@ -149,9 +149,9 @@ namespace HelperLib
         {
             try
             {
-                Directory.CreateDirectory(Path.Combine(path, @"BepInEx\\config"));
+                Directory.CreateDirectory(Path.Combine(path, @"BepInEx\config"));
 
-                var uncp = Path.Combine(path, @"BepInEx\com.deathweasel.bepinex.uncensorselector.cfg");
+                var uncp = Path.Combine(path, @"BepInEx\config\com.deathweasel.bepinex.uncensorselector.cfg");
                 if (File.Exists(uncp))
                 {
                     File.WriteAllText(uncp, File.ReadAllText(uncp).Replace("Default Male Penis = Random", "Default Male Penis = SoS"));
@@ -159,12 +159,6 @@ namespace HelperLib
                 else
                 {
                     File.WriteAllText(uncp, "[Config]\n\nDefault Male Penis = SoS");
-                }
-
-                var fhip = Path.Combine(path, @"BepInEx\com.deathweasel.bepinex.forcehighpoly.cfg");
-                if (!File.Exists(fhip))
-                {
-                    File.WriteAllText(fhip, "[Config]\n\nHigh poly mode = false");
                 }
 
                 var ud = Path.Combine(path, @"BepInEx\config.ini");
@@ -210,7 +204,9 @@ namespace HelperLib
                 if (!string.IsNullOrEmpty(contents))
                     contents += "; ";
 
-                contents += "HF Patch v" + version;
+                var patchV = "HF Patch v" + version;
+                contents = contents.Replace(patchV + "; ", string.Empty);
+                contents += patchV;
 
                 if (File.Exists(verPath)) File.SetAttributes(verPath, FileAttributes.Normal);
                 File.WriteAllText(verPath, contents);
@@ -433,9 +429,11 @@ namespace HelperLib
             try
             {
                 var ud = Path.Combine(path, "UserData");
-                if (!Directory.Exists(ud)) return;
-                foreach (var filename in FilesToDeleteForTranslation)
-                    SafeFileDelete(Path.Combine(ud, filename));
+                if (Directory.Exists(ud))
+                {
+                    foreach (var filename in FilesToDeleteForTranslation)
+                        SafeFileDelete(Path.Combine(ud, filename));
+                }
             }
             catch (Exception e)
             {
@@ -476,6 +474,31 @@ namespace HelperLib
                         if (!IsStandardListFile(filePath))
                             SafeFileDelete(filePath);
                     }
+                }
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, e);
+            }
+        }
+
+        [DllExport("PostInstallCleanUp", CallingConvention = CallingConvention.StdCall)]
+        public static void PostInstallCleanUp([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            try
+            {
+                // Clean up kkp default card duplicates
+                var dd = Path.Combine(path, "DefaultData");
+                if (Directory.Exists(dd))
+                {
+                    var allFiles = Directory.GetFiles(dd, "*.png", SearchOption.AllDirectories);
+                    var duplicates = allFiles.Where(x =>
+                    {
+                        var replacementName = x.Replace(".png", "(SU).png");
+                        return allFiles.Any(y => string.Equals(replacementName, y, StringComparison.OrdinalIgnoreCase));
+                    });
+                    foreach (var file in duplicates)
+                        SafeFileDelete(file);
                 }
             }
             catch (Exception e)
