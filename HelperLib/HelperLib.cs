@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+    Copyright (C) 2020  ManlyMarco
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -199,17 +208,18 @@ namespace HelperLib
             var verPath = Path.Combine(path, @"version");
             try
             {
-                var contents = File.Exists(verPath) ? File.ReadAllText(verPath).Trim() : string.Empty;
+                var contents = File.Exists(verPath) ? File.ReadAllText(verPath) : string.Empty;
+                var versionList = contents.Split(';').Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToList();
+                versionList.Add("HF Patch v" + version);
 
-                if (!string.IsNullOrEmpty(contents))
-                    contents += "; ";
+                var existingVersions = new HashSet<string>();
+                // Only keep latest copy of any version, remove older duplicates
+                var filteredVersionList = versionList.AsEnumerable().Reverse().Where(x => existingVersions.Add(x)).Reverse().ToArray();
+                var result = string.Join("; ", filteredVersionList);
 
-                var patchV = "HF Patch v" + version;
-                contents = contents.Replace(patchV + "; ", string.Empty);
-                contents += patchV;
-
+                // Prevent crash when overwriting hidden file
                 if (File.Exists(verPath)) File.SetAttributes(verPath, FileAttributes.Normal);
-                File.WriteAllText(verPath, contents);
+                File.WriteAllText(verPath, result);
                 File.SetAttributes(verPath, FileAttributes.Hidden | FileAttributes.Archive);
             }
             catch (Exception e)
@@ -301,6 +311,30 @@ namespace HelperLib
             var val = int.Parse(instr);
             if (min > val || val > max)
                 throw new Exception();
+        }
+
+        [DllExport("FixPermissions", CallingConvention = CallingConvention.StdCall)]
+        public static void FixPermissions([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            var batContents = $@"
+title Fixing permissions... 
+rem Get the localized version of Y/N to pass to takeown to make this work in different locales
+for /f ""tokens=1,2 delims=[,]"" %%a in ('""choice <nul 2>nul""') do set ""yes=%%a"" & set ""no=%%b""
+echo Press %yes% for yes and %no% for no
+set target={ path.Trim(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar, ' ') }
+echo off
+cls
+echo Taking ownership of %target% ...
+rem First find is to filter out success messages, second findstr is to filter out empty lines
+takeown /F ""%target%"" /R /SKIPSL /D %yes% | find /V ""SUCCESS: The file (or folder):"" | findstr /r /v ""^$""
+echo.
+echo Fixing access rights ...
+icacls ""%target%"" /grant *S-1-1-0:F /T /C /L /Q
+";
+            var batPath = Path.Combine(Path.GetTempPath(), "hfpatch_fixperms.bat");
+            File.WriteAllText(batPath, batContents);
+
+            Process.Start(new ProcessStartInfo("cmd", $"/C \"{batPath}\"") { WindowStyle = ProcessWindowStyle.Hidden, CreateNoWindow = true });
         }
 
         [DllExport("CreateBackup", CallingConvention = CallingConvention.StdCall)]

@@ -17,14 +17,20 @@ MsgMissingDLC3=NOTICE - You are missing the Koikatu! Yoyaku preorder DLC (emocre
 MsgMissingDLC4=NOTICE - You are missing the Koikatu! Darkness preorder expansion (emocre_dkn_01f). It adds MMF/dark content to the game.%n%nIf you want to use it, install it BEFORE running HF Patch.
 
 MsgExtractedZipmod=WARNING - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.%n%nRepair will be attempted, but if you still have problems you will have to reinstall the game.
+
 MsgEmotionCreatorsDetected=ERROR - EmotionCreators files have been detected! If you installed EmotionCreators to the same folder as Koikatsu, you have broken Koikatsu game files. To fix this you will need to reinstall both games to separate directories!
+MsgAISFilesDetected=AI-Shoujo files have been detected in the game install directory. This most likely means that your game install is broken. You need to reinstall Koikatsu to a new folder to continue.
+MsgKKandKKPdetected=Both Koikatu! and Koikatsu Party files have been detected in the installation folder. To prevent issues with this patch and installed mods the Koikatu! files should be removed. This will not affect Koikatsu Party in any way. If you installed any Japanese DLCs to your Koikatsu Party this is normal and the files should be removed.%n%nDo you want to remove the problematic files? (Koikatu.exe, Koikatu_data, KoikatuVR.exe and KoikatuVR_Data will be removed if they exist)
+
+MsgDeepPath=Your game is in a very deeply nested folder, which can cause serious issues or even prevent the game from starting.%n%nPlease move your game folder to a simpler path like for example "C:\Games\Koikatsu" and try to run this patch again.
 
 RunGame=&Run Koikatsu
 RunWiki=Open Koikatsu wiki (FAQ, English manual)
 RunDiscord=Join Koikatsu! Discord channel (Help, updates, sharing)
 RunHF=Open HongFire release thread
+StartUpdate=Start mod updater (Download latest new mods and mod updates)
 
-IconGame=Koikatsu launcher
+IconGame=Koikatu!
 
 TaskIcon=Create a game &desktop icon
 TaskDelete=Clean up old mods (Helps fix and avoid issues. Your old plugins will be backed up to a .zip inside game root.)
@@ -42,6 +48,14 @@ CompDefCards=Default cards, scenes and backgrounds
 CompUNC=Uncensor
 CompFIX=Important fixes
 CompMISC=Other
+
+SfwTitle=[SFW mod] Do you want to block access to R18 / NSFW content?
+SfwTitleDescription=You can change this setting later through the game's launcher
+SfwOptNsfw=Keep everything enabled (default, NSFW mode)
+SfwOptNsfwDescription=Keep all of the game's content enabled, including adult content. All mods and features will be available. Please be careful when sharing your creations if they involve what looks like a loli in a lewd situation (those are often a bannable offense in online communities, and completely illegal in some countries).
+SfwOptSfw=Disable R18 content (SFW mode)
+SfwOptSfwDescription=Disable free H, story mode, nudity (can't strip), NSFW mods and plugins, and some game functions. Content creation tools (Character Maker and Studio) stay enabled. Useful for streaming and if you want to make only SFW characters and scenes. WARNING: Not all NSFW content might be blocked! Test before public use!
+
 
 
 jp.fullInstall=推奨インストール
@@ -63,13 +77,17 @@ jp.MsgMissingDLC4=注意 - 「コイカツ！ダークネス」のアップデ�
 
 jp.MsgExtractedZipmod=警告 - Sideloader modがゲームディレクトリ内に抽出されたようです。 一部のゲームファイルが破損している可能性があります。%n%n修復を試みますが、それでも問題が解決しない場合は、ゲームを再インストールする必要があります。
 jp.MsgEmotionCreatorsDetected=エラー - 「エモーション・クリエイター」を「コイカツ」と同じフォルダにインストールした場合は、「コイカツ」ゲームファイルが壊れています。修正するには、両方のゲームを別々のディレクトリに再インストールする必要があります。
+jp.MsgAISFilesDetected=エラー - 「ＡＩ＊少女」を「コイカツ」と同じフォルダにインストールした場合は、「コイカツ」ゲームファイルが壊れています。修正するには、両方のゲームを別々のディレクトリに再インストールする必要があります。
+
+jp.MsgDeepPath=あなたのゲームは非常に深いディレクトリにあります。これは深刻な問題を引き起こし、ゲームの開始を妨げることさえあります。%n%nゲームフォルダを、たとえば「C:\Games\Koikatu」のような単純なパスに移動して、このパッチをもう一度実行してみてください。
 
 jp.RunGame=ゲームを始める
 jp.RunWiki=オープン英語Koikatsuのwiki（FAQ、マニュアル）
 jp.RunDiscord=英語のDiscordチャンネルに参加する（ヘルプ、アップデート、カード、モッズの共有）
 jp.RunHF=HongFireディスカッションスレッドを開く（英語）
+jp.StartUpdate=MODアップデーターを開始します（最新の新しいMODとMODアップデートをダウンロードします）
 
-jp.IconGame=コイカツ！ ランチャー
+jp.IconGame=コイカツ！
 
 jp.TaskIcon=ゲームのデスクトップアイコンを作成する
 jp.TaskDelete=インストール前に古いmodを削除します（問題を回避したい場合に推奨）
@@ -87,3 +105,11 @@ jp.CompDefCards=デフォルトのカード、シーン、背景
 jp.CompUNC=無修正化
 jp.CompFIX=重要な修正
 jp.CompMISC=他の
+
+jp.SfwTitle=[SFW mod] R18/NSFWコンテンツへのアクセスをブロックしますか？
+jp.SfwTitleDescription=この設定は、ゲームのランチャーから後で変更できます
+jp.SfwOptNsfw=すべてを有効にしておく（デフォルト、NSFWモード）
+jp.SfwOptNsfwDescription=アダルトコンテンツを含め、ゲームのすべてのコンテンツを有効にしてください。すべての改造と機能が利用可能になります。エッチな状況でロリのように見えるものが含まれる場合は、英語圏のコミュニティで作品を共有するときに注意してください。それらは許可されていません。（ロリは一部の国では完全に違法です）
+jp.SfwOptSfw=R18コンテンツを無効にする（SFWモード）
+jp.SfwOptSfwDescription=これにより、無料のH、ストーリーモード、ヌード（下着は脱ぎません）、NSFW改造とプラグイン、一部のゲーム機能が無効になります。キャラクターメーカーとスタジオは有効なままです。SFWシーンのストリーミングと作成に役立ちます。警告：すべてがブロックされているわけではありません。一般に使用する前にテストしてください！
+
