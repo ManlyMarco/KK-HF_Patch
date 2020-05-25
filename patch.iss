@@ -293,7 +293,7 @@ Source: "Input\_TL\Translation_EN_userdata_jpver\*"; DestDir: "{app}"; Flags: ig
 Source: "Input\_TL\Launcher_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: CustomLauncher; Check: not PartyInstalled
 Source: "Input\_TL\Launcher_party\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: CustomLauncher; Check: PartyInstalled
 
-Source: "Input\_TL\KK_Subtitles.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion; Components: TL\KK_Subtitles
+Source: "Input\_TL\KK_Subtitles.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion; Components: AT\TL\KK_Subtitles
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -918,6 +918,7 @@ begin
       DelTree(ExpandConstant('{app}\BepInEx\IPA'), True, True, True);
       DelTree(ExpandConstant('{app}\scripts'), True, True, True);
       Exec(ExpandConstant('{cmd}'), '/c del *.dll', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+      Exec(ExpandConstant('{cmd}'), '/c del *.dl_', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
     end;
   end;
   

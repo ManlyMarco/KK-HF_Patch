@@ -551,6 +551,7 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
 
                 var allMods = (from file in Directory.GetFiles(ld, "*", SearchOption.AllDirectories)
                                where file.EndsWith(".zip", StringComparison.OrdinalIgnoreCase)
+                                     || file.EndsWith(".zi_", StringComparison.OrdinalIgnoreCase)
                                      || FileHasZipmodExtension(file)
                                select file).ToList();
 
@@ -640,7 +641,9 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
 
                 // Figure out the newest mod and remove all others. Favor .zipmod versions if both have the same creation date
                 var orderedVersions = modVersions.OrderByDescending(File.GetLastWriteTime)
-                    .ThenByDescending(FileHasZipmodExtension);
+                    .ThenByDescending(FileHasZipmodExtension)
+                    // Prefer non-disabled mods
+                    .ThenByDescending(x => !Path.GetExtension(x).Contains("_"));
                 foreach (var oldModPath in orderedVersions.Skip(1))
                     SafeFileDelete(oldModPath);
             }
@@ -648,7 +651,7 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
 
         private static bool FileHasZipmodExtension(string fileName)
         {
-            return fileName.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase);
+            return fileName.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase) || fileName.EndsWith(".zi_mod", StringComparison.OrdinalIgnoreCase);
         }
 
         private static void SafeFileDelete(string file)
