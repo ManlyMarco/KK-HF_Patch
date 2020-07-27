@@ -208,15 +208,16 @@ namespace HelperLib
             var verPath = Path.Combine(path, @"version");
             try
             {
-                var contents = File.Exists(verPath) ? File.ReadAllText(verPath) : string.Empty;
-                var versionList = contents.Split(';').Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToList();
-                versionList.Add("HF Patch v" + version);
+                //var contents = File.Exists(verPath) ? File.ReadAllText(verPath) : string.Empty;
+                //var versionList = contents.Split(';').Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToList();
+                //versionList.Add("HF Patch v" + version);
+                //
+                //var existingVersions = new HashSet<string>();
+                //// Only keep latest copy of any version, remove older duplicates
+                //var filteredVersionList = versionList.AsEnumerable().Reverse().Where(x => existingVersions.Add(x)).Reverse().ToArray();
+                //var result = string.Join("; ", filteredVersionList);
 
-                var existingVersions = new HashSet<string>();
-                // Only keep latest copy of any version, remove older duplicates
-                var filteredVersionList = versionList.AsEnumerable().Reverse().Where(x => existingVersions.Add(x)).Reverse().ToArray();
-                var result = string.Join("; ", filteredVersionList);
-
+                var result = "HF Patch v" + version;
                 // Prevent crash when overwriting hidden file
                 if (File.Exists(verPath)) File.SetAttributes(verPath, FileAttributes.Normal);
                 File.WriteAllText(verPath, result);
