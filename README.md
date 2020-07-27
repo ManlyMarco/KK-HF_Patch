@@ -1,56 +1,81 @@
 ![preview](https://user-images.githubusercontent.com/39247311/49796741-cf723180-fd3d-11e8-8b8a-2d4d3de6b568.PNG)
 # HF Patch for Koikatu! and Koikatsu Party!
-A patch for [Koikatu](http://www.illusion.jp/preview/koikatu/index.php) and [Koikatsu Party](https://steamcommunity.com/app/1073440) with all free updates, fan-made English translations and essential mods. It will allow you to load all character cards and scenes and give you countless gameplay improvements while still keeping the original, uncluttered and clean feel of the game.
+A patch for [Koikatu](http://www.illusion.jp/preview/koikatu/index.php) and [Koikatsu Party](https://steamcommunity.com/app/1073440) with all free updates, fan-made English translations and essential mods. It will allow you to load all character cards and scenes and give you countless content creation and gameplay improvements while still keeping the original, uncluttered feel of the game. All content is tested and fixed (or removed) as needed before each update, providing a stable platform for further modding. HF Patch can also repair many common issues, try it if you have issues.
 
-All content is tested and fixed (or removed) as needed before each update, providing a stable platform for further modding. HF Patch can also repair many common issues, try it if you have issues.
+Koikatsu can be split into two parts: character and scene creation tools (character maker and Studio), and an adventure game with story mode (it can use your custom characters, but not scenes). Here are some previews created with the creation tools and content added by HF Patch:
 
-HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the game [on Steam](https://steamcommunity.com/app/1073440). Until the expansions are localized and released on Steam, their Japanese versions can be bought [here](https://dlsoft.dmm.co.jp/detail/illusion_0024/) and [here](https://dlsoft.dmm.co.jp/detail/illusion_0026/).
+HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. The base game (Koikatu / Koikatsu Party), and by extension this patch are not suitable for minors. If you are under 18 years old you can not use this patch. The base game and this patch contain only characters of age 18 or higher. The creator of this patch is not responsible for creations of its users and prohibits any unlawful use of this software.
+
+HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the English version of the game [on Steam](https://steamcommunity.com/app/1073440) or the Japanese version [on DMM](https://dlsoft.dmm.co.jp/en/detail/illusion_0023/). The expansions are not localized and are only available in Japanese [here](https://dlsoft.dmm.co.jp/detail/illusion_0024/) and [here](https://dlsoft.dmm.co.jp/detail/illusion_0026/).
 
 - Koikatu Darkness DLC is supported since HF Patch version v2.6
 - Koikatsu Party (Steam release) is supported since HF Patch version v2.7.1
 
 You can support development of HF Patch and many of the included plugins through my Patreon page: https://www.patreon.com/ManlyMarco
 
+## What's included?
+HF Patch includes and installs by default:
+- Special patch (adds story mode to KK Party)
+- Free updates for Koikatu, including Studio (sandbox character poser / scene creation tool)
+- Fan-made translations and automatic machine translations to fill in gaps (official translation in KK Party is not modified, only added to)
+- Most commonly used plugins and mods, which allows you to load most character cards and scenes available online
+- Fixes for common issues with the game and mods like botched mod installs
+- Full uncensor with multiple different models
+You can see a full list of what HF Patch contains by checking the `[Components]` section [here](https://github.com/ManlyMarco/KK-HF_Patch/blob/master/patch.iss).
+Note that HF Patch does not contain the full game, paid expansions or any other pirated content. The full game needs to be already installed for the patch to work. If you want to use the VR module, also install it before patching!
+
 ## Download
-Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page for download links. To get mail updates for each new release you can watch this repositiory (top right) or watch the linked patreon page.
+Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page for download links. The magnet links need to be downloaded with a torrent client like [qBittorrent](). To get mail updates for each new release you can watch this repositiory (top right) or watch the linked patreon page.
 
-## How to install
-1. Install the game and any paid expansions that you want.
-2. Download the latest HF Patch to any directory and run it.
-3. You can customize the install but for beginners it's recommended to use the default settings.
-4. Wait until it's done and enjoy the game!
+## How to install the patch?
+1. Install Koikatu or Koikatsu Party
+2. (Optional) Install any DLCs* you have. You don't have to install all of them, you can pick only some DLCs or don't install any DLCs at all.
+ - Install [Personality Pack*](https://dlsoft.dmm.co.jp/detail/illusion_0024/)
+ - Install [Afterschool*](https://dlsoft.dmm.co.jp/detail/illusion_0026/)
+ - Install any preorder DLC you have* (except yoyaku and darkness if you have KK Party)
+ - Install the VR DLC (Get it from official website for the Japanese release, and from Steam library for Koikatsu Party)
+3. Download the latest HF Patch release from [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases/latest). You should get a single .exe file and 2 or more .bin files. You can place these files anywhere you want. DO NOT download any .zip files from GitHub - they contain source code for the patch, not the patch itself.
+4. Install the latest HF Patch by running the .exe and following the wizard. The default settings should work well for most users.
+5. Done! You can now start the game launcher as usual and you will notice some new options straight away. You can remove the downloaded patcher files now if you want to save some space.
+Special patch is included in HF Patch, you don't have to install it manually. It won't hurt anything if you have it installed already, the patch will figure itself out. Just to be safe you can verify game files in Steam before installing the HF Patch if you messed with your installation folder before doing this.
 
-## What mods are included?
-You can see a list of all included mods in the source code [here under the "Components" section](https://github.com/ManlyMarco/KK-HF_Patch/blob/master/patch.iss).
+### How to install DLCs
+All things marked with * are paid DLC content for the Japanese version of the game and are all fully optional. So far none of the DLCs were localized, and they are unlikely to ever come to Steam. Because of this they don't have a proper English translation and have to be machine translated, so the text quality is noticeably worse than the base game. The AfterSchool expansion is arguably the only one worth getting since it adds lots of content all-around.
+
+You can follow [this guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2144965669) to buy and install the two major expansion DLCs.
+
+Here's an simple way to install any downloaded DLCs:
+1. Extract the DLC/expansion with 7zip (or similar) until you find a "setup" folder that contains an "abdata" folder and some other files.
+2. You need to copy all of these folders and files into your game's install directory (you should see our own abdata folder and other files similar to what's in the DLC). Replace files when asked.
+3. Install HF Patch, even if you already have it installed.
+If you have Koikatsu Party then do not install the Darkness and EmotionCreators preorder bonuses - they don't work properly. You will get some of the clothes, but it's just not worth it (and both of these DLC can't be legally purchased anyways, so the point is moot).
 
 ## Discussion and help
-If you need any help, visit the Koikatsu Discord server and check out the #faqs channel. If you didn't find what you need, feel free to ask in the #help channel or in comments under this post, we'll be happy to help!
+There is an extensive FAQ on the [wiki](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help) and in the [Koikatsu! discord server](https://discord.gg/zS5vJYS). There are also some guides available on the server.
+
+If you need further help, feel free to ask in the **#help** channel on the server. Try to search for your issue first by using the Discord's search box at top right, it might have been already answered before. Please don't ask for help under this guide because I rarely check the comments here.
+
 - [Koikatu Wiki (Gameplay and technical help)](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu)
 - [Koikatsu! discord server](https://discord.gg/zS5vJYS)
-- [HongFire Koikatu! Discussion thread](http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussion/5921249)
 - [Illusion Soft discord server](https://discord.gg/F3bDEFE)
 
-## Important notes, please read
-- HF Patch does not contain the full game, paid expansions or any other pirated content. The full game needs to be already installed for the patch to work. If you want to use the VR module, also install it before patching! 
-- If you have installed a previous HF Patch or separate mods it is recommended to remove ALL mods when prompted. This will prevent any potential mod conflicts or outdated mods causing problems.
-- Steam users: Consider changing Koikatsu Party updates on Steam to manual. New updates might install automatically and break mods (which can break the game in return) with no user input. If you verify game files in your Steam client, you will lose many features and have to re-run HF Patch. You can do this if you have issues as it will not remove any of your data. You can prevent Steam from showing you play the game by starting the .exe manually (not from the Steam library).
-- All paid DLC are optional and not required. The patch is compatible with any combination of DLC and with both Japanese and English versions of Koikatu/Koikatsu.
-- You can run this patch as many times as you want and nothing will break. All mods are optional to install, and most can be removed by running the patch again.
-- It's recommended to install all content mods if you plan to download character cards - they are required by many cards and scenes.
-- You can use this patch to fix many broken game/mod installs.
-- Older versions of BepInEx will be automatically upgraded, and most botched installations should get fixed by running this patch. WARNING: If you have a very old BepInEx folder REMOVE it when prompted!
-- Most mods are in plugin and sideloader form to avoid modifying game files. You can run HF Patch again to remove them.
-- You can find more frequent updates to sideloader modpacks ⦁	here. If you find a card that is showing mod missing warnings, try updating these.
+## FAQ / Notes
+- You can configure many plugins by Pressing F1 and then "Plugin settings". You can also see most of the plugin hotkeys in this menu (and change them).
+- Installing HF Patch will add free updates for Koikatu, which contain Studio (separate exe file). For many people this is the only mode they use (apart from character maker to make characters for use in studio), so it is highly recommended that you check it out. All of Koikatu HF Patch preview images were made in studio. You can see other people's creations and download their studio scenes from the Discord server and various card sharing boorus.
+- HF Patch does not contain the full game, paid expansions or any other pirated content. The full game needs to be already installed for the patch to work. If you want to use the VR module, also install it before patching! All paid DLC are optional and not required, you can skip them and the patch will still work fine (some features might be disabled/unavailable).
+- You can install HF Patch over almost any game install and have it work perfectly, and you can run it again to enable/disable some plugins. This patch will automatically fix many broken game/mod installs and common issues. Just make sure to let it remove all old mods when asked.
+- It's recommended to install all content mods if you plan to download character cards - they are required by many cards and scenes. If you find a card that is showing mod missing warnings try updating Sideloader Modpacks. This can be done with [KK Manager](https://github.com/IllusionMods/KKManager).
+- The mods included in the patch don't modify any game files and can be easily disabled by removing the "winhttp.dll" file from your game directory. Official patches are applied permanently.
 - Please leave the modders some positive feedback or help them in some other way!
-- There is no warranty on this patch or on any of the included mods. You are installing this patch at your own risk.
+- There is no warranty on this patch or on any of the included mods. You are installing this patch at your own risk. That being said, we try our best to help in case of issues. If you find any bugs, do let us know so they can be fixed.
 
 ### Notes for Steam release (Koikatsu Party)
 - Consider pausing your Koikatsu updates on Steam. New updates might install automatically and break mods (which can break the game in return) with no user input. 
 - You can prevent Steam from showing you play the game by starting the .exe manually (not from the Steam library). Make your games private to be extra sure. The game can also run with Steam turned off. Just know that we won't judge you for your hours played :)
 - If you verify game files in your Steam client, you will lose many features and have to re-run HF Patch to get them back. You can do this if you have issues as it will restore game files but not remove any of your data.
-- Included fan translations are only used to fill in the gaps in official translation (DLC, studio, mods).
+- Included fan translations are only used to fill in the gaps in official translation (DLC, studio, mods). The official English/Chinese translations are not modified.
 - It is possible to install Japanese versions of Summer Personality Expansion and After School Expansion packs to the Steam release (note that they only have mostly low quality machine translations, but the features work fine). They are both entirely optional and HF Patch will inform you if they are missing. Check the discord server for more info.
 - Installing HF Patch will add free updates for Koikatu, which contain Studio and optionally the VR module (both are separate exe files).
 
-## How to build
+## How to build the source
 At least Visual Studio 2017 is needed for the helper library and latest unicode Inno Setup compiler is needed for the patch itself. All necessary mods have to be placed inside correct subfolders of the Input directory to compile. Because of massive size, they are not included here.
