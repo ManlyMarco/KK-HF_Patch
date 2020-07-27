@@ -50,6 +50,14 @@ Here's an simple way to install any downloaded DLCs:
 3. Install HF Patch, even if you already have it installed.
 If you have Koikatsu Party then do not install the Darkness and EmotionCreators preorder bonuses - they don't work properly. You will get some of the clothes, but it's just not worth it (and both of these DLC can't be legally purchased anyways, so the point is moot).
 
+### Solutions to common issues with the patch
+- If after installing the patch you have issues running the game, restart your PC and try to install the patch again with default settings.
+- If after installing the patch Studio hangs when loading, start KKManager (it's in a folder in game directory) and click "Look for updates" at the top, then tell it to update the Studio modpack.
+- If you have trouble downloading by using the magnet link, try updating your torrent client or use the latest qBittorrent (it's known to work well).
+- Make sure you downloaded ALL parts to the same folder and that the parts all have the same name. You need ALL parts for the patch to work. If the installer asks you for another disc it means that your download was not extracted correctly and is missing files, or you renamed or removed some of the extracted files. 
+- If you see any messages about corrupted files you'll have to re-download the offending part (or all of the parts).  If you downloaded the torrent, most torrent clients can "force recheck" the downloaded files so you don't have to re-download the whole thing.
+- If your antivirus is flagging the .exe file make sure that you've downloaded the patch by following links in this post. If you are sure the download came from the right place, it's most likely a false positive (it's a common issue with non-signed application installers).
+
 ## Discussion and help
 There is an extensive FAQ on the [wiki](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help) and in the [Koikatsu! discord server](https://discord.gg/zS5vJYS). There are also some guides available on the server.
 
@@ -59,7 +67,7 @@ If you need further help, feel free to ask in the **#help** channel on the serve
 - [Koikatsu! discord server](https://discord.gg/zS5vJYS)
 - [Illusion Soft discord server](https://discord.gg/F3bDEFE)
 
-## FAQ / Notes
+### General FAQ / Notes
 - You can configure many plugins by Pressing F1 and then "Plugin settings". You can also see most of the plugin hotkeys in this menu (and change them).
 - Installing HF Patch will add free updates for Koikatu, which contain Studio (separate exe file). For many people this is the only mode they use (apart from character maker to make characters for use in studio), so it is highly recommended that you check it out. All of Koikatu HF Patch preview images were made in studio. You can see other people's creations and download their studio scenes from the Discord server and various card sharing boorus.
 - HF Patch does not contain the full game, paid expansions or any other pirated content. The full game needs to be already installed for the patch to work. If you want to use the VR module, also install it before patching! All paid DLC are optional and not required, you can skip them and the patch will still work fine (some features might be disabled/unavailable).
@@ -69,7 +77,7 @@ If you need further help, feel free to ask in the **#help** channel on the serve
 - Please leave the modders some positive feedback or help them in some other way!
 - There is no warranty on this patch or on any of the included mods. You are installing this patch at your own risk. That being said, we try our best to help in case of issues. If you find any bugs, do let us know so they can be fixed.
 
-### Notes for Steam release (Koikatsu Party)
+### FAQ / Notes for the Steam release (Koikatsu Party)
 - Consider pausing your Koikatsu updates on Steam. New updates might install automatically and break mods (which can break the game in return) with no user input. 
 - You can prevent Steam from showing you play the game by starting the .exe manually (not from the Steam library). Make your games private to be extra sure. The game can also run with Steam turned off. Just know that we won't judge you for your hours played :)
 - If you verify game files in your Steam client, you will lose many features and have to re-run HF Patch to get them back. You can do this if you have issues as it will restore game files but not remove any of your data.
