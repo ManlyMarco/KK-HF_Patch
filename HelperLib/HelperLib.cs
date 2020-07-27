@@ -349,6 +349,10 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                 if (Directory.Exists(bepinPath))
                     filesToBackup.AddRange(Directory.GetFiles(bepinPath, "*", SearchOption.AllDirectories));
 
+                var scriptsPath = Path.Combine(fullPath, "scripts");
+                if (Directory.Exists(scriptsPath))
+                    filesToBackup.AddRange(Directory.GetFiles(scriptsPath, "*", SearchOption.AllDirectories));
+
                 var patchworkPath = Path.Combine(fullPath, "plugins");
                 if (Directory.Exists(patchworkPath))
                     filesToBackup.AddRange(Directory.GetFiles(patchworkPath, "*", SearchOption.AllDirectories));
