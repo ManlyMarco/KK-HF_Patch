@@ -25,15 +25,15 @@ You can see a full list of what HF Patch contains by checking the `[Components]`
 Note that HF Patch does not contain the full game, paid expansions or any other pirated content. The full game needs to be already installed for the patch to work. If you want to use the VR module, also install it before patching!
 
 ## Download
-Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page for download links. The magnet links need to be downloaded with a torrent client like [qBittorrent](). To get mail updates for each new release you can watch this repositiory (top right) or watch the linked patreon page.
+Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page for download links. The magnet links need to be downloaded with a torrent client like [qBittorrent](https://www.qbittorrent.org/). To get mail updates for each new release you can watch this repositiory (top right) or watch the linked patreon page.
 
 ## How to install the patch?
 1. Install Koikatu or Koikatsu Party
 2. (Optional) Install any DLCs* you have. You don't have to install all of them, you can pick only some DLCs or don't install any DLCs at all.
- - Install [Personality Pack*](https://dlsoft.dmm.co.jp/detail/illusion_0024/)
- - Install [Afterschool*](https://dlsoft.dmm.co.jp/detail/illusion_0026/)
- - Install any preorder DLC you have* (except yoyaku and darkness if you have KK Party)
- - Install the VR DLC (Get it from official website for the Japanese release, and from Steam library for Koikatsu Party)
+   - Install [Personality Pack*](https://dlsoft.dmm.co.jp/detail/illusion_0024/)
+   - Install [Afterschool*](https://dlsoft.dmm.co.jp/detail/illusion_0026/)
+   - Install any preorder DLC you have* (except yoyaku and darkness if you have KK Party)
+   - Install the VR DLC (Get it from official website for the Japanese release, and from Steam library for Koikatsu Party)
 3. Download the latest HF Patch release from [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases/latest). You should get a single .exe file and 2 or more .bin files. You can place these files anywhere you want. DO NOT download any .zip files from GitHub - they contain source code for the patch, not the patch itself.
 4. Install the latest HF Patch by running the .exe and following the wizard. The default settings should work well for most users.
 5. Done! You can now start the game launcher as usual and you will notice some new options straight away. You can remove the downloaded patcher files now if you want to save some space.
