@@ -1,12 +1,12 @@
-![preview](https://user-images.githubusercontent.com/39247311/49796741-cf723180-fd3d-11e8-8b8a-2d4d3de6b568.PNG)
+![preview](https://user-images.githubusercontent.com/39247311/94689673-74a13400-032f-11eb-8162-b83ce83f2a33.png)
 # HF Patch for Koikatu! and Koikatsu Party!
-A patch for [Koikatu](http://www.illusion.jp/preview/koikatu/index.php) and [Koikatsu Party](https://steamcommunity.com/app/1073440) with all free updates, fan-made English translations and essential mods. It will allow you to load all character cards and scenes and give you countless content creation and gameplay improvements while still keeping the original, uncluttered feel of the game. All content is tested and fixed (or removed) as needed before each update, providing a stable platform for further modding. HF Patch can also repair many common issues, try it if you have issues.
+An unofficial patch for [Koikatu](http://www.illusion.jp/preview/koikatu/index.php) and [Koikatsu Party](https://steamcommunity.com/app/1073440) with fan-made English translations and essential mods. It will allow you to load all character cards and scenes and give you countless content creation and gameplay improvements while still keeping the original, uncluttered feel of the game. All content is tested and fixed (or removed) as needed before each update, providing a stable platform for further modding. HF Patch can also repair many common issues, try it if you have issues.
 
 Koikatsu can be split into two parts: character and scene creation tools (character maker and Studio), and an adventure game with story mode (it can use your custom characters, but not scenes). You can see preview videos of the game and some of the mods [here](https://www.youtube.com/channel/UClyTRNXmHHsbdUWC0hq8GrA).
 
-HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. The base game (Koikatu / Koikatsu Party), and by extension this patch are not suitable for minors. If you are under 18 years old you can not use this patch. The base game and this patch contain only characters of age 18 or higher. The creator of this patch is not responsible for creations of its users and prohibits any unlawful use of this software.
-
 HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the English version of the game [on Steam](https://steamcommunity.com/app/1073440) or the Japanese version [on DMM](https://dlsoft.dmm.co.jp/en/detail/illusion_0023/). The expansions are not localized and are only available in Japanese [here](https://dlsoft.dmm.co.jp/detail/illusion_0024/) and [here](https://dlsoft.dmm.co.jp/detail/illusion_0026/).
+
+The base game (Koikatu / Koikatsu Party), and by extension this patch are not suitable for minors. If you are under 18 years old you can not use this patch. The base game and this patch contain only characters of age 18 or higher. The creator of this patch is not responsible for creations of its users and prohibits any unlawful use of this software.
 
 - Koikatu Darkness DLC is supported since HF Patch version v2.6
 - Koikatsu Party (Steam release) is supported since HF Patch version v2.7.1
@@ -15,8 +15,7 @@ You can support development of HF Patch and many of the included plugins through
 
 ## What's included?
 HF Patch includes and installs by default:
-- Special patch (adds story mode to KK Party)
-- Free updates for Koikatu, including Studio (sandbox character poser / scene creation tool)
+- All free updates (no need to install any updates manually)
 - Fan-made translations and automatic machine translations to fill in gaps (official translation in KK Party is not modified, only added to)
 - Most commonly used plugins and mods, which allows you to load most character cards and scenes available online
 - Fixes for common issues with the game and mods like botched mod installs
