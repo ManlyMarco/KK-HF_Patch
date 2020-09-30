@@ -332,3 +332,4 @@ ASALocalRun/
 /*.xml
 /*.dll
 /Output
+/components_old.iss

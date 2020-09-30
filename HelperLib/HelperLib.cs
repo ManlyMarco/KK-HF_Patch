@@ -161,40 +161,11 @@ namespace HelperLib
                 Directory.CreateDirectory(Path.Combine(path, @"BepInEx\config"));
 
                 var uncp = Path.Combine(path, @"BepInEx\config\com.deathweasel.bepinex.uncensorselector.cfg");
-                if (File.Exists(uncp))
-                {
-                    File.WriteAllText(uncp, File.ReadAllText(uncp).Replace("Default Male Penis = Random", "Default Male Penis = SoS"));
-                }
-                else
-                {
-                    File.WriteAllText(uncp, "[Config]\n\nDefault Male Penis = SoS");
-                }
+                File.WriteAllText(uncp, File.Exists(uncp) ? File.ReadAllText(uncp).Replace("Default Male Penis = Random", "Default Male Penis = SoS") : "[Config]\n\nDefault Male Penis = SoS");
 
-                var ud = Path.Combine(path, @"BepInEx\config.ini");
-                if (!File.Exists(ud))
-                {
-                    File.WriteAllText(ud, string.Empty);
-                }
-
-                var contents = File.ReadAllLines(ud).ToList();
-                // Fix VMD for darkness
-                var vmdIndex = contents.FindIndex(s => s.ToLower().Contains("[VMDPlay]".ToLower()));
-                if (vmdIndex >= 0)
-                {
-                    var i = contents.FindIndex(vmdIndex, s => s.IndexOf("CacheGagEyesTexture", StringComparison.OrdinalIgnoreCase) >= 0);
-                    if (i > vmdIndex)
-                        contents[i] = "CacheGagEyesTexture=False";
-                    else
-                        contents.Insert(vmdIndex + 1, "CacheGagEyesTexture=False");
-                }
-                else
-                {
-                    contents.Add("");
-                    contents.Add("[VMDPlay]");
-                    contents.Add("CacheGagEyesTexture=False");
-                }
-
-                File.WriteAllLines(ud, contents.ToArray());
+                //todo turn on next patch version
+                //var subp = Path.Combine(path, @"BepInEx\config\com.deathweasel.bepinex.uncensorselector.cfg");
+                //if(!File.Exists(subp)) File.WriteAllText(subp, "[Config]\nShow Subtitles = false");
             }
             catch (Exception e)
             {
@@ -397,6 +368,7 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
 
                 var acceptableDirs = new[]{
                     "Sideloader Modpack"                        ,
+                    "Sideloader Modpack - Animations"           ,
                     "Sideloader Modpack - Compatibility Pack"   ,
                     "Sideloader Modpack - Fixes"                ,
                     "Sideloader Modpack - KK_MaterialEditor"    ,

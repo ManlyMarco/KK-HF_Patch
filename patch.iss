@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "3.3"
+#define VERSION "3.4"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -31,10 +31,9 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
 LZMADictionarySize=208576
 LZMANumFastBytes=273
-LZMANumBlockThreads=7
+LZMANumBlockThreads=5
 DiskSpanning=yes
 DefaultDirName={reg:HKCU\Software\Illusion\Koikatu\koikatu,INSTALLDIR}
-
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "jp"; MessagesFile: "compiler:Languages\Japanese.isl"
@@ -51,28 +50,45 @@ Name: "bare";     Description: "{cm:bareInstall}"
 Name: "none";     Description: "{cm:noneInstall}"
 Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 
+#define CurrentDate GetDateTimeString('yyyy-mm-dd', '-', ':');
+
 [Components]
 
-Name: "Patch"; Description: "Official patches + CharaStudio + KK Party Special Patch"; Types: full_en full extra_en extra custom bare none; Flags: fixed
+Name: "Patch"; Description: "All free updates + game repair"; Types: full_en full extra_en extra custom bare none; Flags: fixed
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
-Name: "BepInEx"; Description: "BepInEx v5.2.0.237 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0 + BepIn4Patcher v1.0"; Types: full_en full extra_en extra custom bare; Flags: fixed 
-Name: "BepInEx\Compat"; Description: "Backwards compatibility with IPA plugins (IPALoaderX v1.2.1)"; Types: extra_en extra 
+Name: "BepInEx"; Description: "BepInEx v5.3 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0"; Types: full_en full extra_en extra custom bare; Flags: fixed 
+Name: "BepInEx\Compat"; Description: "Backwards compatibility with old plugins (BepIn4Patcher v1.0 + IPALoaderX v1.2.1)"; Types: extra_en extra 
 #ifndef WEBINSTALLER
 Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
 #endif
 
-Name: "KKManager"; Description: "KKManager v0.13.0 (Manage and update mods)"; Types: full_en full extra_en extra custom
+Name: "KKManager"; Description: "KKManager v0.14.0 (Manage and update mods)"; Types: full_en full extra_en extra custom
+
+Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additional content to the game, needs at least BepisPlugins to work)"
+Name: "Modpack\General"; Description: "General (Content for making characters, always recommended)"; Types: full_en full extra_en extra
+Name: "Modpack\Fixes"; Description: "Fixes (Fixes to some of the official content, always recommended)"; Types: full_en full extra_en extra
+Name: "Modpack\Studio"; Description: "Studio (Additional content for making Studio scenes)"; Types: full_en full extra_en extra
+Name: "Modpack\Animations"; Description: "Animations (Additional adnimations for use in Studio and Free H)"; Types: full_en full extra_en extra
+Name: "Modpack\Maps"; Description: "Maps (Additional maps for use in Studio and H scenes)"; Types: full_en full extra_en extra
+Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for use with MaterialEditor)"; Types: full_en full extra_en extra
+Name: "Modpack\UncensorSelector"; Description: "KK_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
+;Name: "Modpack\Compat"; Description: "Compatibility Pack (Deprecated mods for backwards compatibility)"; Types: full_en full extra_en extra
+
+Name: "CustomLauncher"; Description: "IllusionLaunchers v2.1.1 (Custom launcher)"; Types: full extra full_en extra_en custom
+
+Name: "Experimental"; Description: "Experimental performance optimizations (Disable in case of plugin compatibility issues)"; Types: full full_en
+
+; Name: "FIX\URL"; Description: "Use custom Character Database (fan-operated character DB - no IP blocking and mods are allowed)"; Types: full_en bare custom extra_en
 
 [Files]
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
-
-Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\hfp\DirectXRedist2010"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall; Check: DirectXRedistNeedsInstall
 Source: "Input\start.bat"; DestDir: "{tmp}\hfp"; Flags: ignoreversion recursesubdirs createallsubdirs
-
+Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\hfp\DirectXRedist2010"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall; Check: DirectXRedistNeedsInstall
+Source: "Plugin Readme.md"; DestDir: "{app}"
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Patch\empty_ud\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
+Source: "Input\_Patch\empty_ud\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Patch
 Source: "Input\_Patch\empty_ud_eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Languages: en
 
 Source: "Input\KKManager\*"; DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: KKManager
@@ -91,11 +107,14 @@ Source: "Input\_Patch\Remote\Patches\extras\*"; DestDir: "{app}"; Flags: ignorev
 Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
 Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks_kk\*"; DestDir: "{app}\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: KoikatuInstalled
 Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks_as\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: AfterSchoolInstalled
-Source: "Input\_Patch\Remote\Patches\koikatu_03vr_d0531hg\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak createallsubdirs; Components: Patch; Check: not PartyInstalled
+Source: "Input\_Patch\Remote\Patches\koikatu_03vr_d0531hg\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: not PartyInstalled
 Source: "Input\_Patch\Remote\Patches\dkn_diff\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: DarknessInstalled and not PartyInstalled
 Source: "Input\_Patch\Remote\Patches\party_diff\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: PartyInstalled
 Source: "Input\_Patch\Remote\Patches\koikatsuparty_sp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: PartyInstalled
 #endif
+
+Source: "Input\_Patch\experimental\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: DarknessInstalled
+Source: "Input\_Patch\experimental_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: not PartyInstalled and DarknessInstalled
 
 Source: "Input\BepInEx_x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
 Source: "Input\BepInEx_Essentials\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
@@ -104,16 +123,31 @@ Source: "Input\BepInEx_Compatibility\*"; DestDir: "{app}"; Flags: ignoreversion 
 #ifndef WEBINSTALLER
 Source: "Input\BepInEx_Dev\common\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev
 Source: "Input\BepInEx_Dev\Koikatu_Data\*"; DestDir: "{app}\Koikatu_Data"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev; Check: KoikatuInstalled
-;Not sure how it works with the steam vr dlc
 ;Source: "Input\BepInEx_Dev\KoikatuVR_Data\*"; DestDir: "{app}\KoikatuVR_Data"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev; Check: VRInstalled
 Source: "Input\BepInEx_Dev\Koikatsu Party_Data\*"; DestDir: "{app}\Koikatsu Party_Data"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev; Check: PartyInstalled
 #endif
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_TL\_lang jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: jp
-Source: "Input\_TL\_lang ch\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: sc
-Source: "Input\_TL\_lang eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
+#ifndef WEBINSTALLER
+Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
+;Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Compatibility Pack\*"; DestDir: "{app}\mods\Sideloader Modpack - Compatibility Pack"; Flags: ignoreversion recursesubdirs; Components: Modpack\Compat; 
+Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
+Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
+Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Animations\*";               DestDir: "{app}\mods\Sideloader Modpack - Animations";   Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
+Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
+Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
+Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
+#endif
+
+; Only copy our blacklist if the user doesn't already have one
+Source: "Input\_Misc\itemblacklist.xml"; DestDir: "{app}\UserData\save"; Flags: onlyifdoesntexist; Components: Modpack\General
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Source: "Input\_TL\_lang jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Languages: jp
+Source: "Input\_TL\_lang ch\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Languages: sc
+Source: "Input\_TL\_lang eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Languages: en
 
 Source: "Input\_TL\Translation_EN_base\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation
 Source: "Input\_TL\Translation_EN_jpver\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation; Check: not PartyInstalled
@@ -126,21 +160,23 @@ Source: "Input\Launcher_party\*"; DestDir: "{app}"; Flags: ignoreversion recurse
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Plugins\[moderchan]Tongue Texture v1.1 + Outline Fix.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Tongue
+Source: "Input\_Plugins\KK_SFW\sfw\KK_SFW.cfg";      DestDir: "{app}\BepInEx\config"; Flags: ignoreversion; Components: Feature\KK_SFW; Check: SFWmode
+Source: "Input\_Plugins\KK_SFW\nsfw\KK_SFW.cfg";     DestDir: "{app}\BepInEx\config"; Flags: ignoreversion; Components: Feature\KK_SFW; Check: NSFWmode
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Plugins\ModBoneImplantor.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Content\Modpack
+Source: "Input\_Plugins\[DeathWeasel][KK]Smaller Heart Pupil v1.1.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: FIX\Pupils
+Source: "Input\_Plugins\[moderchan]Tongue Texture v1.1 + Outline Fix.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Tongue
+Source: "Input\_Plugins\[moderchan]Add Pose v1.6.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Content\AddPose
+Source: "Input\_Plugins\Liquid extension\*";         DestDir: "{app}\mods"; Flags: ignoreversion recursesubdirs; Components: FIX\LiquidExtension
+Source: "Input\_Plugins\[uppervolta]Super Outdoor Sex 2.0.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Feature\OutdoorSex
 
-#ifndef WEBINSTALLER
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Content\Modpack;        
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Compatibility Pack\*"; DestDir: "{app}\mods\Sideloader Modpack - Compatibility Pack"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\ModpackCompat; 
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs solidbreak; Components: Content\ModpackStudio; 
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs solidbreak; Components: FIX\ModpackFixes;       
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Content\ModpackMaps       
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Content\KK_MaterialEditor\Modpack;
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: UNC\Selector\Pack
-#endif
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+; Source: "Input\_Plugins\[Character Database][various] fixed\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\URL
+; Source: "Input\_Misc\KoikatuSaveDataEdit\*"; DestDir: "{app}\_Tools\KoikatuSaveDataEdit"; Flags: ignoreversion recursesubdirs; Components: MISC\SaveEditor
+Source: "Input\_Misc\Full save\*";                   DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: MISC\FullSave
+Source: "Input\_Misc\Memes\*";                       DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: MISC\Meme
 
 #include "components.iss"
 
@@ -156,10 +192,10 @@ Type: files; Name: "{app}\InitSettingEnglish.exe"; Components: CustomLauncher
 Type: files; Name: "{app}\InitSetting EN.exe"; Components: CustomLauncher
 Type: files; Name: "{app}\InitSetting English.exe"; Components: CustomLauncher
 Type: files; Name: "{app}\InitSetting.exe"
-Type: files; Name: "{app}\Initial Settings.exe"
 Type: files; Name: "{app}\InitSetting.exe.config"
+Type: files; Name: "{app}\Initial Settings.exe"
 Type: files; Name: "{app}\Initial Settings.exe.config"
-Type: filesandordirs; Name: "{app}\UserData\LauncherEN"
+Type: filesandordirs; Name: "{app}\UserData\LauncherEN"; Components: CustomLauncher
 
 ; Need to use the steam DLC instead
 Type: filesandordirs; Name: "{app}\KoikatuVR_Data"; Check: PartyInstalled
@@ -179,13 +215,14 @@ Type: filesandordirs; Name: "{app}\BepInEx\introclips"
 Type: filesandordirs; Name: "{app}\mods\[moderchan]Tongue Texture v1.1.zipmod"
 ; Completely remove only modpacks that we fully bundle; compatibility pack is safer to be removed since it can have dupes with main modpack
 #ifndef WEBINSTALLER
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"                      ; Components: Content\Modpack
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Compatibility Pack" ; Components: Content\ModpackCompat
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Studio"             ; Components: Content\ModpackStudio
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Fixes"              ; Components: FIX\ModpackFixes
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"                      ; Components: Modpack\General
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Compatibility Pack" ; Components: Modpack\General
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Studio"             ; Components: Modpack\Studio
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Fixes"              ; Components: Modpack\Fixes
 ;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Maps"               ; Components: Content\ModpackMaps
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"  ; Components: Content\KK_MaterialEditor\Modpack
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_UncensorSelector"; Components: UNC\Selector
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"  ; Components: Modpack\MaterialEditor
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_UncensorSelector"; Components: Modpack\UncensorSelector
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Animations"; Components: Modpack\Animations
 #endif
 
 ; Clean up old patches and packs
@@ -216,12 +253,16 @@ Type: files; Name: "{app}\Koikatsu Party_Data\output_log.txt"
 ; Yikes, someone extracted a sideloader mod...
 Type: files; Name: "{app}\manifest.xml"
 
-; Needed to migrate from BepInEx 3.x to 4.x
-Type: files; Name: "{app}\BepInEx.Patcher.exe"; Components: BepInEx
-
 ; Just in case. Also resets any hash caches
 Type: filesandordirs; Name: "{app}\[UTILITY] KKManager"; Components: KKManager
 Type: filesandordirs; Name: "{app}\temp"
+
+; Will get replaced, makes sure there are no stale files left
+Type: filesandordirs; Name: "{app}\BepInEx\core"; Components: BepInEx
+Type: files; Name: "{app}\BepInEx.Patcher.exe"; Components: BepInEx
+Type: files; Name: "{app}\version.dll"; Components: BepInEx
+Type: files; Name: "{app}\winhttp.dll"; Components: BepInEx
+Type: files; Name: "{app}\doorstop_config.ini"; Components: BepInEx
 
 ; Potentially incompatible, outdated or buggy plugins
 Type: files; Name: "{app}\mods\atari2.1 (normal bust).zipmod"
@@ -235,8 +276,8 @@ Type: files; Name: "{app}\BepInEx\plugins\KKUS.dll"; Check: PartyInstalled
 Type: files; Name: "{app}\BepInEx\FixCompilation.dll"
 Type: files; Name: "{app}\BepInEx\KK_Ahegao.dll"
 Type: files; Name: "{app}\BepInEx\KK_MoveMapFromCharaList.dll"
-Type: files; Name: "{app}\BepInEx\ObjectTreeDebugKK.dll"; Components: MISC\Trainer
-Type: files; Name: "{app}\BepInEx\MakerAPI.dll"; Components: KKAPI
+Type: files; Name: "{app}\BepInEx\ObjectTreeDebugKK.dll"; Components: MISC\RuntimeUnityEditor
+Type: files; Name: "{app}\BepInEx\MakerAPI.dll"; Components: API\KKAPI
 Type: files; Name: "{app}\BepInEx\KK_AnimationController.dll"; Components: Content\NodesConstraints
 Type: files; Name: "{app}\BepInEx\KKABMGUI.dll"; Components: Content\KKABMX
 Type: files; Name: "{app}\BepInEx\KKABMPlugin.dll"; Components: Content\KKABMX
@@ -246,7 +287,7 @@ Type: files; Name: "{app}\BepInEx\KK_StudioCoordinateLoadOption.dll"; Components
 Type: files; Name: "{app}\BepInEx\KK_RandomCharacterGenerator.dll"; Components: Feature\KK_RandomCharacterGenerator
 Type: files; Name: "{app}\BepInEx\KoiSkinOverlay.dll"; Components: Content\KSOX
 Type: files; Name: "{app}\BepInEx\KoiClothesOverlay.dll"; Components: Content\KSOX
-Type: files; Name: "{app}\BepInEx\RuntimeUnityEditor.dll"; Components: MISC\Trainer
+Type: files; Name: "{app}\BepInEx\RuntimeUnityEditor.dll"; Components: MISC\RuntimeUnityEditor
 Type: files; Name: "{app}\BepInEx\HideStudioUI.dll"
 Type: files; Name: "{app}\BepInEx\HideHInterface.dll"
 
@@ -300,6 +341,7 @@ Name: delete; Description: "{cm:TaskDelete}";
 Name: delete\Sidemods; Description: "{cm:TaskDeleteSide}"
 Name: delete\Plugins; Description: "{cm:TaskDeletePlugins}";
 Name: delete\Config; Description: "{cm:TaskDeletePluginSettings}"; Flags: unchecked
+Name: delete\scripts; Description: "Delete old scripts"; Flags: unchecked
 Name: delete\Listfiles; Description: "{cm:TaskDeleteLst}"
 Name: fixSideloaderDupes; Description: "{cm:TaskSideDupes}";
 Name: PW; Description: "{cm:TaskPW}";
@@ -307,21 +349,24 @@ Name: PW; Description: "{cm:TaskPW}";
 Name: IPA; Description: "{cm:TaskIPA}";
 
 [Icons]
-Name: "{userdesktop}\{cm:IconGame}"; Filename: "{app}\InitSetting.exe"; IconFilename: "{app}\InitSetting.exe"; WorkingDir: "{app}"; Comment: "{cm:IconGame}"; Flags: createonlyiffileexists
-Name: "{userdesktop}\Koikatsu Party"; Filename: "{app}\Initial Settings.exe"; IconFilename: "{app}\Initial Settings.exe"; WorkingDir: "{app}"; Comment: "Koikatsu Party launcher"; Flags: createonlyiffileexists
+Name: "{userdesktop}\{cm:IconGame}"; Filename: "{app}\InitSetting.exe"; IconFilename: "{app}\InitSetting.exe"; WorkingDir: "{app}\"; Flags: createonlyiffileexists; Tasks: desktopicon; Comment: "{cm:IconGame}"
+Name: "{userdesktop}\Koikatsu Party"; Filename: "{app}\Initial Settings.exe"; IconFilename: "{app}\Initial Settings.exe"; WorkingDir: "{app}\"; Flags: createonlyiffileexists; Tasks: desktopicon; Comment: "{cm:IconGame}"
 
 [Run]
 Filename: "{tmp}\hfp\DirectXRedist2010\DXSETUP.exe"; Parameters: "/silent"; Description: "Installing DirectX redistributables"; Flags: skipifdoesntexist runascurrentuser
 
 Filename: "{tmp}\hfp\start.bat"; Parameters: """{app}"""; Description: "{cm:RunGame}"; Flags: postinstall runasoriginaluser nowait skipifsilent skipifdoesntexist
 
+Filename: "notepad.exe"; Parameters: """{app}\Plugin Readme.md"""; Description: "Show information about included plugins"; Flags: postinstall runasoriginaluser nowait skipifsilent skipifdoesntexist unchecked
+
 Filename: "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"; Description: "{cm:RunWiki}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
 Filename: "https://discord.gg/Szumqcu"; Description: "{cm:RunDiscord}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
 
 Filename: "{app}\[UTILITY] KKManager\StandaloneUpdater.exe"; Parameters: """{app}"""; Description: "{cm:StartUpdate}"; Flags: postinstall runascurrentuser unchecked nowait skipifsilent skipifdoesntexist
 
-Filename: "https://www.patreon.com/ManlyMarco"; Description: "ManlyMarco Patreon (Creator of this patch)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
+Filename: "https://github.com/ManlyMarco/KK-HF_Patch"; Description: "Latest releases and source code"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
 
+Filename: "https://www.patreon.com/ManlyMarco"; Description: "ManlyMarco Patreon (Creator of this patch)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
 
 [Code]
 procedure CreateBackup(path: String);
@@ -408,7 +453,7 @@ begin
     if(FileExists(ExpandConstant('{app}\BepInEx\CardCacher.dll')) or FileExists(ExpandConstant('{app}\BepInEx\0Harmony.dll')) or FileExists(ExpandConstant('{app}\BepInEx\TexResPatch.dll')) or FileExists(ExpandConstant('{app}\BepInEx\KK_GUIDMigration.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Sideloader.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Assembly-CSharp.dll'))) then
     begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgInvalidModsDetected}'), mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 9, coCheckWithChildren);
     end;
 
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\KoikPlugins.dll'))) then
@@ -417,7 +462,7 @@ begin
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifier.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudio.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudioNEO.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\HSStudioNEOExtSave.dll')) or FileExists(ExpandConstant('{app}\BepInEx\FlashBangZ.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\KK_gaugeslider.dll'))) then
     begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgIncompatibleModsDetected}'), mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 9, coCheckWithChildren);
     end;
     
     if (PartyInstalled() and IsComponentSelected('Patch\VR')) then
@@ -425,53 +470,8 @@ begin
       SuppressibleMsgBox('To install the VR module for Koikatsu Party you have to go to your Steam Library, open properties of Koikatsu Party, go to the DLC tab and enable the VR DLC there. It''s recommended to do this before installing HF Patch.', mbInformation, MB_OK, 0);
     end;
     
-    WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 9] := PartyInstalled();
-    WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 9] := PartyInstalled();
-  end;
-end;
-
-procedure CurStepChanged(CurStep: TSetupStep);
-var
-  ResultCode: Integer;
-begin
-  // After install completes
-  if CurStep = ssPostInstall then
-  begin
-    
-#ifdef WEBINSTALLER
-    // Run automatic update before further options
-    StartAutoUpdate(ExpandConstant('{app}'), ExpandConstant('{src}'), IsComponentSelected('Content\Modpack'), IsComponentSelected('Content\ModpackCompat'), IsComponentSelected('FIX\ModpackFixes'), IsComponentSelected('Content\KK_MaterialEditor\Modpack'), IsComponentSelected('UNC\Selector\Pack'), IsComponentSelected('Content\ModpackMaps'), IsComponentSelected('Content\ModpackStudio'));
-#endif
-    
-    // Removing this causes game to fall back to original font
-    if IsTaskSelected('partyfont') then begin
-      try
-        DeleteFile(ExpandConstant('{app}\abdata\localize\translate\1\font.unit-y3d'));
-        //DeleteFile(ExpandConstant('{app}\abdata\localize\translate\2\font.unit-y3d'));
-        //DeleteFile(ExpandConstant('{app}\abdata\localize\translate\3\font.unit-y3d'));
-        RenameFile(ExpandConstant('{app}\abdata\localize\translate\1\font.unity3d'), ExpandConstant('{app}\abdata\localize\translate\1\font.unit-y3d'))
-        //RenameFile(ExpandConstant('{app}\abdata\localize\translate\2\font.unity3d'), ExpandConstant('{app}\abdata\localize\translate\2\font.unit-y3d'))
-        //RenameFile(ExpandConstant('{app}\abdata\localize\translate\3\font.unity3d'), ExpandConstant('{app}\abdata\localize\translate\3\font.unit-y3d'))
-      except
-        ShowExceptionMessage();
-      end;
-    end;
-    
-    // Delete Japanese versions of cards and bgs if English versions are installed (only those with different names)
-    if IsComponentSelected('AT\TL\EnglishTranslation\UserData') then
-        RemoveJapaneseCards(ExpandConstant('{app}'));
-        
-    // Always clean up sideloader mods in case user already messed up
-    if IsTaskSelected('fixSideloaderDupes') then
-        RemoveSideloaderDuplicates(ExpandConstant('{app}'));
-        
-    FixConfig(ExpandConstant('{app}'));
-    WriteVersionFile(ExpandConstant('{app}'), '{#VERSION}');
-    
-    // Prevent trying to install the redist again
-    Exec('reg', 'add HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam\Apps\CommonRedist\DirectX\Jun2010 /v dxsetup /t REG_DWORD /d 1 /f /reg:32', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    
-    PostInstallCleanUp(ExpandConstant('{app}'));
+    WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 10] := PartyInstalled();
+    WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 10] := PartyInstalled();
   end;
 end;
 
@@ -513,7 +513,7 @@ begin
 
     if Result = True then
     begin
-      if (FileExists(ExpandConstant('{app}\AI-Shoujo.exe')) or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))) then
+      if (FileExists(ExpandConstant('{app}\AI-Shoujo.exe')) or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))) then
       begin
         MsgBox(ExpandConstant(ExpandConstant('{cm:MsgAISFilesDetected}')), mbError, MB_OK);
         Result := False;
@@ -529,6 +529,15 @@ begin
       end
     end;
     
+    if Result = True then
+    begin
+      if (Pos(LowerCase(ExpandConstant('{app}')), LowerCase(ExpandConstant('{src}'))) > 0) then
+      begin
+        MsgBox('This patch is inside of the game directory you are attempting to install to. You have to move the patch files outside of the game directory and try again.', mbError, MB_OK);
+        Result := False;
+      end
+    end;
+
     if Result = True then
     begin
       // Check for file corruptions
@@ -557,13 +566,56 @@ begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC4}'), mbInformation, MB_OK, 0);
         end;
       end;
+    end;
 
+    if Result = True then
+    begin
       // Check for extracted zipmods
       if FileExists(ExpandConstant('{app}\manifest.xml')) then
       begin
         SuppressibleMsgBox(ExpandConstant('{cm:MsgExtractedZipmod}'), mbError, MB_OK, 0);
       end;
     end;
+  end;
+
+// After install completes
+  if (CurPageID = wpFinished) then
+  begin
+    
+#ifdef WEBINSTALLER
+    // Run automatic update before further options
+    StartAutoUpdate(ExpandConstant('{app}'), ExpandConstant('{src}'), IsComponentSelected('Content\Modpack'), IsComponentSelected('Content\ModpackCompat'), IsComponentSelected('FIX\ModpackFixes'), IsComponentSelected('Content\KK_MaterialEditor\Modpack'), IsComponentSelected('UNC\Selector\Pack'), IsComponentSelected('Content\ModpackMaps'), IsComponentSelected('Content\ModpackStudio'));
+#endif
+    
+    // Removing this causes game to fall back to original font
+    if IsTaskSelected('partyfont') then begin
+      try
+        DeleteFile(ExpandConstant('{app}\abdata\localize\translate\1\font.unit-y3d'));
+        //DeleteFile(ExpandConstant('{app}\abdata\localize\translate\2\font.unit-y3d'));
+        //DeleteFile(ExpandConstant('{app}\abdata\localize\translate\3\font.unit-y3d'));
+        RenameFile(ExpandConstant('{app}\abdata\localize\translate\1\font.unity3d'), ExpandConstant('{app}\abdata\localize\translate\1\font.unit-y3d'))
+        //RenameFile(ExpandConstant('{app}\abdata\localize\translate\2\font.unity3d'), ExpandConstant('{app}\abdata\localize\translate\2\font.unit-y3d'))
+        //RenameFile(ExpandConstant('{app}\abdata\localize\translate\3\font.unity3d'), ExpandConstant('{app}\abdata\localize\translate\3\font.unit-y3d'))
+      except
+        ShowExceptionMessage();
+      end;
+    end;
+    
+    // Delete Japanese versions of cards and bgs if English versions are installed (only those with different names)
+    if IsComponentSelected('AT\TL\EnglishTranslation\UserData') then
+        RemoveJapaneseCards(ExpandConstant('{app}'));
+        
+    // Always clean up sideloader mods in case user already messed up
+    if IsTaskSelected('fixSideloaderDupes') then
+        RemoveSideloaderDuplicates(ExpandConstant('{app}'));
+        
+    FixConfig(ExpandConstant('{app}'));
+    WriteVersionFile(ExpandConstant('{app}'), '{#VERSION}');
+    
+    // Prevent trying to install the redist again
+    Exec('reg', 'add HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam\Apps\CommonRedist\DirectX\Jun2010 /v dxsetup /t REG_DWORD /d 1 /f /reg:32', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    
+    PostInstallCleanUp(ExpandConstant('{app}'));
   end;
 end;
 
@@ -607,7 +659,7 @@ begin
   CreateBackup(ExpandConstant('{app}'));
   
   // Backup plugin settings
-  if (not IsTaskSelected('delete\Config')) then
+  if (not IsTaskSelected('delete\Config') and FileExists(ExpandConstant('{app}\BepInEx\config.ini'))) then
     FileCopy(ExpandConstant('{app}\BepInEx\config.ini'), ExpandConstant('{app}\config.ini'), false);
   
   // Remove BepInEx folder
@@ -631,8 +683,11 @@ begin
   begin
     // Restore the settings and remove the backup
     CreateDir(ExpandConstant('{app}\BepInEx'));
+    if(FileExists(ExpandConstant('{app}\config.ini'))) then
+    begin
     FileCopy(ExpandConstant('{app}\config.ini'), ExpandConstant('{app}\BepInEx\config.ini'), false);
     DeleteFile(ExpandConstant('{app}\config.ini'));
+    end;
   end
   else
   begin
@@ -645,6 +700,9 @@ begin
     
   if (IsTaskSelected('delete\Listfiles')) then
     RemoveNonstandardListfiles(ExpandConstant('{app}'));
+
+  if (IsTaskSelected('delete\scripts')) then
+    DelTree(ExpandConstant('{app}\scripts'), True, True, True);
     
   if (IsTaskSelected('PW')) then
   begin
