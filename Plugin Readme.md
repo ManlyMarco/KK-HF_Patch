@@ -413,7 +413,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# ptimizeIMGUI v1.0
+# OptimizeIMGUI v1.0
 - Short description: Slight perf improvement of plugin UIs
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
@@ -520,7 +520,7 @@
 
 # StudioCharaSort v1.0.1.1
 - Short description: Change default list sort order in Studio
-- Author(s):         Madevil
+- Author(s):         KKY, Madevil
 - More information:  https://github.com/Madevil/Port_StudioCharaSort
 
 # StudioSceneSettings v1.2.1
