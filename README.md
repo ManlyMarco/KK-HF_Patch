@@ -4,7 +4,7 @@ An unofficial patch for [Koikatu](http://www.illusion.jp/preview/koikatu/index.p
 
 Koikatsu can be split into two parts: character and scene creation tools (character maker and Studio), and an adventure game with story mode (it can use your custom characters, but not scenes). You can see preview videos of the game and some of the mods [here](https://www.youtube.com/channel/UClyTRNXmHHsbdUWC0hq8GrA).
 
-HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the English version of the game [on Steam](https://steamcommunity.com/app/1073440) or the Japanese version [on DMM](https://dlsoft.dmm.co.jp/en/detail/illusion_0023/). The expansions are not localized and are only available in Japanese [here](https://dlsoft.dmm.co.jp/detail/illusion_0024/) and [here](https://dlsoft.dmm.co.jp/detail/illusion_0026/).
+HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the English version of the game [on Steam](https://steamcommunity.com/app/1073440) or the Japanese version [on DMM](https://dlsoft.dmm.co.jp/list/article=maker/id=30012/). The expansions are not localized and are only available in Japanese [here](https://dlsoft.dmm.co.jp/list/article=maker/id=30012/).
 
 The base game (Koikatu / Koikatsu Party), and by extension this patch are not suitable for minors. If you are under 18 years old you can not use this patch. The base game and this patch contain only characters of age 18 or higher. The creator of this patch is not responsible for creations of its users and prohibits any unlawful use of this software.
 
