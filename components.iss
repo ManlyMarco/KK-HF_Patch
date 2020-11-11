@@ -3,8 +3,8 @@ Name: "API";                                   Description: "Modding APIs (Neces
 Name: "API\ResourceRedirector";                Description: "XUnity Resource Redirector v1.1.2 (Modding API)"                                      ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\BepisPlugins";                      Description: "BepisPlugins v16.0 (Collection of essential plugins)"                                 ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\KKAPI";                             Description: "Modding API v1.13.2 (API needed by many plugins)"                                     ; Types: full_en full extra_en extra custom bare; Flags: fixed
-Name: "API\KK_ModBoneImplantor";               Description: "Mod Bone Implantor v0.2.4 (Needed by some clothing mods to add dynamic bones)"        ; Types: full_en full extra_en extra custom bare
-Name: "API\GeBoCommon";                        Description: "GeBo Modding API v1.0.1 (Modding API necessary for plugins by GeBo)"                  ; Types: full_en full extra extra_en
+Name: "API\KK_ModBoneImplantor";               Description: "Mod Bone Implantor v0.2.4 (Needed by some clothing mods to add dynamic bones)"        ; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "API\GeBoCommon";                        Description: "GeBo Modding API v1.0.1 (Modding API necessary for plugins by GeBo)"                  ; Types: full_en full extra_en extra custom bare; Flags: fixed
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "AT";                                    Description: "XUnity Auto Translator v4.12.1 (Translation loader)"                                  ; Types: full extra full_en extra_en custom
 Name: "AT\TextResourceRedirector";             Description: "Text Resource Redirector v1.4.2.1 (Needed for many translations to load)"             ; Types: full_en full extra extra_en
@@ -129,7 +129,7 @@ Name: "Feature\KKVMD";                         Description: "KK_VMDPlayPlugin v0
 Name: "MISC";                                  Description: "{cm:CompMISC}"                                                                        
 Name: "MISC\FPS";                              Description: "FPS Counter v3.1 (Useful for performance testing)"                                    ; Types: full_en full extra extra_en
 Name: "MISC\ScriptLoader";                     Description: "C# Script Loader v1.2.3 (Runs user scripts from scripts folder)"                      ; Types: full_en full extra extra_en
-Name: "MISC\Meme";                             Description: "Custom intro voices v12 (Eekum Bokum)"                                                ; Types: extra_en extra
+Name: "MISC\Meme";                             Description: "Custom intro voices v13 (Have some mommy milkies)"                                                ; Types: extra_en extra
 Name: "MISC\FIX";                              Description: "Fix game registry (e.g. after moving to different folder)"                            ; Types: full_en full extra extra_en
 Name: "MISC\RuntimeUnityEditor";               Description: "RuntimeUnityEditor v2.2.1.0 (Debugging and development tool)"                         ; Types: full_en full extra extra_en
 Name: "MISC\RuntimeUnityEditor\Trainer";       Description: "Cheat Tools v2.7.3 (Trainer and debugger)"                                            ; Types: full_en full extra extra_en

@@ -11,10 +11,10 @@ MsgIncompatibleModsDetected=WARNING - Incompatible mods have been detected in yo
 MsgExeNotFound=WARNING - Koikatu or Koikatsu Party files were not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.%n%nAre you sure that this directory is correct?
 MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game or verify game files on steam.
 
-MsgMissingDLC1=NOTICE - You are missing the Koikatu! Ex - Additional Personality Pack extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.%n%nIf you want to use it, install it BEFORE running HF Patch.
-MsgMissingDLC2=NOTICE - You are missing the Koikatu! AS - After School extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P and some other gameplay features.%n%nIf you want to use it, install it BEFORE running HF Patch.
-MsgMissingDLC3=NOTICE - You are missing the Koikatu! Yoyaku preorder DLC (emocre_yoyaku). It adds 1 new personality and some clothes and head types.%n%nIf you want to use it, install it BEFORE running HF Patch.
-MsgMissingDLC4=NOTICE - You are missing the Koikatu! Darkness preorder expansion (emocre_dkn_01f). It adds MMF/dark content to the game.%n%nIf you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC1=NOTICE - You are missing the optional "Additional Personality Pack" extension (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.%n%nThis expansion is optional, the patch will work fine without it. If you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC2=NOTICE - You are missing the optional "After School" extension (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P, dating spots, weddings, and some other gameplay features.%n%nThis expansion is optional but recommended. If you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC3=NOTICE - You are missing the optional "Yoyaku" preorder DLC (emocre_yoyaku). It adds 1 new personality, some clothes and head types.%n%nThis expansion is optional, the patch will work fine without it. If you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC4=NOTICE - You are missing the optional "Darkness" preorder expansion (emocre_dkn_01f). It adds a small amount of MMF/dark content to the game.%n%nThis expansion is optional, the patch will work fine without it. If you want to use it, install it BEFORE running HF Patch.
 
 MsgExtractedZipmod=WARNING - Most likely a sideloader mod was extracted inside the game directory. Some game files might now be corrupted.%n%nRepair will be attempted, but if you still have problems you will have to reinstall the game.
 
