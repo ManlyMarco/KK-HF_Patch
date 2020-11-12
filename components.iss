@@ -3,8 +3,8 @@ Name: "API";                                   Description: "Modding APIs (Neces
 Name: "API\ResourceRedirector";                Description: "XUnity Resource Redirector v1.1.2 (Modding API)"                                      ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\BepisPlugins";                      Description: "BepisPlugins v16.0 (Collection of essential plugins)"                                 ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\KKAPI";                             Description: "Modding API v1.13.2 (API needed by many plugins)"                                     ; Types: full_en full extra_en extra custom bare; Flags: fixed
-Name: "API\KK_ModBoneImplantor";               Description: "Mod Bone Implantor v0.2.4 (Needed by some clothing mods to add dynamic bones)"        ; Types: full_en full extra_en extra custom bare
-Name: "API\GeBoCommon";                        Description: "GeBo Modding API v1.0.1 (Modding API necessary for plugins by GeBo)"                  ; Types: full_en full extra extra_en
+Name: "API\KK_ModBoneImplantor";               Description: "Mod Bone Implantor v0.2.4 (Needed by some clothing mods to add dynamic bones)"        ; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "API\GeBoCommon";                        Description: "GeBo Modding API v1.0.1 (Modding API necessary for plugins by GeBo)"                  ; Types: full_en full extra_en extra custom bare; Flags: fixed
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "AT";                                    Description: "XUnity Auto Translator v4.12.1 (Translation loader)"                                  ; Types: full extra full_en extra_en custom
 Name: "AT\TextResourceRedirector";             Description: "Text Resource Redirector v1.4.2.1 (Needed for many translations to load)"             ; Types: full_en full extra extra_en
@@ -63,7 +63,6 @@ Name: "Feature\KK_MakerSearch";                Description: "KK_MakerSearch v1.4
 Name: "Feature\DragAndDrop";                   Description: "Drag and Drop v1.2.1 (Drag cards and scenes from explorer into game window)"          ; Types: full_en full extra_en extra
 Name: "Feature\KK_BrowserFolders";             Description: "Maker/Studio Browser Folders v2.2 (Folder support in chara/scene select screens)"     ; Types: full_en full extra_en extra
 Name: "Feature\KK_PoseFolders";                Description: "Pose Folders v1.0 (Folder support in studio pose list)"                               ; Types: full_en full extra_en extra
-Name: "Feature\KK_ClothesLoadOption";          Description: "KK_ClothesLoadOption v0.2.2 (Can load only some parts of coordinate cards)"           ; Types: full_en full extra_en extra
 Name: "Feature\KK_BetterColorPicker";          Description: "Better Color Picker v2.0.1 (Grab color from anywhere on screen, e.g. a reference image)"; Types: full_en full extra_en extra
 Name: "Feature\KK_CharaMakerLoadedSound";      Description: "Character Maker Loaded Sound v1.0 (Makes a sound when maker loads)"                   ; Types: full_en full extra_en extra
 Name: "Feature\KK_StudioSceneLoadedSound";     Description: "Studio Scene Loaded Sound v1.1 (Makes a sound when a scene loads)"                    ; Types: full_en full extra_en extra
@@ -99,7 +98,6 @@ Name: "Feature\KK_HCharaAdjustment";           Description: "H Character Adjustm
 Name: "Feature\JannieReplacer";                Description: "Character Replacer v1.6.2 (Can change the janitor to any character, requires Darkness)"; Types: full_en full extra_en extra
 Name: "Feature\KK_StudioAutoCloseLoadingSceneWindow"; Description: "Studio Auto Close Loading Scene Window v20.8.5.0 (Automatically close scene select window)"; Types: full_en full extra_en extra
 Name: "Feature\KK_StudioCharaOnlyLoadBody";    Description: "Studio Chara Only Load Body v20.8.5.0 (Option to keep clothes when replacing charas)" ; Types: full_en full extra_en extra
-Name: "Feature\KK_StudioCoordinateLoadOption"; Description: "Studio Coordinate Load Option v20.5.16.0 (Can load only specific parts of outfits)"   ; Types: full_en full extra_en extra
 Name: "Feature\KK_StudioTextPlugin";           Description: "Studio Text Plugin v20.8.5.0 (Allows writing text as studio objects)"                 ; Types: full_en full extra_en extra
 Name: "Feature\KK_StudioCharaLightLinkedToCamera"; Description: "Studio Chara Light Linked To Camera v20.8.5.0 (Option for Studio chara light to act like in main game)"; Types: full_en full extra_en extra
 Name: "Feature\EnableResize";                  Description: "Enable Resize v1.5 (Allows resizing the game window, can mess with the UI, turn on in plugin settings)"; Types: full_en full extra_en extra
@@ -129,11 +127,10 @@ Name: "Feature\KKVMD";                         Description: "KK_VMDPlayPlugin v0
 Name: "MISC";                                  Description: "{cm:CompMISC}"                                                                        
 Name: "MISC\FPS";                              Description: "FPS Counter v3.1 (Useful for performance testing)"                                    ; Types: full_en full extra extra_en
 Name: "MISC\ScriptLoader";                     Description: "C# Script Loader v1.2.3 (Runs user scripts from scripts folder)"                      ; Types: full_en full extra extra_en
-Name: "MISC\Meme";                             Description: "Custom intro voices v12 (Eekum Bokum)"                                                ; Types: extra_en extra
+Name: "MISC\Meme";                             Description: "Custom intro voices v13 (Have some mommy milkies)"                                                ; Types: extra_en extra
 Name: "MISC\FIX";                              Description: "Fix game registry (e.g. after moving to different folder)"                            ; Types: full_en full extra extra_en
 Name: "MISC\RuntimeUnityEditor";               Description: "RuntimeUnityEditor v2.2.1.0 (Debugging and development tool)"                         ; Types: full_en full extra extra_en
 Name: "MISC\RuntimeUnityEditor\Trainer";       Description: "Cheat Tools v2.7.3 (Trainer and debugger)"                                            ; Types: full_en full extra extra_en
-Name: "MISC\UnlockHPositions";                 Description: "UnlockHPositions v1.1.0 (Unlocks all positions without playing; Cheat)"               
 Name: "MISC\FullSave";                         Description: "Unlock all events and memories (Cheat)"                                               
 
 [Files]
@@ -183,7 +180,6 @@ Source: "Input\_Plugins\_out\KK_MakerSearch\*";             DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\DragAndDrop.Koikatu\*";        DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\DragAndDrop; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_BrowserFolders\*";          DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_BrowserFolders; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_PoseFolders\*";             DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_PoseFolders; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\KK_ClothesLoadOption\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_ClothesLoadOption; Excludes: "manifest.xml"; Check: not PartyInstalled
 Source: "Input\_Plugins\_out\KK_BetterColorPicker\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_BetterColorPicker; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioSceneLoadedSound\*";  DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioSceneLoadedSound; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_CharaMakerLoadedSound\*";   DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_CharaMakerLoadedSound; Excludes: "manifest.xml"
@@ -223,7 +219,6 @@ Source: "Input\_Plugins\_out\KK_HCharaAdjustment\*";        DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\Koikatsu_CharacterReplacer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\JannieReplacer; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioAutoCloseLoadingSceneWindow\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioAutoCloseLoadingSceneWindow; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioCharaOnlyLoadBody\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioCharaOnlyLoadBody; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\KK_StudioCoordinateLoadOption\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioCoordinateLoadOption; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioTextPlugin\*";        DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioTextPlugin; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioCharaLightLinkedToCamera\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioCharaLightLinkedToCamera; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioReflectFKFix\*";      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: FIX\KK_StudioReflectFKFix; Excludes: "manifest.xml"
@@ -253,6 +248,5 @@ Source: "Input\_Plugins\_out\KK_StudioCharaSort\*";         DestDir: "{app}"; Fl
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_Plugins\_out\FPSCounter\*";                 DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\FPS; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\ScriptLoader\*";               DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\ScriptLoader; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\UnlockHPositions\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\UnlockHPositions; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\RuntimeUnityEditor_BepInEx5\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\RuntimeUnityEditor; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_CheatTools\*";              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\RuntimeUnityEditor\Trainer; Excludes: "manifest.xml"

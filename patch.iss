@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "3.4"
+#define VERSION "3.5"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -55,7 +55,7 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 [Components]
 
 Name: "Patch"; Description: "All free updates + game repair"; Types: full_en full extra_en extra custom bare none; Flags: fixed
-Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
+Name: "Patch\UserData"; Description: "{cm:CompDefCards}"
 
 Name: "BepInEx"; Description: "BepInEx v5.3 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0"; Types: full_en full extra_en extra custom bare; Flags: fixed 
 Name: "BepInEx\Compat"; Description: "Backwards compatibility with old plugins (BepIn4Patcher v1.0 + IPALoaderX v1.2.1)"; Types: extra_en extra 
@@ -63,7 +63,7 @@ Name: "BepInEx\Compat"; Description: "Backwards compatibility with old plugins (
 Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
 #endif
 
-Name: "KKManager"; Description: "KKManager v0.14.0 (Manage and update mods)"; Types: full_en full extra_en extra custom
+Name: "KKManager"; Description: "KKManager v0.14.4 (Manage and update mods)"; Types: full_en full extra extra_en custom bare; Flags: fixed
 
 Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additional content to the game, needs at least BepisPlugins to work)"
 Name: "Modpack\General"; Description: "General (Content for making characters, always recommended)"; Types: full_en full extra_en extra
@@ -75,9 +75,9 @@ Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for u
 Name: "Modpack\UncensorSelector"; Description: "KK_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
 ;Name: "Modpack\Compat"; Description: "Compatibility Pack (Deprecated mods for backwards compatibility)"; Types: full_en full extra_en extra
 
-Name: "CustomLauncher"; Description: "IllusionLaunchers v2.1.1 (Custom launcher)"; Types: full extra full_en extra_en custom
+Name: "CustomLauncher"; Description: "IllusionLaunchers v2.1.1 (Multilangual launcher)"; Types: full_en full extra extra_en custom
 
-Name: "Experimental"; Description: "Experimental performance optimizations (Disable in case of plugin compatibility issues)"; Types: full full_en
+Name: "Experimental"; Description: "Experimental performance optimizations (Reduces stutter. Disable in case of plugin compatibility issues)"; 
 
 ; Name: "FIX\URL"; Description: "Use custom Character Database (fan-operated character DB - no IP blocking and mods are allowed)"; Types: full_en bare custom extra_en
 
@@ -86,12 +86,11 @@ Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 Source: "Input\start.bat"; DestDir: "{tmp}\hfp"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\hfp\DirectXRedist2010"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall; Check: DirectXRedistNeedsInstall
 Source: "Plugin Readme.md"; DestDir: "{app}"
+
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Source: "Input\_Patch\empty_ud\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Patch
 Source: "Input\_Patch\empty_ud_eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Languages: en
-
-Source: "Input\KKManager\*"; DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: KKManager
 
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_ud\*"; DestDir: "{app}\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: KoikatuInstalled
 ;Source: "Input\_Patch\extras\UserData\*"; DestDir: "{app}\UserData\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: KoikatuInstalled
@@ -113,6 +112,10 @@ Source: "Input\_Patch\Remote\Patches\party_diff\*"; DestDir: "{app}"; Flags: ign
 Source: "Input\_Patch\Remote\Patches\koikatsuparty_sp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: PartyInstalled
 #endif
 
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Source: "Input\KKManager\*"; DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: KKManager
+
 Source: "Input\_Patch\experimental\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: DarknessInstalled
 Source: "Input\_Patch\experimental_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: not PartyInstalled and DarknessInstalled
 
@@ -130,14 +133,14 @@ Source: "Input\BepInEx_Dev\Koikatsu Party_Data\*"; DestDir: "{app}\Koikatsu Part
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #ifndef WEBINSTALLER
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
+Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
 ;Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Compatibility Pack\*"; DestDir: "{app}\mods\Sideloader Modpack - Compatibility Pack"; Flags: ignoreversion recursesubdirs; Components: Modpack\Compat; 
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Animations\*";               DestDir: "{app}\mods\Sideloader Modpack - Animations";   Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
-Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
+Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
+Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
+Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Animations\*";               DestDir: "{app}\mods\Sideloader Modpack - Animations";   Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
+Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
+Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
+Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
 #endif
 
 ; Only copy our blacklist if the user doesn't already have one
@@ -170,6 +173,8 @@ Source: "Input\_Plugins\[moderchan]Tongue Texture v1.1 + Outline Fix.zipmod"; De
 Source: "Input\_Plugins\[moderchan]Add Pose v1.6.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Content\AddPose
 Source: "Input\_Plugins\Liquid extension\*";         DestDir: "{app}\mods"; Flags: ignoreversion recursesubdirs; Components: FIX\LiquidExtension
 Source: "Input\_Plugins\[uppervolta]Super Outdoor Sex 2.0.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Feature\OutdoorSex
+
+Source: "Input\_Plugins\KK_UncensorSelector Base.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Selector
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -222,7 +227,7 @@ Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Fixes"             
 ;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Maps"               ; Components: Content\ModpackMaps
 Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"  ; Components: Modpack\MaterialEditor
 Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_UncensorSelector"; Components: Modpack\UncensorSelector
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Animations"; Components: Modpack\Animations
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Animations"; Components: Modpack\Animations
 #endif
 
 ; Clean up old patches and packs
@@ -531,7 +536,7 @@ begin
     
     if Result = True then
     begin
-      if (Pos(LowerCase(ExpandConstant('{app}')), LowerCase(ExpandConstant('{src}'))) > 0) then
+      if (Pos(LowerCase(ExpandConstant('{app}\')), LowerCase(ExpandConstant('{src}\'))) > 0) then
       begin
         MsgBox('This patch is inside of the game directory you are attempting to install to. You have to move the patch files outside of the game directory and try again.', mbError, MB_OK);
         Result := False;
