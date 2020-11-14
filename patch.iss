@@ -31,7 +31,7 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
 LZMADictionarySize=208576
 LZMANumFastBytes=273
-LZMANumBlockThreads=5
+LZMANumBlockThreads=3
 DiskSpanning=yes
 DefaultDirName={reg:HKCU\Software\Illusion\Koikatu\koikatu,INSTALLDIR}
 [Languages]
@@ -288,7 +288,6 @@ Type: files; Name: "{app}\BepInEx\KKABMGUI.dll"; Components: Content\KKABMX
 Type: files; Name: "{app}\BepInEx\KKABMPlugin.dll"; Components: Content\KKABMX
 Type: files; Name: "{app}\BepInEx\DragAndDrop.dll"; Components: Feature\DragAndDrop
 Type: files; Name: "{app}\BepInEx\IllusionDragAndDrop.Koikatu.dll"; Components: Feature\DragAndDrop
-Type: files; Name: "{app}\BepInEx\KK_StudioCoordinateLoadOption.dll"; Components: Feature\KK_ClothesLoadOption
 Type: files; Name: "{app}\BepInEx\KK_RandomCharacterGenerator.dll"; Components: Feature\KK_RandomCharacterGenerator
 Type: files; Name: "{app}\BepInEx\KoiSkinOverlay.dll"; Components: Content\KSOX
 Type: files; Name: "{app}\BepInEx\KoiClothesOverlay.dll"; Components: Content\KSOX
