@@ -53,7 +53,6 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 #define CurrentDate GetDateTimeString('yyyy-mm-dd', '-', ':');
 
 [Components]
-
 Name: "Patch"; Description: "All free updates + game repair"; Types: full_en full extra_en extra custom bare none; Flags: fixed
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}"
 
@@ -95,71 +94,65 @@ Source: "Input\_Patch\empty_ud_eng\*"; DestDir: "{app}"; Flags: ignoreversion re
 Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_ud\*"; DestDir: "{app}\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: KoikatuInstalled
 ;Source: "Input\_Patch\extras\UserData\*"; DestDir: "{app}\UserData\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: KoikatuInstalled
 
-Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_ud\UserData\Studio\scene\*"; DestDir: "{app}\UserData\Studio\scene"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: PartyInstalled
+Source: "Input\_Patch\koikatu_02plus_cdp0201hbtks_ud\UserData\Studio\scene\*"; DestDir: "{app}\UserData\Studio\scene"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch\UserData; Check: IsSteam
 
 Source: "Input\_Patch\small_common\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
 Source: "Input\_Patch\small_kk\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: KoikatuInstalled
-Source: "Input\_Patch\small_kkp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: PartyInstalled
-Source: "Input\_Patch\small_dark\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: DarknessInstalled and not PartyInstalled
+Source: "Input\_Patch\small_kkp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: IsSteam
+Source: "Input\_Patch\small_dark\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: DarknessInstalled and not IsSteam
 #ifndef WEBINSTALLER
-Source: "Input\_Patch\Remote\Patches\extras\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
-Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
-Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks_kk\*"; DestDir: "{app}\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: KoikatuInstalled
+Source: "Input\_Patch\Remote\Patches\extras\*";                         DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
+Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks\*";    DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
+Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks_kk\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: KoikatuInstalled
 Source: "Input\_Patch\Remote\Patches\koikatu_02plus_cdp0201hbtks_as\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: AfterSchoolInstalled
-Source: "Input\_Patch\Remote\Patches\koikatu_03vr_d0531hg\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: not PartyInstalled
-Source: "Input\_Patch\Remote\Patches\dkn_diff\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: DarknessInstalled and not PartyInstalled
-Source: "Input\_Patch\Remote\Patches\party_diff\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: PartyInstalled
-Source: "Input\_Patch\Remote\Patches\koikatsuparty_sp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: PartyInstalled
+Source: "Input\_Patch\Remote\Patches\koikatu_03vr_d0531hg\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: not IsSteam
+Source: "Input\_Patch\Remote\Patches\dkn_diff\*";                       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: DarknessInstalled and not IsSteam
+Source: "Input\_Patch\Remote\Patches\party_diff\*";                     DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: IsSteam
+Source: "Input\_Patch\Remote\Patches\koikatsuparty_sp\*";               DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch; Check: IsSteam
 #endif
 
-; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\KKManager\*"; DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: KKManager
-
 Source: "Input\_Patch\experimental\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: DarknessInstalled
-Source: "Input\_Patch\experimental_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: not PartyInstalled and DarknessInstalled
+Source: "Input\_Patch\experimental_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: not IsSteam and DarknessInstalled
+
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+;#ifndef WEBINSTALLER
+;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
+;;Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Compatibility Pack\*"; DestDir: "{app}\mods\Sideloader Modpack - Compatibility Pack"; Flags: ignoreversion recursesubdirs; Components: Modpack\Compat; 
+;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
+;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
+;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Animations\*";               DestDir: "{app}\mods\Sideloader Modpack - Animations";   Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
+;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
+;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
+;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
+;#endif
+
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Source: "Input\BepInEx_x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
 Source: "Input\BepInEx_Essentials\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
 Source: "Input\BepInEx_Compatibility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\Compat
-
 #ifndef WEBINSTALLER
 Source: "Input\BepInEx_Dev\common\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev
 Source: "Input\BepInEx_Dev\Koikatu_Data\*"; DestDir: "{app}\Koikatu_Data"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev; Check: KoikatuInstalled
 ;Source: "Input\BepInEx_Dev\KoikatuVR_Data\*"; DestDir: "{app}\KoikatuVR_Data"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev; Check: VRInstalled
-Source: "Input\BepInEx_Dev\Koikatsu Party_Data\*"; DestDir: "{app}\Koikatsu Party_Data"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev; Check: PartyInstalled
+Source: "Input\BepInEx_Dev\Koikatsu Party_Data\*"; DestDir: "{app}\Koikatsu Party_Data"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev; Check: IsSteam
 #endif
 
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source: "Input\KKManager\*"; DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: KKManager
 
-#ifndef WEBINSTALLER
-Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
-;Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Compatibility Pack\*"; DestDir: "{app}\mods\Sideloader Modpack - Compatibility Pack"; Flags: ignoreversion recursesubdirs; Components: Modpack\Compat; 
-Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
-Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
-Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Animations\*";               DestDir: "{app}\mods\Sideloader Modpack - Animations";   Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
-Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
-Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
-Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
-#endif
 
-; Only copy our blacklist if the user doesn't already have one
-Source: "Input\_Misc\itemblacklist.xml"; DestDir: "{app}\UserData\save"; Flags: onlyifdoesntexist; Components: Modpack\General
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\_TL\_lang jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Languages: jp
-Source: "Input\_TL\_lang ch\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Languages: sc
-Source: "Input\_TL\_lang eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Languages: en
-
 Source: "Input\_TL\Translation_EN_base\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation
-Source: "Input\_TL\Translation_EN_jpver\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation; Check: not PartyInstalled
-
+Source: "Input\_TL\Translation_EN_jpver\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation; Check: not IsSteam
 Source: "Input\_TL\Translation_EN_userdata_base\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation\UserData
-Source: "Input\_TL\Translation_EN_userdata_jpver\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation\UserData; Check: not PartyInstalled
-
-Source: "Input\Launcher_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: CustomLauncher; Check: not PartyInstalled
-Source: "Input\Launcher_party\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: CustomLauncher; Check: PartyInstalled
+Source: "Input\_TL\Translation_EN_userdata_jpver\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation\UserData; Check: not IsSteam
+Source: "Input\_TL\_lang jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: jp
+Source: "Input\_TL\_lang ch\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: sc
+Source: "Input\_TL\_lang eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
+Source: "Input\Launcher_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: CustomLauncher; Check: not IsSteam and not IsConvertedSteam
+Source: "Input\Launcher_party\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: CustomLauncher; Check: IsSteam or IsConvertedSteam
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -174,7 +167,10 @@ Source: "Input\_Plugins\[moderchan]Add Pose v1.6.zipmod"; DestDir: "{app}\mods";
 Source: "Input\_Plugins\Liquid extension\*";         DestDir: "{app}\mods"; Flags: ignoreversion recursesubdirs; Components: FIX\LiquidExtension
 Source: "Input\_Plugins\[uppervolta]Super Outdoor Sex 2.0.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: Feature\OutdoorSex
 
+; Make sure this is never missing in case the plugin archive doesn't have it included
 Source: "Input\_Plugins\KK_UncensorSelector Base.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Selector
+; Only copy our blacklist if the user doesn't already have one
+Source: "Input\_Misc\itemblacklist.xml"; DestDir: "{app}\UserData\save"; Flags: onlyifdoesntexist; Components: Modpack\General
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -201,10 +197,14 @@ Type: files; Name: "{app}\InitSetting.exe.config"
 Type: files; Name: "{app}\Initial Settings.exe"
 Type: files; Name: "{app}\Initial Settings.exe.config"
 Type: filesandordirs; Name: "{app}\UserData\LauncherEN"; Components: CustomLauncher
+; Used by stock launcher in steam release, remove to declutter if using custom launcher
+Type: filesandordirs; Name: "{app}\ja-JP"; Components: CustomLauncher   
+Type: filesandordirs; Name: "{app}\zh-CN"; Components: CustomLauncher
+Type: filesandordirs; Name: "{app}\zh-TW"; Components: CustomLauncher
 
 ; Need to use the steam DLC instead
-Type: filesandordirs; Name: "{app}\KoikatuVR_Data"; Check: PartyInstalled
-Type: files; Name: "{app}\KoikatuVR.exe"; Check: PartyInstalled
+Type: filesandordirs; Name: "{app}\KoikatuVR_Data"; Check: IsSteam
+Type: files; Name: "{app}\KoikatuVR.exe"; Check: IsSteam
 
 ; Clean up old modpacks
 Type: filesandordirs; Name: "{app}\mods\Sideloader Only Mods"
@@ -243,6 +243,7 @@ Type: files; Name: "{app}\Mono.Cecil.dll"
 
 ; Junk
 Type: filesandordirs; Name: "{app}\BepInEx\bepinex4_backup"
+Type: filesandordirs; Name: "{app}\BepInEx_Shim_Backup"
 Type: filesandordirs; Name: "{app}\BepInEx\cache"
 Type: filesandordirs; Name: "{app}\temp"
 Type: files; Name: "{app}\README.*"
@@ -276,8 +277,8 @@ Type: files; Name: "{app}\BepInEx\KK_ForceHighPoly.dll"
 Type: files; Name: "{app}\BepInEx\ModBoneImplantor.dll"
 Type: files; Name: "{app}\BepInEx\KKSubs.dll"
 Type: files; Name: "{app}\BepInEx\HSubs.dll"
-Type: files; Name: "{app}\BepInEx\KKUS.dll"; Check: PartyInstalled
-Type: files; Name: "{app}\BepInEx\plugins\KKUS.dll"; Check: PartyInstalled
+Type: files; Name: "{app}\BepInEx\KKUS.dll"; Check: IsSteam
+Type: files; Name: "{app}\BepInEx\plugins\KKUS.dll"; Check: IsSteam
 Type: files; Name: "{app}\BepInEx\FixCompilation.dll"
 Type: files; Name: "{app}\BepInEx\KK_Ahegao.dll"
 Type: files; Name: "{app}\BepInEx\KK_MoveMapFromCharaList.dll"
@@ -436,9 +437,14 @@ begin
   Result := FileExists(ExpandConstant('{app}\Koikatu_Data\resources.assets'));
 end;
 
-function PartyInstalled(): Boolean;
+function IsSteam(): Boolean;
 begin
   Result := FileExists(ExpandConstant('{app}\Koikatsu Party_Data\resources.assets'));
+end;
+
+function IsConvertedSteam(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\abdata\BRConvert\OK.txt'));
 end;
 
 function DirectXRedistNeedsInstall(): Boolean;
@@ -469,13 +475,13 @@ begin
       WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 9, coCheckWithChildren);
     end;
     
-    if (PartyInstalled() and IsComponentSelected('Patch\VR')) then
+    if (IsSteam() and IsComponentSelected('Patch\VR')) then
     begin
       SuppressibleMsgBox('To install the VR module for Koikatsu Party you have to go to your Steam Library, open properties of Koikatsu Party, go to the DLC tab and enable the VR DLC there. It''s recommended to do this before installing HF Patch.', mbInformation, MB_OK, 0);
     end;
     
-    WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 10] := PartyInstalled();
-    WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 10] := PartyInstalled();
+    WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 10] := IsSteam();
+    WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 10] := IsSteam();
   end;
 end;
 
@@ -488,14 +494,14 @@ begin
 
   if (CurPageID = wpSelectDir) then
   begin
-    if (not KoikatuInstalled() and not PartyInstalled()) then
+    if (not KoikatuInstalled() and not IsSteam()) then
     begin
       if (SuppressibleMsgBox(ExpandConstant('{cm:MsgExeNotFound}'), mbError, MB_YESNO, 0) = IDNO) then
         Result := False;
     end;
     
     // If both KK and KKP files are present, remove the KK files
-    if (KoikatuInstalled() and PartyInstalled()) then
+    if (KoikatuInstalled() and IsSteam()) then
     begin
       if (MsgBox(ExpandConstant('{cm:MsgKKandKKPdetected}'), mbConfirmation, MB_YESNO) = IDYES) then
       begin
@@ -561,11 +567,11 @@ begin
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC2}'), mbInformation, MB_OK, 0);
         end;
-        if not YoyakuInstalled() and not PartyInstalled() then
+        if not YoyakuInstalled() and not IsSteam() then
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC3}'), mbInformation, MB_OK, 0);
         end;
-        if not DarknessInstalled() and not PartyInstalled() then
+        if not DarknessInstalled() and not IsSteam() then
         begin
           SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC4}'), mbInformation, MB_OK, 0);
         end;
