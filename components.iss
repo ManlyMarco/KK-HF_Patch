@@ -141,7 +141,7 @@ Name: "MISC\FullSave";                         Description: "Unlock all events a
 Source: "Input\_Plugins\_out\XUnity.AutoTranslator-BepIn-5x\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_Subtitles\*";               DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\KK_Subtitles; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_TranslationCacheCleaner\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TranslationCacheCleaner; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\KK_TranslationHelper\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TranslationHelper; Excludes: "manifest.xml"; Check: not PartyInstalled
+Source: "Input\_Plugins\_out\KK_TranslationHelper\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TranslationHelper; Excludes: "manifest.xml"; Check: not IsSteam
 Source: "Input\_Plugins\_out\KK_TextResourceRedirector\*";  DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TextResourceRedirector; Excludes: "manifest.xml"
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_Plugins\_out\KK_UncensorSelector\*";        DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: UNC\Selector; Excludes: "manifest.xml"
