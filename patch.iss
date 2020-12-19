@@ -244,6 +244,7 @@ Type: files; Name: "{app}\Mono.Cecil.dll"
 ; Junk
 Type: filesandordirs; Name: "{app}\BepInEx\bepinex4_backup"
 Type: filesandordirs; Name: "{app}\BepInEx\cache"
+Type: filesandordirs; Name: "{app}\BepInEx_Shim_Backup"
 Type: filesandordirs; Name: "{app}\temp"
 Type: files; Name: "{app}\README.*"
 Type: files; Name: "{app}\*.log"
