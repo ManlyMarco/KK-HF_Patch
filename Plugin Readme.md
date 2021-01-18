@@ -29,11 +29,16 @@
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
 # Autosave v1.0.1
-- Short description: Autosave for studio
+- Short description: Autosaves studio scenes and maker cards periodically
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# BepisPlugins v16.1
+# Autostart v1.0.0
+- Short description: Skip game startup screens or directly start character maker
+- Author(s):         IllusionMods
+- More information:  https://github.com/IllusionMods/IntroBegone
+
+# BepisPlugins v16.2.0.2
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -53,7 +58,7 @@
 - Author(s):         denikson
 - More information:  https://github.com/denikson/BepInEx.ScriptLoader
 
-# CameraFrameMask v1.0.1.0
+# CameraFrameMask v1.0.1.231
 - Short description: Make loading characters look less glitchy
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -62,11 +67,6 @@
 - Short description: Export all currently loaded character cards
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
-
-# Character List Optimizations v15.1
-- Short description: A collection of important fixes
-- Author(s):         IllusionMods
-- More information:  https://github.com/IllusionMods/IllusionFixes
 
 # Character Maker Loaded Sound v1.0
 - Short description: Makes a sound when maker loads
@@ -78,12 +78,12 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/CharacterReplacer
 
-# CharaStateX v1.0.3.0
+# CharaStateX v1.0.3.231
 - Short description: Can edit state of multiple charas in studio at once
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Cheat Tools v2.8
+# Cheat Tools v2.9
 - Short description: Trainer and debugger
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionCheatTools
@@ -103,12 +103,17 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Coordinate Load Option v20.11.28.0
+# Coordinate Load Option v21.1.4.0
 - Short description: Can load only specific parts of outfits
 - Author(s):         jim60105
 - More information:  https://blog.maki0419.com/2019/03/koikatu-coordinate-load-option.html
 
-# DefaultParamEditor v1.1.1.0
+# CumOnOver v1.5.1.0
+- Short description: Adds semen on gloves and accessories(Might cause issues)
+- Author(s):         Madevil
+- More information:  https://github.com/Madevil/KK_CumOnOver
+
+# DefaultParamEditor v1.1.1.231
 - Short description: Set custom default studio settings
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -142,6 +147,11 @@
 - Short description: Additional customization options for male maker
 - Author(s):         Kokaiinum
 - More information:  https://github.com/Kokaiinum/KK_ExpandMaleMaker
+
+# Extra move axis in bottom right corner v1.0
+- Short description: Adds extra move gizmo in bottom right corner for studio
+- Author(s):         ManlyMarco
+- More information:  https://github.com/ManlyMarco/StudioExtraMoveAxis
 
 # Eye Control v1.0
 - Short description: Allows making of closed eyed/not blinking charas
@@ -223,6 +233,11 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/HideAllUI
 
+# IllusionFixes v15.1.1
+- Short description: A collection of important fixes
+- Author(s):         IllusionMods
+- More information:  https://github.com/IllusionMods/IllusionFixes
+
 # Image Embed v1.0
 - Short description: Embeds custom images in scene files so others can load them
 - Author(s):         DeathWeasel1337
@@ -232,6 +247,11 @@
 - Short description: Blocks plugin keybinds while typing
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
+
+# Intro Begone v1.0.0
+- Short description: Speeds up game startup by skipping the intro screen
+- Author(s):         IllusionMods
+- More information:  https://github.com/IllusionMods/IntroBegone
 
 # Invisible Body v1.4
 - Short description: Hide character body in studio
@@ -243,7 +263,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Item Layer Edit v1.0.1.0
+# Item Layer Edit v1.0.1.231
 - Short description: Switch objects between chara and map layers
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -271,6 +291,16 @@
 # KK_ExpressionControl v0.2.3
 - Short description: Allows altering expressions in-game
 - Author(s):         ???
+- More information:  ???
+
+# KK_Fix_MainParam v1.2
+- Short description: Allows editing of details of main story charas
+- Author(s):         Sabakan
+- More information:  ???
+
+# KK_FixationalEyeMovement v1.3.3
+- Short description: Adds a slight fluctuation and tweaks to the eyes
+- Author(s):         Sabakan
 - More information:  ???
 
 # KK_HLightControl v1.2.4
@@ -313,7 +343,7 @@
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
-# KK_VMDPlayPlugin v0.2.3
+# KK_VMDPlayPlugin v1.3.0
 - Short description: Support for MMD animations in Studio, press Ctrl+Shift+V
 - Author(s):         ???
 - More information:  ???
@@ -348,7 +378,7 @@
 - Author(s):         picolet21
 - More information:  ???
 
-# Light Manager v1.0.1.0
+# Light Manager v1.0.1.231
 - Short description: Studio spotlights can track characters
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -358,7 +388,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# LockOnPlugin v2.6.2.0
+# LockOnPlugin v2.6.2.231
 - Short description: Hotkey to make camera keep focus on character
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -368,7 +398,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Maker/Studio Browser Folders v2.2
+# Maker/Studio Browser Folders v2.3.1
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -398,7 +428,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.14
+# Modding API v1.15
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -463,12 +493,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# RealPOV v1.0.4.0
+# RealPOV v1.0.4.231
 - Short description: First person view in H Scenes
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Reload Character List On Change v1.5.1
+# Reload Character List On Change v1.5.2
 - Short description: Auto refresh character lists if files change
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -493,7 +523,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
 
-# SliderHighlight v2.0
+# SliderHighlight v2.0.1
 - Short description: Plugin that highlights the area affected by sliders in character maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IL_SliderHighlight
@@ -588,7 +618,7 @@
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
 
-# Title shortcuts v1.2.2.0
+# Title shortcuts v1.2.2.231
 - Short description: Hotkeys in main menu; can automatically start maker
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins

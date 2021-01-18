@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "3.6"
+#define VERSION "3.7"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -31,7 +31,7 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
 LZMADictionarySize=208576
 LZMANumFastBytes=273
-LZMANumBlockThreads=4
+LZMANumBlockThreads=3
 DiskSpanning=yes
 DefaultDirName={reg:HKCU\Software\Illusion\Koikatu\koikatu,INSTALLDIR}
 [Languages]
@@ -118,11 +118,10 @@ Source: "Input\_Patch\experimental_jp\*"; DestDir: "{app}"; Flags: ignoreversion
 
 ;#ifndef WEBINSTALLER
 Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
-;Source: "E:\Games\KoikatsuP\mods\Sideloader Modpack - Compatibility Pack\*"; DestDir: "{app}\mods\Sideloader Modpack - Compatibility Pack"; Flags: ignoreversion recursesubdirs; Components: Modpack\Compat; 
-;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
+Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
 Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
 Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Animations\*";               DestDir: "{app}\mods\Sideloader Modpack - Animations";   Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
-;Source: "G:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
+Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
 Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
 Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
 ;#endif
