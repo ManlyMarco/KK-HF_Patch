@@ -3,6 +3,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# Accessory Quick Remove v1.0
+- Short description: Quickly remove accessories by pressing the delete key
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
 # Add mobs to roam mode v3.0
 - Short description: Adds mobs in story mode
 - Author(s):         ManlyMarco
@@ -13,7 +18,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_SkinEffects
 
-# AdvIKPlugin v1.3.0
+# AdvIKPlugin v1.5.1
 - Short description: Adds shoulder controls to IK in Studio
 - Author(s):         OrangeSpork
 - More information:  https://github.com/OrangeSpork/AdvIKPlugin
@@ -28,7 +33,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Autosave v1.0.1
+# Autosave v1.1
 - Short description: Autosaves studio scenes and maker cards periodically
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -38,7 +43,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IntroBegone
 
-# BepisPlugins v16.2.0.2
+# BepisPlugins v16.2.1
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -47,6 +52,11 @@
 - Short description: Grab color from anywhere on screen, e.g. a reference image
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_BetterColorPicker
+
+# Boop v1.0
+- Short description: Titties go boop haha
+- Author(s):         ???
+- More information:  ???
 
 # Bulge in the pants, tent in the woods v1.0.2
 - Short description: Adds bulges to characters that pack a shlong
@@ -83,7 +93,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Cheat Tools v2.9
+# Cheat Tools v2.10
 - Short description: Trainer and debugger
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionCheatTools
@@ -108,8 +118,8 @@
 - Author(s):         jim60105
 - More information:  https://blog.maki0419.com/2019/03/koikatu-coordinate-load-option.html
 
-# CumOnOver v1.5.1.0
-- Short description: Adds semen on gloves and accessories(Might cause issues)
+# CumOnOver v1.5.2.0
+- Short description: Extends milk splashes onto gloves and accessories(Might cause issues)
 - Author(s):         Madevil
 - More information:  https://github.com/Madevil/KK_CumOnOver
 
@@ -128,10 +138,15 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/DragAndDrop
 
-# Dress for Success v1.1.2
+# Dress for Success v1.2.0
 - Short description: Auto adjust player clothes to match current event
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
+
+# Dynamic Bone Editor v1.0.1
+- Short description: Editing for accessory DynamicBones in the character maker
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
 # Enable Full Screen Toggle v1.0
 - Short description: Toggle full screen with alt+enter
@@ -153,7 +168,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/StudioExtraMoveAxis
 
-# Eye Control v1.0
+# Eye Control v1.0.1
 - Short description: Allows making of closed eyed/not blinking charas
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -193,7 +208,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Game Dialog Helper v0.9.1
+# Game Dialog Helper v1.0.0
 - Short description: Highlights correct dialog choices
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -203,7 +218,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_GamepadSupport
 
-# GeBo Modding API v1.0.2
+# GeBo Modding API v1.1.0
 - Short description: Modding API necessary for plugins by GeBo
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -233,7 +248,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/HideAllUI
 
-# IllusionFixes v15.1.1
+# IllusionFixes v15.2
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -289,7 +304,7 @@
 - More information:  https://github.com/Mantas-2155X
 
 # KK_ExpressionControl v0.2.3
-- Short description: Allows altering expressions in-game
+- Short description: Allows altering expressions in-game(Hotkey L)
 - Author(s):         ???
 - More information:  ???
 
@@ -323,10 +338,15 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# KK_Pregnancy v2.3.1
+# KK_Pregnancy v2.4
 - Short description: Adds pregnancy to gameplay, maker and studio
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
+
+# KK_PregnancyPlus v1.26
+- Short description: Adds additional belly sliders in Studio and Maker
+- Author(s):         thomjr
+- More information:  https://github.com/thojmr/KK_PregnancyPlus/releases
 
 # KK_QuickAccessBox v2.3
 - Short description: Search all studio items, LeftCtrl+Space
@@ -337,6 +357,11 @@
 - Short description: Adds family-friendly/streamer mode with all lewd content disabled
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionSFW
+
+# KK_StudioAccessoryNames v1.0.0
+- Short description: Shows the acc names in studio
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
 
 # KK_StudioPOV v1.1.1
 - Short description: First person view for studio
@@ -378,6 +403,11 @@
 - Author(s):         picolet21
 - More information:  ???
 
+# LewdCrestX v1.0.2
+- Short description: Give characters lewd crests
+- Author(s):         ManlyMarco
+- More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
+
 # Light Manager v1.0.1.231
 - Short description: Studio spotlights can track characters
 - Author(s):         Keelhauled
@@ -398,7 +428,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Maker/Studio Browser Folders v2.3.1
+# Maker/Studio Browser Folders v2.4.1
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -408,7 +438,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v2.4.1
+# Material Editor v2.6.1
 - Short description: adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -428,7 +458,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.15
+# Modding API v1.16
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -558,6 +588,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# Studio MultiSelect Chara v1.0.0
+- Short description: If you select a character in studio and press the hotkey, all other instances will also be selected
+- Author(s):         GeBo1
+- More information:  https://github.com/GeBo1/GeBoPlugins
+
 # Studio Object Move Hotkeys v1.0
 - Short description: Adds T/Y/U/I hotkeys for manipulating items in studio
 - Author(s):         DeathWeasel1337
@@ -573,10 +608,20 @@
 - Author(s):         jim60105
 - More information:  https://github.com/jim60105/KK
 
+# Studio Scene Chara Info v0.2.0
+- Short description: Studio Scene Chara Info for Koikatsu
+- Author(s):         GeBo1
+- More information:  https://github.com/GeBo1/GeBoPlugins
+
 # Studio Scene Loaded Sound v1.1
 - Short description: Makes a sound when a scene loads
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# Studio Scene Navigation v1.0.0
+- Short description: Provides hotkeys for loading the next/previous scene from the scenes folder
+- Author(s):         GeBo1
+- More information:  https://github.com/GeBo1/GeBoPlugins
 
 # Studio Text Plugin v20.8.5.0
 - Short description: Allows writing text as studio objects
@@ -623,12 +668,12 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Translation Cache Cleaner v0.5.3
+# Translation Cache Cleaner v0.6.0
 - Short description: Hotkey to clean stale translations from cache
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
 
-# Translation Helper v1.0
+# Translation Helper v1.1.0
 - Short description: Extension for AT, needed for some translations
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -648,7 +693,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# XUnity Auto Translator v4.13.0
+# X-ray womb v1.0
+- Short description: It's an accessory item that can be used to get an xray effect in studio
+- Author(s):         GFanon
+- More information:  ???
+
+# XUnity Auto Translator v4.14.0
 - Short description: Translation loader
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator

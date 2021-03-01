@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "3.7"
+#define VERSION "3.8"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -74,7 +74,7 @@ Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for u
 Name: "Modpack\UncensorSelector"; Description: "KK_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
 ;Name: "Modpack\Compat"; Description: "Compatibility Pack (Deprecated mods for backwards compatibility)"; Types: full_en full extra_en extra
 
-Name: "CustomLauncher"; Description: "IllusionLaunchers v3.0.0 (Multilangual launcher)"; Types: full_en full extra extra_en custom
+Name: "CustomLauncher"; Description: "IllusionLaunchers v3.0.1 (Multilangual launcher)"; Types: full_en full extra extra_en custom
 
 Name: "Experimental"; Description: "Experimental performance optimizations (Reduces stutter. Disable in case of plugin compatibility issues)"; 
 
