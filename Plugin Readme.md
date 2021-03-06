@@ -55,7 +55,7 @@
 
 # Boop v1.0
 - Short description: Titties go boop haha
-- Author(s):         ???
+- Author(s):         essu
 - More information:  ???
 
 # Bulge in the pants, tent in the woods v1.0.2
@@ -398,11 +398,6 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# LewdCrest v0.2
-- Short description: Adds a lewd crest to club members
-- Author(s):         picolet21
-- More information:  ???
-
 # LewdCrestX v1.0.2
 - Short description: Give characters lewd crests
 - Author(s):         ManlyMarco
@@ -523,7 +518,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# RealPOV v1.0.4.231
+# RealPOV v1.1.0.0
 - Short description: First person view in H Scenes
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -694,7 +689,7 @@
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
 # X-ray womb v1.0
-- Short description: It's an accessory item that can be used to get an xray effect in studio
+- Short description: Accessory for x-ray effect in studio
 - Author(s):         GFanon
 - More information:  ???
 

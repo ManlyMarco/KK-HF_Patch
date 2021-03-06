@@ -27,6 +27,7 @@ Name: "Content\MoreAccessories";               Description: "MoreAccessories v1.
 Name: "Content\MoreAccessories\KK_MoreAccessoryParents"; Description: "More Accessory Parents v1.1 (More parent options for accessories)"                    ; Types: full_en full extra_en extra
 Name: "Content\KKABMX";                        Description: "KKABMX (BonemodX) v4.4.1 (More sliders in maker)"                                     ; Types: full_en full extra_en extra
 Name: "Content\KKABMX\Pregnancy";              Description: "KK_Pregnancy v2.4 (Adds pregnancy to gameplay, maker and studio)"                     ; Types: full_en full extra_en extra
+Name: "Content\KKABMX\Pregnancy\KK_PregnancyPlus"; Description: "KK_PregnancyPlus v1.26 (Adds additional belly sliders in Studio and Maker)"           ; Types: full_en full extra extra_en
 Name: "Content\KSOX";                          Description: "Skin Overlay Mod v5.2.1 (Custom body, clothes and eye textures)"                      ; Types: full_en full extra_en extra
 Name: "Content\KSOX\KK_SkinEffects";           Description: "Additional Skin Effects v1.8 (Effects for sweating, crying, bukkake and deflowering)" ; Types: full_en full extra_en extra
 Name: "Content\KK_ClothingUnlocker";           Description: "Clothing Unlocker v2.0.1 (Can use female clothes in male maker and vice versa)"       ; Types: full_en full extra_en extra
@@ -42,7 +43,8 @@ Name: "Content\KK_AccessoryClothes";           Description: "Accessory Clothes v
 Name: "Content\KK_EyeControl";                 Description: "Eye Control v1.0.1 (Allows making of closed eyed/not blinking charas)"                ; Types: full_en full extra extra_en
 Name: "Content\KK_Bulge";                      Description: "Bulge in the pants, tent in the woods v1.0.2 (Adds bulges to characters that pack a shlong)"; Types: full_en full extra extra_en
 Name: "Content\Timeline";                      Description: "Timeline v1.1.0 (Advanced animation editor for Studio (Ctrl+T, read the Help))"       ; Types: full_en full extra extra_en
-Name: "Content\KK_Xraywomb";                   Description: "X-ray womb v1.0 (Accessory for x-ray effect in studio)"; Types: full_en full extra extra_en
+Name: "Content\KK_Xraywomb";                   Description: "X-ray womb v1.0 (Accessory for x-ray effect in studio)"                               ; Types: full_en full extra extra_en
+Name: "Content\KK_LewdCrestX";                 Description: "LewdCrestX v1.0.2 (Give characters lewd crests)"                                      ; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "FIX";                                   Description: "{cm:CompFIX}"                                                                         ; Types: extra_en extra
 Name: "FIX\KoikatuFixes";                      Description: "IllusionFixes v15.2 (A collection of important fixes)"                                ; Types: full_en full extra_en extra
@@ -76,7 +78,7 @@ Name: "Feature\KK_FKIK";                       Description: "FK and IK v1.1.1 (A
 Name: "Feature\TitleShortcuts";                Description: "Title shortcuts v1.2.2.231 (Hotkeys in main menu; can automatically start maker)"     ; Types: full_en full extra_en extra
 Name: "Feature\KK_Ahegao";                     Description: "KK_Ahegao v1.10 (Climax 3 times for ahegao)"                                          ; Types: full_en full extra_en extra
 Name: "Feature\OutdoorSex";                    Description: "Super Outdoor Sex 2.0(fixed) (More H locations on some maps)"                         ; Types: full_en full extra_en extra
-Name: "Feature\POV";                           Description: "RealPOV v1.0.4.231 (First person view in H Scenes)"                                   ; Types: full_en full extra_en extra
+Name: "Feature\POV";                           Description: "RealPOV v1.1.0.0 (First person view in H Scenes)"                                     ; Types: full_en full extra_en extra
 Name: "Feature\StudioPOV";                     Description: "KK_StudioPOV v1.1.1 (First person view for studio)"                                   ; Types: full_en full extra_en extra
 Name: "Feature\KK_BecomeTrap";                 Description: "Koikatsu: Become Trap v2.1 (Can mark a male as a trap in maker, changes gameplay)"    ; Types: full_en full extra_en extra
 Name: "Feature\KK_EyeShaking";                 Description: "Eye Shaking v1.2 (Adds excited eyes effect to H scenes)"                              ; Types: full_en full extra_en extra
@@ -117,10 +119,10 @@ Name: "Feature\RimRemover";                    Description: "Rim Remover v1.1 (C
 Name: "Feature\StudioCharaSort";               Description: "StudioCharaSort v1.0.1.1 (Change default list sort order in Studio)"                  ; Types: full_en full extra extra_en
 Name: "Feature\AdvIKPlugin";                   Description: "AdvIKPlugin v1.5.1 (Adds shoulder controls to IK in Studio)"                          ; Types: full_en full extra extra_en
 Name: "Feature\Stiletto";                      Description: "Stiletto v1.3 (Support for high heels)"                                               ; Types: extra extra_en
-Name: "Feature\LightManager";                  Description: "Light Manager v1.0.1.231 (Studio spotlights can track characters)"                    ; Types: extra extra_en
+Name: "Feature\LightManager";                  Description: "Light Manager v1.0.1.231 (Studio spotlights can track characters)"                    ; Types: full_en full extra extra_en
 Name: "Feature\KK_StudioTransgenderLoading";   Description: "Studio Transgender Loading v20.8.30.0 (Allow replacing charas with different gender charas)"; Types: extra extra_en
-Name: "Feature\GameDialogHelper";              Description: "Game Dialog Helper v1.0.0 (Highlights correct dialog choices)"                        ; Types: extra extra_en
-Name: "Feature\VideoExport";                   Description: "VideoExport v1.2.1 (Video and gif recorder, press Ctrl+E)"                            ; Types: extra_en extra
+Name: "Feature\GameDialogHelper";              Description: "Game Dialog Helper v1.0.0 (Highlights correct dialog choices)"                        ; Types: full_en full extra extra_en
+Name: "Feature\VideoExport";                   Description: "VideoExport v1.2.1 (Video and gif recorder, press Ctrl+E)"                            ; Types: full_en full extra extra_en
 Name: "Feature\KK_NightDarkener";              Description: "Night Darkener v1.1.1 (Makes H scenes at night much darker)"                          ; Types: extra_en extra
 Name: "Feature\KK_UniformUniforms";            Description: "KK Uniform Uniforms v1.1 (Allows easily changing uniforms for the entire class, like in AA2)"; Types: extra_en extra
 Name: "Feature\KK_CrossEye";                   Description: "KK_CrossEye v1.6 (Fake 3D mode by crossing your eyes)"                                ; Types: extra_en extra
@@ -142,9 +144,7 @@ Name: "Feature\KK_StudioSceneNavigation";      Description: "Studio Scene Naviga
 Name: "Feature\KK_StudioSceneCharaInfo";       Description: "Studio Scene Chara Info v0.2.0 (Studio Scene Chara Info for Koikatsu)"                ; Types: full_en full extra extra_en
 Name: "Feature\KK_StudioMultiselectChara";     Description: "Studio MultiSelect Chara v1.0.0 (If you select a character in studio and press the hotkey, all other instances will also be selected)"; Types: full_en full extra extra_en
 Name: "Feature\KK_StudioAccessoryNames";       Description: "KK_StudioAccessoryNames v1.0.0 (Shows the acc names in studio)"                       ; Types: full_en full extra extra_en
-Name: "Feature\KK_PregnancyPlus";              Description: "KK_PregnancyPlus v1.26 (Adds additional belly sliders in Studio and Maker)"           ; Types: full_en full extra extra_en
 Name: "Feature\KK_LewdCrestX";                 Description: "LewdCrestX v1.0.2 (Give characters lewd crests)"                                      ; Types: extra extra_en
-Name: "Feature\KK_LewdCrest";                  Description: "LewdCrest v0.2 (Adds a lewd crest to club members)"                                   ; Types: extra_en extra
 Name: "Feature\KK_DynamicBoneEditor";          Description: "Dynamic Bone Editor v1.0.1 (Editing for accessory DynamicBones in the character maker)"; Types: full_en full extra extra_en
 Name: "Feature\KK_AccessoryQuickRemove";       Description: "Accessory Quick Remove v1.0 (Quickly remove accessories by pressing the delete key)"  ; Types: full_en full extra extra_en
 Name: "Feature\Boop";                          Description: "Boop v1.0 (Titties go boop haha)"                                                     ; Types: extra extra_en
@@ -152,7 +152,7 @@ Name: "Feature\Boop";                          Description: "Boop v1.0 (Titties 
 Name: "MISC";                                  Description: "{cm:CompMISC}"                                                                        
 Name: "MISC\FPS";                              Description: "FPS Counter v3.1 (Useful for performance testing)"                                    ; Types: full_en full extra extra_en
 Name: "MISC\ScriptLoader";                     Description: "C# Script Loader v1.2.4 (Runs user scripts from scripts folder)"                      
-Name: "MISC\Meme";                             Description: "Custom intro voices v14 (Nothing beats a ground pound)"                               ; Types: extra_en extra
+Name: "MISC\Meme";                             Description: "Custom intro voices v15 (Nothing beats a ground pound)"                               ; Types: extra_en extra
 Name: "MISC\FIX";                              Description: "Fix game registry (e.g. after moving to different folder)"                            ; Types: full_en full extra extra_en
 Name: "MISC\RuntimeUnityEditor";               Description: "RuntimeUnityEditor v2.3.0.0 (Debugging and development tool)"                         ; Types: full_en full extra extra_en
 Name: "MISC\RuntimeUnityEditor\Trainer";       Description: "Cheat Tools v2.10 (Trainer and debugger)"                                             ; Types: full_en full extra extra_en
@@ -190,6 +190,8 @@ Source: "Input\_Plugins\_out\KK_Bulge\*";                   DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\KK_EyeControl\*";              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KK_EyeControl; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_Xraywomb\*";                DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KK_Xraywomb; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\Timeline\*";                   DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\Timeline; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\KK_LewdCrestX\*";              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KK_LewdCrestX; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\KK_PregnancyPlus\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KKABMX\Pregnancy\KK_PregnancyPlus; Excludes: "manifest.xml"
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_Plugins\_out\IllusionFixes_Koikatsu\*";     DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: FIX\KoikatuFixes; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_ListOverride\*";            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: FIX\KK_ListOverride; Excludes: "manifest.xml"
@@ -282,9 +284,7 @@ Source: "Input\_Plugins\_out\KK_CumOnOver\*";               DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\KK_FixationalEyeMovement\*";   DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_FixationalEyeMovement; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_AccessoryQuickRemove\*";    DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_AccessoryQuickRemove; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_DynamicBoneEditor\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_DynamicBoneEditor; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\KK_LewdCrest\*";               DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_LewdCrest; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_LewdCrestX\*";              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_LewdCrestX; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\KK_PregnancyPlus\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_PregnancyPlus; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioAccessoryNames\*";    DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioAccessoryNames; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioMultiselectChara\*";  DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioMultiselectChara; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_StudioSceneCharaInfo\*";    DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_StudioSceneCharaInfo; Excludes: "manifest.xml"
