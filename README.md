@@ -27,6 +27,7 @@ Note that HF Patch does not contain the full game, paid expansions or any other 
 Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page for download links. The magnet links need to be downloaded with a torrent client like [qBittorrent](https://www.qbittorrent.org/). To get mail updates for each new release you can watch this repositiory (top right) or watch the linked patreon page.
 
 ## How to install the patch?
+Here's a [video of how to install the game and the patch](https://www.youtube.com/watch?v=Xece-wF86BM). It's for a different game, but the process should be similar except the DLC.
 1. Install Koikatu or Koikatsu Party
 2. (Optional) Install any DLCs* you have. You don't have to install all of them, you can pick only some DLCs or don't install any DLCs at all.
    - Install [Personality Pack*](https://dlsoft.dmm.co.jp/detail/illusion_0024/)
