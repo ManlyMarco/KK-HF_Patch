@@ -18,6 +18,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using KKManager.Util.ProcessWaiter;
+using Microsoft.Win32;
 using RGiesecke.DllExport;
 
 namespace HelperLib
@@ -153,6 +155,76 @@ namespace HelperLib
   <Language>0</Language>
 </Setting>";
 
+        [DllExport("FindInstallLocation", CallingConvention = CallingConvention.StdCall)]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
+        public static void FindInstallLocation([MarshalAs(UnmanagedType.LPWStr)] string path, [MarshalAs(UnmanagedType.LPWStr)] string gameName, [MarshalAs(UnmanagedType.LPWStr)] string gameNameSteam, [MarshalAs(UnmanagedType.BStr)] out string strout)
+        {
+            try
+            {
+                var subKey = Registry.CurrentUser.OpenSubKey($@"Software\illusion\{gameName}\{gameName}");
+                if (subKey != null)
+                {
+                    var regDir = subKey.GetValue("INSTALLDIR_HFP")?.ToString();
+                    if (Directory.Exists(regDir))
+                    {
+                        strout = regDir;
+                        return;
+                    }
+                    regDir = subKey.GetValue("INSTALLDIR")?.ToString();
+                    if (Directory.Exists(regDir))
+                    {
+                        strout = regDir;
+                        return;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, e);
+            }
+
+            try
+            {
+                var steamAppsLocations = new Steam().SteamAppsLocations;
+                var selectMany = steamAppsLocations.Select(x => Path.Combine(x, "common")).SelectMany(Directory.GetDirectories);
+                var steamLoc = selectMany.FirstOrDefault(x => Path.GetFileName(x).Equals(gameNameSteam, StringComparison.InvariantCultureIgnoreCase));
+                if (Directory.Exists(steamLoc))
+                {
+                    strout = steamLoc;
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, e);
+            }
+
+            try
+            {
+                var bruteForcePath = new[]
+                    {
+                        new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles)),
+                        new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86)),
+                    }
+                    .Concat(DriveInfo.GetDrives().AttemptMany(x => x.RootDirectory.GetDirectories()))
+                    .AttemptMany(x => x.GetDirectories())
+                    .Where(y => y.Name.Contains(gameNameSteam) || y.Name.Contains(gameName))
+                    .AttemptMany(x => x.GetFiles())
+                    .FirstOrDefault(y => y.Name.Contains(gameNameSteam) || y.Name.Contains(gameName));
+                if (Directory.Exists(bruteForcePath?.FullName))
+                {
+                    strout = bruteForcePath.DirectoryName;
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, e);
+            }
+
+            strout = "C:\\Path to the installed game";
+        }
+        
         [DllExport("SetConfigDefaults", CallingConvention = CallingConvention.StdCall)]
         public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
@@ -222,7 +294,7 @@ namespace HelperLib
                     var _ = bool.Parse(r.Element("FullScreen").Value);
                     CheckRange(r.Element("Quality").Value, 0, 2);
                     CheckRange(r.Element("Display").Value, 0, Screen.AllScreens.Length);
-                    CheckRange(r.Element("Language").Value, 0, 2);
+                    CheckRange(r.Element("Language").Value, 0, 4);
                 }
             }
             catch (Exception e)
@@ -288,6 +360,8 @@ namespace HelperLib
         [DllExport("FixPermissions", CallingConvention = CallingConvention.StdCall)]
         public static void FixPermissions([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
+            ProcessWaiter.CheckForProcessesBlockingDir(Path.GetFullPath(path)).ConfigureAwait(false).GetAwaiter().GetResult();
+
             var batContents = $@"
 title Fixing permissions... 
 rem Get the localized version of Y/N to pass to takeown to make this work in different locales
