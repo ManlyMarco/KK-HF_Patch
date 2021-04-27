@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "3.8"
+#define VERSION "3.9"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -50,7 +50,7 @@ Name: "Patch"; Description: "All free updates + game repair"; Types: full_en ful
 Name: "Patch\VR"; Description: "Update VR module";
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}"
 
-Name: "BepInEx"; Description: "BepInEx v5.4.5 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0"; Types: full_en full extra_en extra custom bare; Flags: fixed 
+Name: "BepInEx"; Description: "BepInEx v5.4.9 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.2"; Types: full_en full extra_en extra custom bare; Flags: fixed 
 Name: "BepInEx\Compat"; Description: "Backwards compatibility with old plugins (BepIn4Patcher v1.0 + IPALoaderX v1.2.1)"; Types: extra_en extra 
 Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
 Name: "KKManager"; Description: "KKManager v0.16.0 (Manage and update mods)"; Types: full_en full extra extra_en custom bare; Flags: fixed
@@ -65,7 +65,7 @@ Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for u
 Name: "Modpack\UncensorSelector"; Description: "KK_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
 ;Name: "Modpack\Compat"; Description: "Compatibility Pack (Deprecated mods for backwards compatibility)"; Types: full_en full extra_en extra
 
-Name: "CustomLauncher"; Description: "IllusionLaunchers v3.0.1 (Multilangual launcher)"; Types: full_en full extra extra_en custom
+Name: "CustomLauncher"; Description: "IllusionLaunchers v3.1.0 (Multilangual launcher)"; Types: full_en full extra extra_en custom
 
 Name: "Experimental"; Description: "Experimental performance optimizations (Reduces stutter. Disable in case of plugin compatibility issues)"; 
 
@@ -105,13 +105,14 @@ Source: "Input\_Patch\experimental\*"; DestDir: "{app}"; Flags: ignoreversion re
 Source: "Input\_Patch\experimental_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Experimental; Check: not IsSteam and DarknessInstalled
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
-Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
-Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
-Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Animations\*";               DestDir: "{app}\mods\Sideloader Modpack - Animations";   Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
-Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
-Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
-Source: "E:\HFpatchmaking\KK\Testbed\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
+#define ModsDir "E:\HFpatchmaking\KK\Testbed\mods"
+Source: "{#ModsDir}\Sideloader Modpack\*";                      DestDir: "{app}\mods\Sideloader Modpack";                      Flags: ignoreversion recursesubdirs solidbreak; Components: Modpack\General;        
+Source: "{#ModsDir}\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";             Flags: ignoreversion recursesubdirs; Components: Modpack\Studio; 
+Source: "{#ModsDir}\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";              Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes;     
+Source: "{#ModsDir}\Sideloader Modpack - Animations\*";         DestDir: "{app}\mods\Sideloader Modpack - Animations";         Flags: ignoreversion recursesubdirs; Components: Modpack\Animations             
+Source: "{#ModsDir}\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";               Flags: ignoreversion recursesubdirs; Components: Modpack\Maps       
+Source: "{#ModsDir}\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";  Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor;
+Source: "{#ModsDir}\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector";Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\BepInEx_x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
 Source: "Input\BepInEx_Essentials\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
@@ -572,7 +573,8 @@ begin
       end;
     end;
     
-    if(VRInstalled() IsComponentSelected('Patch\VR')) then
+    if VRInstalled() then
+    begin
       WizardSelectComponents('Patch\VR');
     end;
   end;
