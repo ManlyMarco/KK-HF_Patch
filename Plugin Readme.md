@@ -13,12 +13,17 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# Additional Skin Effects v1.8
+# Additional Skin Effects v1.9
 - Short description: Effects for sweating, crying, bukkake and deflowering
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_SkinEffects
 
-# AdvIKPlugin v1.5.1
+# ADV Scene Editor v1.1
+- Short description: Tool for editing and creating ADV scenes, check the repo readme
+- Author(s):         ManlyMarco
+- More information:  https://github.com/ManlyMarco/ADV_Editor
+
+# AdvIKPlugin v1.5.2
 - Short description: Adds shoulder controls to IK in Studio
 - Author(s):         OrangeSpork
 - More information:  https://github.com/OrangeSpork/AdvIKPlugin
@@ -27,6 +32,11 @@
 - Short description: Animation Controller for Koikatsu
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# Animation Loader v1.0.3
+- Short description: A plugin for loading animations from Sideloader zipmods
+- Author(s):         AnimationLoader.Koikatu
+- More information:  https://github.com/IllusionMods/AnimationLoader
 
 # Animation Overdrive v1.1
 - Short description: Unlock animation speed in studio, type in the text box
@@ -43,7 +53,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IntroBegone
 
-# BepisPlugins v16.2.1
+# BepisPlugins v16.3
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -93,7 +103,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Cheat Tools v2.10
+# Cheat Tools v2.10.1
 - Short description: Trainer and debugger
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionCheatTools
@@ -123,7 +133,12 @@
 - Author(s):         Madevil
 - More information:  https://github.com/Madevil/KK_CumOnOver
 
-# DefaultParamEditor v1.1.1.231
+# DarkTheme
+- Short description: Dark theme for the game interface, English only
+- Author(s):         ScrewThisNoise
+- More information:  ???
+
+# DefaultParamEditor v1.1.2.0
 - Short description: Set custom default studio settings
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -143,7 +158,7 @@
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
 
-# Dynamic Bone Editor v1.0.1
+# Dynamic Bone Editor v1.0.3
 - Short description: Editing for accessory DynamicBones in the character maker
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -178,7 +193,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Fade Adjuster v1.0
+# Fade Adjuster v1.0.1
 - Short description: Change color of loading screens and fade in/out speed
 - Author(s):         https://github.com/DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -208,7 +223,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Game Dialog Helper v1.0.0
+# Game Dialog Helper v1.0.1
 - Short description: Highlights correct dialog choices
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -248,7 +263,12 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/HideAllUI
 
-# IllusionFixes v15.2
+# HSceneOptions v3.2.0
+- Short description: Additional options and keyboard shortcuts for H in Koikatsu
+- Author(s):         MayouKurayami
+- More information:  https://github.com/MayouKurayami/KK_HSceneOptions
+
+# IllusionFixes v15.2.1
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -282,6 +302,11 @@
 - Short description: Switch objects between chara and map layers
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
+
+# KK Better Penetration v3.1.2.0
+- Short description: Improves how penetration looks in H scenes
+- Author(s):         Animal42069
+- More information:  https://www.patreon.com/Animal42069
 
 # KK Uniform Uniforms v1.1
 - Short description: Allows easily changing uniforms for the entire class, like in AA2
@@ -338,12 +363,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# KK_Pregnancy v2.4
+# KK_Pregnancy v2.5
 - Short description: Adds pregnancy to gameplay, maker and studio
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# KK_PregnancyPlus v1.26
+# KK_PregnancyPlus v2.2
 - Short description: Adds additional belly sliders in Studio and Maker
 - Author(s):         thomjr
 - More information:  https://github.com/thojmr/KK_PregnancyPlus/releases
@@ -398,7 +423,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# LewdCrestX v1.0.2
+# LewdCrestX v1.1.1
 - Short description: Give characters lewd crests
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
@@ -423,7 +448,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Maker/Studio Browser Folders v2.4.1
+# Maker/Studio Browser Folders v2.5.1
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -433,7 +458,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v2.6.1
+# Material Editor v3.0.4
 - Short description: adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -448,17 +473,17 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# Mod Bone Implantor v0.2.4
+# Mod Bone Implantor v1.0
 - Short description: Needed by some clothing mods to add dynamic bones
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.16
+# Modding API v1.18
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
 
-# More Accessory Parents v1.1
+# More Accessory Parents v1.2
 - Short description: More parent options for accessories
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_MoreAccessoryParents
@@ -493,6 +518,11 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
 
+# PantyFairy v1.0
+- Short description: A custom side quest for Koikatsu with some new gameplay features
+- Author(s):         IllusionMods
+- More information:  https://github.com/IllusionMods/KK_PantyRobber
+
 # Pose Folders v1.0
 - Short description: Folder support in studio pose list
 - Author(s):         DeathWeasel1337
@@ -518,7 +548,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# RealPOV v1.1.0.0
+# RealPOV v1.2.0.0
 - Short description: First person view in H Scenes
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -538,7 +568,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RuntimeUnityEditor v2.3.0.0
+# RuntimeUnityEditor v2.4
 - Short description: Debugging and development tool
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
@@ -548,7 +578,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
 
-# SliderHighlight v2.0.1
+# SliderHighlight v2.0.2
 - Short description: Plugin that highlights the area affected by sliders in character maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IL_SliderHighlight
@@ -633,7 +663,7 @@
 - Author(s):         KKY, Madevil
 - More information:  https://github.com/Madevil/Port_StudioCharaSort
 
-# StudioSceneSettings v1.3
+# StudioSceneSettings v1.3.1
 - Short description: Adds more effect settings for scenes
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -648,7 +678,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Text Resource Redirector v1.4.3.1
+# Text Resource Redirector v1.4.4
 - Short description: Needed for many translations to load
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
@@ -693,12 +723,12 @@
 - Author(s):         GFanon
 - More information:  ???
 
-# XUnity Auto Translator v4.14.0
+# XUnity Auto Translator v4.15.0
 - Short description: Translation loader
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
 
-# XUnity Resource Redirector v1.1.3
+# XUnity Resource Redirector v1.2.0
 - Short description: Modding API
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
