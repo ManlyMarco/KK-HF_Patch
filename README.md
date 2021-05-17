@@ -4,7 +4,7 @@ An unofficial patch for [Koikatu](http://www.illusion.jp/preview/koikatu/index.p
 
 Koikatsu can be split into two parts: character and scene creation tools (character maker and Studio), and an adventure game with story mode (it can use your custom characters, but not scenes). You can see preview videos of the game and some of the mods [here](https://www.youtube.com/channel/UClyTRNXmHHsbdUWC0hq8GrA).
 
-HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the English version of the game [on Steam](https://steamcommunity.com/app/1073440) or the Japanese version [on DMM](https://dlsoft.dmm.co.jp/list/article=maker/id=30012/). The expansions are not localized and are only available in Japanese [here](https://dlsoft.dmm.co.jp/list/article=maker/id=30012/).
+HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy the English version of the game and DLC [on Steam](https://steamcommunity.com/app/1073440), or the Japanese versions [on DMM](https://dlsoft.dmm.co.jp/list/article=maker/id=30012/).
 
 The base game (Koikatu / Koikatsu Party), and by extension this patch are not suitable for minors. If you are under 18 years old you can not use this patch. The base game and this patch contain only characters of age 18 or higher. The creator of this patch is not responsible for creations of its users and prohibits any unlawful use of this software.
 
@@ -30,9 +30,10 @@ Check the [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases) page fo
 Here's a [video of how to install the game and the patch](https://www.youtube.com/watch?v=Xece-wF86BM). It's for a different game, but the process should be similar except the DLC.
 1. Install Koikatu or Koikatsu Party
 2. (Optional) Install any DLCs* you have. You don't have to install all of them, you can pick only some DLCs or don't install any DLCs at all.
-   - Install [Personality Pack*](https://dlsoft.dmm.co.jp/detail/illusion_0024/)
-   - Install [Afterschool*](https://dlsoft.dmm.co.jp/detail/illusion_0026/)
-   - Install any preorder DLC you have* (except yoyaku and darkness if you have KK Party)
+   - If you have Koikatsu Party, install [AfterParty*](https://store.steampowered.com/app/1485180/__Koikatsu_Party__After_Party/) (Contains all of the below while being cheaper and translated)
+   - Install [Personality Pack*](https://dlsoft.dmm.co.jp/detail/illusion_0024/) (Koikatu only, not really worth it)
+   - Install [Afterschool*](https://dlsoft.dmm.co.jp/detail/illusion_0026/) (Koikatu only, very worth it)
+   - Install any preorder DLC you have* (Koikatu only, yoyaku and darkness don't work in Party)
    - Install the VR DLC (Get it from official website for the Japanese release, and from Steam library for Koikatsu Party)
 3. Download the latest HF Patch release from [Releases](https://github.com/ManlyMarco/KK-HF_Patch/releases/latest). You should get a single .exe file and 2 or more .bin files. You can place these files anywhere you want. DO NOT download any .zip files from GitHub - they contain source code for the patch, not the patch itself.
 4. Install the latest HF Patch by running the .exe and following the wizard. The default settings should work well for most users.
@@ -40,11 +41,11 @@ Here's a [video of how to install the game and the patch](https://www.youtube.co
 Special patch is included in HF Patch, you don't have to install it manually. It won't hurt anything if you have it installed already, the patch will figure itself out. Just to be safe you can verify game files in Steam before installing the HF Patch if you messed with your installation folder before doing this.
 
 ### How to install DLCs
-All things marked with * are paid DLC content for the Japanese version of the game and are all fully optional. So far none of the DLCs were localized, and they are unlikely to ever come to Steam. Because of this they don't have a proper English translation and have to be machine translated, so the text quality is noticeably worse than the base game. The AfterSchool expansion is arguably the only one worth getting since it adds lots of content all-around.
+All things marked with * are paid DLC content and are all fully optional. The AfterParty DLC contains translated versions of all Japanse DLC (except Yoyaku and Darkness) at a lower price. This is the recommended option over buying the Japanse DLC if you have KK Party.
 
-You can follow [this guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2144965669) to buy and install the two major expansion DLCs.
+You can follow [this guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2144965669) to buy and install the two major Japanse expansion DLCs.
 
-Here's an simple way to install any downloaded DLCs:
+Here's a simple way to install any downloaded DLCs (JP versions):
 1. Extract the DLC/expansion with 7zip (or similar) until you find a "setup" folder that contains an "abdata" folder and some other files.
 2. You need to copy all of these folders and files into your game's install directory (you should see our own abdata folder and other files similar to what's in the DLC). Replace files when asked.
 3. Install HF Patch, even if you already have it installed.
