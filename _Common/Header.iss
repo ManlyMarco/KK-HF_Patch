@@ -13,7 +13,7 @@ AppendDefaultDirName=no
 SolidCompression=yes
 
 WizardSmallImageFile=_Common\hf.bmp
-WizardImageStretch=no
+WizardImageStretch=yes
 WizardImageBackColor=$FFFFFF
 WizardImageFile=banner.bmp
 SetupIconFile=icon.ico
