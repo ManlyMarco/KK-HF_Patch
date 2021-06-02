@@ -28,7 +28,7 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
 ;LZMADictionarySize=208576
 ;LZMANumFastBytes=273
-LZMANumBlockThreads=3
+LZMANumBlockThreads=2
 DiskSpanning=yes
 DefaultDirName={code:GetDefaultDirName}
 
