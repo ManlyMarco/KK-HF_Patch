@@ -10,6 +10,7 @@
 #define VERSION "3.10"
 ;-----------------------------------------Sideloader modpack directory
 #define ModsDir "E:\HFpatchmaking\KK\Testbed\mods"
+;#define ModsDir "F:\Games\KoikatsuP\mods"
 ;--Don't include any files in the build to make it go fast for testing
 ;#define DEBUG
 ;---------------------------------------------------------------------
@@ -466,9 +467,14 @@ begin
     WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 10] := IsSteam();
     WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 10] := IsSteam();
   end;
-  
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+var
+  ResultCode: Integer;
+begin
   // After install completes
-  if (CurPageID = wpFinished) then
+  if (CurStep = ssPostInstall) then
   begin
     // Removing this causes game to fall back to original font
     if IsTaskSelected('partyfont') then begin
