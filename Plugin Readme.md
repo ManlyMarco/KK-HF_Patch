@@ -1,8 +1,3 @@
-# [moderchan]Add Pose v1.6
-- Short description: Adds more poses to maker, but the pose list will become slow to load
-- Author(s):         ???
-- More information:  ???
-
 # Accessory Clothes v1.0
 - Short description: Necessary to load some accessories
 - Author(s):         DeathWeasel1337
@@ -17,6 +12,11 @@
 - Short description: Adds mobs in story mode
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
+
+# Add Pose v1.6
+- Short description: Adds more poses to maker, but the pose list will become slow to load
+- Author(s):         moderchan
+- More information:  ???
 
 # Additional Skin Effects v1.9
 - Short description: Effects for sweating, crying, bukkake and deflowering
@@ -358,12 +358,12 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v3.2.1.0
+# KK Better Penetration v4.0.2.0
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
 
-# KK Studio Better Penetration v2.0.0.0
+# KK Studio Better Penetration v2.0.2.0
 - Short description: BetterPenetration for studio
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/posts/kk-studio-2-0-0-51535931
@@ -463,7 +463,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
 
-# KKManager v1.0.0.0
+# KKManager v0.17.0.0
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
