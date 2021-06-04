@@ -26,8 +26,8 @@ Compression=lzma2/ultra64
 ;lzma2/ultra64 | zip | lzma2/fast
 LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
-;LZMADictionarySize=208576
-;LZMANumFastBytes=273
+LZMADictionarySize=208576
+LZMANumFastBytes=273
 LZMANumBlockThreads=2
 DiskSpanning=yes
 DefaultDirName={code:GetDefaultDirName}

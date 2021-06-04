@@ -13,11 +13,6 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# AccStateSync v3.1.2.0
-- Short description: AccStateSync
-- Author(s):         Madevil
-- More information:  https://github.com/Madevil/KK_AccStateSync
-
 # Add mobs to roam mode v3.0
 - Short description: Adds mobs in story mode
 - Author(s):         ManlyMarco
@@ -43,7 +38,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Animation Loader v1.0.5
+# Animation Loader v1.0.6
 - Short description: A plugin for loading animations from Sideloader zipmods
 - Author(s):         AnimationLoader.Koikatu
 - More information:  https://github.com/IllusionMods/AnimationLoader
@@ -114,7 +109,7 @@
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
 # Catch Unity Event Exceptions v1.0
-- Short description: Makes sure all event handlers subscribed to commonly used UnityEngine events are executed, even if some of them crash.
+- Short description: Prevents some bugs in plugins from affecting other plugins
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
 
@@ -313,7 +308,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v15.2.1
+# IllusionFixes v15.3
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -368,12 +363,17 @@
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
 
+# KK Studio Better Penetration v2.0.0.0
+- Short description: BetterPenetration for studio
+- Author(s):         Animal42069
+- More information:  https://www.patreon.com/posts/kk-studio-2-0-0-51535931
+
 # KK Uniform Uniforms v1.1
 - Short description: Allows easily changing uniforms for the entire class, like in AA2
 - Author(s):         CptGrey
 - More information:  https://github.com/CptGrey/KK_Archetypes
 
-# KK_AccStateSync v3.0.0.0
+# KK_AccStateSync v3.1.2.0
 - Short description: Allows hiding accessories based on clothing state
 - Author(s):         Madevil
 - More information:  https://github.com/Madevil/KK_AccStateSync
@@ -458,12 +458,12 @@
 - Author(s):         ???
 - More information:  ???
 
-# KKABMX (BonemodX) v4.4.1
+# KKABMX (BonemodX) v4.4.2
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
 
-# KKManager v0.16.0.0
+# KKManager v1.0.0.0
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
@@ -543,7 +543,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.19
+# Modding API v1.20.2
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -643,12 +643,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
 
-# Skin Overlay Mod v6.0.1
+# Skin Overlay Mod v6.0.2
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
 
-# SliderHighlight v2.0.2
+# SliderHighlight v2.1
 - Short description: Plugin that highlights the area affected by sliders in character maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IL_SliderHighlight
