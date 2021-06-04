@@ -18,6 +18,7 @@ WizardImageBackColor=$FFFFFF
 WizardImageFile=banner.bmp
 SetupIconFile=icon.ico
 InfoBeforeFile=INFO.rtf
+InfoAfterFile=Plugin Readme.md
 LicenseFile=LICENSE_page
 
 DisableWelcomePage=no

@@ -12,7 +12,7 @@
 #define ModsDir "E:\HFpatchmaking\KK\Testbed\mods"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
 ;--Don't include any files in the build to make it go fast for testing
-;#define DEBUG
+#define DEBUG
 ;---------------------------------------------------------------------
 
 #include "_Common\Header.iss"
@@ -332,8 +332,6 @@ Name: "{userdesktop}\Koikatsu Party"; Filename: "{app}\Initial Settings.exe"; Ic
 Filename: "{tmp}\hfp\DirectXRedist2010\DXSETUP.exe"; Parameters: "/silent"; Description: "Installing DirectX redistributables"; Flags: skipifdoesntexist runascurrentuser
 
 Filename: "{tmp}\hfp\start.bat"; Parameters: """{app}"""; Description: "{cm:RunGame}"; Flags: postinstall runasoriginaluser nowait skipifsilent skipifdoesntexist
-
-Filename: "notepad.exe"; Parameters: """{app}\Plugin Readme.md"""; Description: "Show information about included plugins"; Flags: postinstall runasoriginaluser nowait skipifsilent skipifdoesntexist unchecked
 
 Filename: "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"; Description: "{cm:RunWiki}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
 Filename: "https://discord.gg/Szumqcu"; Description: "{cm:RunDiscord}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
