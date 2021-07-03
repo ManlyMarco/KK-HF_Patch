@@ -7,7 +7,7 @@ customInstall=Custom installation
 
 MsgInvalidModsDetected=WARNING - Outdated or useless plugins/files were detected in your BepInEx directory. To avoid issues all mods will be deleted.
 MsgKplugDetected=WARNING - KoikPlugins was detected and will be removed if you start installation to avoid potential compatibility issues (settings will not be removed).%n%nPlease follow KoikPlugins manual on how to install it again after patching is done.
-MsgIncompatibleModsDetected=WARNING - Incompatible mods have been detected in your game folder! You are using very outdated mods or mods from other games in Koikatsu, which WILL cause problems. All old mods will have to be removed to fix this.
+MsgIncompatibleModsDetected=WARNING - Incompatible mods have been detected in your game folder! You are using very outdated mods or mods from other games, which WILL cause problems. All old mods will have to be removed to fix this.
 MsgExeNotFound=WARNING - Koikatu or Koikatsu Party files were not found in selected directory. This patch has to be installed directly to the main Koikatsu game directory in order to work properly.%n%nAre you sure that this directory is correct?
 MsgMissingGameFiles=ERROR - Critical game files are missing, make sure this is the game directory. If the directory is correct you have to reinstall the game or verify game files on steam.
 
@@ -21,8 +21,6 @@ MsgExtractedZipmod=WARNING - Most likely a sideloader mod was extracted inside t
 MsgEmotionCreatorsDetected=ERROR - EmotionCreators files have been detected! If you installed EmotionCreators to the same folder as Koikatsu, you have broken Koikatsu game files. To fix this you will need to reinstall both games to separate directories!
 MsgAISFilesDetected=AI-Shoujo files have been detected in the game install directory. This most likely means that your game install is broken. You need to reinstall Koikatsu to a new folder to continue.
 MsgKKandKKPdetected=Both Koikatu! and Koikatsu Party files have been detected in the installation folder. To prevent issues with this patch and installed mods the Koikatu! files should be removed. This will not affect Koikatsu Party in any way. If you installed any Japanese DLCs to your Koikatsu Party this is normal and the files should be removed.%n%nDo you want to remove the problematic files? (Koikatu.exe, Koikatu_data, KoikatuVR.exe and KoikatuVR_Data will be removed if they exist)
-
-MsgDeepPath=Your game is in a very deeply nested folder, which can cause serious issues or even prevent the game from starting.%n%nPlease move your game folder to a simpler path like for example "C:\Games\Koikatsu" and try to run this patch again.
 
 RunGame=&Run Koikatsu
 RunWiki=Open Koikatsu wiki (FAQ, English manual)
@@ -43,19 +41,11 @@ TaskPW=Uninstall Patchwork if installed and delete Plugins folder (Optional, wil
 TaskIPA=Uninstall IPA if installed (Has to be removed for BepInEx to work correctly. Use BepInEx/IPA to load IPA plugins instead.)
 
 CompDev=Developer version with dnSpy debugging
-CompTL=English translation (does not overwrite Koikatsu Party translations, fills in the gaps)
+CompTL=English translation
 CompDefCards=Default cards, scenes and backgrounds
 CompUNC=Uncensor
 CompFIX=Important fixes
 CompMISC=Other
-
-SfwTitle=[SFW mod] Do you want to block access to R18 / NSFW content?
-SfwTitleDescription=You can change this setting later through the game's launcher
-SfwOptNsfw=Keep everything enabled (default, NSFW mode)
-SfwOptNsfwDescription=Keep all of the game's content enabled, including adult content. All mods and features will be available. Please be careful when sharing your creations if they involve what looks like a loli in a lewd situation (those are often a bannable offense in online communities, and completely illegal in some countries).
-SfwOptSfw=Disable R18 content (SFW mode)
-SfwOptSfwDescription=Disable free H, story mode, nudity (can't strip), NSFW mods and plugins, and some game functions. Content creation tools (Character Maker and Studio) stay enabled. Useful for streaming and if you want to make only SFW characters and scenes. WARNING: Not all NSFW content might be blocked! Test before public use!
-
 
 
 jp.fullInstall=推奨インストール
@@ -78,8 +68,6 @@ jp.MsgMissingDLC4=注意 - 「コイカツ！ダークネス」のアップデ�
 jp.MsgExtractedZipmod=警告 - Sideloader modがゲームディレクトリ内に抽出されたようです。 一部のゲームファイルが破損している可能性があります。%n%n修復を試みますが、それでも問題が解決しない場合は、ゲームを再インストールする必要があります。
 jp.MsgEmotionCreatorsDetected=エラー - 「エモーション・クリエイター」を「コイカツ」と同じフォルダにインストールした場合は、「コイカツ」ゲームファイルが壊れています。修正するには、両方のゲームを別々のディレクトリに再インストールする必要があります。
 jp.MsgAISFilesDetected=エラー - 「ＡＩ＊少女」を「コイカツ」と同じフォルダにインストールした場合は、「コイカツ」ゲームファイルが壊れています。修正するには、両方のゲームを別々のディレクトリに再インストールする必要があります。
-
-jp.MsgDeepPath=あなたのゲームは非常に深いディレクトリにあります。これは深刻な問題を引き起こし、ゲームの開始を妨げることさえあります。%n%nゲームフォルダを、たとえば「C:\Games\Koikatu」のような単純なパスに移動して、このパッチをもう一度実行してみてください。
 
 jp.RunGame=ゲームを始める
 jp.RunWiki=オープン英語Koikatsuのwiki（FAQ、マニュアル）
@@ -105,6 +93,26 @@ jp.CompDefCards=デフォルトのカード、シーン、背景
 jp.CompUNC=無修正化
 jp.CompFIX=重要な修正
 jp.CompMISC=他の
+
+MsgPathTooLong=Your game is in a very deeply nested folder, which can cause serious issues or even prevent the game from starting.%n%nPlease move your game folder to a simpler path like for example "C:\Games\KK" and try to run this patch again.
+jp.MsgPathTooLong=ゲームは非常に深くネストされたフォルダーにあります。これにより、深刻な問題が発生したり、ゲームが開始できなくなったりする可能性があります。%n%nゲームフォルダを、たとえば「C：\Games\KK」のような単純なパスに移動して、このパッチをもう一度実行してみてください。
+
+MsgSteamUpdatesMissing=Your game is missing official updates from Steam. Please go to your Steam Library and update Koikatsu before installing this patch.
+sc.MsgSteamUpdatesMissing=您的游戏缺少Steam的官方更新。 在安装此补丁之前，请转到您的Steam库并更新Koikatsu。
+
+MsgPatchInsideGameDirErr=This patch is inside of the game directory you are attempting to install to. You have to move the patch files outside of the game directory and try again. You can keep the patch files in your downloads folder.
+jp.MsgPatchInsideGameDirErr=このパッチは、インストール先のゲームディレクトリ内にあります。パッチファイルをゲームディレクトリの外に移動して、再試行する必要があります。パッチファイルはダウンロードフォルダー内に残すことができます。
+
+MsgDifferentGameDetected=It looks like a different game is installed to the selected directory. This is very likely to break one or both of the games, and to break the patch.%n%nMake sure you selected the correct directory. If you installed 2 games to the same directory you will have to reinstall them both to separate directories to fix this.
+jp.MsgDifferentGameDetected=選択したディレクトリに別のゲームがインストールされているようです。これにより、一方または両方のゲームが破損し、パッチが破損する可能性があります。%n%n正しいディレクトリを選択していることを確認してください。同じディレクトリに2つのゲームをインストールした場合は、両方を別のディレクトリに再インストールして、これを修正する必要があります。
+
+
+SfwTitle=[SFW mod] Do you want to block access to R18 / NSFW content?
+SfwTitleDescription=You can change this setting later through the game's launcher
+SfwOptNsfw=Keep everything enabled (default, NSFW mode)
+SfwOptNsfwDescription=Keep all of the game's content enabled, including adult content. All mods and features will be available. Please be careful when sharing your creations if they involve what looks like a loli in a lewd situation (those are often a bannable offense in online communities, and completely illegal in some countries).
+SfwOptSfw=Disable R18 content (SFW mode)
+SfwOptSfwDescription=Disable free H, story mode, nudity (can't strip), NSFW mods and plugins, and some game functions. Content creation tools (Character Maker and Studio) stay enabled. Useful for streaming and if you want to make only SFW characters and scenes. WARNING: Not all NSFW content might be blocked! Test before public use!
 
 jp.SfwTitle=[SFW mod] R18/NSFWコンテンツへのアクセスをブロックしますか？
 jp.SfwTitleDescription=この設定は、ゲームのランチャーから後で変更できます

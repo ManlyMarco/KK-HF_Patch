@@ -225,6 +225,12 @@ namespace HelperLib
             strout = "C:\\Path to the installed game";
         }
         
+        [DllExport("VerifyFiles", CallingConvention = CallingConvention.StdCall)]
+        public static void VerifyFiles([MarshalAs(UnmanagedType.LPWStr)] string srcexe, [MarshalAs(UnmanagedType.BStr)] out string errormsg)
+        {
+            errormsg = Verifier.VerifyFiles(srcexe);
+        }
+
         [DllExport("SetConfigDefaults", CallingConvention = CallingConvention.StdCall)]
         public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path)
         {

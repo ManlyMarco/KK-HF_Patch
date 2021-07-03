@@ -57,7 +57,7 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
 Name: "Patch"; Description: "All free updates + game repair"; Types: full_en full extra_en extra custom bare none; Flags: fixed
-Name: "Patch\VR"; Description: "Update VR module";
+Name: "Patch\VR";                 Description: "Install/Update VR Module"
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}"
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additional content to the game, needs at least BepisPlugins to work)"
@@ -235,6 +235,7 @@ Type: filesandordirs; Name: "{app}\[UTILITY] KKManager"; Components: KKManager
 Type: filesandordirs; Name: "{app}\temp"
 
 ; Will get replaced, makes sure there are no stale files left
+Type: filesandordirs; Name: "{app}\BepInEx\cache"; Components: BepInEx
 Type: filesandordirs; Name: "{app}\BepInEx\core"; Components: BepInEx
 Type: files; Name: "{app}\BepInEx.Patcher.exe"; Components: BepInEx
 Type: files; Name: "{app}\version.dll"; Components: BepInEx
@@ -304,10 +305,11 @@ Type: filesandordirs; Name: "{app}\Koikatsu Party_Data\Mono"; Components: Patch
 Type: files; Name: "{app}\IPA.exe"; Components: Patch
 
 [Registry]
-Root: HKCU; Subkey: "Software\Illusion"; Components: MISC\FIX
-Root: HKCU; Subkey: "Software\Illusion\Koikatu"; Components: MISC\FIX
-Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; Components: MISC\FIX
+Root: HKCU; Subkey: "Software\Illusion"
+Root: HKCU; Subkey: "Software\Illusion\Koikatu"
+Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"
 Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; ValueName: "INSTALLDIR"; ValueData: "{app}\"; Components: MISC\FIX
+Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; ValueName: "INSTALLDIR_HFP"; ValueData: "{app}\"
 
 [Tasks]
 Name: desktopicon; Description: "{cm:TaskIcon}"; Flags: unchecked
@@ -444,7 +446,7 @@ begin
     WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 1] := False;
 
     // If garbage plugins are detected, delete all old mods by default
-    if(FileExists(ExpandConstant('{app}\BepInEx\CardCacher.dll')) or FileExists(ExpandConstant('{app}\BepInEx\0Harmony.dll')) or FileExists(ExpandConstant('{app}\BepInEx\TexResPatch.dll')) or FileExists(ExpandConstant('{app}\BepInEx\KK_GUIDMigration.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Sideloader.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Assembly-CSharp.dll'))) then
+    if(FileExists(ExpandConstant('{app}\BepInEx\config\EC.Core.Fixes.MakerFPS.cfg')) or FileExists(ExpandConstant('{app}\BepInEx\CardCacher.dll')) or FileExists(ExpandConstant('{app}\BepInEx\0Harmony.dll')) or FileExists(ExpandConstant('{app}\BepInEx\TexResPatch.dll')) or FileExists(ExpandConstant('{app}\BepInEx\KK_GUIDMigration.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Sideloader.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Assembly-CSharp.dll'))) then
     begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgInvalidModsDetected}'), mbError, MB_OK, 0);
       WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 9, coCheckWithChildren);
@@ -519,8 +521,26 @@ begin
   begin
     if (not KoikatuInstalled() and not IsSteam()) then
     begin
-      if (SuppressibleMsgBox(ExpandConstant('{cm:MsgExeNotFound}'), mbError, MB_YESNO, 0) = IDNO) then
+      if(SuppressibleMsgBox(ExpandConstant('{cm:MsgExeNotFound}'), mbError, MB_YESNO, 0) = IDNO) then
         Result := False;
+    end;
+
+    if Result = True then
+    begin
+      if (Length(ExpandConstant('{app}')) > 100) then
+      begin
+        MsgBox(ExpandConstant('{cm:MsgPathTooLong}'), mbError, MB_OK);
+        Result := False;
+      end
+    end;
+
+    if Result = True then
+    begin
+      if (Pos(LowerCase(ExpandConstant('{app}\')), LowerCase(ExpandConstant('{src}\'))) > 0) then
+      begin
+        MsgBox('This patch is inside of the game directory you are attempting to install to. You have to move the patch files outside of the game directory and try again.', mbError, MB_OK);
+        Result := False;
+      end
     end;
     
     // If both KK and KKP files are present, remove the KK files
@@ -546,27 +566,14 @@ begin
 
     if Result = True then
     begin
-      if (FileExists(ExpandConstant('{app}\AI-Shoujo.exe')) or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))) then
+      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))
+      or FileExists(ExpandConstant('{app}\Koikatu.exe'))
+      or FileExists(ExpandConstant('{app}\Koikatsu Party.exe'))
+      or FileExists(ExpandConstant('{app}\PlayHome.exe'))
+      or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))
+      or FileExists(ExpandConstant('{app}\AI-Shoujo.exe'))) then
       begin
-        MsgBox(ExpandConstant(ExpandConstant('{cm:MsgAISFilesDetected}')), mbError, MB_OK);
-        Result := False;
-      end
-    end;
-    
-    if Result = True then
-    begin
-      if (Length(ExpandConstant('{app}')) > 100) then
-      begin
-        MsgBox(ExpandConstant('{cm:MsgDeepPath}'), mbError, MB_OK);
-        Result := False;
-      end
-    end;
-    
-    if Result = True then
-    begin
-      if (Pos(LowerCase(ExpandConstant('{app}\')), LowerCase(ExpandConstant('{src}\'))) > 0) then
-      begin
-        MsgBox('This patch is inside of the game directory you are attempting to install to. You have to move the patch files outside of the game directory and try again.', mbError, MB_OK);
+        MsgBox(ExpandConstant('{cm:MsgDifferentGameDetected}'), mbError, MB_OK);
         Result := False;
       end
     end;
@@ -617,99 +624,155 @@ begin
   end;
 end;
 
+procedure VerifyFiles(srcexe: String; out errormsg: WideString);
+external 'VerifyFiles@files:HelperLib.dll stdcall';
+
+// Set up a custom prepare to install page with progress
+var
+  PrepareToInstallWithProgressPage : TOutputProgressWizardPage;
+
+procedure InitializeWizard;
+var
+  A: AnsiString;
+  S: String;
+begin
+  // The string msgWizardPreparing has the placeholder '[name]' inside that I have to replace with the name of my app, stored in a define constant of my script.
+  S := SetupMessage(msgPreparingDesc); 
+  StringChange(S, '[name]', '{#NAME} HF Patch');
+  A := S;
+  PrepareToInstallWithProgressPage := CreateOutputProgressPage(SetupMessage(msgWizardPreparing), A);
+end;
+
 function PrepareToInstall(var NeedsRestart: Boolean): String;
 var
   ResultCode: Integer;
+  VerifyResult: WideString;
 begin
   NeedsRestart := false;
-  try
-    // Close the game if it's running
-    Exec('taskkill', '/F /IM CharaStudio.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM Koikatu.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM Koikatsu Party.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM KoikatuVR.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM Koikatsu Party VR.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM InitSetting.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM InitSettingEN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM InitSettingGameStudioVREN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM Initial Settings.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM BepInEx.Patcher.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM KKManager.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('taskkill', '/F /IM StandaloneUpdater.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    
-    // Often needed after fixing permissions to unlock the files so the permissions can be written, without this access to them is always denied
-    //Exec('taskkill', '/F /IM explorer.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
 
-    // Fix file permissions
-    //Exec('takeown', ExpandConstant('/f "{app}" /r /SKIPSL /d y'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    //Exec('icacls', ExpandConstant('"{app}" /grant everyone:F /t /c /l'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    FixPermissions(ExpandConstant('{app}'));
-    
-    //try
-    //  ExecAsOriginalUser('explorer.exe', '', '', 0, ewNoWait, ResultCode);
-    //except
-    //  ShowExceptionMessage();
-    //end;
-  except
-    ShowExceptionMessage();
-  end;
+  PrepareToInstallWithProgressPage.Show;
   
-  CreateBackup(ExpandConstant('{app}'));
+  PrepareToInstallWithProgressPage.SetProgress(0, 10);
+  PrepareToInstallWithProgressPage.SetText('Verifying HF Patch files, this can take a few minutes', '');
   
-  // Backup plugin settings
-  if (not IsTaskSelected('delete\Config') and FileExists(ExpandConstant('{app}\BepInEx\config.ini'))) then
-    FileCopy(ExpandConstant('{app}\BepInEx\config.ini'), ExpandConstant('{app}\config.ini'), false);
-  
-  // Remove BepInEx folder
-  if (IsTaskSelected('delete\Config') and IsTaskSelected('delete\Plugins')) then begin
-    DelTree(ExpandConstant('{app}\BepInEx'), True, True, True);
+  VerifyFiles(ExpandConstant('{srcexe}'), VerifyResult);
+#ifndef DEBUG
+#endif
+  // If verification failed, set return of this method to it and innosetup will automatically fail the install. Still need to skip rest of the code though.
+  if not (VerifyResult = '') then
+  begin
+    Result := VerifyResult;
   end
   else
   begin
-    // Or only remove plugins
-    if (IsTaskSelected('delete\Plugins')) then begin
-      DelTree(ExpandConstant('{app}\BepInEx\plugins'), True, True, True);
-      DelTree(ExpandConstant('{app}\BepInEx\patchers'), True, True, True);
-      DelTree(ExpandConstant('{app}\BepInEx\IPA'), True, True, True);
-      DelTree(ExpandConstant('{app}\scripts'), True, True, True);
-      Exec(ExpandConstant('{cmd}'), '/c del *.dll', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
-      Exec(ExpandConstant('{cmd}'), '/c del *.dl_', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
-    end;
-  end;
+    try
+      PrepareToInstallWithProgressPage.SetProgress(4, 10);
+      PrepareToInstallWithProgressPage.SetText('Exiting running game processes', '');
+      
+      // Close the game if it's running
+      Exec('taskkill', '/F /IM CharaStudio.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM Koikatu.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM Koikatsu Party.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM KoikatuVR.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM Koikatsu Party VR.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
   
-  if (not IsTaskSelected('delete\Config')) then
-  begin
-    // Restore the settings and remove the backup
-    CreateDir(ExpandConstant('{app}\BepInEx'));
-    if(FileExists(ExpandConstant('{app}\config.ini'))) then
+      Exec('taskkill', '/F /IM InitSetting.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM InitSettingEN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM InitSettingGameStudioVREN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM Initial Settings.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM BepInEx.Patcher.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM KKManager.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      Exec('taskkill', '/F /IM StandaloneUpdater.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+
+      // Often needed after fixing permissions to unlock the files so the permissions can be written, without this access to them is always denied
+      //Exec('taskkill', '/F /IM explorer.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+
+      PrepareToInstallWithProgressPage.SetProgress(5, 10);
+      PrepareToInstallWithProgressPage.SetText('Fixing file permissions of game directory', '');
+
+      // Fix file permissions
+      //Exec('takeown', ExpandConstant('/f "{app}" /r /SKIPSL /d y'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      //Exec('icacls', ExpandConstant('"{app}" /grant everyone:F /t /c /l'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
+      FixPermissions(ExpandConstant('{app}'));
+      
+      //try
+      //  ExecAsOriginalUser('explorer.exe', '', '', 0, ewNoWait, ResultCode);
+      //except
+      //  ShowExceptionMessage();
+      //end;
+    except
+      ShowExceptionMessage();
+    end;
+
+    PrepareToInstallWithProgressPage.SetProgress(6, 10);
+    PrepareToInstallWithProgressPage.SetText('Creating a plugin backup', '');
+
+    CreateBackup(ExpandConstant('{app}'));
+
+    PrepareToInstallWithProgressPage.SetProgress(8, 10);
+    PrepareToInstallWithProgressPage.SetText('Changing plugin configuration', '');
+    
+    // Backup plugin settings
+    if (not IsTaskSelected('delete\Config') and FileExists(ExpandConstant('{app}\BepInEx\config.ini'))) then
+      FileCopy(ExpandConstant('{app}\BepInEx\config.ini'), ExpandConstant('{app}\config.ini'), false);
+
+    // Remove BepInEx folder
+    if (IsTaskSelected('delete\Config') and IsTaskSelected('delete\Plugins')) then begin
+      DelTree(ExpandConstant('{app}\BepInEx'), True, True, True);
+    end
+    else
     begin
-    FileCopy(ExpandConstant('{app}\config.ini'), ExpandConstant('{app}\BepInEx\config.ini'), false);
-    DeleteFile(ExpandConstant('{app}\config.ini'));
+      // Or only remove plugins
+      if (IsTaskSelected('delete\Plugins')) then begin
+        DelTree(ExpandConstant('{app}\BepInEx\plugins'), True, True, True);
+        DelTree(ExpandConstant('{app}\BepInEx\patchers'), True, True, True);
+        DelTree(ExpandConstant('{app}\BepInEx\IPA'), True, True, True);
+        DelTree(ExpandConstant('{app}\scripts'), True, True, True);
+        Exec(ExpandConstant('{cmd}'), '/c del *.dll', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+        Exec(ExpandConstant('{cmd}'), '/c del *.dl_', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+      end;
     end;
-  end
-  else
-  begin
-    // Or remove settings
-    DeleteFile(ExpandConstant('{app}\BepInEx\config.ini'));
-  end;
     
-  if (IsTaskSelected('delete\Sidemods')) then
-    RemoveModsExceptModpacks(ExpandConstant('{app}'));
-    
-  if (IsTaskSelected('delete\Listfiles')) then
-    RemoveNonstandardListfiles(ExpandConstant('{app}'));
+    if (not IsTaskSelected('delete\Config')) then
+    begin
+      // Restore the settings and remove the backup
+      CreateDir(ExpandConstant('{app}\BepInEx'));
+      if(FileExists(ExpandConstant('{app}\config.ini'))) then
+      begin
+        FileCopy(ExpandConstant('{app}\config.ini'), ExpandConstant('{app}\BepInEx\config.ini'), false);
+        DeleteFile(ExpandConstant('{app}\config.ini'));
+      end;
+    end
+    else
+    begin
+      // Or remove settings
+      DeleteFile(ExpandConstant('{app}\BepInEx\config.ini'));
+    end;
 
-  if (IsTaskSelected('delete\scripts')) then
-    DelTree(ExpandConstant('{app}\scripts'), True, True, True);
-    
-  if (IsTaskSelected('PW')) then
-  begin
-    DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
-    DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
-    Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+    PrepareToInstallWithProgressPage.SetProgress(9, 10);
+    PrepareToInstallWithProgressPage.SetText('Cleaning up old mods and scripts', '');
+
+    if (IsTaskSelected('delete\Sidemods')) then
+      RemoveModsExceptModpacks(ExpandConstant('{app}'));
+
+    if (IsTaskSelected('delete\Listfiles')) then
+      RemoveNonstandardListfiles(ExpandConstant('{app}'));
+
+    if (IsTaskSelected('delete\scripts')) then
+      DelTree(ExpandConstant('{app}\scripts'), True, True, True);
+
+    if (IsTaskSelected('PW')) then
+    begin
+      DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
+      DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
+      Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+    end;
+
+    SetConfigDefaults(ExpandConstant('{app}'));
   end;
   
-  SetConfigDefaults(ExpandConstant('{app}'));
+  PrepareToInstallWithProgressPage.SetProgress(10, 10);
+  PrepareToInstallWithProgressPage.Hide;
 end;
 
 // SFW page
