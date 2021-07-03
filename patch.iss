@@ -12,7 +12,7 @@
 #define ModsDir "E:\HFpatchmaking\KK\Testbed\mods"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
 ;--Don't include any files in the build to make it go fast for testing
-;#define DEBUG
+#define DEBUG
 ;---------------------------------------------------------------------
 
 #include "_Common\Header.iss"
@@ -135,6 +135,7 @@ Source: "Input\BepInEx_Dev\Koikatsu Party_Data\*"; DestDir: "{app}\Koikatsu Part
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_TL\Translation_EN_base\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation
 Source: "Input\_TL\Translation_EN_jpver\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation; Check: not IsSteam
+Source: "Input\_TL\Translation_EN_jpexpansion\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT\TL\EnglishTranslation; Check: not IsSteam or not KKPAPInstalled
 ;Source: "Input\_TL\Translation_EN_userdata_base\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation\UserData
 Source: "Input\_TL\Translation_EN_userdata_jpver\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation\UserData; Check: not IsSteam
 Source: "Input\_TL\_lang jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: jp
@@ -416,6 +417,11 @@ begin
   Result := FileExists(ExpandConstant('{app}\abdata\adv\scenario\c21\darkness.unity3d'));
 end;
 
+function KKPAPInstalled(): Boolean;
+begin
+  Result := FileExists(ExpandConstant('{app}\abdata\adv\scenario\common\70.unity3d'));
+end;
+
 function KoikatuInstalled(): Boolean;
 begin
   Result := FileExists(ExpandConstant('{app}\Koikatu_Data\resources.assets'));
@@ -566,12 +572,20 @@ begin
 
     if Result = True then
     begin
-      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))
-      or FileExists(ExpandConstant('{app}\Koikatu.exe'))
-      or FileExists(ExpandConstant('{app}\Koikatsu Party.exe'))
-      or FileExists(ExpandConstant('{app}\PlayHome.exe'))
+      if (FileExists(ExpandConstant('{app}\KoikatsuSunshineTrial.exe'))
+      or FileExists(ExpandConstant('{app}\KoikatsuSunshine.exe'))) then
+      begin
+        MsgBox('This patch is for Koikatu and Koikatsu Party only, it does not work with Koikatsu Sunshine. Look for a new KKS HF patch instead.', mbError, MB_OK);
+        Result := False;
+      end
+    end;
+
+    if Result = True then
+    begin
+      if (FileExists(ExpandConstant('{app}\PlayHome.exe'))
       or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))
-      or FileExists(ExpandConstant('{app}\AI-Shoujo.exe'))) then
+      or FileExists(ExpandConstant('{app}\AI-Shoujo.exe'))
+      or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))) then
       begin
         MsgBox(ExpandConstant('{cm:MsgDifferentGameDetected}'), mbError, MB_OK);
         Result := False;
@@ -624,13 +638,75 @@ begin
   end;
 end;
 
+
+// SFW page
+var
+  PageSFWmode: TWizardPage;
+  DescLabelFull: TLabel;
+  DescLabelSafe: TLabel;
+  ModeRadioButtonFull: TNewRadioButton;  
+  ModeRadioButtonSafe: TNewRadioButton;  
+procedure CreateSfwPage;     
+begin
+  PageSFWmode := CreateCustomPage(wpSelectTasks, ExpandConstant('{cm:SfwTitle}'), ExpandConstant('{cm:SfwTitleDescription}'));
+  ModeRadioButtonFull := TNewRadioButton.Create(WizardForm);
+  ModeRadioButtonFull.Parent := PageSFWmode.Surface;
+  ModeRadioButtonFull.Checked := True;
+  ModeRadioButtonFull.Top := 16;
+  ModeRadioButtonFull.Width := PageSFWmode.SurfaceWidth;
+  ModeRadioButtonFull.Font.Style := [fsBold];
+  ModeRadioButtonFull.Font.Size := 9;
+  ModeRadioButtonFull.Caption := ExpandConstant('{cm:SfwOptNsfw}');
+  DescLabelFull := TLabel.Create(WizardForm);
+  DescLabelFull.Parent := PageSFWmode.Surface;
+  DescLabelFull.Left := 8;
+  DescLabelFull.Top := ModeRadioButtonFull.Top + ModeRadioButtonFull.Height + 8;
+  DescLabelFull.Width := PageSFWmode.SurfaceWidth - 10; 
+  DescLabelFull.Height := 60;
+  DescLabelFull.AutoSize := False;
+  DescLabelFull.Wordwrap := True;
+  DescLabelFull.Caption := ExpandConstant('{cm:SfwOptNsfwDescription}');
+  ModeRadioButtonSafe := TNewRadioButton.Create(WizardForm);
+  ModeRadioButtonSafe.Parent := PageSFWmode.Surface;
+  ModeRadioButtonSafe.Top := DescLabelFull.Top + DescLabelFull.Height + 16;
+  ModeRadioButtonSafe.Width := PageSFWmode.SurfaceWidth;
+  ModeRadioButtonSafe.Font.Style := [fsBold];
+  ModeRadioButtonSafe.Font.Size := 9;
+  ModeRadioButtonSafe.Caption := ExpandConstant('{cm:SfwOptSfw}');
+  DescLabelSafe := TLabel.Create(WizardForm);
+  DescLabelSafe.Parent := PageSFWmode.Surface;
+  DescLabelSafe.Left := 8;
+  DescLabelSafe.Top := ModeRadioButtonSafe.Top + ModeRadioButtonSafe.Height + 8;
+  DescLabelSafe.Width := PageSFWmode.SurfaceWidth - 10;
+  DescLabelSafe.Height := 60;
+  DescLabelSafe.AutoSize := False;
+  DescLabelSafe.Wordwrap := True;
+  DescLabelSafe.Caption := ExpandConstant('{cm:SfwOptSfwDescription}') ;
+end;
+
+function ShouldSkipPage(PageID: Integer): Boolean;
+begin
+  Result := False;
+  if PageID = PageSFWmode.ID then
+    Result := not IsComponentSelected('Feature\KK_SFW');
+end;
+
+function SFWmode(): Boolean;
+begin
+  Result := ModeRadioButtonSafe.Checked;
+end;
+function NSFWmode(): Boolean;
+begin
+  Result := ModeRadioButtonFull.Checked;
+end;
+
+
 procedure VerifyFiles(srcexe: String; out errormsg: WideString);
 external 'VerifyFiles@files:HelperLib.dll stdcall';
 
 // Set up a custom prepare to install page with progress
 var
   PrepareToInstallWithProgressPage : TOutputProgressWizardPage;
-
 procedure InitializeWizard;
 var
   A: AnsiString;
@@ -641,6 +717,8 @@ begin
   StringChange(S, '[name]', '{#NAME} HF Patch');
   A := S;
   PrepareToInstallWithProgressPage := CreateOutputProgressPage(SetupMessage(msgWizardPreparing), A);
+  
+  CreateSfwPage();
 end;
 
 function PrepareToInstall(var NeedsRestart: Boolean): String;
@@ -773,65 +851,4 @@ begin
   
   PrepareToInstallWithProgressPage.SetProgress(10, 10);
   PrepareToInstallWithProgressPage.Hide;
-end;
-
-// SFW page
-var
-  PageSFWmode: TWizardPage;
-  DescLabelFull: TLabel;
-  DescLabelSafe: TLabel;
-  ModeRadioButtonFull: TNewRadioButton;  
-  ModeRadioButtonSafe: TNewRadioButton;  
-procedure InitializeWizard;     
-begin
-  PageSFWmode := CreateCustomPage(wpSelectTasks, ExpandConstant('{cm:SfwTitle}'), ExpandConstant('{cm:SfwTitleDescription}'));
-  ModeRadioButtonFull := TNewRadioButton.Create(WizardForm);
-  ModeRadioButtonFull.Parent := PageSFWmode.Surface;
-  ModeRadioButtonFull.Checked := True;
-  ModeRadioButtonFull.Top := 16;
-  ModeRadioButtonFull.Width := PageSFWmode.SurfaceWidth;
-  ModeRadioButtonFull.Font.Style := [fsBold];
-  ModeRadioButtonFull.Font.Size := 9;
-  ModeRadioButtonFull.Caption := ExpandConstant('{cm:SfwOptNsfw}');
-  DescLabelFull := TLabel.Create(WizardForm);
-  DescLabelFull.Parent := PageSFWmode.Surface;
-  DescLabelFull.Left := 8;
-  DescLabelFull.Top := ModeRadioButtonFull.Top + ModeRadioButtonFull.Height + 8;
-  DescLabelFull.Width := PageSFWmode.SurfaceWidth - 10; 
-  DescLabelFull.Height := 60;
-  DescLabelFull.AutoSize := False;
-  DescLabelFull.Wordwrap := True;
-  DescLabelFull.Caption := ExpandConstant('{cm:SfwOptNsfwDescription}');
-  ModeRadioButtonSafe := TNewRadioButton.Create(WizardForm);
-  ModeRadioButtonSafe.Parent := PageSFWmode.Surface;
-  ModeRadioButtonSafe.Top := DescLabelFull.Top + DescLabelFull.Height + 16;
-  ModeRadioButtonSafe.Width := PageSFWmode.SurfaceWidth;
-  ModeRadioButtonSafe.Font.Style := [fsBold];
-  ModeRadioButtonSafe.Font.Size := 9;
-  ModeRadioButtonSafe.Caption := ExpandConstant('{cm:SfwOptSfw}');
-  DescLabelSafe := TLabel.Create(WizardForm);
-  DescLabelSafe.Parent := PageSFWmode.Surface;
-  DescLabelSafe.Left := 8;
-  DescLabelSafe.Top := ModeRadioButtonSafe.Top + ModeRadioButtonSafe.Height + 8;
-  DescLabelSafe.Width := PageSFWmode.SurfaceWidth - 10;
-  DescLabelSafe.Height := 60;
-  DescLabelSafe.AutoSize := False;
-  DescLabelSafe.Wordwrap := True;
-  DescLabelSafe.Caption := ExpandConstant('{cm:SfwOptSfwDescription}') ;
-end;
-
-function ShouldSkipPage(PageID: Integer): Boolean;
-begin
-  Result := False;
-  if PageID = PageSFWmode.ID then
-    Result := not IsComponentSelected('Feature\KK_SFW');
-end;
-
-function SFWmode(): Boolean;
-begin
-  Result := ModeRadioButtonSafe.Checked;
-end;
-function NSFWmode(): Boolean;
-begin
-  Result := ModeRadioButtonFull.Checked;
 end;
