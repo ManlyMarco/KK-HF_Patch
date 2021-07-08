@@ -28,7 +28,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/ADV_Editor
 
-# AdvIKPlugin v1.5.5
+# AdvIKPlugin v1.6.2
 - Short description: Adds shoulder controls to IK in Studio
 - Author(s):         OrangeSpork
 - More information:  https://github.com/OrangeSpork/AdvIKPlugin
@@ -38,7 +38,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Animation Loader v1.0.6
+# Animation Loader v1.0.8
 - Short description: A plugin for loading animations from Sideloader zipmods
 - Author(s):         AnimationLoader.Koikatu
 - More information:  https://github.com/IllusionMods/AnimationLoader
@@ -193,7 +193,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/DragAndDrop
 
-# Dress for Success v1.2.0
+# Dress for Success v1.2.0.2
 - Short description: Auto adjust player clothes to match current event
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -263,7 +263,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Game Dialog Helper v1.0.1
+# Game Dialog Helper v1.0.1.2
 - Short description: Highlights correct dialog choices
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -273,7 +273,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_GamepadSupport
 
-# GeBo Modding API v1.1.0
+# GeBo Modding API v1.1.2.1
 - Short description: Modding API necessary for plugins by GeBo
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -308,7 +308,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v15.3
+# IllusionFixes v15.3.1
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -358,7 +358,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v4.0.2.0
+# KK Better Penetration v4.0.3.0
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
@@ -433,7 +433,7 @@
 - Author(s):         thomjr
 - More information:  https://github.com/thojmr/KK_PregnancyPlus/releases
 
-# KK_QuickAccessBox v2.4.1
+# KK_QuickAccessBox v2.4.2
 - Short description: Search all studio items, LeftCtrl+Space
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/QuickAccessBox
@@ -513,12 +513,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Maker/Studio Browser Folders v2.5.1
+# Maker/Studio Browser Folders v2.5.2
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
 
-# Male Juice v1.2.2
+# Male Juice v1.3
 - Short description: Enables liquid textures on males
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -543,7 +543,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.20.2
+# Modding API v1.20.3
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -623,11 +623,6 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Reload Character List On Change v1.5.2
-- Short description: Auto refresh character lists if files change
-- Author(s):         DeathWeasel1337
-- More information:  https://github.com/DeathWeasel1337/KK_Plugins
-
 # Remove Cards To Recycle Bin v1.1.1
 - Short description: Prevents accidentally losing cards by overwriting them
 - Author(s):         ManlyMarco
@@ -688,7 +683,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Studio MultiSelect Chara v1.0.0
+# Studio MultiSelect Chara v1.0.0.2
 - Short description: If you select a character in studio and press the hotkey, all other instances will also be selected
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -708,17 +703,12 @@
 - Author(s):         jim60105
 - More information:  https://github.com/jim60105/KK
 
-# Studio Scene Chara Info v0.2.0
-- Short description: Studio Scene Chara Info for Koikatsu
-- Author(s):         GeBo1
-- More information:  https://github.com/GeBo1/GeBoPlugins
-
 # Studio Scene Loaded Sound v1.1
 - Short description: Makes a sound when a scene loads
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Studio Scene Navigation v1.0.0
+# Studio Scene Navigation v1.0.2.2
 - Short description: Provides hotkeys for loading the next/previous scene from the scenes folder
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
@@ -733,7 +723,7 @@
 - Author(s):         jim60105
 - More information:  https://github.com/jim60105/KK
 
-# StudioCharaSort v1.0.3.0
+# StudioCharaSort v1.0.2.0
 - Short description: Change default list sort order in Studio
 - Author(s):         KKY, Madevil
 - More information:  https://github.com/Madevil/Port_StudioCharaSort
@@ -758,7 +748,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Text Resource Redirector v1.4.4
+# Text Resource Redirector v1.4.4.3
 - Short description: Needed for many translations to load
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
@@ -778,12 +768,12 @@
 - Author(s):         moderchan
 - More information:  ???
 
-# Translation Cache Cleaner v0.6.0
+# Translation Cache Cleaner v0.6.0.2
 - Short description: Hotkey to clean stale translations from cache
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
 
-# Translation Helper v1.1.0.1
+# Translation Helper v1.1.0.8
 - Short description: Extension for AT, needed for some translations
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins

@@ -7,12 +7,12 @@
 ;-------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;---------------------------------------------Current HF Patch version
-#define VERSION "3.10"
+#define VERSION "3.11"
 ;-----------------------------------------Sideloader modpack directory
 #define ModsDir "E:\HFpatchmaking\KK\Testbed\mods"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
 ;--Don't include any files in the build to make it go fast for testing
-#define DEBUG
+;#define DEBUG
 ;---------------------------------------------------------------------
 
 #include "_Common\Header.iss"
@@ -118,6 +118,7 @@ Source: "{#ModsDir}\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ; Make sure this is never missing in case the plugin archive doesn't have it included. Also solidbreak to split off the modpacks
 Source: "Input\_Plugins\KK_UncensorSelector Base.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion solidbreak; Components: UNC\Selector
+Source: "Input\com.deathweasel.bepinex.uncensorselector.cfg"; DestDir: "{app}\BepInEx\config"; Flags: onlyifdoesntexist solidbreak; Components: UNC\Selector
 #endif
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
