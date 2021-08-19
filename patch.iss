@@ -7,20 +7,25 @@
 ;-------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;---------------------------------------------Current HF Patch version
-#define VERSION "3.11"
+#define VERSION "3.12"
 ;-----------------------------------------Sideloader modpack directory
 #define ModsDir "E:\HFpatchmaking\KK\Testbed\mods"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
 ;--Don't include any files in the build to make it go fast for testing
 ;#define DEBUG
 ;------------Don't include general, studio and map sideloader modpacks
-#define LITE
+;#define LITE
 ;---------------------------------------------------------------------
 
 #include "_Common\Header.iss"
 [Setup]
+#ifndef LITE
 AppName=HF Patch for Koikatu! and Koikatsu Party
 OutputBaseFilename=Koikatsu HF Patch v{#VERSION}
+#else
+AppName=HF Patch for Koikatu! and Koikatsu Party (Light Version)
+OutputBaseFilename=Koikatsu HF Patch v{#VERSION} Light Version
+#endif
 ArchitecturesInstallIn64BitMode=x64
 CloseApplications=yes
 RestartApplications=no
@@ -32,7 +37,9 @@ LZMAUseSeparateProcess=yes
 LZMADictionarySize=208576
 LZMANumFastBytes=273
 LZMANumBlockThreads=2
+#ifndef LITE
 DiskSpanning=yes
+#endif
 DefaultDirName={code:GetDefaultDirName}
 
 WindowResizable=yes
@@ -67,8 +74,8 @@ Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additiona
 Name: "Modpack\General"; Description: "General (Content for making characters, always recommended)"; Types: full_en full extra_en extra
 Name: "Modpack\Studio"; Description: "Studio (Additional content for making Studio scenes)"; Types: full_en full extra_en extra
 Name: "Modpack\Maps"; Description: "Maps (Additional maps for use in Studio and H scenes)"; Types: full_en full extra_en extra
-#endif
 Name: "Modpack\Animations"; Description: "Animations (Additional adnimations for use in Studio and Free H)"; Types: full_en full extra_en extra
+#endif
 Name: "Modpack\Fixes"; Description: "Fixes (Fixes to some of the official content, always recommended)"; Types: full_en full extra_en extra
 Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for use with MaterialEditor)"; Types: full_en full extra_en extra
 Name: "Modpack\UncensorSelector"; Description: "KK_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
@@ -117,9 +124,9 @@ Source: "{#ModsDir}\Sideloader Modpack\*";                      DestDir: "{app}\
 Source: "{#ModsDir}\Sideloader Modpack - Exclusive KK\*";       DestDir: "{app}\mods\Sideloader Modpack - Exclusive KK";        Flags: ignoreversion recursesubdirs; Components: Modpack\General
 Source: "{#ModsDir}\Sideloader Modpack - Studio\*";             DestDir: "{app}\mods\Sideloader Modpack - Studio";              Flags: ignoreversion recursesubdirs; Components: Modpack\Studio
 Source: "{#ModsDir}\Sideloader Modpack - Maps\*";               DestDir: "{app}\mods\Sideloader Modpack - Maps";                Flags: ignoreversion recursesubdirs; Components: Modpack\Maps
+Source: "{#ModsDir}\Sideloader Modpack - Animations\*";         DestDir: "{app}\mods\Sideloader Modpack - Animations";          Flags: ignoreversion recursesubdirs; Components: Modpack\Animations
 #endif
 Source: "{#ModsDir}\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";               Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes
-Source: "{#ModsDir}\Sideloader Modpack - Animations\*";         DestDir: "{app}\mods\Sideloader Modpack - Animations";          Flags: ignoreversion recursesubdirs; Components: Modpack\Animations
 Source: "{#ModsDir}\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";   Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor
 Source: "{#ModsDir}\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector"; Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -208,9 +215,9 @@ Type: filesandordirs; Name: "{app}\mods\[moderchan]Tongue Texture v1.1.zipmod"
 ;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Exclusive KK"       ; Components: Modpack\General
 ;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Studio"             ; Components: Modpack\Studio
 ;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Maps"               ; Components: Content\ModpackMaps
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Animations"         ; Components: Modpack\Animations
 #endif
 Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Compatibility Pack"
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Animations"         ; Components: Modpack\Animations
 Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Fixes"              ; Components: Modpack\Fixes
 Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"  ; Components: Modpack\MaterialEditor
 Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_UncensorSelector"; Components: Modpack\UncensorSelector
