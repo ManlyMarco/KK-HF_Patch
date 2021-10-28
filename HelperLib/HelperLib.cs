@@ -449,6 +449,7 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                 var acceptableDirs = new[]{
                     "Sideloader Modpack"                        ,
                     "Sideloader Modpack - Exclusive KK"         ,
+                    "Sideloader Modpack - Exclusive KK KKS"     ,
                     "Sideloader Modpack - Animations"           ,
                     "Sideloader Modpack - Fixes"                ,
                     "Sideloader Modpack - KK_MaterialEditor"    ,
