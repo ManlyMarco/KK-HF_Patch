@@ -13,6 +13,8 @@
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
 ;--Don't include any files in the build to make it go fast for testing
 ;#define DEBUG
+;---Skip file verification for easier testing, COMMENT OUT FOR RELEASE
+;#define NOVERIFY
 ;------------Don't include general, studio and map sideloader modpacks
 #define LITE
 ;---------------------------------------------------------------------
@@ -66,7 +68,7 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
 Name: "Patch"; Description: "All free updates + game repair"; Types: full_en full extra_en extra custom bare none; Flags: fixed
-Name: "Patch\VR";                 Description: "Install/Update VR Module"
+Name: "Patch\VR"; Description: "Install/Update VR Module"; Types: full_en full extra_en extra custom
 Name: "Patch\UserData"; Description: "{cm:CompDefCards}"
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additional content to the game, needs at least BepisPlugins to work)"
@@ -539,6 +541,22 @@ begin
   end;
 end;
 
+function IsCharValid(Value: Char): Boolean;
+begin
+  Result := Ord(Value) <= $007F;
+end;
+
+function IsDirNameValid(const Value: string): Boolean;
+var
+  I: Integer;
+begin
+  Result := False;
+  for I := 1 to Length(Value) do
+    if not IsCharValid(Value[I]) then
+      Exit;
+  Result := True;
+end;
+
 function NextButtonClick(CurPageID: Integer): Boolean;
 var
   ResultCode: Integer;
@@ -561,6 +579,14 @@ begin
         MsgBox(ExpandConstant('{cm:MsgPathTooLong}'), mbError, MB_OK);
         Result := False;
       end
+    end;
+
+    if Result = True then
+    begin
+      if not IsDirNameValid(ExpandConstant('{app}')) then
+      begin
+        MsgBox(ExpandConstant('{cm:MsgPathNonLatin}'), mbError, MB_OK);
+      end;
     end;
 
     if Result = True then
@@ -608,7 +634,8 @@ begin
       if (FileExists(ExpandConstant('{app}\PlayHome.exe'))
       or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))
       or FileExists(ExpandConstant('{app}\AI-Shoujo.exe'))
-      or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))) then
+      or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))
+      or FileExists(ExpandConstant('{app}\KoikatsuSunshine.exe'))) then
       begin
         MsgBox(ExpandConstant('{cm:MsgDifferentGameDetected}'), mbError, MB_OK);
         Result := False;
@@ -756,9 +783,10 @@ begin
   PrepareToInstallWithProgressPage.SetProgress(0, 10);
   PrepareToInstallWithProgressPage.SetText('Verifying HF Patch files, this can take a few minutes', '');
   
+#ifndef NOVERIFY
   VerifyFiles(ExpandConstant('{srcexe}'), VerifyResult);
-#ifndef DEBUG
 #endif
+
   // If verification failed, set return of this method to it and innosetup will automatically fail the install. Still need to skip rest of the code though.
   if not (VerifyResult = '') then
   begin
@@ -828,7 +856,6 @@ begin
         DelTree(ExpandConstant('{app}\BepInEx\plugins'), True, True, True);
         DelTree(ExpandConstant('{app}\BepInEx\patchers'), True, True, True);
         DelTree(ExpandConstant('{app}\BepInEx\IPA'), True, True, True);
-        DelTree(ExpandConstant('{app}\scripts'), True, True, True);
         Exec(ExpandConstant('{cmd}'), '/c del *.dll', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
         Exec(ExpandConstant('{cmd}'), '/c del *.dl_', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
       end;

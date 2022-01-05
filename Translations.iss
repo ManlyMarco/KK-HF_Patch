@@ -70,7 +70,7 @@ jp.MsgEmotionCreatorsDetected=エラー - 「エモーション・クリエイ�
 jp.MsgAISFilesDetected=エラー - 「ＡＩ＊少女」を「コイカツ」と同じフォルダにインストールした場合は、「コイカツ」ゲームファイルが壊れています。修正するには、両方のゲームを別々のディレクトリに再インストールする必要があります。
 
 jp.RunGame=ゲームを始める
-jp.RunWiki=オープン英語Koikatsuのwiki（FAQ、マニュアル）
+jp.RunWiki=オープン英語コイカツ！のwiki（FAQ、マニュアル）
 jp.RunDiscord=英語のDiscordチャンネルに参加する（ヘルプ、アップデート、カード、モッズの共有）
 jp.RunHF=HongFireディスカッションスレッドを開く（英語）
 jp.StartUpdate=MODアップデーターを開始します（最新の新しいMODとMODアップデートをダウンロードします）
@@ -97,13 +97,16 @@ jp.CompMISC=他の
 MsgPathTooLong=Your game is in a very deeply nested folder, which can cause serious issues or even prevent the game from starting.%n%nPlease move your game folder to a simpler path like for example "C:\Games\KK" and try to run this patch again.
 jp.MsgPathTooLong=ゲームは非常に深くネストされたフォルダーにあります。これにより、深刻な問題が発生したり、ゲームが開始できなくなったりする可能性があります。%n%nゲームフォルダを、たとえば「C：\Games\KK」のような単純なパスに移動して、このパッチをもう一度実行してみてください。
 
+MsgPathNonLatin=There are non-latin characters in the game installation path. This can cause issues with mods and the patch.%n%nMove your game to a simple path like "D:\Games\KK" to avoid issues. It is best to use only a-z, A-Z and 0-9.
+jp.MsgPathNonLatin=ゲームのインストールパスに非ラテン文字が含まれています。このため、MODやHFで問題が発生することがあります。%n%n問題を避けるために、ゲームを「D:\Games\KK」のようなシンプルなパスに移動してください。a-z、A-Z、0-9のみを使用するのがベストです。
+
 MsgSteamUpdatesMissing=Your game is missing official updates from Steam. Please go to your Steam Library and update Koikatsu before installing this patch.
 sc.MsgSteamUpdatesMissing=您的游戏缺少Steam的官方更新。 在安装此补丁之前，请转到您的Steam库并更新Koikatsu。
 
 MsgPatchInsideGameDirErr=This patch is inside of the game directory you are attempting to install to. You have to move the patch files outside of the game directory and try again. You can keep the patch files in your downloads folder.
 jp.MsgPatchInsideGameDirErr=このパッチは、インストール先のゲームディレクトリ内にあります。パッチファイルをゲームディレクトリの外に移動して、再試行する必要があります。パッチファイルはダウンロードフォルダー内に残すことができます。
 
-MsgDifferentGameDetected=It looks like a different game is installed to the selected directory. This is very likely to break one or both of the games, and to break the patch.%n%nMake sure you selected the correct directory. If you installed 2 games to the same directory you will have to reinstall them both to separate directories to fix this.
+MsgDifferentGameDetected=It looks like a different game is installed to the selected directory. This patch can only work on Koikatsu.%n%nMake sure you selected the correct directory. If you installed 2 games to the same directory you will have to reinstall them both to separate directories to fix this.
 jp.MsgDifferentGameDetected=選択したディレクトリに別のゲームがインストールされているようです。これにより、一方または両方のゲームが破損し、パッチが破損する可能性があります。%n%n正しいディレクトリを選択していることを確認してください。同じディレクトリに2つのゲームをインストールした場合は、両方を別のディレクトリに再インストールして、これを修正する必要があります。
 
 
