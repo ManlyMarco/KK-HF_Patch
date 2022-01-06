@@ -13,6 +13,11 @@
 - Author(s):         jalil49
 - More information:  https://github.com/jalil49/Maker_Tools/tree/main/Accessory%20States
 
+# AccStateSync v4.5.0.0
+- Short description: AccStateSync (Debug Build) (req. JetPack v2.1.8.0)
+- Author(s):         Madevil
+- More information:  https://github.com/Madevil/KK_AccStateSync
+
 # AccUndo v0.9.0
 - Short description: This plugin allows for undoing and redoing accessory modifications
 - Author(s):         ???
@@ -48,7 +53,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Animation Loader v1.0.8
+# Animation Loader v1.1.0.0
 - Short description: A plugin for loading animations from Sideloader zipmods
 - Author(s):         AnimationLoader.Koikatu
 - More information:  https://github.com/IllusionMods/AnimationLoader
@@ -78,12 +83,12 @@
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.BepInEx4Upgrader
 
-# BepInEx v5.4.17.0
+# BepInEx v5.4.18.0
 - Short description: Plugin framework
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
 
-# BepisPlugins v16.9
+# BepisPlugins v16.9.2
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -108,7 +113,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# ButtPlugin v2.1.0.0
+# ButtPlugin v0.17.0.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/BepInEx.ButtPlugin
@@ -138,7 +143,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Character Replacer v1.6.2
+# Character Replacer v1.6.3
 - Short description: Can change the janitor to any character, requires Darkness
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/CharacterReplacer
@@ -157,6 +162,11 @@
 - Short description: Allows zipmods to easily add cloth physics to clothes
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_ClothColliders
+
+# Clothing BlendShape v1.0.0
+- Short description: Adds the option to adjust the amount of squeeze for certain modded items
+- Author(s):         Nakay
+- More information:  https://twitter.com/nkt6Ilkk900/status/1429792799134609409
 
 # Clothing State Menu v3.1
 - Short description: Can undress in chara maker and in H scenes
@@ -213,7 +223,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Drag and Drop v1.2.3
+# Drag and Drop v1.2.7
 - Short description: Drag cards and scenes from explorer into game window
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/DragAndDrop
@@ -253,7 +263,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Eye Shaking v1.2
+# Eye Shaking v1.3
 - Short description: Adds excited eyes effect to H scenes
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -263,7 +273,7 @@
 - Author(s):         https://github.com/DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# FK and IK v1.1.2
+# FK and IK v1.1.3
 - Short description: Adds FK & IK mode in studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -323,7 +333,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_HeightBar
 
-# HideAllUI v2.3
+# HideAllUI v2.3.2
 - Short description: Press space to hide interface
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/HideAllUI
@@ -333,7 +343,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v18.1
+# IllusionFixes v19.0
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -383,7 +393,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v4.4.0.0
+# KK Better Penetration v4.5.0.0
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
@@ -433,15 +443,25 @@
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
+# KK_MakerAnimatePoseToggle v1.1.0
+- Short description: Adds a checkbox at the bottom of the right sidebar in maker
+- Author(s):         Njaecha
+- More information:  ???
+
 # KK_MakerRandomPicker v1.2.0
 - Short description: Adds a Random button to every category in Character Maker
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
-# KK_MakerSearch v1.5.0
+# KK_MakerSearch v1.5.1
 - Short description: Search boxes in character maker item lists
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
+
+# KK_ObjImport v1.2.2
+- Short description: Import external .obj files directly into Studio
+- Author(s):         Njaecha
+- More information:  ???
 
 # KK_OrthographicCamera v1.1.1
 - Short description: Adds a new camera hotkey to game and studio
@@ -453,7 +473,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# KK_PregnancyPlus v5.2
+# KK_PregnancyPlus v5.5
 - Short description: Adds additional belly sliders in Studio and Maker
 - Author(s):         thomjr
 - More information:  https://github.com/thojmr/KK_PregnancyPlus/releases
@@ -473,6 +493,16 @@
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
+# KK_StudioKeybinds v1.0.1
+- Short description: Allows you to change (almost) all default keybinds in Studio
+- Author(s):         Njaecha
+- More information:  ???
+
+# KK_StudioMiscSearch v1.2.0
+- Short description: Adds search bars to various Studio lists
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
 # KK_StudioPOV v1.1.1
 - Short description: First person view for studio
 - Author(s):         Mantas-2155X aka 2155X
@@ -488,7 +518,7 @@
 - Author(s):         ???
 - More information:  ???
 
-# KKABMX (BonemodX) v4.4.5
+# KKABMX (BonemodX) v4.4.6
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
@@ -498,12 +528,12 @@
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
 
-# KKPE v2.12.0
+# KKPE v2.13.2
 - Short description: Advanced studio controls
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
 
-# KKUS v1.9.0
+# KKUS v1.11.0
 - Short description: Search boxes, studio and maker improvements
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -543,7 +573,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Maker Defaults v1.0.1
+# Maker Defaults v1.0.2
 - Short description: Set custom default character maker settings
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -558,7 +588,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.1.10
+# Material Editor v3.1.12
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -578,7 +608,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.28
+# Modding API v1.30.1
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -588,12 +618,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_MoreAccessoryParents
 
-# More Outfit Slots v1.1
+# More Outfit Slots v1.1.2
 - Short description: Allows characters to have more than the default number of outfit slots
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# MoreAccessories v2.0.18
+# MoreAccessories v2.0.21
 - Short description: Unlocks accessory limit
 - Author(s):         jalil49
 - More information:  https://github.com/jalil49/MoreAccessories
@@ -613,7 +643,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# NodesConstraints v1.2.1
+# NodesConstraints v1.2.2
 - Short description: Create custom animations in studio
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -623,7 +653,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
 
-# PantyFairy v1.0
+# PantyFairy v1.0.1
 - Short description: A custom side quest for Koikatsu with some new gameplay features
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KK_PantyRobber
@@ -643,12 +673,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Profile v1.0.1
+# Profile v1.0.2
 - Short description: A textbox in maker to write a character description
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Pushup v1.3.1
+# Pushup v1.3.2
 - Short description: Bras affect breast shape, replaces Kiyase
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -668,7 +698,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_RemoveToRecycleBin
 
-# Rim Remover v1.1
+# Rim Remover v1.2
 - Short description: Can disable rim light for a flat game look
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
@@ -678,12 +708,17 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
 
-# Skin Overlay Mod v6.0.4
+# ShaderManagementTool v2.1.0.0
+- Short description: Allows you to change shaders all at once and save presets
+- Author(s):         Haruka
+- More information:  https://ux.getuploader.com/nHaruka_KK/
+
+# Skin Overlay Mod v6.0.7
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
 
-# SliderHighlight v2.1
+# SliderHighlight v2.1.2
 - Short description: Plugin that highlights the area affected by sliders in character maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IL_SliderHighlight
@@ -788,7 +823,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.0.1
+# Timeline v1.1.2
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -818,12 +853,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Uncensor Selector v3.11.4
+# Uncensor Selector v3.11.5
 - Short description: NEEDS Koikatsu Overlay Mods!
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# VideoExport v1.2.1
+# VideoExport v1.2.2
 - Short description: Video and gif recorder, press Ctrl+E
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -843,7 +878,7 @@
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
 
-# XUnity Resource Redirector v1.2.0
+# XUnity Resource Redirector v1.2.1
 - Short description: Modding API
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
