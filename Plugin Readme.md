@@ -14,7 +14,7 @@
 - More information:  https://github.com/jalil49/Maker_Tools/tree/main/Accessory%20States
 
 # AccStateSync v4.5.0.0
-- Short description: AccStateSync (Debug Build) (req. JetPack v2.1.8.0)
+- Short description: AccStateSync
 - Author(s):         Madevil
 - More information:  https://github.com/Madevil/KK_AccStateSync
 
@@ -43,7 +43,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/ADV_Editor
 
-# AdvIKPlugin v1.6.3
+# AdvIKPlugin v1.7.1
 - Short description: Adds shoulder controls to IK in Studio
 - Author(s):         OrangeSpork
 - More information:  https://github.com/OrangeSpork/AdvIKPlugin
@@ -53,7 +53,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Animation Loader v1.1.0.0
+# Animation Loader v1.1.1.1
 - Short description: A plugin for loading animations from Sideloader zipmods
 - Author(s):         AnimationLoader.Koikatu
 - More information:  https://github.com/IllusionMods/AnimationLoader
@@ -83,12 +83,12 @@
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.BepInEx4Upgrader
 
-# BepInEx v5.4.18.0
+# BepInEx v5.4.19.0
 - Short description: Plugin framework
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
 
-# BepisPlugins v16.9.2
+# BepisPlugins v17.0
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -113,7 +113,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# ButtPlugin v0.17.0.0
+# ButtPlugin v2.7.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/BepInEx.ButtPlugin
@@ -253,7 +253,7 @@
 - Author(s):         Kokaiinum
 - More information:  https://github.com/Kokaiinum/KK_ExpandMaleMaker
 
-# Extra move axis in bottom right corner v1.0
+# Extra move axis in bottom right corner v2.0
 - Short description: Adds extra move gizmo in bottom right corner for studio
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/StudioExtraMoveAxis
@@ -303,7 +303,7 @@
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
 
-# GamepadSupport v2.0.2
+# GamepadSupport v2.1
 - Short description: Adds UI support for xinput gamepads and keyboard arrow keys to main game
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_GamepadSupport
@@ -323,7 +323,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Hair Accessory Customizer v1.1.6
+# Hair Accessory Customizer v1.1.7
 - Short description: Adds advanced controls for hair accessories
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -343,7 +343,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v19.0
+# IllusionFixes v19.1
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -393,7 +393,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v4.5.0.0
+# KK Better Penetration v4.5.1.0
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
@@ -473,7 +473,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# KK_PregnancyPlus v5.5
+# KK_PregnancyPlus v6.3
 - Short description: Adds additional belly sliders in Studio and Maker
 - Author(s):         thomjr
 - More information:  https://github.com/thojmr/KK_PregnancyPlus/releases
@@ -548,7 +548,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# LewdCrestX v1.2.1
+# LewdCrestX v1.3.3
 - Short description: Give characters lewd crests
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
@@ -573,7 +573,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Maker Defaults v1.0.2
+# Maker Defaults v1.1
 - Short description: Set custom default character maker settings
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -588,7 +588,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.1.12
+# Material Editor v3.1.16
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -608,7 +608,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.30.1
+# Modding API v1.31.2
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -653,7 +653,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
 
-# PantyFairy v1.0.1
+# PantyFairy v1.0.2
 - Short description: A custom side quest for Koikatsu with some new gameplay features
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KK_PantyRobber
@@ -673,7 +673,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Profile v1.0.2
+# Pose Tools v1.1.1
+- Short description: Increases the usability of poses(read the readme)
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# Profile v1.0.3
 - Short description: A textbox in maker to write a character description
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -703,12 +708,17 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RuntimeUnityEditor v2.5.0.0
+# RuntimeUnityEditor v2.5
 - Short description: Debugging and development tool
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
 
-# ShaderManagementTool v2.1.0.0
+# Shader Swapper v1.0
+- Short description: Swap all shaders to the equivalent Vanilla Plus shader in maker (ctrl + P)
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# ShaderManagementTool v3.2.0.0
 - Short description: Allows you to change shaders all at once and save presets
 - Author(s):         Haruka
 - More information:  https://ux.getuploader.com/nHaruka_KK/
@@ -823,7 +833,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.1.2
+# Timeline v1.1.3
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -858,7 +868,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# VideoExport v1.2.2
+# VideoExport v1.2.3
 - Short description: Video and gif recorder, press Ctrl+E
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -873,12 +883,12 @@
 - Author(s):         GFanon
 - More information:  ???
 
-# XUnity Auto Translator v1.0.2.1
+# XUnity Auto Translator v5.0.0
 - Short description: Translation loader
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
 
-# XUnity Resource Redirector v1.2.1
+# XUnity Resource Redirector v2.0.0
 - Short description: Modding API
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
