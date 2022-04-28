@@ -16,6 +16,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using KKManager.Util.ProcessWaiter;
@@ -224,7 +225,7 @@ namespace HelperLib
 
             strout = "C:\\Path to the installed game";
         }
-        
+
         [DllExport("VerifyFiles", CallingConvention = CallingConvention.StdCall)]
         public static void VerifyFiles([MarshalAs(UnmanagedType.LPWStr)] string srcexe, [MarshalAs(UnmanagedType.BStr)] out string errormsg)
         {
@@ -238,16 +239,33 @@ namespace HelperLib
             {
                 Directory.CreateDirectory(Path.Combine(path, @"BepInEx\config"));
 
-                //var uncp = Path.Combine(path, @"BepInEx\config\com.deathweasel.bepinex.uncensorselector.cfg");
-                //File.WriteAllText(uncp, File.Exists(uncp) ? File.ReadAllText(uncp).Replace("Default Male Penis = Random", "Default Male Penis = SoS") : "[Config]\n\nDefault Male Penis = SoS");
-
-                //todo turn on next patch version
-                //var subp = Path.Combine(path, @"BepInEx\config\com.deathweasel.bepinex.uncensorselector.cfg");
-                //if(!File.Exists(subp)) File.WriteAllText(subp, "[Config]\nShow Subtitles = false");
+                SetConfigVariable(Path.Combine(path, @"BepInEx\config\KK_PregnancyPlus.cfg"), "[KK_Pregnancy Integration]", "Override KK_Pregnancy belly shape", "true");
             }
             catch (Exception e)
             {
                 AppendLog(path, "Failed trying to set config defaults: " + e);
+            }
+        }
+
+        public static void SetConfigVariable(string configPath, string settingCategory, string settingName, string value)
+        {
+            if (!File.Exists(configPath))
+            {
+                File.WriteAllText(configPath, $"{settingCategory}\n\n{settingName} = {value}");
+            }
+            else
+            {
+                var contents = File.ReadAllText(configPath);
+                var pattern = $@"^{settingName}.?=.+$";
+                if (Regex.IsMatch(contents, pattern, RegexOptions.Multiline))
+                {
+                    contents = Regex.Replace(contents, pattern, $"{settingName} = {value}", RegexOptions.Multiline);
+                    File.WriteAllText(configPath, contents);
+                }
+                else
+                {
+                    File.WriteAllText(configPath, $"{settingCategory}\n\n{settingName} = {value}");
+                }
             }
         }
 
