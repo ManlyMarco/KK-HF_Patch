@@ -1,4 +1,4 @@
-# Accessory Clothes v1.0.1
+# Accessory Clothes v1.0.2
 - Short description: Necessary to load some accessories
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -12,11 +12,6 @@
 - Short description: An alternative to AccStateSync, can use its data
 - Author(s):         jalil49
 - More information:  https://github.com/jalil49/Maker_Tools/tree/main/Accessory%20States
-
-# AccStateSync v4.5.0.0
-- Short description: AccStateSync
-- Author(s):         Madevil
-- More information:  https://github.com/Madevil/KK_AccStateSync
 
 # AccUndo v0.9.0
 - Short description: This plugin allows for undoing and redoing accessory modifications
@@ -53,7 +48,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Animation Loader v1.1.1.1
+# Animation Loader v1.1.1.3
 - Short description: A plugin for loading animations from Sideloader zipmods
 - Author(s):         AnimationLoader.Koikatu
 - More information:  https://github.com/IllusionMods/AnimationLoader
@@ -88,7 +83,7 @@
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
 
-# BepisPlugins v17.0
+# BepisPlugins v18.2
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -103,17 +98,17 @@
 - Author(s):         stinger722
 - More information:  ???
 
-# Boop v1.0
-- Short description: Titties go boop haha
-- Author(s):         essu
-- More information:  ???
+# Boop v2.0
+- Short description: Make 'em bounce
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
 # Bulge in the pants, tent in the woods v1.0.2
 - Short description: Adds bulges to characters that pack a shlong
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# ButtPlugin v2.7.0
+# ButtPlugin v2.8.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/BepInEx.ButtPlugin
@@ -123,7 +118,7 @@
 - Author(s):         denikson
 - More information:  https://github.com/denikson/BepInEx.ScriptLoader
 
-# CameraFrameMask v1.0.1.0
+# CameraFrameMask v1.1.0.0
 - Short description: Make loading characters look less glitchy
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -148,7 +143,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/CharacterReplacer
 
-# CharaStateX v1.0.3.0
+# CharaStateX v1.1.0.0
 - Short description: Can edit state of multiple charas in studio at once
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -162,6 +157,11 @@
 - Short description: Allows zipmods to easily add cloth physics to clothes
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_ClothColliders
+
+# Clothes To Accessories v1.0.2
+- Short description: Allows using normal clothes and hair as accessories
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
 # Clothing BlendShape v1.0.0
 - Short description: Adds the option to adjust the amount of squeeze for certain modded items
@@ -188,7 +188,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.ConfigurationManager
 
-# Coordinate Load Option v21.1.4.0
+# Coordinate Load Option v21.12.25.1
 - Short description: Can load only specific parts of outfits
 - Author(s):         jim60105
 - More information:  https://blog.maki0419.com/2019/03/koikatu-coordinate-load-option.html
@@ -213,7 +213,7 @@
 - Author(s):         ScrewThisNoise
 - More information:  ???
 
-# DefaultParamEditor v1.1.2.0
+# DefaultParamEditor v1.2.0.0
 - Short description: Set custom default studio settings
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -263,12 +263,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Eye Shaking v1.3
+# Eye Shaking v1.3.1
 - Short description: Adds excited eyes effect to H scenes
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Fade Adjuster v1.0.1
+# Fade Adjuster v1.0.3
 - Short description: Change color of loading screens and fade in/out speed
 - Author(s):         https://github.com/DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -278,7 +278,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Force High Poly v1.2.2
+# Force High Poly v2.1
 - Short description: Full-quality characters in school, enable in plugin settings
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -288,7 +288,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/FPSCounter
 
-# Free H Random v1.2
+# Free H Random v1.3
 - Short description: Adds Random Character buttons to FreeH
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -343,7 +343,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v19.1
+# IllusionFixes v19.3
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -388,12 +388,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Item Layer Edit v1.0.1.0
+# Item Layer Edit v1.1.0.0
 - Short description: Switch objects between chara and map layers
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v4.5.1.0
+# KK Better Penetration v4.5.2.0
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
@@ -417,6 +417,11 @@
 - Short description: Fake 3D mode by crossing your eyes
 - Author(s):         2155X
 - More information:  https://github.com/Mantas-2155X
+
+# KK_EditFangs v1.1.0
+- Short description: Allows adjusting the length and position of the vanilla fangs
+- Author(s):         Njaecha
+- More information:  ???
 
 # KK_ExpressionControl v0.2.3
 - Short description: Allows altering expressions in-game(Hotkey L)
@@ -458,7 +463,7 @@
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
-# KK_ObjImport v1.2.2
+# KK_ObjImport v2.1.2
 - Short description: Import external .obj files directly into Studio
 - Author(s):         Njaecha
 - More information:  ???
@@ -468,7 +473,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# KK_Pregnancy v2.5.2
+# KK_Pregnancy v2.6
 - Short description: Adds pregnancy to gameplay, maker and studio
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
@@ -507,6 +512,11 @@
 - Short description: First person view for studio
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
+
+# KK_StudioWindowResize v1.1
+- Short description: Makes studio selection windows larger so more items are visible
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
 # KK_TalkFreeCamera v1.0.0
 - Short description: This plugin allows you to have a free camera view in Talk Scenes
@@ -588,7 +598,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.1.16
+# Material Editor v3.1.17
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -603,12 +613,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# Mod Bone Implantor v1.1.1
+# Mod Bone Implantor v1.1.2
 - Short description: Needed by some clothing mods to add dynamic bones
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.31.2
+# Modding API v1.32
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -668,13 +678,13 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Pose Quick Load v1.0
+# Pose Quick Load v1.1
 - Short description: Load poses in studio by only selecting, turn on in plugin settings
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
 # Pose Tools v1.1.1
-- Short description: Increases the usability of poses(read the readme)
+- Short description: Important for loading new poses with previews
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
@@ -713,7 +723,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
 
-# Shader Swapper v1.0
+# Shader Swapper v1.1
 - Short description: Swap all shaders to the equivalent Vanilla Plus shader in maker (ctrl + P)
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -813,7 +823,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Subtitles v2.3.1
+# Subtitles v2.3.2
 - Short description: Maker and H-scene subtitles. Warning: Most of the subs are machine-translated and can be pretty bad in H-scenes
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -838,7 +848,7 @@
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
 
-# Title shortcuts v1.2.2.0
+# Title shortcuts v1.2.3.0
 - Short description: Hotkeys in main menu; can automatically start maker
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
@@ -857,6 +867,11 @@
 - Short description: Extension for AT, needed for some translations
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
+
+# TreeNodeNaming v1.1.1
+- Short description: Allows the renaming of nodes in studio treeview
+- Author(s):         Njaecha
+- More information:  ???
 
 # Two Luts in Studio v1.0
 - Short description: Allows you to freely mix two studio shades (luts)
