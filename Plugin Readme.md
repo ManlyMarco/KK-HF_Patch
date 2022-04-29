@@ -193,6 +193,11 @@
 - Author(s):         jim60105
 - More information:  https://blog.maki0419.com/2019/03/koikatu-coordinate-load-option.html
 
+# Copy Character BodyMaterial v1.0.0
+- Short description: Copies the body material unto clothing that have part of the body mesh with them
+- Author(s):         Nakay
+- More information:  ???
+
 # CrossFader v0.11
 - Short description: Replaces fades between animations with animated transitions
 - Author(s):         MaouKurayami

@@ -61,6 +61,7 @@ Name: "Content\KK_TwoLut";                     Description: "Two Luts in Studio 
 Name: "Content\KK_ClothesToAccessories";       Description: "Clothes To Accessories v1.0.2 (Allows using normal clothes and hair as accessories)"  ; Types: full_en full extra extra_en
 Name: "Content\KK_Accessory_States";           Description: "Accessory States v1.6 (An alternative to AccStateSync, can use its data)"             ; Types: full_en full extra extra_en
 Name: "Content\AddPose";                       Description: "Add Pose v1.6 (Adds more poses to maker, but the pose list will become slow to load)" 
+Name: "Content\KK_CopyChaBodyMat";             Description: "Copy Character BodyMaterial v1.0.0 (Copies the body material unto clothing that have part of the body mesh with them)"; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "FIX";                                   Description: "{cm:CompFIX}"                                                                         ; Types: extra_en extra
 Name: "FIX\KoikatuFixes";                      Description: "IllusionFixes v19.3 (A collection of important fixes)"                                ; Types: full_en full extra_en extra
@@ -253,6 +254,7 @@ Source: "Input\_Plugins\_out\[moderchan]Add Pose\*";        DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\KK_TwoLut\*";                  DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KK_TwoLut; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_ClothesToAccessories\*";    DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KK_ClothesToAccessories; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_Accessory_States\*";        DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KK_Accessory_States; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\KK_CopyChaBodyMat\*";          DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Content\KK_CopyChaBodyMat; Excludes: "manifest.xml"
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_Plugins\_out\IllusionFixes_Koikatsu\*";     DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: FIX\KoikatuFixes; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KK_ListOverride\*";            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: FIX\KK_ListOverride; Excludes: "manifest.xml"
