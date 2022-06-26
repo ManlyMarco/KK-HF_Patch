@@ -165,10 +165,10 @@ Source: "Input\KK_SFW_config\nsfw\KK_SFW.cfg";     DestDir: "{app}\BepInEx\confi
 Source: "Input\Launcher_branding\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: IllusionLaunchers
 ; Only copy our blacklist if the user doesn't already have one (onlyifdoesntexist)
 Source: "Input\itemblacklist.xml"; DestDir: "{app}\UserData\save"; Flags: onlyifdoesntexist solidbreak
-; This config only allows BP uncensors to be choosed by random
-Source: "Input\US_config_BP.cfg";   DestDir: "{app}\BepInEx\config"; DestName: "com.deathweasel.bepinex.uncensorselector.cfg"; Flags: onlyifdoesntexist solidbreak; Components: UNC\Selector\KK_BetterPenetration
-; If previous doesn't get installed, this one should be installed instead because the file still doesn't exist
-Source: "Input\US_config_noBP.cfg"; DestDir: "{app}\BepInEx\config"; DestName: "com.deathweasel.bepinex.uncensorselector.cfg"; Flags: onlyifdoesntexist solidbreak
+; If BP isn't installed, exclude BP uncensors from the random selection
+Source: "Input\US_config_noBP.cfg"; DestDir: "{app}\BepInEx\config"; DestName: "com.deathweasel.bepinex.uncensorselector.cfg"; Flags: solidbreak
+; This config only allows BP uncensors to be chosen by random
+Source: "Input\US_config_BP.cfg";   DestDir: "{app}\BepInEx\config"; DestName: "com.deathweasel.bepinex.uncensorselector.cfg"; Flags: solidbreak; Components: UNC\Selector\KK_BetterPenetration
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ; Source: "Input\_Plugins\[Character Database][various] fixed\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\URL
 ; Source: "Input\_Misc\KoikatuSaveDataEdit\*"; DestDir: "{app}\_Tools\KoikatuSaveDataEdit"; Flags: ignoreversion recursesubdirs; Components: MISC\SaveEditor
