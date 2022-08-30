@@ -44,6 +44,8 @@ Here's some video guides that might be useful. The guides are mostly universal b
 5. Done! You can now start the game launcher as usual and you will notice some new options straight away. You can remove the downloaded patcher files now if you want to save some space.
 Special patch is included in HF Patch, you don't have to install it manually. It won't hurt anything if you have it installed already, the patch will figure itself out. Just to be safe you can verify game files in Steam before installing the HF Patch if you messed with your installation folder before doing this.
 
+*Note: If you want to run the game under Wine/Proton (Linux, SteamOS, macOS, etc.), read [this](https://github.com/Mantas-2155X/illusion-wine-guide) and [this](https://docs.bepinex.dev/articles/advanced/proton_wine.html).*
+
 ### How to install DLCs
 All things marked with * are paid DLC content and are all fully optional. The AfterParty DLC contains translated versions of all Japanse DLC (except Yoyaku and Darkness) at a lower price. This is the recommended option over buying the Japanse DLC if you have KK Party.
 
