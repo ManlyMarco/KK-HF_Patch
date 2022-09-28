@@ -13,11 +13,6 @@
 - Author(s):         jalil49
 - More information:  https://github.com/jalil49/Maker_Tools/tree/main/Accessory%20States
 
-# AccUndo v0.9.0
-- Short description: This plugin allows for undoing and redoing accessory modifications
-- Author(s):         ???
-- More information:  ???
-
 # Add mobs to roam mode v3.0
 - Short description: Adds mobs in story mode
 - Author(s):         ManlyMarco
@@ -28,7 +23,7 @@
 - Author(s):         moderchan
 - More information:  ???
 
-# Additional Skin Effects v2.0.1
+# Additional Skin Effects v2.1.1
 - Short description: Effects for sweating, crying, bukkake and deflowering
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_SkinEffects
@@ -42,6 +37,11 @@
 - Short description: Adds shoulder controls to IK in Studio
 - Author(s):         OrangeSpork
 - More information:  https://github.com/OrangeSpork/AdvIKPlugin
+
+# Ahegao v1.12
+- Short description: Climax 3 times for ahegao
+- Author(s):         Mostly essu
+- More information:  ???
 
 # Animation Controller v2.3
 - Short description: Animation Controller for Koikatsu
@@ -73,7 +73,7 @@
 - Author(s):         ymgpt
 - More information:  ???
 
-# BepInEx v5.4.19.0
+# BepInEx v5.4.21.0
 - Short description: Plugin framework
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
@@ -103,7 +103,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# ButtPlugin v2.8.0
+# ButtPlugin v2.10.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/BepInEx.ButtPlugin
@@ -137,6 +137,11 @@
 - Short description: Can change the janitor to any character, requires Darkness
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/CharacterReplacer
+
+# CharaLightDisabler v1.0.1
+- Short description: Disables Character Light in specially-marked maps
+- Author(s):         KoikDaisy
+- More information:  https://github.com/KoikDaisy/KK_CharaLightDisabler
 
 # CharaStateX v1.1.0.0
 - Short description: Can edit state of multiple charas in studio at once
@@ -178,7 +183,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Configuration Manager v17.0
+# Configuration Manager v17.1
 - Short description: Can change plugin settings. Press F1 to open, not visible inside HMD
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.ConfigurationManager
@@ -193,23 +198,23 @@
 - Author(s):         Nakay
 - More information:  ???
 
+# CrossEye v1.6
+- Short description: Fake 3D mode by crossing your eyes
+- Author(s):         2155X
+- More information:  https://github.com/Mantas-2155X
+
 # CrossFader v0.11
 - Short description: Replaces fades between animations with animated transitions
 - Author(s):         MaouKurayami
 - More information:  https://github.com/MayouKurayami/KK_CrossFader
 
-# Custom intro voices v19.0
-- Short description: High on sulfuric acid
+# Custom intro voices v20.0
+- Short description: Co to kurwa jest
 - Author(s):         ManlyMarco
 - More information:  https://www.youtube.com/watch?v=SZBQ4lQFqvw
 
-# CzAdd_FK_node
-- Short description: Exposes additional FK nodes in studio that are normally hidden
-- Author(s):         ???
-- More information:  ???
-
 # DarkTheme
-- Short description: Dark theme for the game interface, English only
+- Short description: Dark theme for the game interface, English only (not very pretty)
 - Author(s):         ScrewThisNoise
 - More information:  ???
 
@@ -238,6 +243,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# EditFangs v1.1.2
+- Short description: Allows adjusting the length and position of the vanilla fangs
+- Author(s):         Njaecha
+- More information:  ???
+
 # Enable Full Screen Toggle v1.0
 - Short description: Toggle full screen with alt+enter
 - Author(s):         BepInEx
@@ -252,6 +262,11 @@
 - Short description: Additional customization options for male maker
 - Author(s):         Kokaiinum
 - More information:  https://github.com/Kokaiinum/KK_ExpandMaleMaker
+
+# ExpressionControl v0.2.3
+- Short description: Allows altering expressions in-game(Hotkey L)
+- Author(s):         ???
+- More information:  ???
 
 # Extra move axis in bottom right corner v2.0
 - Short description: Adds extra move gizmo in bottom right corner for studio
@@ -273,6 +288,11 @@
 - Author(s):         https://github.com/DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# FixationalEyeMovement v1.3.3
+- Short description: Adds slight twitching and moving to the eyes
+- Author(s):         Sabakan
+- More information:  ???
+
 # FK and IK v1.1.3
 - Short description: Adds FK & IK mode in studio
 - Author(s):         DeathWeasel1337
@@ -287,6 +307,11 @@
 - Short description: Useful for performance testing
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/FPSCounter
+
+# Free H Defaults v1.1.0.0
+- Short description: Keeps free H selection screen settings
+- Author(s):         Keelhauled
+- More information:  https://github.com/IllusionMods/KeelPlugins
 
 # Free H Random v1.3
 - Short description: Adds Random Character buttons to FreeH
@@ -338,12 +363,17 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/HideAllUI
 
+# HLightControl v1.2.5
+- Short description: Gives better control of lighting in H scenes
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
 # HSceneOptions v3.2.1
 - Short description: Additional options and keyboard shortcuts for H in Koikatsu
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v20.0
+# IllusionFixes v20.1
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -403,142 +433,32 @@
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/posts/kk-studio-2-0-0-51535931
 
-# KK Uniform Uniforms v1.1
-- Short description: Allows easily changing uniforms for the entire class, like in AA2
-- Author(s):         CptGrey
-- More information:  https://github.com/CptGrey/KK_Archetypes
-
-# KK_Ahegao v1.12
-- Short description: Climax 3 times for ahegao
-- Author(s):         Mostly essu
-- More information:  ???
-
-# KK_CharaLightDisabler v1.0.1
-- Short description: Disables Character Light in specially-marked maps
-- Author(s):         KoikDaisy
-- More information:  https://github.com/KoikDaisy/KK_CharaLightDisabler
-
-# KK_CrossEye v1.6
-- Short description: Fake 3D mode by crossing your eyes
-- Author(s):         2155X
-- More information:  https://github.com/Mantas-2155X
-
-# KK_EditFangs v1.1.0
-- Short description: Allows adjusting the length and position of the vanilla fangs
-- Author(s):         Njaecha
-- More information:  ???
-
-# KK_ExpressionControl v0.2.3
-- Short description: Allows altering expressions in-game(Hotkey L)
-- Author(s):         ???
-- More information:  ???
-
 # KK_Fix_MainParam v1.2
 - Short description: Allows editing of details of main story charas
 - Author(s):         Sabakan
 - More information:  ???
 
-# KK_FixationalEyeMovement v1.3.3
-- Short description: Adds slight twitching and moving to the eyes
-- Author(s):         Sabakan
-- More information:  ???
-
-# KK_HLightControl v1.2.4
-- Short description: Gives better control of lighting in H scenes
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_MakerAdditions v1.0.0
-- Short description: Extra features for the character maker
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_MakerAnimatePoseToggle v1.1.0
-- Short description: Adds a checkbox at the bottom of the right sidebar in maker
-- Author(s):         Njaecha
-- More information:  ???
-
-# KK_MakerRandomPicker v1.3.0
-- Short description: Adds a Random button to every category in Character Maker
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_MakerSearch v1.5.1
-- Short description: Search boxes in character maker item lists
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_ObjImport v2.1.2
-- Short description: Import external .obj files directly into Studio
-- Author(s):         Njaecha
-- More information:  ???
-
-# KK_OrthographicCamera v1.1.1
-- Short description: Adds a new camera hotkey to game and studio
-- Author(s):         ManlyMarco
-- More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
-
-# KK_Pregnancy v2.6
+# KK_Pregnancy v2.7
 - Short description: Adds pregnancy to gameplay, maker and studio
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# KK_PregnancyPlus v6.3.2
+# KK_PregnancyPlus v6.3.3
 - Short description: Adds additional belly sliders in Studio and Maker
 - Author(s):         thomjr
 - More information:  https://github.com/thojmr/KK_PregnancyPlus/releases
-
-# KK_QuickAccessBox v2.4.2
-- Short description: Search all studio items, LeftCtrl+Space
-- Author(s):         ManlyMarco
-- More information:  https://github.com/ManlyMarco/QuickAccessBox
 
 # KK_SFW v1.0.1.0
 - Short description: Adds family-friendly/streamer mode with all lewd content disabled
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionSFW
 
-# KK_StudioAccessoryNames v1.1.0
-- Short description: Shows the acc names in studio
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_StudioKeybinds v1.0.1
-- Short description: Allows you to change (almost) all default keybinds in Studio
-- Author(s):         Njaecha
-- More information:  ???
-
-# KK_StudioMiscSearch v1.2.0
-- Short description: Adds search bars to various Studio lists
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_StudioPOV v1.1.1
-- Short description: First person view for studio
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_StudioWindowResize v1.1
-- Short description: Makes studio selection windows larger so more items are visible
-- Author(s):         DeathWeasel1337
-- More information:  https://github.com/DeathWeasel1337/KK_Plugins
-
-# KK_TalkFreeCamera v1.0.0
-- Short description: This plugin allows you to have a free camera view in Talk Scenes
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
-# KK_VMDPlayPlugin v1.3.0
-- Short description: Support for MMD animations in Studio, press Ctrl+Shift+V
-- Author(s):         ???
-- More information:  ???
-
 # KKABMX (BonemodX) v4.4.6
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
 
-# KKManager v0.19.0.0
+# KKManager v0.19.1.0
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
@@ -563,7 +483,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# LewdCrestX v1.3.3
+# LewdCrestX v1.4
 - Short description: Give characters lewd crests
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
@@ -598,12 +518,37 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
 
+# MakerAdditions v1.0.0
+- Short description: Extra features for the character maker
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
+# MakerAnimatePoseToggle v1.1.0
+- Short description: Adds a checkbox at the bottom of the right sidebar in maker
+- Author(s):         Njaecha
+- More information:  ???
+
+# MakerCameraPresets v1.0.1
+- Short description: Allows you to create a set of camera presets in Maker
+- Author(s):         Njaecha
+- More information:  ???
+
+# MakerRandomPicker v1.3.0
+- Short description: Adds a Random button to every category in Character Maker
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
+# MakerSearch v1.5.1
+- Short description: Search boxes in character maker item lists
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
 # Male Juice v1.3
 - Short description: Enables liquid textures on males
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.1.17
+# Material Editor v3.1.18
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -633,7 +578,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_MoreAccessoryParents
 
-# More Outfit Slots v1.1.2
+# More Outfit Slots v1.1.3
 - Short description: Allows characters to have more than the default number of outfit slots
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -663,10 +608,20 @@
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
 
+# ObjImport v2.1.2
+- Short description: Import external .obj files directly into Studio
+- Author(s):         Njaecha
+- More information:  ???
+
 # OptimizeIMGUI v1.0
 - Short description: Slight perf improvement of plugin UIs
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
+
+# OrthographicCamera v1.1.1
+- Short description: Adds a new camera hotkey to game and studio
+- Author(s):         ManlyMarco
+- More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
 # PantyFairy v1.0.2
 - Short description: A custom side quest for Koikatsu with some new gameplay features
@@ -703,6 +658,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# QuickAccessBox v2.4.2
+- Short description: Search all studio items, LeftCtrl+Space
+- Author(s):         ManlyMarco
+- More information:  https://github.com/ManlyMarco/QuickAccessBox
+
 # Random Character Generator v2.0
 - Short description: Adds character randomization function to chara maker
 - Author(s):         DeathWeasel1337
@@ -712,6 +672,11 @@
 - Short description: First person camera for H
 - Author(s):         RealPOV.Koikatu
 - More information:  ???
+
+# Reload Character List On Change v1.5.2
+- Short description: Reloads character list if it changes
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
 # Remove Cards To Recycle Bin v1.1.1
 - Short description: Prevents accidentally losing cards by overwriting them
@@ -723,7 +688,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RuntimeUnityEditor v2.5
+# RuntimeUnityEditor v2.7
 - Short description: Debugging and development tool
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
@@ -823,8 +788,33 @@
 - Author(s):         jim60105
 - More information:  https://github.com/jim60105/KK
 
+# StudioAccessoryNames v1.1.0
+- Short description: Shows the acc names in studio
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
+# StudioKeybinds v1.0.1
+- Short description: Allows you to change (almost) all default keybinds in Studio
+- Author(s):         Njaecha
+- More information:  ???
+
+# StudioMiscSearch v1.2.0
+- Short description: Adds search bars to various Studio lists
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
+# StudioPOV v1.1.1
+- Short description: First person view for studio
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
 # StudioSceneSettings v1.3.2
 - Short description: Adds more effect settings for scenes
+- Author(s):         DeathWeasel1337
+- More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# StudioWindowResize v1.1.1
+- Short description: Makes studio selection windows larger so more items are visible
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
@@ -838,6 +828,11 @@
 - Author(s):         ???
 - More information:  ???
 
+# TalkFreeCamera v1.0.1
+- Short description: This plugin allows you to have a free camera view in Talk Scenes
+- Author(s):         Mantas-2155X aka 2155X
+- More information:  https://www.patreon.com/2155X
+
 # Test Plugin v1.0
 - Short description: Test Plugin for Koikatsu
 - Author(s):         DeathWeasel1337
@@ -848,7 +843,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.1.5
+# Timeline v1.1.6
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -873,7 +868,7 @@
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
 
-# TreeNodeNaming v1.1.1
+# TreeNodeNaming v1.2.0
 - Short description: Allows the renaming of nodes in studio treeview
 - Author(s):         Njaecha
 - More information:  ???
@@ -883,15 +878,30 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# UIScalerAndWidescreenSupport v1.0.2
+- Short description: Allows widescreen and UI scaling
+- Author(s):         Hijack Hornet
+- More information:  https://github.com/HijackHornet/IllusionMods
+
 # Uncensor Selector v3.11.5
 - Short description: NEEDS Koikatsu Overlay Mods!
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# Uniform Uniforms v1.1
+- Short description: Allows easily changing uniforms for the entire class, like in AA2
+- Author(s):         CptGrey
+- More information:  https://github.com/CptGrey/KK_Archetypes
+
 # VideoExport v1.2.5
 - Short description: Video and gif recorder, press Ctrl+E
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
+
+# VMDPlayPlugin v1.3.0
+- Short description: Support for MMD animations in Studio, press Ctrl+Shift+V
+- Author(s):         ???
+- More information:  ???
 
 # WarpToCharacters v1.1.1
 - Short description: Easily warp to characters from roster in roaming mode
