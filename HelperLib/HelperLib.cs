@@ -791,9 +791,18 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
         {
             public int Compare(string x, string y)
             {
-                if (x == y) return 0;
-                var version = new { First = GetVersion(x), Second = GetVersion(y) };
-                var limit = Math.Max(version.First.Length, version.Second.Length);
+                return CompareVersions(x, y);
+            }
+
+            public static int CompareVersions(string firstVer, string secondVer)
+            {
+                firstVer = firstVer?.Trim().TrimStart('v', 'V', 'r') ?? "";
+                secondVer = secondVer?.Trim().TrimStart('v', 'V', 'r') ?? "";
+
+                if (firstVer == secondVer) return 0;
+
+                var version = new { First = Tokenize(firstVer), Second = Tokenize(secondVer) };
+                var limit = Math.Max(version.First.Count, version.Second.Count);
                 for (var i = 0; i < limit; i++)
                 {
                     var first = version.First.ElementAtOrDefault(i) ?? string.Empty;
@@ -815,21 +824,38 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                         }
                     }
                 }
-                return version.First.Length.CompareTo(version.Second.Length);
+                return version.First.Count.CompareTo(version.Second.Count);
             }
 
-            private IComparable[] GetVersion(string version)
+            private static ICollection<IComparable> Tokenize(string version)
             {
-                return (from part in version.Trim().Split('.', ' ', '-', ',', '_')
-                        select Parse(part)).ToArray();
+                var results = new List<IComparable>(2);
+                foreach (var part in version.Trim().Split('.', ' ', '-', ',', '_'))
+                {
+                    // Handle mixed digit + letter parts by splitting them (1.0a -> 1 0 a)
+                    var isDigit = char.IsDigit(part[0]);
+                    var current = part[0].ToString();
+                    for (int i = 1; i < part.Length; i++)
+                    {
+                        if (isDigit == char.IsDigit(part[i]))
+                        {
+                            current += part[i];
+                        }
+                        else
+                        {
+                            results.Add(Parse(current));
+                            current = part[i].ToString();
+                            isDigit = !isDigit;
+                        }
+                    }
+
+                    results.Add(Parse(current));
+                }
+
+                return results;
             }
 
-            private IComparable Parse(string version)
-            {
-                if (int.TryParse(version, out var result))
-                    return result;
-                return version;
-            }
+            private static IComparable Parse(string version) => int.TryParse(version, out var result) ? (IComparable)result : version;
         }
     }
 }
