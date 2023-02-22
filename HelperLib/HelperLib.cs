@@ -240,6 +240,7 @@ namespace HelperLib
                 Directory.CreateDirectory(Path.Combine(path, @"BepInEx\config"));
 
                 SetConfigVariable(Path.Combine(path, @"BepInEx\config\KK_PregnancyPlus.cfg"), "[KK_Pregnancy Integration]", "Override KK_Pregnancy belly shape", "true");
+                SetConfigVariable(Path.Combine(path, @"BepInEx\config\essuhauled.animationloader.cfg"), "[General]", "All Animations in FreeH", "true");
             }
             catch (Exception e)
             {

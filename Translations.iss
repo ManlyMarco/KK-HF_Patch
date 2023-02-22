@@ -26,13 +26,13 @@ RunGame=&Run Koikatsu
 RunWiki=Open Koikatsu wiki (FAQ, English manual)
 RunDiscord=Join Koikatsu! Discord channel (Help, updates, sharing)
 RunHF=Open HongFire release thread
-StartUpdate=Start mod updater (Download latest new mods and mod updates)
+StartUpdate=Look for mod updates (Optional, only needed when downloading very recent scenes and characters)
 
 IconGame=Koikatu!
 
 TaskIcon=Create a game &desktop icon
 TaskDelete=Clean up old mods (Helps fix and avoid issues. Your old plugins will be backed up to a .zip inside game root.)
-TaskDeleteSide=Delete existing sideloader mods (Everything except for Sideloader Modpacks)
+TaskDeleteSide=Delete third-party sideloader mods (Removes everything except for Sideloader Modpacks from the mods folder. WARNING: Back up any important files you've placed inside the mods folder!)
 TaskDeletePlugins=Delete BepInEx plugins (Always recommended. Do not disable unless you know what you are doing)
 TaskDeletePluginSettings=Delete plugin settings (Recommended if you have issues or when updating from old repacks)
 TaskDeleteLst=Delete custom listfiles (Disable hardmods, they will be replaced with sideloader mods. Always recommended)
@@ -73,7 +73,7 @@ jp.RunGame=ゲームを始める
 jp.RunWiki=オープン英語コイカツ！のwiki（FAQ、マニュアル）
 jp.RunDiscord=英語のDiscordチャンネルに参加する（ヘルプ、アップデート、カード、モッズの共有）
 jp.RunHF=HongFireディスカッションスレッドを開く（英語）
-jp.StartUpdate=MODアップデーターを開始します（最新の新しいMODとMODアップデートをダウンロードします）
+jp.StartUpdate=MODアップデーターを開始します（オプション。最近のシーンとキャラクターをダウンロードする場合のみ必要。）
 
 jp.IconGame=コイカツ！
 
