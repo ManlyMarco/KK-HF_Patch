@@ -23,7 +23,7 @@
 - Author(s):         moderchan
 - More information:  ???
 
-# Additional Skin Effects v2.1.1
+# Additional Skin Effects v2.1.2
 - Short description: Effects for sweating, crying, bukkake and deflowering
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_SkinEffects
@@ -98,12 +98,17 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# BreastPhysicsController v2.1
+- Short description: Enables control of DynamicBone's some parameters for breasts
+- Author(s):         DeathWeasel
+- More information:  https://github.com/IllusionMods/BreastPhysicsController
+
 # Bulge in the pants, tent in the woods v1.0.2
 - Short description: Adds bulges to characters that pack a shlong
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# ButtPlugin v3.5.0
+# ButtPlugin v3.6.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/BepInEx.ButtPlugin
@@ -178,12 +183,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Colliders v1.2
+# Colliders v1.3
 - Short description: Add physics to characters
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Configuration Manager v17.1
+# Configuration Manager v18.0
 - Short description: Can change plugin settings. Press F1 to open, not visible inside HMD
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.ConfigurationManager
@@ -308,7 +313,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/FPSCounter
 
-# Free H Defaults v2.0.0.0
+# Free H Defaults v2.0.1.0
 - Short description: Keeps free H selection screen settings
 - Author(s):         Keelhauled
 - More information:  https://github.com/IllusionMods/KeelPlugins
@@ -373,17 +378,17 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v20.2
+# IllusionFixes v21.0.1.1
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
 
-# IllusionLaunchers v3.3.2.0
+# IllusionLaunchers v3.4.0.38367
 - Short description: Custom game launcher
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
 
-# IllusionLaunchers v3.3.2.0
+# IllusionLaunchers v3.4.0.38366
 - Short description: Custom game launcher
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
@@ -413,7 +418,7 @@
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/IPALoaderX
 
-# Item Blacklist v1.1
+# Item Blacklist v2.0
 - Short description: Allows hiding items from maker lists, right click for options
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -438,7 +443,7 @@
 - Author(s):         Sabakan
 - More information:  ???
 
-# KK_Pregnancy v2.7
+# KK_Pregnancy v2.7.1
 - Short description: Adds pregnancy to gameplay, maker and studio
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
@@ -458,12 +463,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
 
-# KKManager v0.21.4.0
+# KKManager v0.22.0.1
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
 
-# KKPE v2.13.3.1
+# KKPE v2.13.4
 - Short description: Advanced studio controls
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -513,7 +518,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Maker/Studio Browser Folders v2.6.2
+# Maker/Studio Browser Folders v3.0
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -548,7 +553,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.1.21
+# Material Editor v3.1.22
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -598,7 +603,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
 
-# Night Darkener v1.2
+# Night Darkener v1.3
 - Short description: Makes H scenes at night much darker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
@@ -608,7 +613,7 @@
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
 
-# ObjImport v2.1.2
+# ObjImport v2.1.4
 - Short description: Import external .obj files directly into Studio
 - Author(s):         Njaecha
 - More information:  ???
@@ -658,7 +663,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/QuickAccessBox
 
-# RealPOV v1.3.1.0
+# RealPOV v1.3.2.0
 - Short description: First person camera for H
 - Author(s):         RealPOV.Koikatu
 - More information:  ???
@@ -693,7 +698,7 @@
 - Author(s):         Haruka
 - More information:  https://ux.getuploader.com/nHaruka_KK/
 
-# Skin Overlay Mod v6.1
+# Skin Overlay Mod v6.1.2
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
@@ -768,11 +773,6 @@
 - Author(s):         jim60105
 - More information:  https://github.com/jim60105/KK
 
-# Studio Transgender Loading v20.8.30.0
-- Short description: Allow replacing charas with different gender charas
-- Author(s):         jim60105
-- More information:  https://github.com/jim60105/KK
-
 # StudioAccessoryNames v1.1.0
 - Short description: Shows the acc names in studio
 - Author(s):         Mantas-2155X aka 2155X
@@ -828,7 +828,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.1.7
+# Timeline v1.1.8
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -868,7 +868,7 @@
 - Author(s):         Hijack Hornet
 - More information:  https://github.com/HijackHornet/IllusionMods
 
-# Uncensor Selector v3.11.6
+# Uncensor Selector v3.11.7
 - Short description: NEEDS Koikatsu Overlay Mods!
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -898,7 +898,7 @@
 - Author(s):         GFanon
 - More information:  ???
 
-# XUnity Auto Translator v5.1.0
+# XUnity Auto Translator v5.2.0
 - Short description: Translation loader
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
