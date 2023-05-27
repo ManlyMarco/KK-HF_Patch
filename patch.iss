@@ -569,6 +569,32 @@ begin
 
   if (CurPageID = wpSelectDir) then
   begin
+    if Result = True then
+    begin
+      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))) then
+      begin
+        MsgBox(ExpandConstant('{cm:MsgEmotionCreatorsDetected}'), mbError, MB_OK);
+        Result := False;
+      end
+    end;
+
+    if Result = True then
+    begin
+      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))
+      or FileExists(ExpandConstant('{app}\KoikatsuSunshine.exe'))
+      or FileExists(ExpandConstant('{app}\KoiKoiMonogatari.exe'))
+      or FileExists(ExpandConstant('{app}\KoiKoiMonogatariVR.exe'))
+      or FileExists(ExpandConstant('{app}\PlayHome.exe'))
+      or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))
+      or FileExists(ExpandConstant('{app}\VR_Kanojo.exe'))
+      or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))
+      or FileExists(ExpandConstant('{app}\AI-Shoujo.exe'))) then
+      begin
+        MsgBox(ExpandConstant('{cm:MsgDifferentGameDetected}'), mbError, MB_OK);
+        Result := False;
+      end
+    end;
+    
     if (not KoikatuInstalled() and not IsSteam()) then
     begin
       if(SuppressibleMsgBox(ExpandConstant('{cm:MsgExeNotFound}'), mbError, MB_YESNO, 0) = IDNO) then
@@ -611,38 +637,6 @@ begin
         DeleteFile(ExpandConstant('{app}\KoikatuVR.exe'));
         DelTree(ExpandConstant('{app}\KoikatuVR_Data'), True, True, True);
       end;
-    end;
-
-    if Result = True then
-    begin
-      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))) then
-      begin
-        MsgBox(ExpandConstant('{cm:MsgEmotionCreatorsDetected}'), mbError, MB_OK);
-        Result := False;
-      end
-    end;
-
-    if Result = True then
-    begin
-      if (FileExists(ExpandConstant('{app}\KoikatsuSunshineTrial.exe'))
-      or FileExists(ExpandConstant('{app}\KoikatsuSunshine.exe'))) then
-      begin
-        MsgBox('This patch is for Koikatu and Koikatsu Party only, it does not work with Koikatsu Sunshine. Look for a new KKS HF patch instead.', mbError, MB_OK);
-        Result := False;
-      end
-    end;
-
-    if Result = True then
-    begin
-      if (FileExists(ExpandConstant('{app}\PlayHome.exe'))
-      or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))
-      or FileExists(ExpandConstant('{app}\AI-Shoujo.exe'))
-      or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))
-      or FileExists(ExpandConstant('{app}\KoikatsuSunshine.exe'))) then
-      begin
-        MsgBox(ExpandConstant('{cm:MsgDifferentGameDetected}'), mbError, MB_OK);
-        Result := False;
-      end
     end;
 
     if Result = True then
