@@ -19,7 +19,7 @@ You can support development of HF Patch and many of the included plugins through
 HF Patch includes and installs by default:
 - All free updates (no need to install any updates manually)
 - Fan-made translations and automatic machine translations to fill in gaps
-- Most commonly used plugins and mods, which allows you to load most character cards and scenes available online(Sideloader is not included in the light version of the patches, make sure you update it manually if needed)
+- Most commonly used plugins and mods, which allows you to load most character cards and scenes available online(Sideloader modpack is not included in the light version of the patches)
 - Fixes for common issues with the game and mods like botched mod installs
 - Full uncensor with multiple different models
 You can see a full list of what HF Patch contains [here](https://github.com/ManlyMarco/KK-HF_Patch/blob/master/Plugin%20Readme.md) and/or by checking contents the .iss files.
@@ -45,6 +45,7 @@ Here's a video guide that might be useful. The guide is mostly universal between
    - If you use the light version of the patch its a good idea to update your sideloader separately, you can do this by selecting update in the launcher or using the look for mods option in KKManager.
 5. Done! You can now start the game launcher as usual and you will notice some new options straight away. You can remove the downloaded patcher files now if you want to save some space.
 Special patch is included in HF Patch, you don't have to install it manually. It won't hurt anything if you have it installed already, the patch will figure itself out. Just to be safe you can verify game files in Steam before installing the HF Patch if you messed with your installation folder before doing this.
+6. (Optional) You can update the modpacks by clicking the update button within the launcher. You can leave out Sideloader Modpack - Studio if you don't plan on using studio.
 
 *Note: If you want to run the game under Wine/Proton (Linux, SteamOS, macOS, etc.), read [this](https://github.com/Mantas-2155X/illusion-wine-guide) and [this](https://docs.bepinex.dev/articles/advanced/proton_wine.html).*
 
@@ -85,7 +86,7 @@ If you need further help, feel free to ask in the **#help** channel on the serve
 - Installing HF Patch will add free updates, which contain Studio (separate exe file). For many people this is the only mode they use (apart from character maker to make characters for use in studio), so it is highly recommended that you check it out. All of Koikatu and Koikatsu Sunshine HF Patch preview images were made in studio. You can see other people's creations and download their studio scenes from the Discord server and various card sharing boorus.
 - HF Patch does not contain the full game, paid expansions or any other pirated content. The full game needs to be already installed for the patch to work. If you want to use the VR module, also install it before patching! All paid DLC are optional and not required, you can skip them and the patch will still work fine (some features might be disabled/unavailable).
 - You can install HF Patch over almost any game install and have it work perfectly, and you can run it again to enable/disable some plugins. This patch will automatically fix many broken game/mod installs and common issues. Just make sure to let it remove all old mods when asked.
-- It's recommended to install all content mods if you plan to download character cards - they are required by many cards and scenes. If you find a card that is showing mod missing warnings try updating Sideloader Modpacks. This can be done by simply pressing the update button in the launcher or by launching KKManager and using the look for mods option.
+- It's recommended to install all content mods if you plan to download character cards(Studio modpack is optional in case you won't use studio) - they are required by many cards and scenes. If you find a card that is showing mod missing warnings try updating Sideloader Modpacks. This can be done by simply pressing the update button in the launcher or by launching KKManager and using the look for mods option.
 - The mods included in the patch don't modify any game files and can be easily disabled by removing the "winhttp.dll" file from your game directory. Official patches are applied permanently.
 - Please leave the modders some positive feedback or help them in some other way!
 - There is no warranty on this patch or on any of the included mods. You are installing this patch at your own risk. That being said, we try our best to help in case of issues. If you find any bugs, do let us know so they can be fixed.
