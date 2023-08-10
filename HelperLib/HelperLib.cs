@@ -788,17 +788,19 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
             }
         }
 
-        public class VersionComparer : IComparer<string>
+        public class VersionComparer : Comparer<string>
         {
-            public int Compare(string x, string y)
+            public override int Compare(string x, string y)
             {
                 return CompareVersions(x, y);
             }
 
             public static int CompareVersions(string firstVer, string secondVer)
             {
-                firstVer = firstVer?.Trim().TrimStart('v', 'V', 'r') ?? "";
-                secondVer = secondVer?.Trim().TrimStart('v', 'V', 'r') ?? "";
+                firstVer = firstVer?.Trim().TrimStart('v', 'V', 'r', 'R', ' ');
+                if (string.IsNullOrEmpty(firstVer)) firstVer = "0";
+                secondVer = secondVer?.Trim().TrimStart('v', 'V', 'r', 'R', ' ');
+                if (string.IsNullOrEmpty(secondVer)) secondVer = "0";
 
                 if (firstVer == secondVer) return 0;
 
@@ -806,8 +808,8 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                 var limit = Math.Max(version.First.Count, version.Second.Count);
                 for (var i = 0; i < limit; i++)
                 {
-                    var first = version.First.ElementAtOrDefault(i) ?? string.Empty;
-                    var second = version.Second.ElementAtOrDefault(i) ?? string.Empty;
+                    var first = version.First.ElementAtOrDefault(i) ?? 0;
+                    var second = version.Second.ElementAtOrDefault(i) ?? 0;
                     try
                     {
                         var result = first.CompareTo(second);
@@ -816,16 +818,23 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                     }
                     catch (ArgumentException)
                     {
-                        if (first is string s1 && second is string s2)
-                        {
-                            // Handle invalid characters in strings by comparing them byte by byte
-                            var result = string.CompareOrdinal(s1, s2);
-                            if (result != 0)
-                                return result;
-                        }
+                        var s1 = first.ToString();
+                        var s2 = second.ToString();
+
+                        if (s1 == "0" && s2 != "0")
+                            return -1;
+
+                        if (s2 == "0" && s1 != "0")
+                            return 1;
+
+                        // Handle invalid characters in strings by comparing them byte by byte
+                        var result = string.CompareOrdinal(s1, s2);
+                        if (result != 0)
+                            return result;
                     }
                 }
-                return version.First.Count.CompareTo(version.Second.Count);
+
+                return 0;
             }
 
             private static ICollection<IComparable> Tokenize(string version)
@@ -833,6 +842,12 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                 var results = new List<IComparable>(2);
                 foreach (var part in version.Trim().Split('.', ' ', '-', ',', '_'))
                 {
+                    if (part.Length == 0)
+                    {
+                        results.Add(0);
+                        continue;
+                    }
+
                     // Handle mixed digit + letter parts by splitting them (1.0a -> 1 0 a)
                     var isDigit = char.IsDigit(part[0]);
                     var current = part[0].ToString();
