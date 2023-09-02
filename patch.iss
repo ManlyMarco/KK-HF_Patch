@@ -7,7 +7,7 @@
 ;-------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;---------------------------------------------Current HF Patch version
-#define VERSION "3.21"
+#define VERSION "3.22"
 ;-----------------------------------------Sideloader modpack directory
 #define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
@@ -84,7 +84,7 @@ Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for u
 Name: "Modpack\UncensorSelector"; Description: "KK_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
 ;Name: "Modpack\Compat"; Description: "Compatibility Pack (Deprecated mods for backwards compatibility)"; Types: full_en full extra_en extra
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Name: "Experimental"; Description: "Experimental performance optimizations (Reduces stutter. Disable in case of plugin compatibility issues)"; 
+Name: "Experimental"; Description: "Experimental performance optimizations (Reduces stutter, allows loading KKS scenes. Disable in case of plugin compatibility issues)"; 
 ; Name: "FIX\URL"; Description: "Use custom Character Database (fan-operated character DB - no IP blocking and mods are allowed)"; Types: full_en bare custom extra_en
 
 [Files]
@@ -171,6 +171,7 @@ Source: "Input\itemblacklist.xml"; DestDir: "{app}\UserData\save"; Flags: onlyif
 Source: "Input\US_config_noBP.cfg"; DestDir: "{app}\BepInEx\config"; DestName: "com.deathweasel.bepinex.uncensorselector.cfg"; Flags: solidbreak
 ; This config only allows BP uncensors to be chosen by random
 Source: "Input\US_config_BP.cfg";   DestDir: "{app}\BepInEx\config"; DestName: "com.deathweasel.bepinex.uncensorselector.cfg"; Flags: solidbreak; Components: UNC\Selector\KK_BetterPenetration
+Source: "Input\MK.KK_BetterSquirt.cfg";   DestDir: "{app}\BepInEx\config"; DestName: "MK.KK_BetterSquirt.cfg"; Flags: solidbreak; Components: Feature\KK_BetterSquirt
 Source: "Input\Server\*";                 DestDir: "{app}";                      Flags: ignoreversion recursesubdirs createallsubdirs;            Components: Server
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ; Source: "Input\_Plugins\[Character Database][various] fixed\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\URL
