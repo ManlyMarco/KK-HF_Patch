@@ -351,7 +351,6 @@ Name: delete\Plugins; Description: "{cm:TaskDeletePlugins}";
 Name: delete\Config; Description: "{cm:TaskDeletePluginSettings}"; Flags: unchecked
 Name: delete\scripts; Description: "Delete old scripts"; Flags: unchecked
 Name: delete\Listfiles; Description: "{cm:TaskDeleteLst}"
-Name: fixSideloaderDupes; Description: "{cm:TaskSideDupes}";
 Name: PW; Description: "{cm:TaskPW}";
 ; IPA is always removed, can't go around that. Unchecking is disabled in code, this task has to stay at the same index for it to work
 Name: IPA; Description: "{cm:TaskIPA}";
@@ -484,7 +483,7 @@ begin
     if(FileExists(ExpandConstant('{app}\BepInEx\config\EC.Core.Fixes.MakerFPS.cfg')) or FileExists(ExpandConstant('{app}\BepInEx\CardCacher.dll')) or FileExists(ExpandConstant('{app}\BepInEx\0Harmony.dll')) or FileExists(ExpandConstant('{app}\BepInEx\TexResPatch.dll')) or FileExists(ExpandConstant('{app}\BepInEx\KK_GUIDMigration.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Sideloader.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Assembly-CSharp.dll'))) then
     begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgInvalidModsDetected}'), mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 9, coCheckWithChildren);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
     end;
 
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\KoikPlugins.dll'))) then
@@ -493,7 +492,7 @@ begin
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifier.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudio.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudioNEO.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\HSStudioNEOExtSave.dll')) or FileExists(ExpandConstant('{app}\BepInEx\FlashBangZ.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\KK_gaugeslider.dll'))) then
     begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgIncompatibleModsDetected}'), mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 9, coCheckWithChildren);
+      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
     end;
     
     if (IsSteam() and IsComponentSelected('Patch\VR') and not VRInstalled()) then
@@ -501,8 +500,8 @@ begin
       SuppressibleMsgBox('To install the VR module for Koikatsu Party you have to go to your Steam Library, open properties of Koikatsu Party, go to the DLC tab and enable the VR DLC there. You should do this before installing HF Patch.', mbInformation, MB_OK, 0);
     end;
     
-    WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 10] := IsSteam();
-    WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 10] := IsSteam();
+    WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 9] := IsSteam();
+    WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 9] := IsSteam();
   end;
 end;
 
@@ -530,10 +529,6 @@ begin
     // Delete Japanese versions of cards and bgs if English versions are installed (only those with different names)
     if IsComponentSelected('AT\TL\EnglishTranslation\UserData') then
         RemoveJapaneseCards(ExpandConstant('{app}'));
-        
-    // Always clean up sideloader mods in case user already messed up
-    if IsTaskSelected('fixSideloaderDupes') then
-        RemoveSideloaderDuplicates(ExpandConstant('{app}'));
         
     FixConfig(ExpandConstant('{app}'));
     WriteVersionFile(ExpandConstant('{app}'), '{#VERSION}');
