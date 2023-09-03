@@ -48,7 +48,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Animation Loader v1.1.3.0
+# Animation Loader v1.1.3.3
 - Short description: A plugin for loading animations from Sideloader zipmods
 - Author(s):         AnimationLoader.Koikatu
 - More information:  https://github.com/IllusionMods/AnimationLoader
@@ -73,12 +73,17 @@
 - Author(s):         ymgpt
 - More information:  ???
 
-# BepInEx v5.4.21.0
+# BepInEx v5.4.22.0
 - Short description: Plugin framework
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
 
-# BepisPlugins v19.1
+# BepInEx.SplashScreen v1.0.0.0
+- Short description: A loading screen on game startup with information about patchers and plugins being currently loaded
+- Author(s):         BepInEx
+- More information:  https://github.com/BepInEx/BepInEx.SplashScreen
+
+# BepisPlugins v19.3
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -87,6 +92,11 @@
 - Short description: Grab color from anywhere on screen, e.g. a reference image
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_BetterColorPicker
+
+# BetterSquirt v3.0.1
+- Short description: Improves and allows customization of squirting
+- Author(s):         MayouKurayami
+- More information:  https://github.com/MayouKurayami/KK_BetterSquirt
 
 # Boobs outline + unc outline fix
 - Short description: It improves how outlines look around cleavage and pubic areas
@@ -107,11 +117,6 @@
 - Short description: Adds bulges to characters that pack a shlong
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
-
-# ButtPlugin v3.6.0
-- Short description: Adds support for buttplug.io compatible strokers and vibrators
-- Author(s):         Sauceke
-- More information:  https://github.com/Sauceke/BepInEx.ButtPlugin
 
 # C# Script Loader v1.2.4
 - Short description: Runs user scripts from scripts folder
@@ -153,8 +158,8 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Cheat Tools v3.2.1
-- Short description: Trainer and debugger
+# Cheat Tools v3.3
+- Short description: Trainer, press F12 to open, it's in the bottom left corner
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionCheatTools
 
@@ -163,7 +168,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_ClothColliders
 
-# Clothes To Accessories v1.0.2
+# Clothes To Accessories v1.0.3
 - Short description: Allows using normal clothes and hair as accessories
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -188,7 +193,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Configuration Manager v18.0
+# Configuration Manager v18.0.1
 - Short description: Can change plugin settings. Press F1 to open, not visible inside HMD
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.ConfigurationManager
@@ -213,10 +218,15 @@
 - Author(s):         MaouKurayami
 - More information:  https://github.com/MayouKurayami/KK_CrossFader
 
-# Custom intro voices v20.0
-- Short description: Co to kurwa jest
+# Custom intro voices v23
+- Short description: Bau Bau!
 - Author(s):         ManlyMarco
 - More information:  https://www.youtube.com/watch?v=SZBQ4lQFqvw
+
+# Darkness with strawberry flavor v0.3
+- Short description: Can use all personalities in the darkness event and make the event 'consensual'
+- Author(s):         picolet21
+- More information:  ???
 
 # DarkTheme
 - Short description: Dark theme for the game interface, English only (not very pretty)
@@ -232,6 +242,11 @@
 - Short description: Demosaic for Koikatsu
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# DisableHipDynamicBones v1.0
+- Short description: Lets some zipmods turn off dynamic hip bones
+- Author(s):         Unknown
+- More information:  ???
 
 # Drag and Drop v1.2.7
 - Short description: Drag cards and scenes from explorer into game window
@@ -303,6 +318,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# FK Height Adjust UI v1.0.3
+- Short description: Makes it easier to create proper FK poses and animations by correctly height compensating
+- Author(s):         OrangeSpork
+- More information:  https://github.com/OrangeSpork/FKHeightAdjustUI
+
 # Force High Poly v2.1
 - Short description: Full-quality characters in school, enable in plugin settings
 - Author(s):         DeathWeasel1337
@@ -343,7 +363,7 @@
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
 
-# Graphics Settings v1.2.1
+# Graphics Settings v1.3
 - Short description: More game settings, allows better/worse quality
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.GraphicsSettings
@@ -378,7 +398,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v21.0.1.1
+# IllusionFixes v21.2
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -418,8 +438,8 @@
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/IPALoaderX
 
-# Item Blacklist v2.0
-- Short description: Allows hiding items from maker lists, right click for options
+# Item Blacklist v3.0
+- Short description: Allows hiding items from maker lists, right click on item thumbnails for options
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
@@ -458,25 +478,30 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionSFW
 
-# KKABMX (BonemodX) v5.0.5
+# KKABMX (BonemodX) v5.0.6
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
 
-# KKManager v0.22.0.1
+# KKManager v0.22.1.0
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
 
-# KKPE v2.13.4
+# KKPE v2.13.5
 - Short description: Advanced studio controls
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
 
-# KKUS v1.12.0
+# KKUS v1.13.0
 - Short description: Search boxes, studio and maker improvements
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
+
+# KKUTS_TessFix v1.0.0.1
+- Short description: Fixes tesselation effects of KKUTS shader inside maker
+- Author(s):         Unknown
+- More information:  ???
 
 # Koikatsu: Become Trap v2.1
 - Short description: Can mark a male as a trap in maker, changes gameplay
@@ -498,8 +523,8 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Lighting Tweaks v1.0.1
-- Short description: Increase shadow resolution for better quality and fix a shadow strength mismatch
+# Lighting Tweaks v1.1
+- Short description: Improve shadow quality, but might be very slow on some GPUs
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
@@ -512,6 +537,11 @@
 - Short description: Hotkey to make camera keep focus on character
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
+
+# LoveMachine v3.13.0
+- Short description: Adds support for buttplug.io compatible strokers and vibrators
+- Author(s):         Sauceke
+- More information:  https://github.com/Sauceke/LoveMachine
 
 # Maker Defaults v1.1
 - Short description: Set custom default character maker settings
@@ -553,7 +583,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.1.22
+# Material Editor v3.1.24
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -573,7 +603,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.35
+# Modding API v1.36
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -648,6 +678,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# PostProcessingEffectsV3 v4.2
+- Short description: Adds additional post processing options in the F1 Plugins menu
+- Author(s):         RikkiBalboa
+- More information:  https://github.com/RikkiBalboa/Koikatsu-Plugins
+
 # Profile v1.0.3
 - Short description: A textbox in maker to write a character description
 - Author(s):         DeathWeasel1337
@@ -658,7 +693,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# QuickAccessBox v2.4.5
+# QuickAccessBox v3.0
 - Short description: Search all studio items, LeftCtrl+Space
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/QuickAccessBox
@@ -683,10 +718,15 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RuntimeUnityEditor v4.2
+# RuntimeUnityEditor v5.1
 - Short description: Debugging and development tool
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
+
+# SaveCameraObjectFov v1.0
+- Short description: Saves FoV values to placed camera objects
+- Author(s):         RikkiBalboa
+- More information:  https://github.com/RikkiBalboa/Koikatsu-Plugins
 
 # Shader Swapper v1.3
 - Short description: Swap all shaders to the equivalent Vanilla Plus shader in maker (ctrl + P)
@@ -772,6 +812,11 @@
 - Short description: Allows writing text as studio objects
 - Author(s):         jim60105
 - More information:  https://github.com/jim60105/KK
+
+# Studio Transform Orientation v1.1.2
+- Short description: Toggle between World and Local transform orientations in Studio
+- Author(s):         kkykkykky
+- More information:  https://github.com/kkykkykky/StudioTransformOrientation
 
 # StudioAccessoryNames v1.1.0
 - Short description: Shows the acc names in studio
