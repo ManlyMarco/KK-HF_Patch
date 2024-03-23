@@ -33,7 +33,7 @@
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
 
-# Additional Skin Effects v2.1.3
+# Additional Skin Effects v2.1.4
 - Short description: Effects for sweating, crying, bukkake and deflowering
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_SkinEffects
@@ -53,12 +53,17 @@
 - Author(s):         Mostly essu
 - More information:  ???
 
+# AmazingNewAccessoryLogic v0.0.7
+- Short description: An alternative to madevil's AccessoryStateSync
+- Author(s):         Njaecha
+- More information:  https://github.com/Njaecha/ANAL
+
 # Animation Controller v2.3
 - Short description: Animation Controller for Koikatsu
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Animation Loader v1.1.3.3
+# Animation Loader v1.1.3.4
 - Short description: A plugin for loading animations from Sideloader zipmods
 - Author(s):         AnimationLoader.Koikatu
 - More information:  https://github.com/IllusionMods/AnimationLoader
@@ -67,6 +72,11 @@
 - Short description: Unlock animation speed in studio, type in the text box
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# AnimationCurveEditor v1.0.0.0
+- Short description: Scripting resource that provides a visual spline editor for Unity AnimationCurves
+- Author(s):         Njaecha
+- More information:  https://github.com/Njaecha/UnityAnimationCurveEditor
 
 # Autosave v1.1.1
 - Short description: Autosaves studio scenes and maker cards periodically
@@ -93,7 +103,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.SplashScreen
 
-# BepisPlugins v19.5
+# BepisPlugins v19.6
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -188,7 +198,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_ClothColliders
 
-# Clothes To Accessories v1.1
+# Clothes To Accessories v1.1.1
 - Short description: Allows using normal clothes and hair as accessories
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -287,6 +297,11 @@
 - Short description: Editing for accessory DynamicBones in the character maker
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# DynamicBoneDistributionEditor v1.2.2
+- Short description: Editor for Dynamic Bones offering some completely new features
+- Author(s):         Njaecha
+- More information:  https://github.com/Njaecha/DynamicBoneDistributionEditor
 
 # EditFangs v1.1.2
 - Short description: Allows adjusting the length and position of the vanilla fangs
@@ -428,17 +443,17 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v21.4.1
+# IllusionFixes v21.5
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
 
-# IllusionLaunchers v3.4.1.36419
+# IllusionLaunchers v3.4.1.69
 - Short description: Custom game launcher
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
 
-# IllusionLaunchers v3.4.1.36419
+# IllusionLaunchers v3.4.1.69
 - Short description: Custom game launcher
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
@@ -483,7 +498,7 @@
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
 
-# KK Studio Better Penetration v2.2.1.0
+# KK Studio Better Penetration v4.5.5.0
 - Short description: BetterPenetration for studio
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/posts/kk-studio-2-0-0-51535931
@@ -513,7 +528,7 @@
 - Author(s):         Hanaaa
 - More information:  Discord
 
-# KKABMX (BonemodX) v5.1
+# KKABMX (BonemodX) v5.2
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
@@ -523,7 +538,7 @@
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
 
-# KKPE v2.16.0
+# KKPE v2.17.0
 - Short description: Advanced studio controls
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -623,7 +638,7 @@
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins/
 
-# Material Editor v3.4.2
+# Material Editor v3.5.0
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -648,7 +663,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.38
+# Modding API v1.39
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -683,7 +698,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# NodesConstraints v1.2.4
+# NodesConstraints v1.3.0
 - Short description: Create custom animations in studio
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
