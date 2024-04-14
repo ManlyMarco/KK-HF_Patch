@@ -477,25 +477,77 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                     "Sideloader Modpack - Studio"               ,
                 };
 
-                var fullAcceptableDirs = acceptableDirs.Select(s => Path.Combine(modsPath, s) + "\\").ToArray();
+                // Move all mods except the ones in acceptableDirs to the backup folder. Combine with any existing backup to save space
+                var backupPath = Path.Combine(path, "mods_BACKUP");
 
-                foreach (var file in Directory.GetFiles(modsPath, "*", SearchOption.AllDirectories))
+                // Only top files
+                MoveDirectory(modsPath, backupPath, SearchOption.TopDirectoryOnly, path);
+
+                // Non modpack subdirectories
+                foreach (var subdir in new DirectoryInfo(modsPath).GetDirectories())
                 {
-                    if (fullAcceptableDirs.Any(x => file.StartsWith(x, StringComparison.OrdinalIgnoreCase))) continue;
+                    if (acceptableDirs.Contains(subdir.Name, StringComparer.OrdinalIgnoreCase)) continue;
 
-                    try
+                    MoveDirectory(subdir.FullName, Path.Combine(backupPath, subdir.Name), SearchOption.AllDirectories, path);
+
+                    subdir.Refresh();
+                    if (!subdir.Exists) continue;
+
+                    // Make extra sure all old mods are gone, doesn't matter if they don't get backed up
+                    foreach (var file in Directory.GetFiles(subdir.FullName, "*", SearchOption.AllDirectories))
                     {
-                        File.Delete(file);
-                    }
-                    catch (Exception ex)
-                    {
-                        AppendLog(path, $"Failed to remove file {file} from mods directory - {ex}");
+                        try
+                        {
+                            File.Delete(file);
+                        }
+                        catch (Exception ex)
+                        {
+                            AppendLog(path, $"Failed to remove file {file} - {ex}");
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
                 AppendLog(path, $"Failed to remove old mods from the mods directory - {ex}");
+            }
+
+            // Taken from https://stackoverflow.com/a/2553245
+            void MoveDirectory(string source, string target, SearchOption subdirs, string logpath)
+            {
+                var sourcePath = source.TrimEnd('\\', ' ');
+                var targetPath = target.TrimEnd('\\', ' ');
+                var files = Directory.EnumerateFiles(sourcePath, "*", subdirs).GroupBy(Path.GetDirectoryName);
+                foreach (var folder in files)
+                {
+                    var targetFolder = folder.Key.Replace(sourcePath, targetPath);
+                    Directory.CreateDirectory(targetFolder);
+                    foreach (var file in folder)
+                    {
+                        try
+                        {
+                            var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
+                            if (File.Exists(targetFile)) File.Delete(targetFile);
+                            File.Move(file, targetFile);
+                        }
+                        catch (Exception ex)
+                        {
+                            AppendLog(logpath, $"Failed to move/remove file {file} - {ex}");
+                        }
+                    }
+                }
+
+                if(subdirs == SearchOption.AllDirectories || Directory.GetDirectories(source).Length == 0)
+                {
+                    try
+                    {
+                        Directory.Delete(source, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        AppendLog(logpath, $"Failed to remove directory {source} - {ex}");
+                    }
+                }
             }
         }
 
