@@ -258,8 +258,8 @@
 - Author(s):         MaouKurayami
 - More information:  https://github.com/MayouKurayami/KK_CrossFader
 
-# Custom intro voices v26
-- Short description: ambatukaaaaam
+# Custom intro voices v28.0
+- Short description: shikanokonokokoshitantan
 - Author(s):         ManlyMarco
 - More information:  https://www.youtube.com/watch?v=SZBQ4lQFqvw
 
@@ -448,7 +448,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v21.5.1
+# IllusionFixes v21.5.2
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -463,7 +463,7 @@
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
 
-# Image Embed v1.0.2
+# Image Embed v1.0.3
 - Short description: Embeds custom images in scene files so others can load them
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -498,7 +498,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v4.5.5.0
+# KK Better Penetration v4.5.5.1
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
@@ -528,7 +528,7 @@
 - Author(s):         Hanaaa
 - More information:  Discord
 
-# KKABMX (BonemodX) v5.2
+# KKABMX (BonemodX) v5.2.2
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
@@ -583,11 +583,6 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# LightingEditor v1.1.0
-- Short description: Adds more setting for light objects
-- Author(s):         Augh
-- More information:  Discord
-
 # Lightswitch v112.105.115.115
 - Short description: Adds a button to toggle map and chara light
 - Author(s):         Augh
@@ -618,7 +613,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
 
-# MakerAccessorySlotNumbers v1.0.0
+# MakerAccessorySlotNumbers v1.0.2
 - Short description: Adds the according slot number infront of the accessory name
 - Author(s):         Njaecha
 - More information:  ???
@@ -658,7 +653,7 @@
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins/
 
-# Material Editor v3.7.0
+# Material Editor v3.8.0
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -683,7 +678,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.40
+# Modding API v1.41
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -793,11 +788,6 @@
 - Author(s):         RealPOV.Koikatu
 - More information:  ???
 
-# Reload Character List On Change v1.5.2
-- Short description: Reloads character list if it changes
-- Author(s):         DeathWeasel1337
-- More information:  https://github.com/DeathWeasel1337/KK_Plugins
-
 # Remove Cards To Recycle Bin v2.0
 - Short description: Prevents accidentally losing cards by overwriting them
 - Author(s):         ManlyMarco
@@ -808,7 +798,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RuntimeUnityEditor v5.3.1
+# RuntimeUnityEditor v5.4
 - Short description: Debugging and development tool
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
@@ -888,6 +878,11 @@
 - Author(s):         jim60105
 - More information:  https://github.com/jim60105/KK
 
+# Studio Character Sort v1.0.1
+- Short description: Change default sort order of cards in studio
+- Author(s):         https://github.com/kkykkykky/
+- More information:  https://github.com/kkykkykky/StudioCharaSort
+
 # Studio Custom Masking v1.1.1
 - Short description: Can mark studio items to not block camera view
 - Author(s):         DeathWeasel1337
@@ -943,6 +938,11 @@
 - Author(s):         Njaecha
 - More information:  ???
 
+# StudioMapThumbnail v1.2.0
+- Short description: Displays thumbnails when selecting a map in CharaStudio
+- Author(s):         aaaaa
+- More information:  Discord
+
 # StudioMiscSearch v1.2.0
 - Short description: Adds search bars to various Studio lists
 - Author(s):         Mantas-2155X aka 2155X
@@ -993,7 +993,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.3.0
+# Timeline v1.4.0
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -1038,7 +1038,7 @@
 - Author(s):         Hijack Hornet
 - More information:  https://github.com/HijackHornet/IllusionMods
 
-# Uncensor Selector v3.12.0
+# Uncensor Selector v3.12.1
 - Short description: NEEDS Koikatsu Overlay Mods!
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -1073,7 +1073,7 @@
 - Author(s):         GFanon
 - More information:  ???
 
-# XUnity Auto Translator v5.2.0
+# XUnity Auto Translator v5.3.1
 - Short description: Translation loader
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
