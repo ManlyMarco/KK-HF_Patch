@@ -7,7 +7,7 @@
 ;-------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;---------------------------------------------Current HF Patch version
-#define VERSION "3.29"
+#define VERSION "3.30"
 ;-----------------------------------------Sideloader modpack directory
 #define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
