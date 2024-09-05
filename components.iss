@@ -1,7 +1,7 @@
 [Components]
 Name: "BepInEx";                               Description: "BepInEx v5.4.23.2 (Plugin framework)"                                                 ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "BepInEx\ConfigurationManager";          Description: "Configuration Manager v18.3 (Can change plugin settings. Press F1 to open, not visible inside HMD)"; Types: full_en full extra extra_en custom bare; Flags: fixed
-Name: "BepInEx\MessageCenter";                 Description: "Message Center v1.1.1 (Allows plugins to show messages in top left corner of the game)"; Types: full_en full extra extra_en custom bare; Flags: fixed
+Name: "BepInEx\MessageCenter";                 Description: "Message Center v1.1.1.1 (Allows plugins to show messages in top left corner of the game)"; Types: full_en full extra extra_en custom bare; Flags: fixed
 Name: "BepInEx\BepInEx_CatchUnityEventExceptions"; Description: "Catch Unity Event Exceptions v1.0 (Prevents some bugs in plugins from affecting other plugins)"; Types: full_en full extra extra_en
 Name: "BepInEx\CompatIPA";                     Description: "IPALoaderX v1.2.4 (Backwards compatibility with IPA plugins)"                         
 ; Name: "BepInEx\CompatBep4";                    Description: "BepIn4Patcher v1.0.0.0 (Backwards compatibility with BepInEx4 plugins)"
@@ -9,7 +9,7 @@ Name: "BepInEx\Dev";                           Description: "{cm:CompDev}"
 Name: "BepInEx\BepInEx_SplashScreen";          Description: "BepInEx.SplashScreen v2.2.0.0 (A loading screen on game startup with information about patchers and plugins being currently loaded)"; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "IllusionLaunchers";                     Description: "IllusionLaunchers v3.4.1.69 (Custom game launcher)"                                   ; Types: full_en full extra extra_en custom
-Name: "KKManager";                             Description: "KKManager v1.3.0.0 (Manage and update mods, browse cards)"                            ; Types: full_en full extra extra_en custom bare; Flags: fixed
+Name: "KKManager";                             Description: "KKManager v1.4.0.0 (Manage and update mods, browse cards)"                            ; Types: full_en full extra extra_en custom bare; Flags: fixed
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "API";                                   Description: "Modding APIs (Necessary for other mods/plugins to work properly)"                     ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\ResourceRedirector";                Description: "XUnity Resource Redirector v2.0.0 (Modding API)"                                      ; Types: full_en full extra_en extra custom bare; Flags: fixed
@@ -30,13 +30,13 @@ Name: "AT\TL\KK_Subtitles";                    Description: "Subtitles v2.3.2 (M
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "UNC";                                   Description: "{cm:CompUNC}"                                                                         ; Types: full_en full extra_en extra
 Name: "UNC\Selector";                          Description: "Uncensor Selector v3.12.1 (NEEDS Koikatsu Overlay Mods!)"                             ; Types: full_en full extra_en extra
-Name: "UNC\Selector\KK_BetterPenetration";     Description: "KK Better Penetration v4.5.5.1 (Improves how penetration looks in H scenes)"          ; Types: full_en full extra extra_en
+Name: "UNC\Selector\KK_BetterPenetration";     Description: "KK Better Penetration v4.5.5.2 (Improves how penetration looks in H scenes)"          ; Types: full_en full extra extra_en
 Name: "UNC\Selector\KK_BetterPenetration\KK_AdditionalFKNodes"; Description: "Additional FK Nodes v1.2.1.0 (May cause scenes to load with slightly incorrect character positions, adds more FK nodes for toes and the fun stick of BP uncensors)"
 Name: "UNC\Tongue";                            Description: "Tongue Texture + Outline Fix v1.1 (Only affects base body, not uncensors)"            ; Types: full_en full extra_en extra
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Content";                               Description: "Additional content for character and scene creation (Needed to properly load many character cards and scenes)"; Types: full_en full extra_en extra
 Name: "Content\KK_HairAccessoryCustomizer";    Description: "Hair Accessory Customizer v1.1.7 (Adds advanced controls for hair accessories)"       ; Types: full_en full extra_en extra
-Name: "Content\KK_MaterialEditor";             Description: "Material Editor v3.9.1 (Adds advanced material controls to maker and studio)"         ; Types: full_en full extra_en extra
+Name: "Content\KK_MaterialEditor";             Description: "Material Editor v3.9.2.2 (Adds advanced material controls to maker and studio)"       ; Types: full_en full extra_en extra
 Name: "Content\KK_MaterialEditor\KK_StudioImageEmbed"; Description: "Image Embed v1.0.3 (Embeds custom images in scene files so others can load them)"     ; Types: full_en full extra_en extra
 Name: "Content\MoreAccessories";               Description: "MoreAccessories v2.0.21.1 (Unlocks accessory limit)"                                  ; Types: full_en full extra_en extra
 Name: "Content\MoreAccessories\KK_MoreAccessoryParents"; Description: "More Accessory Parents v1.2 (More parent options for accessories)"                    ; Types: full_en full extra_en extra
@@ -47,7 +47,7 @@ Name: "Content\KSOX";                          Description: "Skin Overlay Mod v6
 Name: "Content\KSOX\KK_SkinEffects";           Description: "Additional Skin Effects v2.1.4 (Effects for sweating, crying, bukkake and deflowering)"; Types: full_en full extra_en extra
 Name: "Content\KK_ClothingUnlocker";           Description: "Clothing Unlocker v2.0.2 (Can use female clothes in male maker and vice versa)"       ; Types: full_en full extra_en extra
 Name: "Content\ExpandMaleMaker";               Description: "ExpandMaleMaker v1.1 (Additional customization options for male maker)"               ; Types: full_en full extra_en extra
-Name: "Content\KKPE";                          Description: "KKPE v2.17.2 (Advanced studio controls)"                                              ; Types: full_en full extra_en extra
+Name: "Content\KKPE";                          Description: "KKPE v2.17.3 (Advanced studio controls)"                                              ; Types: full_en full extra_en extra
 Name: "Content\NodesConstraints";              Description: "NodesConstraints v1.3.3 (Create custom animations in studio)"                         ; Types: full_en full extra_en extra
 Name: "Content\KK_InvisibleBody";              Description: "Invisible Body v1.4 (Hide character body in studio)"                                  ; Types: full_en full extra_en extra
 Name: "Content\KK_StudioSceneSettings";        Description: "StudioSceneSettings v1.3.2 (Adds more effect settings for scenes)"                    ; Types: full_en full extra_en extra
@@ -55,7 +55,7 @@ Name: "Content\KK_StudioCustomMasking";        Description: "Studio Custom Maski
 Name: "Content\KK_AccessoryClothes";           Description: "Accessory Clothes v1.0.2 (Necessary to load some accessories)"                        ; Types: full_en full extra extra_en
 Name: "Content\KK_EyeControl";                 Description: "Eye Control v1.0.1 (Allows making of closed eyed/not blinking charas)"                ; Types: full_en full extra extra_en
 Name: "Content\KK_Bulge";                      Description: "Bulge in the pants, tent in the woods v1.0.2 (Adds bulges to characters that pack a shlong)"; Types: full_en full extra extra_en
-Name: "Content\Timeline";                      Description: "Timeline v1.4.1 (Advanced animation editor for Studio (Ctrl+T, read the Help))"       ; Types: full_en full extra extra_en
+Name: "Content\Timeline";                      Description: "Timeline v1.4.2 (Advanced animation editor for Studio (Ctrl+T, read the Help))"       ; Types: full_en full extra extra_en
 Name: "Content\KK_Xraywomb";                   Description: "X-ray womb v1.0 (Accessory for x-ray effect in studio)"                               ; Types: full_en full extra extra_en
 Name: "Content\KK_LewdCrestX";                 Description: "LewdCrestX v1.4 (Give characters lewd crests)"                                        ; Types: full_en full extra extra_en
 Name: "Content\KK_TwoLut";                     Description: "Two Luts in Studio v1.0 (Allows you to freely mix two studio shades (luts))"          ; Types: full_en full extra extra_en
@@ -72,7 +72,7 @@ Name: "Content\MassShaderEditor_Koikatu";      Description: "Mass Shader Editor 
 Name: "Content\KK_TimelineFlowControl";        Description: "Timeline Flow Control Logic v1.0 (Adds simple logic to Timeline that allows for controlling playback, mostly to create limited animation loops.)"; Types: full_en full extra extra_en
 Name: "Content\KK_AmazingNewAccessoryLogic";   Description: "AmazingNewAccessoryLogic v0.0.7 (An alternative to madevil's AccessoryStateSync)"     ; Types: full_en full extra extra_en
 Name: "Content\KK_ProjectorUtils";             Description: "ProjectorUtils v1.0 (Projector support for ME)"                                       ; Types: full_en full extra extra_en
-Name: "Content\LightSettings_Koikatu";         Description: "Light Settings v1.0.3.5 (Allows changing more properties of lights than available by default)"; Types: full_en full extra extra_en
+Name: "Content\LightSettings_Koikatu";         Description: "Light Settings v1.0.4.5 (Allows changing more properties of lights than available by default)"; Types: full_en full extra extra_en
 Name: "Content\AddPose";                       Description: "Add Pose v1.6 (Adds more poses to maker, but the pose list will become slow to load)" 
 ; Name: "Content\KK_LightingEditor";             Description: "LightingEditor v1.1.0 (Adds more setting for light objects)"
 Name: "Content\KKUTS_TessFix";                 Description: "KKUTS_TessFix v1.0.0.1 (Fixes tesselation effects of KKUTS shader inside maker)"      
@@ -99,16 +99,16 @@ Name: "Feature\KK_MobAdder";                   Description: "Add mobs to roam mo
 Name: "Feature\KK_Ahegao";                     Description: "Ahegao v2.0 (Climax 3 times for ahegao)"                                              ; Types: full_en full extra_en extra
 Name: "Feature\KK_Autosave";                   Description: "Autosave v1.1.1 (Autosaves studio scenes and maker cards periodically)"               ; Types: full_en full extra extra_en
 Name: "Feature\KK_Autostart";                  Description: "Autostart v1.0.0 (Skip game startup screens or directly start character maker)"       ; Types: full_en full extra extra_en
-Name: "Feature\KK_BetterColorPicker";          Description: "Better Color Picker v3.1 (Grab color from anywhere on screen, e.g. a reference image)"; Types: full_en full extra_en extra
+Name: "Feature\KK_BetterColorPicker";          Description: "Better Color Picker v3.1.1 (Grab color from anywhere on screen, e.g. a reference image)"; Types: full_en full extra_en extra
 Name: "Feature\KK_BetterShadowQualitySettings"; Description: "BetterShadowQualitySettings v1.0.0.0 (Adds shadow related settings as plugin settings)"; Types: full_en full extra extra_en
 Name: "Feature\KK_CharaMakerLoadedSound";      Description: "Character Maker Loaded Sound v1.0 (Makes a sound when maker loads)"                   ; Types: full_en full extra_en extra
 Name: "Feature\JannieReplacer";                Description: "Character Replacer v1.6.3 (Can change the janitor to any character, requires Darkness)"; Types: full_en full extra_en extra
 Name: "Feature\KK_ClothColliders";             Description: "Cloth colliders support v1.1 (Allows zipmods to easily add cloth physics to clothes)" ; Types: full_en full extra extra_en
 Name: "Feature\ClothingStateMenu";             Description: "Clothing State Menu v4.0.1 (Can undress in chara maker and in H scenes)"              ; Types: full_en full extra_en extra
 Name: "Feature\KK_ClothingBlendShape";         Description: "Clothing BlendShape v1.0.0 (Adds the option to adjust the amount of squeeze for certain modded items)"; Types: full_en full extra extra_en
-Name: "Feature\Colliders";                     Description: "Colliders v1.3 (Add physics to characters)"                                           ; Types: full_en full extra_en extra
+Name: "Feature\Colliders";                     Description: "Colliders v1.3.1 (Add physics to characters)"                                         ; Types: full_en full extra_en extra
 Name: "Feature\KK_CoordinateLoadOption";       Description: "Coordinate Load Option v21.12.25.1 (Can load only specific parts of outfits)"         ; Types: full_en full extra extra_en
-Name: "Feature\DragAndDrop";                   Description: "Drag and Drop v1.3.0 (Drag cards and scenes from explorer into game window)"          ; Types: full_en full extra_en extra
+Name: "Feature\DragAndDrop";                   Description: "Drag and Drop v1.3.1 (Drag cards and scenes from explorer into game window)"          ; Types: full_en full extra_en extra
 Name: "Feature\KK_DynamicBoneEditor";          Description: "Dynamic Bone Editor v1.0.5 (Editing for accessory DynamicBones in the character maker)"; Types: full_en full extra extra_en
 Name: "Feature\KK_EditFangs";                  Description: "EditFangs v1.1.2 (Allows adjusting the length and position of the vanilla fangs)"     ; Types: full_en full extra extra_en
 Name: "Feature\EnableFullScreenToggle";        Description: "Enable Full Screen Toggle v1.0 (Toggle full screen with alt+enter)"                   ; Types: full_en full extra extra_en
@@ -161,13 +161,15 @@ Name: "Feature\KK_HairShadowColorControl";     Description: "HairShadowColorCont
 Name: "Feature\KK_MakerAccessorySlotNumbers";  Description: "MakerAccessorySlotNumbers v1.0.2 (Adds the according slot number infront of the accessory name)"; Types: full_en full extra extra_en
 ; Studio
 Name: "Feature\AnimationCurveEditor_Old";      Description: "AnimationCurveEditor v1.0.0.0 (Scripting resource that provides a visual spline editor for Unity AnimationCurves)"; Types: full_en full extra extra_en
-Name: "Feature\AnimationCurveEditor_Old\KK_DynamicBoneDistributionEditor"; Description: "DynamicBoneDistributionEditor v1.3.1 (Editor for Dynamic Bones offering some completely new features)"; Types: full_en full extra extra_en
+Name: "Feature\AnimationCurveEditor_Old\KK_DynamicBoneDistributionEditor"; Description: "DynamicBoneDistributionEditor v1.3.2 (Editor for Dynamic Bones offering some completely new features)"; Types: full_en full extra extra_en
 Name: "Feature\AdvIKPlugin";                   Description: "AdvIKPlugin v1.7.1 (Adds shoulder controls to IK in Studio)"                          ; Types: full_en full extra extra_en
 Name: "Feature\KK_ANIMATIONOVERDRIVE";         Description: "Animation Overdrive v1.1 (Unlock animation speed in studio, type in the text box)"    ; Types: full_en full extra_en extra
+Name: "Feature\AxisUnlocker";                  Description: "Axis Unlocker v1.1.0.5 (Makes the manipulation axis speed and size slider's minimum and maximum values configurable)"; Types: full_en full extra extra_en
 Name: "Feature\DefaultParamEditor";            Description: "DefaultParamEditor v1.4.1.0 (Set custom default studio settings)"                     ; Types: full_en full extra_en extra
 Name: "Feature\KK_StudioExtraMoveAxis";        Description: "Extra move axis in bottom right corner v2.0 (Adds extra move gizmo in bottom right corner for studio)"; Types: full_en full extra extra_en
 Name: "Feature\KK_FKIK";                       Description: "FK and IK v1.1.3 (Adds FK & IK mode in studio)"                                       ; Types: full_en full extra_en extra
 Name: "Feature\ItemLayerEdit";                 Description: "Item Layer Edit v1.1.2.0 (Switch objects between chara and map layers)"               ; Types: full_en full extra extra_en
+Name: "Feature\LightToggler";                  Description: "Light Toggler v1.0.0.5 (Automatically toggles on/off lights when a parent folder or object is toggled on/off)"; Types: full_en full extra extra_en
 Name: "Feature\LightManager";                  Description: "Light Manager v1.0.2.0 (Studio spotlights can track characters)"                      ; Types: full_en full extra extra_en
 Name: "Feature\MoveControllerKOI";             Description: "Move Controller KOI v1.7.1.1 (This plugin makes moving, rotating of objects in the CharaStudio easier)"; Types: full_en full extra extra_en
 Name: "Feature\KK_OrthographicCamera";         Description: "OrthographicCamera v1.1.2 (Adds a new camera hotkey to game and studio)"              ; Types: full_en full extra_en extra
@@ -204,13 +206,13 @@ Name: "Feature\Boop";                          Description: "Boop v2.1 (Make 'em
 Name: "Feature\KK_NightDarkener";              Description: "Night Darkener v1.3 (Makes H scenes at night much darker)"                            ; Types: extra extra_en
 Name: "Feature\KK_HSceneOptions";              Description: "HSceneOptions v3.2.1 (Additional options and keyboard shortcuts for H in Koikatsu)"   ; Types: extra extra_en
 Name: "Feature\KK_CrossEye";                   Description: "CrossEye v1.6 (Fake 3D mode by crossing your eyes)"                                   ; Types: extra_en extra
-Name: "Feature\KK_ExpressionControl";          Description: "ExpressionControl v0.2.7.4 (Allows altering expressions in-game(Hotkey L))"           ; Types: extra extra_en
+Name: "Feature\KK_ExpressionControl";          Description: "ExpressionControl v0.2.7.5 (Allows altering expressions in-game(Hotkey L))"           ; Types: extra extra_en
 Name: "Feature\KK_TreeNodeNaming";             Description: "TreeNodeNaming v1.2.0 (Allows the renaming of nodes in studio treeview)"              ; Types: extra extra_en
 Name: "Feature\KK_BreastPhysicsController";    Description: "BreastPhysicsController v2.1 (Enables control of DynamicBone's some parameters for breasts)"; Types: extra extra_en
 Name: "Feature\DarknessWithStrawberry";        Description: "Darkness with strawberry flavor v0.3 (Can use all personalities in the darkness event and make the event 'consensual')"; Types: extra extra_en
 Name: "Feature\KK_VideoPlate";                 Description: "VideoPlate v1.1.2 (It's like an image plate but for videos)"                          ; Types: extra extra_en
 Name: "Feature\KK_StudioOverlayManager";       Description: "Studio Overlay Manager v1.0 (Allows you to manage the overlay textures of character's skin and clothing inside Studio)"; Types: extra extra_en
-Name: "Feature\KK_ShalltyUtils";               Description: "Shallty Utils v1.1 (A utility plugin focused on enhancing Timeline to improve animator's workflows (may cause issues))"; Types: extra extra_en
+Name: "Feature\KK_ShalltyUtils";               Description: "Shallty Utils v1.3 (A utility plugin focused on enhancing Timeline to improve animator's workflows (may cause issues))"; Types: extra extra_en
 Name: "Feature\KK_Save_PostProcessingEffects"; Description: "Save_PostProcessingEffects v0.1 (A simple plugin to save PostProcessingEffects data in the Scene)"; Types: extra extra_en
 Name: "Feature\BetterSceneLoader_Koikatu";     Description: "BetterSceneLoader v1.0.3.0 (An alternative scene loader for Studio.)"                 ; Types: extra extra_en
 Name: "Feature\KK_CosplayAcademy";             Description: "Cosplay Academy v0.9.1 (Randomizes outfits for characters using folders based on how lewd they are)"
@@ -449,6 +451,8 @@ Source: "Input\_Plugins\_out\KK_StudioSkinColorControl\*";  DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\KK_MakerAccessorySlotNumbers\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_MakerAccessorySlotNumbers; Excludes: "manifest.xml"; Check: not IsSteam and not IsConvertedSteam
 Source: "Input\_Plugins\_out\KK_ShadowColorSwapper\*";      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_ShadowColorSwapper; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\StudioCharaSort\*";            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\StudioCharaSort; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\AxisUnlocker.Koikatu\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\AxisUnlocker; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\LightToggler.Koikatu\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\LightToggler; Excludes: "manifest.xml"
 ; Source: "Input\_Plugins\_out\KK_AccUndo\*";                 DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\KK_AccUndo; Excludes: "manifest.xml"
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_Plugins\_out\FPSCounter\*";                 DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\FPS; Excludes: "manifest.xml"
