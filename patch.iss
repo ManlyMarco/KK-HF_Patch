@@ -7,7 +7,7 @@
 ;-------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;---------------------------------------------Current HF Patch version
-#define VERSION "3.33"
+#define VERSION "3.34"
 ;-----------------------------------------Sideloader modpack directory
 #define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
@@ -38,7 +38,7 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
 LZMADictionarySize=208576
 LZMANumFastBytes=273
-LZMANumBlockThreads=16
+LZMANumBlockThreads=8
 ;#ifndef LITE
 DiskSpanning=yes
 ;#endif
