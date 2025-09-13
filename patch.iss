@@ -7,7 +7,7 @@
 ;-------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;---------------------------------------------Current HF Patch version
-#define VERSION "3.34"
+#define VERSION "3.35"
 ;-----------------------------------------Sideloader modpack directory
 #define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
@@ -297,6 +297,9 @@ Type: files; Name: "{app}\BepInEx\KoiClothesOverlay.dll"; Components: Content\KS
 Type: files; Name: "{app}\BepInEx\RuntimeUnityEditor.dll"; Components: MISC\RuntimeUnityEditor
 Type: files; Name: "{app}\BepInEx\HideStudioUI.dll"
 Type: files; Name: "{app}\BepInEx\HideHInterface.dll"
+
+; Bad settings that can't be easily reset
+Type: files; Name: "{app}\BepInEx\config\org.bepinex.plugins.PostProcessingEffectsV3.cfg"
 
 Type: files; Name: "{app}\XInputInterface.dll"
 

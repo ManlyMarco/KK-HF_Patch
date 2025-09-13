@@ -3,7 +3,7 @@
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
 
-# Acc Mover v1.1.1.9
+# Acc Mover v1.2.1.9
 - Short description: Revamps the Transfer tab of the accessories panel, letting you copy, move, or compact accessories
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
@@ -128,7 +128,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_BetterColorPicker
 
-# Better Scaling v1.2.0.9
+# Better Scaling v1.2.1.9
 - Short description: Allows you to scale folders and to scale everything on a logarithmic scale when using the guide objects in studio
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
@@ -273,8 +273,8 @@
 - Author(s):         MaouKurayami
 - More information:  https://github.com/MayouKurayami/KK_CrossFader
 
-# Custom intro voices v30.0
-- Short description: Michi is freaky
+# Custom intro voices v32.0
+- Short description: Parasocial for AI vtubers
 - Author(s):         ManlyMarco
 - More information:  https://www.youtube.com/watch?v=SZBQ4lQFqvw
 
@@ -318,7 +318,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# DynamicBoneDistributionEditor v2.0.0
+# DynamicBoneDistributionEditor v1.5.1
 - Short description: Editor for Dynamic Bones offering some completely new features
 - Author(s):         Njaecha
 - More information:  https://github.com/Njaecha/DynamicBoneDistributionEditor
@@ -463,7 +463,7 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_HSceneOptions
 
-# IllusionFixes v22.0.3
+# IllusionFixes v22.0.3.1
 - Short description: A collection of important fixes
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -482,6 +482,11 @@
 - Short description: Embeds custom images in scene files so others can load them
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
+
+# IMGUI_HiDPI_Patcher v0.0.4.0
+- Short description: Increases text size in plugin windows (!Known to cause issues with some plugins!)
+- Author(s):         y=soro
+- More information:  https://github.com/y0soro/Unity.IMGUI.HiDPI.Patcher
 
 # Input Hotkey Block v1.4
 - Short description: Blocks plugin keybinds while typing
@@ -548,12 +553,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionSFW
 
-# KK_VR v2.4
+# KK_VR v2.5
 - Short description: Allows you to play both the main game and studio in VR
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KKS_VR
 
-# KK_VR v2.4
+# KK_VR v2.5
 - Short description: Allows you to play both the main game and studio in VR
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KKS_VR
@@ -563,7 +568,7 @@
 - Author(s):         Hanaaa
 - More information:  Discord
 
-# KKABMX (BonemodX) v5.2.5
+# KKABMX (BonemodX) v5.3
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
@@ -573,7 +578,7 @@
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
 
-# KKPE v2.21.1
+# KKPE v2.21.3
 - Short description: Advanced studio controls
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -603,7 +608,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionTrapMods
 
-# Koikatu Gameplay Tweaks and Improvements v2.3
+# Koikatu Gameplay Tweaks and Improvements v2.4
 - Short description: Gameplay tweaks; Load 99 characters in school
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
@@ -643,7 +648,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# LoveMachine v3.20.0
+# LoveMachine v4.0.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/LoveMachine
@@ -693,12 +698,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Mass Shader Editor v1.4.0.9
+# Mass Shader Editor v1.4.1.9
 - Short description: Lets you edit the properties of multiple shaders at once, based on item selection
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins/
 
-# Material Editor v3.13.1
+# Material Editor v3.13.3
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -758,7 +763,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# NodesConstraints v1.4.1
+# NodesConstraints v1.6
 - Short description: Create custom animations in studio
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -823,7 +828,7 @@
 - Author(s):         RikkiBalboa
 - More information:  https://github.com/RikkiBalboa/Rikki-Koi-Plugins
 
-# Pushup v1.4.0
+# Pushup v1.5.2
 - Short description: Bras affect breast shape, replaces Kiyase
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -853,7 +858,7 @@
 - Author(s):         RSkoi
 - More information:  https://github.com/RSkoi/ComponentUtil
 
-# Runtime Unity Editor v6.1
+# Runtime Unity Editor v6.1.1
 - Short description: Debugging and development tool
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
@@ -867,6 +872,11 @@
 - Short description: Saves FoV values to placed camera objects
 - Author(s):         RikkiBalboa
 - More information:  https://github.com/RikkiBalboa/Koikatsu-Plugins
+
+# Scene Effects Presets v2.1
+- Short description: Allows you to manage scene effects presets inside Studio
+- Author(s):         Shallty
+- More information:  https://github.com/ShalltyB/SceneEffectsPresets
 
 # Sex Faces v1.3.0
 - Short description: Adds the ability to set custom facial expressions to be displayed during H scenes
@@ -893,7 +903,7 @@
 - Author(s):         Shallty
 - More information:  ???
 
-# Skin Overlay Mod v7.0.2
+# Skin Overlay Mod v7.0.3
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
@@ -907,6 +917,11 @@
 - Short description: Better-looking ahegao eyes
 - Author(s):         ???
 - More information:  ???
+
+# SpawnLocker v1.0.0
+- Short description: Lets you lock characters to always appear in free roam
+- Author(s):         ???
+- More information:  KK discord
 
 # Stiletto v2.4.2
 - Short description: Support for high heels
@@ -1003,6 +1018,11 @@
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
+# StudioNodeTweaks v1.2
+- Short description: Makes posing easier in studio by modifying how nodes look
+- Author(s):         krypto4863
+- More information:  https://github.com/krypto5863/Illusion.StudioNodeTweaks
+
 # StudioPOV v1.1.1
 - Short description: First person view for studio
 - Author(s):         Mantas-2155X aka 2155X
@@ -1053,7 +1073,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.5.1
+# Timeline v1.5.2
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -1096,7 +1116,7 @@
 # UIScalerAndWidescreenSupport v1.0.2
 - Short description: Allows widescreen and UI scaling
 - Author(s):         Hijack Hornet
-- More information:  https://github.com/HijackHornet/IllusionMods
+- More information:  https://github.com/ManlyMarco/HijackHornet_IllusionMods
 
 # Uncensor Selector v3.12.3
 - Short description: NEEDS Koikatsu Overlay Mods!
@@ -1108,7 +1128,7 @@
 - Author(s):         CptGrey
 - More information:  https://github.com/CptGrey/KK_Archetypes
 
-# VideoExport v1.7
+# VideoExport v1.7.1
 - Short description: Video and gif recorder, press Ctrl+E
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
