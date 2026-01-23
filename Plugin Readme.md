@@ -13,7 +13,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Accessory Clothes v1.0.2
+# Accessory Clothes v1.0.3
 - Short description: Necessary to load some accessories
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -88,7 +88,12 @@
 - Author(s):         Njaecha
 - More information:  https://github.com/Njaecha/UnityAnimationCurveEditor
 
-# Autosave v2.0
+# Anisotropic Morph v0.25
+- Short description: An ABMX Plugin that applies a variety of highly customizable effects to a variety of bones
+- Author(s):         lotsofbears
+- More information:  https://github.com/lotsofbears/KK_AnisotropicMorph
+
+# Autosave v3.0
 - Short description: Autosaves studio scenes and maker cards periodically
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -118,7 +123,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.SplashScreen
 
-# BepisPlugins v21.1.2
+# BepisPlugins v21.1.2.1
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -148,6 +153,11 @@
 - Author(s):         MayouKurayami
 - More information:  https://github.com/MayouKurayami/KK_BetterSquirt
 
+# Birb's Excitement Gauge v1.1
+- Short description: Links the animation speed to excitement gain in H mods
+- Author(s):         lotsofbears
+- More information:  https://gitgoon.dev/lotsofbears/KK_BirbExGauge
+
 # Boobs outline + unc outline fix
 - Short description: It improves how outlines look around cleavage and pubic areas
 - Author(s):         stinger722
@@ -167,6 +177,11 @@
 - Short description: Adds bulges to characters that pack a shlong
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
+
+# Butt Physics Editor v1.1
+- Short description: Butt Physics Editor for Koikatsu
+- Author(s):         RikkiBalboa
+- More information:  KK Discord
 
 # C# Script Loader v1.2.4
 - Short description: Runs user scripts from scripts folder
@@ -243,6 +258,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# ColliderSound v1.2
+- Short description: Allows to play a selected .wav soundfile, if an object is a specified distance from another object
+- Author(s):         RinuNalo
+- More information:  KK Discord
+
 # Configuration Manager v18.4.1
 - Short description: Can change plugin settings. Press F1 to open, not visible inside HMD
 - Author(s):         BepInEx
@@ -268,8 +288,8 @@
 - Author(s):         MaouKurayami
 - More information:  https://github.com/MayouKurayami/KK_CrossFader
 
-# Custom intro voices v33.0
-- Short description: Being a gooner is my job
+# Custom intro voices v34.0
+- Short description: Gitgoon
 - Author(s):         ManlyMarco
 - More information:  https://www.youtube.com/watch?v=SZBQ4lQFqvw
 
@@ -308,7 +328,7 @@
 - Author(s):         GeBo1
 - More information:  https://github.com/GeBo1/GeBoPlugins
 
-# Dynamic Bone Editor v1.0.5
+# Dynamic Bone Editor v1.1
 - Short description: Editing for accessory DynamicBones in the character maker
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -378,7 +398,7 @@
 - Author(s):         OrangeSpork
 - More information:  https://github.com/OrangeSpork/FKHeightAdjustUI
 
-# Force High Poly v2.1
+# Force High Poly v3.12.3
 - Short description: Full-quality characters in school, enable in plugin settings
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -433,7 +453,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# HairShadowColorControl v1.0
+# HairShadowColorControl v4.0
 - Short description: Convenient controls for changing the shadow color of character hair in maker.
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KK_Plugins/
@@ -473,7 +493,7 @@
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
 
-# Image Embed v1.0.3
+# Image Embed v4.0
 - Short description: Embeds custom images in scene files so others can load them
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -513,7 +533,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v4.5.5.2
+# KK Better Penetration v5.0.1.5
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
@@ -522,6 +542,11 @@
 - Short description: Allows editing of details of main story charas
 - Author(s):         Sabakan
 - More information:  ???
+
+# KK_IKAmplifier v1.1.0
+- Short description: Amplifies animations with active IK
+- Author(s):         lotsofbears
+- More information:  https://github.com/lotsofbears/KK_IKAmplifier
 
 # KK_PostProcessingEffect v4.5
 - Short description: Adds additional post processing options in the F1 Plugins menu
@@ -577,6 +602,11 @@
 - Short description: Advanced studio controls
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
+
+# KKS_StudioItemIK v0.2.0
+- Short description: Allows you to add FabrikIK support to any studio item with a single chain of bones
+- Author(s):         Starstorm
+- More information:  KK Discord
 
 # KKShadowPatcher.Koikatu v1.0.0.9
 - Short description: Increases the maximum shadow resolution for KK lights
@@ -643,7 +673,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# LoveMachine v4.1.0
+# LoveMachine v4.2.1
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/LoveMachine
@@ -653,7 +683,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Maker/Studio Browser Folders v3.2.3
+# Maker/Studio Browser Folders v4.0.1
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -698,7 +728,7 @@
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins/
 
-# Material Editor v3.13.5
+# Material Editor v4.0
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -853,7 +883,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RSkoi_ComponentUtil v1.4.2
+# RSkoi_ComponentUtil v1.5.0
 - Short description: Allows for inspection and editing of primitive types on components within a scene. KK version.
 - Author(s):         RSkoi
 - More information:  https://github.com/RSkoi/ComponentUtil
@@ -883,7 +913,7 @@
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/SexFaces/releases/tag/v1.3.0
 
-# Shader Swapper v1.7
+# Shader Swapper v4.0
 - Short description: Swap all shaders to the equivalent Vanilla Plus shader in maker (ctrl + P)
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -923,7 +953,7 @@
 - Author(s):         ???
 - More information:  KK discord
 
-# Stiletto v2.4.2
+# Stiletto v2.4.2.1
 - Short description: Support for high heels
 - Author(s):         essu
 - More information:  https://github.com/IllusionMods/Stiletto/releases
@@ -953,7 +983,7 @@
 - Author(s):         https://github.com/kkykkykky/
 - More information:  https://github.com/kkykkykky/StudioCharaSort
 
-# Studio Custom Masking v1.2
+# Studio Custom Masking v1.3.2
 - Short description: Can mark studio items to not block camera view
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -1023,11 +1053,6 @@
 - Author(s):         krypto4863
 - More information:  https://github.com/krypto5863/Illusion.StudioNodeTweaks
 
-# StudioPOV v1.1.1
-- Short description: First person view for studio
-- Author(s):         Mantas-2155X aka 2155X
-- More information:  https://www.patreon.com/2155X
-
 # StudioSceneSettings v1.3.2
 - Short description: Adds more effect settings for scenes
 - Author(s):         DeathWeasel1337
@@ -1073,7 +1098,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.5.4
+# Timeline v1.5.5
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -1118,7 +1143,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# UIScalerAndWidescreenSupport v1.0.2
+# UIScalerAndWidescreenSupport v1.0.3
 - Short description: Allows widescreen and UI scaling
 - Author(s):         Hijack Hornet
 - More information:  https://github.com/ManlyMarco/HijackHornet_IllusionMods
@@ -1133,7 +1158,7 @@
 - Author(s):         CptGrey
 - More information:  https://github.com/CptGrey/KK_Archetypes
 
-# VideoExport v1.8
+# VideoExport v2.0.1
 - Short description: Video and gif recorder, press Ctrl+E
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
