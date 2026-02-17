@@ -575,6 +575,17 @@ begin
   // allow the setup turning to the next page
   Result := True;
 
+  if (CurPageID = wpInfoBefore) then
+  begin
+      if (FileExists('C:\windows\system32\winecfg.exe')) then
+      begin
+          if (MsgBox('Since you are running under Linux you must perform additional steps at the end of the installation.'#13#10#13#10'Read the Linux guides linked on this page before continuing. Click No to continue.', mbError, MB_YESNO) = IDYES) then
+          begin
+            Result := False;
+          end;
+      end;
+  end;
+  
   if (CurPageID = wpSelectDir) then
   begin
     if Result = True then
