@@ -3,7 +3,7 @@
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
 
-# Acc Mover v1.2.1.9
+# Acc Mover v1.3.2.11
 - Short description: Revamps the Transfer tab of the accessories panel, letting you copy, move, or compact accessories
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
@@ -113,7 +113,7 @@
 - Author(s):         ymgpt
 - More information:  ???
 
-# BepInEx v5.4.23.4
+# BepInEx v5.4.23.5
 - Short description: Plugin framework
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
@@ -133,7 +133,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KK_BetterColorPicker
 
-# Better Scaling v1.2.1.9
+# Better Scaling v1.2.2.11
 - Short description: Allows you to scale folders and to scale everything on a logarithmic scale when using the guide objects in studio
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
@@ -223,7 +223,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Cheat Tools v3.6
+# Cheat Tools v3.6.1
 - Short description: Trainer, press F12 to open, it's in the bottom left corner
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionCheatTools
@@ -358,7 +358,7 @@
 - Author(s):         Esu
 - More information:  https://github.com/Kokaiinum/ExpandMaleMaker
 
-# ExpressionControl v0.2.7.9
+# ExpressionControl v0.3.0.11
 - Short description: Allows altering expressions in-game(Hotkey L)
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
@@ -398,7 +398,7 @@
 - Author(s):         OrangeSpork
 - More information:  https://github.com/OrangeSpork/FKHeightAdjustUI
 
-# Force High Poly v3.12.3
+# Force High Poly v2.1
 - Short description: Full-quality characters in school, enable in plugin settings
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -453,7 +453,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# HairShadowColorControl v4.0
+# HairShadowColorControl v1.0
 - Short description: Convenient controls for changing the shadow color of character hair in maker.
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KK_Plugins/
@@ -493,7 +493,7 @@
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
 
-# Image Embed v4.0
+# Image Embed v1.0.3
 - Short description: Embeds custom images in scene files so others can load them
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -573,6 +573,11 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/IllusionSFW
 
+# KK_StudioItemIK v0.2.0
+- Short description: Allows you to add FabrikIK support to any studio item with a single chain of bones
+- Author(s):         Starstorm
+- More information:  KK Discord
+
 # KK_VR v2.5
 - Short description: Allows you to play both the main game and studio in VR
 - Author(s):         IllusionMods
@@ -593,7 +598,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
 
-# KKManager v1.7.0.0
+# KKManager v1.8.0.0
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
@@ -603,17 +608,12 @@
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
 
-# KKS_StudioItemIK v0.2.0
-- Short description: Allows you to add FabrikIK support to any studio item with a single chain of bones
-- Author(s):         Starstorm
-- More information:  KK Discord
-
 # KKShadowPatcher.Koikatu v1.0.0.9
 - Short description: Increases the maximum shadow resolution for KK lights
 - Author(s):         Startstorm
 - More information:  https://github.com/starstormhun/StarPlugins
 
-# KKUS v1.15
+# KKUS v1.15.0.1
 - Short description: Search boxes, studio and maker improvements
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -648,7 +648,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# Light Settings v1.2.0.9
+# Light Settings v1.3.0.11
 - Short description: Allows changing more properties of lights than available by default
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins
@@ -673,7 +673,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# LoveMachine v4.2.1
+# LoveMachine v4.4.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/LoveMachine
@@ -723,12 +723,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Mass Shader Editor v1.4.1.9
+# Mass Shader Editor v1.5.1.11
 - Short description: Lets you edit the properties of multiple shaders at once, based on item selection
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins/
 
-# Material Editor v4.0
+# Material Editor v4.0.2
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -758,7 +758,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.45.1
+# Modding API v1.46.1
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -793,12 +793,12 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KoikatuGameplayMods
 
-# NodesConstraints v1.6.2
+# NodesConstraints v1.6.2.1
 - Short description: Create custom animations in studio
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
 
-# ObjectMap v1.1.7
+# ObjectMap v1.2.2
 - Short description: Allows editing of studio maps as normal objects
 - Author(s):         krypto4863
 - More information:  https://github.com/krypto5863/Illusion.ObjectMap
@@ -848,6 +848,11 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# PoseLibrary v1.4.0
+- Short description: Allows to save character poses as cards, or load them
+- Author(s):         Rinu Nalo
+- More information:  KK Discord
+
 # Profile v1.0.3
 - Short description: A textbox in maker to write a character description
 - Author(s):         DeathWeasel1337
@@ -867,6 +872,11 @@
 - Short description: Search all studio items, LeftCtrl+Space
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/QuickAccessBox
+
+# QuickTools v1.0.0
+- Short description: Adds a quick UI panel for common character, camera, and item controls
+- Author(s):         emkyfreak
+- More information:  https://github.com/emkyfreak/QuickTools
 
 # RealPOV v1.4.1.1
 - Short description: First person camera for H
@@ -913,7 +923,7 @@
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/SexFaces/releases/tag/v1.3.0
 
-# Shader Swapper v4.0
+# Shader Swapper v1.8.1
 - Short description: Swap all shaders to the equivalent Vanilla Plus shader in maker (ctrl + P)
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -933,7 +943,7 @@
 - Author(s):         Shallty
 - More information:  ???
 
-# Skin Overlay Mod v7.0.3
+# Skin Overlay Mod v7.1.2
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
@@ -983,7 +993,7 @@
 - Author(s):         https://github.com/kkykkykky/
 - More information:  https://github.com/kkykkykky/StudioCharaSort
 
-# Studio Custom Masking v1.3.2
+# Studio Custom Masking v1.2
 - Short description: Can mark studio items to not block camera view
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -1098,7 +1108,12 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# Timeline v1.5.5
+# The Bird of Hermes v4.1.0.0
+- Short description: Timeline addon, allows loading an audio file, and get a waveform of the audio
+- Author(s):         Rinu Nalo
+- More information:  KK Discord/
+
+# Timeline v1.5.5.1
 - Short description: Advanced animation editor for Studio (Ctrl+T, read the Help)
 - Author(s):         Joan6694
 - More information:  https://www.patreon.com/posts/37188531
@@ -1158,7 +1173,7 @@
 - Author(s):         CptGrey
 - More information:  https://github.com/CptGrey/KK_Archetypes
 
-# VideoExport v2.0.1
+# VideoExport v2.0.3
 - Short description: Video and gif recorder, press Ctrl+E
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
@@ -1183,7 +1198,7 @@
 - Author(s):         GFanon
 - More information:  ???
 
-# XUnity Auto Translator v5.5
+# XUnity Auto Translator v5.5.1
 - Short description: Translation loader
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator
