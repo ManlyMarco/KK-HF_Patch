@@ -9,8 +9,8 @@
 ;---------------------------------------------Current HF Patch version
 #define VERSION "3.38"
 ;-----------------------------------------Sideloader modpack directory
-#define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
-;#define ModsDir "F:\Games\KoikatsuP\mods"
+;#define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
+#define GameDir "F:\Games\KoikatsuP"
 ;--Don't include any files in the build to make it go fast for testing
 ;#define DEBUG
 ;---Skip file verification for easier testing, COMMENT OUT FOR RELEASE
@@ -89,7 +89,7 @@ Name: "Experimental"; Description: "Experimental performance optimizations (Redu
 ; Name: "FIX\URL"; Description: "Use custom Character Database (fan-operated character DB - no IP blocking and mods are allowed)"; Types: full_en bare custom extra_en
 
 [Files]
-Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
+Source: "HelperLib\bin\HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 Source: "Input\start.bat"; DestDir: "{tmp}\hfp"; Flags: ignoreversion recursesubdirs createallsubdirs
 #ifndef DEBUG
 Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\hfp\DirectXRedist2010"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall; Check: DirectXRedistNeedsInstall
@@ -389,49 +389,40 @@ Filename: "https://github.com/ManlyMarco/KK-HF_Patch"; Description: "Latest rele
 Filename: "https://www.patreon.com/ManlyMarco"; Description: "ManlyMarco Patreon (Creator of this patch)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
 
 [Code]
-procedure FindInstallLocation(path: String; gameName: String; gameNameSteam: String; out strout: WideString);
+procedure FindInstallLocation(path, companyName, gameName, gameNameSteam: String; out strout: WideString);
 external 'FindInstallLocation@files:HelperLib.dll stdcall';
 
 procedure CreateBackup(path: String);
 external 'CreateBackup@files:HelperLib.dll stdcall';
 
-procedure FixConfig(path: String);
-external 'FixConfig@files:HelperLib.dll stdcall';
-
-procedure PostInstallCleanUp(path: String);
-external 'PostInstallCleanUp@files:HelperLib.dll stdcall';
-
 procedure WriteVersionFile(path, version: String);
 external 'WriteVersionFile@files:HelperLib.dll stdcall';
-
-procedure SetConfigDefaults(path: String);
-external 'SetConfigDefaults@files:HelperLib.dll stdcall';
 
 procedure FixPermissions(path: String);
 external 'FixPermissions@files:HelperLib.dll stdcall';
 
-procedure RemoveJapaneseCards(path: String);
-external 'RemoveJapaneseCards@files:HelperLib.dll stdcall';
+procedure FixConfigIllusion(path: String);
+external 'FixConfigIllusion@files:HelperLib.dll stdcall';
 
-procedure RemoveNonstandardListfiles(path: String);
-external 'RemoveNonstandardListfiles@files:HelperLib.dll stdcall';
+procedure FixConfigKoikatsu(path: String);
+external 'FixConfigKoikatsu@files:HelperLib.dll stdcall';
+
+procedure RemoveModsExceptModpacks(path: String);
+external 'RemoveModsExceptModpacks@files:HelperLib.dll stdcall';
 
 procedure RemoveSideloaderDuplicates(path: String);
 external 'RemoveSideloaderDuplicates@files:HelperLib.dll stdcall';
 
-procedure RemoveModsExceptModpacks(path: String);
-external 'RemoveModsExceptModpacks@files:HelperLib.dll stdcall';
+procedure RemoveNonstandardListfiles(path: String);
+external 'RemoveNonstandardListfiles@files:HelperLib.dll stdcall';
 
 function GetDefaultDirName(Param: string): string;
 var
   str: WideString;
 begin
-  FindInstallLocation(ExpandConstant('{src}'), 'Koikatu', 'Koikatsu Party', str);
+  FindInstallLocation(ExpandConstant('{src}'), 'Illusion', 'Koikatu', 'Koikatsu Party', str);
   Result := str;
 end;
-
-procedure StartAutoUpdate(path, installer: String; sm, smcp, smf, smme, smus, smmap, smstu: Boolean);
-external 'StartAutoUpdate@files:HelperLib.dll stdcall';
 
 function VRInstalled(): Boolean;
 begin
@@ -541,15 +532,115 @@ begin
     
     // Delete Japanese versions of cards and bgs if English versions are installed (only those with different names)
     if IsComponentSelected('AT\TL\EnglishTranslation\UserData') then
-        RemoveJapaneseCards(ExpandConstant('{app}'));
+    begin
+        DeleteFile(ExpandConstant('{app}\UserData\bg\チャペル_夕.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\チャペル_昼.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\公園_夕.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\公園_夜.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\公園_昼.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\夜景.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\宇宙空間01.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\宇宙空間02.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\宇宙空間03.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\宇宙空間04.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\遊園地_夕.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\遊園地_夜.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\遊園地_昼.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\駅前_夕.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\駅前_夜.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\bg\駅前_昼.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\お嬢様.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\のじゃっ子.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ひねくれ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ものぐさ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\オタク女子.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ギャル.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ギャル2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\セクシー.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ボーイッシュ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ミステリアス.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ミーハー.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\モジモジ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\ヤンデレ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\不幸少女.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\不良少女.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\勝ち気.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\単純.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\単純2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\大和撫子.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\姉御肌.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\後輩キャラ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\意地っ張り.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\意識高いクール.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\意識高いクール2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\文学少女.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\正統派ヒロイン.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\正統派ヒロイン2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\母性的.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\母性的2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\気さく.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\無口.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\無口2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\純真無垢.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\純真無垢2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\素直クール.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\素直クール2.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\艶やか.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\誠実.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\邪気眼.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\野性的.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\電波.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\chara\female\高飛車.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\お泊り１.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\お泊り２.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\アイドル.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\キャビンアテンダント.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\キュートナース.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\クリスマス.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\クロスホルター.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\サスペンダー.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ショートパレオ（単色）.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ショートパレオ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\シースルーパレオ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\セクシーパレオ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\セクシーランジェリー.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\チアガール.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ハイクオリティメイド.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ハロウィン.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\パレオ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ビキニ水着（フリル付き）.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\フリルワンピース.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\マイクロモノキニ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\メカ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ラインタンガ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ワンピース(無地).png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\ワンピース(花柄).png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\体操着.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\全身タイツ.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\制服.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\和メイド.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\大人ワンピース.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\小悪魔.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\巫女武者.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\教師.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\水着.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\白衣.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\私服.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\裸エプロン.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\裸サスペンダー.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\軍服.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\騎士.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\鬼神.png'));
+        DeleteFile(ExpandConstant('{app}\UserData\coordinate\魔法少女.png'));
+    end;
         
-    FixConfig(ExpandConstant('{app}'));
+    FixConfigIllusion(ExpandConstant('{app}'));
+    FixConfigKoikatsu(ExpandConstant('{app}'));
+    
     WriteVersionFile(ExpandConstant('{app}'), '{#VERSION}');
     
     // Prevent trying to install the redist again
     Exec('reg', 'add HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam\Apps\CommonRedist\DirectX\Jun2010 /v dxsetup /t REG_DWORD /d 1 /f /reg:32', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    
-    PostInstallCleanUp(ExpandConstant('{app}'));
   end;
 end;
 
@@ -830,22 +921,11 @@ begin
       Exec('taskkill', '/F /IM KKManager.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
       Exec('taskkill', '/F /IM StandaloneUpdater.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
 
-      // Often needed after fixing permissions to unlock the files so the permissions can be written, without this access to them is always denied
-      //Exec('taskkill', '/F /IM explorer.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-
       PrepareToInstallWithProgressPage.SetProgress(5, 10);
       PrepareToInstallWithProgressPage.SetText('Fixing file permissions of game directory', '');
 
       // Fix file permissions
-      //Exec('takeown', ExpandConstant('/f "{app}" /r /SKIPSL /d y'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      //Exec('icacls', ExpandConstant('"{app}" /grant everyone:F /t /c /l'), ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
       FixPermissions(ExpandConstant('{app}'));
-      
-      //try
-      //  ExecAsOriginalUser('explorer.exe', '', '', 0, ewNoWait, ResultCode);
-      //except
-      //  ShowExceptionMessage();
-      //end;
     except
       ShowExceptionMessage();
     end;
@@ -912,8 +992,6 @@ begin
       DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
       Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
     end;
-
-    SetConfigDefaults(ExpandConstant('{app}'));
   end;
   
   PrepareToInstallWithProgressPage.SetProgress(10, 10);

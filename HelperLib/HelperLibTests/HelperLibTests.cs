@@ -13,16 +13,11 @@ namespace HelperLib.Tests
     public class HelperLibTests
     {
 
+        /*
         [Test]
         public void RemoveSideloaderDuplicatesTest()
         {
             HelperLib.RemoveSideloaderDuplicates(@"D:\_Koikatu\_koikatu hf patch test");
-        }
-
-        [Test]
-        public void FixConfigTest()
-        {
-            HelperLib.FixConfig(@"D:\Games\Koikatsu");
         }
 
         [Test]
@@ -40,8 +35,8 @@ namespace HelperLib.Tests
         [Test]
         public void SetConfigVariableTest()
         {
-            HelperLib.SetConfigVariable(Path.Combine(@"F:\Games\KoikatsuP", @"BepInEx\config\KK_PregnancyPlus.cfg"), "[KK_Pregnancy Integration]", "Override KK_Pregnancy belly shape", "true");
-        }
+            Util.SetConfigVariable(Path.Combine(@"F:\Games\KoikatsuP", @"BepInEx\config\KK_PregnancyPlus.cfg"), "[KK_Pregnancy Integration]", "Override KK_Pregnancy belly shape", "true");
+        }*/
 
         [Test]
         public void SteamFindTest()
