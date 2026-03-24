@@ -186,9 +186,7 @@ namespace HelperLib
 
             try
             {
-                var steamAppsLocations = new Steam().SteamAppsLocations;
-                var selectMany = steamAppsLocations.Select(x => Path.Combine(x, "common")).SelectMany(Directory.GetDirectories);
-                var steamLoc = selectMany.FirstOrDefault(x => Path.GetFileName(x).Equals(gameNameSteam, StringComparison.InvariantCultureIgnoreCase));
+                var steamLoc = new Steam().FindAppPathIfInstalled(gameNameSteam);
                 if (Directory.Exists(steamLoc))
                 {
                     strout = steamLoc;

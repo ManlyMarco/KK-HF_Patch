@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using HelperLib;
 using System;
 using System.Collections.Generic;
@@ -9,37 +9,58 @@ using System.IO;
 
 namespace HelperLib.Tests
 {
-    [TestClass()]
+    [TestFixture]
     public class HelperLibTests
     {
-        [TestMethod()]
+
+        [Test]
         public void RemoveSideloaderDuplicatesTest()
         {
             HelperLib.RemoveSideloaderDuplicates(@"D:\_Koikatu\_koikatu hf patch test");
         }
 
-        [TestMethod()]
+        [Test]
         public void FixConfigTest()
         {
             HelperLib.FixConfig(@"D:\Games\Koikatsu");
         }
 
-        [TestMethod()]
+        [Test]
         public void CreateBackupTest()
         {
             HelperLib.CreateBackup(@"D:\Games\Koikatsu");
         }
 
-        [TestMethod()]
+        [Test]
         public void RemoveModsExceptModpacksTest()
         {
             HelperLib.RemoveModsExceptModpacks(@"D:\Games\Koikatsu");
         }
 
-        [TestMethod()]
+        [Test]
         public void SetConfigVariableTest()
         {
             HelperLib.SetConfigVariable(Path.Combine(@"F:\Games\KoikatsuP", @"BepInEx\config\KK_PregnancyPlus.cfg"), "[KK_Pregnancy Integration]", "Override KK_Pregnancy belly shape", "true");
+        }
+
+        [Test]
+        public void SteamFindTest()
+        {
+            var s = new Steam();
+            var apps = s.SteamAppsLocations.ToList();
+            if (apps.Count != 2)
+                Assert.Fail("Expected 2 steamapps locations, found " + apps.Count);
+        }
+
+        [Test]
+        public void FindAppPathIfInstalledTest()
+        {
+            var s = new Steam();
+            var party = s.FindAppPathIfInstalled("Koikatsu Party");
+            if (party == null)
+                Assert.Fail("Koikatsu Party not found in steamapps locations");
+            if (!Directory.Exists(party))
+                Assert.Fail("Koikatsu Party path does not exist: " + party);
         }
     }
 }

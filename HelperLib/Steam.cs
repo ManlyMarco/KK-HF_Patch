@@ -12,12 +12,40 @@ namespace HelperLib
         {
             InstallationDirectory = FindSteamInstallationLocation();
             MainExecutableFilename = Path.Combine(InstallationDirectory, "Steam.exe");
-            SteamAppsLocations = FindSteamAppsLocations(InstallationDirectory);
+            SteamAppsLocations = FindSteamAppsLocations(InstallationDirectory).ToList();
         }
 
+        /// <summary>
+        /// Main Steam installation directory
+        /// </summary>
         public string InstallationDirectory { get; }
-        public IEnumerable<string> SteamAppsLocations { get; }
+
+        /// <summary>
+        /// Paths to all Steam library folders
+        /// </summary>
+        public IReadOnlyCollection<string> SteamAppsLocations { get; }
+
+        /// <summary>
+        /// Path to steam.exe
+        /// </summary>
         public string MainExecutableFilename { get; }
+
+        /// <summary>
+        /// Get a full path to the game's folder if it's installed on Steam. Returns null if game is not installed.
+        /// </summary>
+        /// <param name="appFolderName">Name of the game's folder inside SteamApps/common. (e.g. `Koikatsu Party`)</param>
+        public string FindAppPathIfInstalled(string appFolderName)
+        {
+            return GetAllCommonApps().FirstOrDefault(x => Path.GetFileName(x).Equals(appFolderName, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        /// <summary>
+        /// List all game folder paths in all Steam libraries
+        /// </summary>
+        public IEnumerable<string> GetAllCommonApps()
+        {
+            return SteamAppsLocations.Select(x => Path.Combine(x, "common")).Where(Directory.Exists).SelectMany(Directory.GetDirectories);
+        }
 
         private static IEnumerable<string> FindSteamAppsLocations(string installationDirectory)
         {
@@ -29,13 +57,13 @@ namespace HelperLib
                 foreach (var str in File.ReadAllLines(libFoldersFile))
                 {
                     var pieces = str.Split('\"').Where(p => !string.IsNullOrEmpty(p?.Trim())).ToList();
-                    if (pieces.Count != 2 || !int.TryParse(pieces[0], out var _)) continue;
+                    if (pieces.Count != 2 || pieces[0] != "path") continue;
 
-                    var path = Path.Combine(pieces[1].Replace(@"\\", @"\"), "steamapps");
+                    var path = Path.Combine(pieces[1].Replace(@"\\", @"\"), "SteamApps");
                     steamApps.Add(path);
                 }
             }
-            return steamApps.Where(Directory.Exists);
+            return steamApps.Where(Directory.Exists).Select(Path.GetFullPath).Distinct(StringComparer.OrdinalIgnoreCase);
         }
 
         private static string FindSteamInstallationLocation()
