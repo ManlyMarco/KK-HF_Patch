@@ -1,0 +1,3 @@
+[submodule "HelperLib"]
+	path = HelperLib
+	url = https://github.com/ManlyMarco/HF_Patch-HelperLib.git

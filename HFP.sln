@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37111.16 d17.14
+VisualStudioVersion = 17.14.37111.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLib", "HelperLib\HelperLib.csproj", "{79237A5C-6C62-400A-BBDD-3DA1CA327973}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLib", "HelperLib\HelperLib\HelperLib.csproj", "{79237A5C-6C62-400A-BBDD-3DA1CA327973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLibTests", "HelperLibTests\HelperLibTests.csproj", "{B4D26C09-3E4F-428E-A6CA-504B3FAF38DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLibTests", "HelperLib\HelperLibTests\HelperLibTests.csproj", "{B4D26C09-3E4F-428E-A6CA-504B3FAF38DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79237A5C-6C62-400A-BBDD-3DA1CA327973} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B4D26C09-3E4F-428E-A6CA-504B3FAF38DB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A581926-C351-4668-940D-1051BAC0F435}
