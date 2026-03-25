@@ -220,6 +220,9 @@ Type: files;          Name: "{app}\BepInEx\AlexaeBubbleGum.dll";    Components: 
 Type: filesandordirs; Name: "{app}\BepInEx\translation";                                        Components: AT\TL\EnglishTranslation
 Type: filesandordirs; Name: "{app}\BepInEx\plugins\KK_Plugins\KK_TextResourceRedirector.dll";   Components: AT\TL\EnglishTranslation
 
+; Just in case. Also resets any hash caches
+Type: filesandordirs; Name: "{app}\[UTILITY] KKManager"; Components: KKManager
+
 ; Clean up old modpacks
 Type: filesandordirs; Name: "{app}\mods\Sideloader Only Mods"
 Type: filesandordirs; Name: "{app}\mods\[KK]Sideloader Modpack"
@@ -379,7 +382,7 @@ end;
 
 // --------------------------------------------------------------------------------------- Installation Events
 
-function OnInstallLocationTest(): Boolean;
+function OnInstallLocationTest(): Boolean; // Additional validity checks (.exe checks are already passed)
 begin
   if (not FileExists(ExpandConstant('{app}\abdata\sound\setting\object\00.unity3d')) 
    or not FileExists(ExpandConstant('{app}\abdata\sound\setting\sound3dsettingdata\00.unity3d')) 
@@ -424,7 +427,7 @@ begin
   Result := True;
 end;
 
-procedure OnTasksPageOpen();
+procedure OnTasksPageOpen(); // Use to change which tasks are on by default
 begin
   // Party font remove task
   WizardForm.TasksList.Checked[1] := IsSteam();
@@ -466,15 +469,14 @@ begin
   end;
 end;
 
-procedure OnPrepKillTasks();
+procedure OnPrepKillTasks(); // Close the game if it's running
 begin
-  // Close the game if it's running
   MassTaskKill(['CharaStudio.exe', 'Koikatu.exe', 'Koikatsu Party.exe', 'KoikatuVR.exe', 'Koikatsu Party VR.exe', 
                 'InitSetting.exe', 'InitSettingEN.exe', 'InitSettingGameStudioVR.exe', 'Initial Settings.exe', 
                 'BepInEx.Patcher.exe', 'KKManager.exe', 'StandaloneUpdater.exe']);
 end;
 
-procedure OnPrepDoCleanup();
+procedure OnPrepDoCleanup(); // Remove any additional mods outside of the Bepinex folder
 begin
   if (WizardIsTaskSelected('delete\Sidemods')) then
     RemoveModsExceptModpacks(ExpandConstant('{app}'), ExpandConstant('{src}'));
@@ -493,7 +495,7 @@ begin
   end;
 end;
 
-procedure OnInstallCompleted();
+procedure OnInstallCompleted(); // Final installation step, use to modify files installed by the patch
 begin
   FixConfigIllusion(ExpandConstant('{app}'), ExpandConstant('{src}'));
   FixConfigKoikatsu(ExpandConstant('{app}'), ExpandConstant('{src}'));
