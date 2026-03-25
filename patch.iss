@@ -212,7 +212,7 @@ Type: filesandordirs; Name: "{app}\zh-TW";                  Components: Illusion
 ; Clean up old uncensors
 Type: filesandordirs; Name: "{app}\mods\Uncensor";                  Components: UNC\Selector
 Type: filesandordirs; Name: "{app}\mods\Uncensors and body mods";   Components: UNC\Selector
-Type: files;          Name: "{app}\BepInEx\Demosaic.dll";           Components: UNC\Selector
+Type: files;          Name: "{app}\BepInEx\*Demosaic.dll";          Components: UNC\Selector
 Type: files;          Name: "{app}\BepInEx\CartoonUncensor.dll";    Components: UNC\Selector
 Type: files;          Name: "{app}\BepInEx\AlexaeBubbleGum.dll";    Components: UNC\Selector
 
