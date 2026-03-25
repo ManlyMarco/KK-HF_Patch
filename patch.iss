@@ -12,14 +12,28 @@
 ;#define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
 #define GameDir "F:\Games\KoikatsuP"
 ;--Don't include any files in the build to make it go fast for testing
-;#define DEBUG
+#define DEBUG
 ;---Skip file verification for easier testing, COMMENT OUT FOR RELEASE
 ;#define NOVERIFY
 ;------------Don't include general, studio and map sideloader modpacks
 ;#define LITE
 ;---------------------------------------------------------------------
+; The main executable name without the .exe
+#define GameName "Koikatu"
+; Set to empty if the game has no steam version
+#define GameNameSteam "Koikatsu Party"
+; Set CompanyName to empty if the game has no registry keys
+#define CompanyName "Illusion"
+;---------------------------------------------------------------------
+#include "HelperLib\Common.iss"
+;---------------------------------------------------------------------
+; Used for post install run links, comment out to hide
+#define WikiLink "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"
+#define RepoLink "https://github.com/ManlyMarco/KK-HF_Patch"
+; Can be KoiDiscordLink IsDiscordLink or a normal link
+#define DiscordLink KoiDiscordLink
+;---------------------------------------------------------------------
 
-#include "_Common\Header.iss"
 [Setup]
 #ifndef LITE
 AppName=HF Patch for Koikatu! and Koikatsu Party
@@ -28,10 +42,6 @@ OutputBaseFilename=Koikatsu HF Patch v{#VERSION}
 AppName=HF Patch for Koikatu! and Koikatsu Party (Light Version)
 OutputBaseFilename=Koikatsu HF Patch v{#VERSION} Light Version
 #endif
-ArchitecturesInstallIn64BitMode=x64
-CloseApplications=yes
-RestartApplications=no
-CloseApplicationsFilter=*.exe,*.dll
 Compression=lzma2/ultra64
 ;lzma2/ultra64 | zip | lzma2/fast
 LZMAUseSeparateProcess=yes
@@ -43,18 +53,12 @@ LZMANumBlockThreads=8
 DiskSpanning=yes
 DiskSliceSize=4294967295
 ;#endif
-DefaultDirName={code:GetDefaultDirName}
-
-WindowResizable=yes
-WizardStyle=modern
-WizardSizePercent=120,150
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "jp"; MessagesFile: "compiler:Languages\Japanese.isl"
 Name: "sc"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"
 
-#include "Translations.iss"
 
 [Types]
 Name: "full_en";  Description: "{cm:fullInstall}";  Languages: en sc;
@@ -162,9 +166,6 @@ Source: "Input\_TL\_lang jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesu
 Source: "Input\_TL\_lang ch\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: sc
 Source: "Input\_TL\_lang eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Source: "Input\KK_SFW_config\sfw\KK_SFW.cfg";      DestDir: "{app}\BepInEx\config"; Flags: ignoreversion; Components: Feature\KK_SFW; Check: SFWmode
-Source: "Input\KK_SFW_config\nsfw\KK_SFW.cfg";     DestDir: "{app}\BepInEx\config"; Flags: ignoreversion; Components: Feature\KK_SFW; Check: NSFWmode
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\Launcher_branding\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: IllusionLaunchers
 ; Only copy our blacklist if the user doesn't already have one (onlyifdoesntexist)
 Source: "Input\itemblacklist.xml"; DestDir: "{app}\UserData\save"; Flags: onlyifdoesntexist solidbreak
@@ -180,6 +181,8 @@ Source: "Input\AniMorph.ABMX.cfg";   DestDir: "{app}\BepInEx\config"; DestName: 
 ; Source: "Input\_Plugins\[Character Database][various] fixed\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\URL
 ; Source: "Input\_Misc\KoikatuSaveDataEdit\*"; DestDir: "{app}\_Tools\KoikatuSaveDataEdit"; Flags: ignoreversion recursesubdirs; Components: MISC\SaveEditor
 #endif
+
+#include "KK_SFW.iss"
 
 [InstallDelete]
 ; Clean up old translations
@@ -343,12 +346,23 @@ Type: filesandordirs; Name: "{app}\Koikatsu Party_Data\Mono"; Components: Patch
 ; IPA, useless because patched assemblies are replaced
 Type: files; Name: "{app}\IPA.exe"; Components: Patch
 
-[Registry]
-Root: HKCU; Subkey: "Software\Illusion"
-Root: HKCU; Subkey: "Software\Illusion\Koikatu"
-Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"
-Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; ValueName: "INSTALLDIR"; ValueData: "{app}\"; Components: MISC\FIX
-Root: HKCU; Subkey: "Software\Illusion\Koikatu\koikatu"; ValueType: string; ValueName: "INSTALLDIR_HFP"; ValueData: "{app}\"
+[CustomMessages]
+MsgMissingDLC1=NOTICE - You are missing the optional "Additional Personality Pack" expansion (07/27 2018 Summer Paid DLC). It adds 3 new personalities and new items.%n%nThis expansion is optional, the patch will work fine without it. If you want to use it, install it BEFORE running HF Patch.%n%nIf you have the game on Steam, you can get this expansion by installing the AfterParty DLC. You can find it in the DLC section of Koikatsu in your Steam library.
+MsgMissingDLC2=NOTICE - You are missing the optional "After School" expansion (12/21 2018 Winter Paid DLC). It adds 4 new personalities, 3P, dating spots, weddings, and some other gameplay features.%n%nThis expansion is optional but recommended. If you want to use it, install it BEFORE running HF Patch.%n%nIf you have the game on Steam, you can get this expansion by installing the AfterParty DLC. You can find it in the DLC section of Koikatsu in your Steam library.
+MsgMissingDLC3=NOTICE - You are missing the optional "Yoyaku" preorder DLC (emocre_yoyaku). It adds 1 new personality, some clothes and head types.%n%nThis expansion is optional, the patch will work fine without it. If you want to use it, install it BEFORE running HF Patch.
+MsgMissingDLC4=NOTICE - You are missing the optional "Darkness" preorder expansion (emocre_dkn_01f). It adds a small amount of MMF/dark content to the game.%n%nThis expansion is optional, the patch will work fine without it. If you want to use it, install it BEFORE running HF Patch.
+jp.MsgMissingDLC1=注意 - 「コイカツ！性格追加発売記念水着データVer.2018-08-31」のアップデートが欠けています。 それは3つの新しい個性と新しいアイテムを加えます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
+jp.MsgMissingDLC2=注意 - 「コイカツ！アフタースクールVer.2018-12-21」のアップデートが欠けています。 四つの新しい人格、3Pや他のいくつかのゲームプレイの機能が追加されます。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
+jp.MsgMissingDLC3=注意 - オプションの「Yoyaku」予約特典DLC（emocre_yoyaku）が不足しています。このDLCは、新しい性格1つ、服、頭部タイプを追加します。%n%nこの拡張パックはオプションであり、なくてもパッチは正常に動作します。使用したい場合は、HF Patchを実行する前にインストールしてください。
+jp.MsgMissingDLC4=注意 - 「コイカツ！ダークネス」のアップデートが欠けています。 このアップデートはMMFとダークコンテンツを追加します。%n%n使用したい場合は、HF Patchを実行する前にインストールしてください。
+
+MsgKplugDetected=WARNING - KoikPlugins was detected and will be removed if you start installation to avoid potential compatibility issues (settings will not be removed).%n%nPlease follow KoikPlugins manual on how to install it again after patching is done.
+jp.MsgKplugDetected=警告 - 互換性の問題を回避するためにインストールを開始すると、KoikPluginsは削除されます（設定は削除されません）。%n%n後でそれをインストールする方法についてはKoikPluginsマニュアルに従ってください
+MsgKKandKKPdetected=Both Koikatu! and Koikatsu Party files have been detected in the installation folder. To prevent issues with this patch and installed mods the Koikatu! files should be removed. This will not affect Koikatsu Party in any way. If you installed any Japanese DLCs to your Koikatsu Party this is normal and the files should be removed.%n%nDo you want to remove the problematic files? (Koikatu.exe, Koikatu_data, KoikatuVR.exe and KoikatuVR_Data will be removed if they exist)
+jp.MsgKKandKKPdetected=インストールフォルダ内に「コイカツ！」と「Koikatsu Party」の両方のファイルが検出されました。このパッチとインストール済みのMODとの互換性の問題を回避するため、「Koikatu!」ファイルを削除する必要があります。これは「Koikatsu Party」には一切影響しません。「Koikatsu Party」に日本語版DLCをインストールしている場合、これは正常な動作であり、これらのファイルは削除する必要があります。%n%n問題のあるファイルを削除しますか？（Koikatu.exe、Koikatu_data、KoikatuVR.exe、KoikatuVR_Dataが存在する場合は削除されます）
+
+IconGame=Koikatsu!
+jp.IconGame=コイカツ！
 
 [Tasks]
 Name: desktopicon; Description: "{cm:TaskIcon}"; Flags: unchecked
@@ -375,55 +389,15 @@ Name: "{userdesktop}\Koikatsu Party"; Filename: "{app}\Initial Settings.exe"; Ic
 [Run]
 Filename: "{tmp}\hfp\DirectXRedist2010\DXSETUP.exe"; Parameters: "/silent"; Description: "Installing DirectX redistributables"; Flags: skipifdoesntexist runascurrentuser
 
-Filename: "{tmp}\hfp\start.bat"; Parameters: """{app}"""; Description: "{cm:RunGame}"; Flags: postinstall runasoriginaluser nowait skipifsilent skipifdoesntexist
+Filename: "{tmp}\hfp\start.bat"; Parameters: """{app}"""; Description: "{cm:RunGame}"; Flags: postinstall runasoriginaluser nowait skipifsilent skipifdoesntexist runhidden
 
-Filename: "{app}\manual\English\README.html"; Description: "Open official game manual"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent skipifdoesntexist
-
-Filename: "https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help"; Description: "{cm:RunWiki}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
-Filename: "https://discord.gg/Szumqcu"; Description: "{cm:RunDiscord}"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
+Filename: "{app}\manual\English\README.html"; Description: "Open official game manual (English)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent skipifdoesntexist
 
 Filename: "{app}\[UTILITY] KKManager\StandaloneUpdater.exe"; Parameters: """{app}"""; Description: "{cm:StartUpdate}"; Flags: postinstall runascurrentuser unchecked nowait skipifsilent skipifdoesntexist
 
-Filename: "https://github.com/ManlyMarco/KK-HF_Patch"; Description: "Latest releases and source code"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent
-
-Filename: "https://www.patreon.com/ManlyMarco"; Description: "ManlyMarco Patreon (Creator of this patch)"; Flags: shellexec runasoriginaluser postinstall unchecked nowait skipifsilent;
+#include "HelperLib\CommonRun.iss"
 
 [Code]
-procedure FindInstallLocation(path, companyName, gameName, gameNameSteam: String; out strout: WideString);
-external 'FindInstallLocation@files:HelperLib.dll stdcall';
-
-procedure CreateBackup(path: String);
-external 'CreateBackup@files:HelperLib.dll stdcall';
-
-procedure WriteVersionFile(path, version: String);
-external 'WriteVersionFile@files:HelperLib.dll stdcall';
-
-procedure FixPermissions(path: String);
-external 'FixPermissions@files:HelperLib.dll stdcall';
-
-procedure FixConfigIllusion(path: String);
-external 'FixConfigIllusion@files:HelperLib.dll stdcall';
-
-procedure FixConfigKoikatsu(path: String);
-external 'FixConfigKoikatsu@files:HelperLib.dll stdcall';
-
-procedure RemoveModsExceptModpacks(path: String);
-external 'RemoveModsExceptModpacks@files:HelperLib.dll stdcall';
-
-procedure RemoveSideloaderDuplicates(path: String);
-external 'RemoveSideloaderDuplicates@files:HelperLib.dll stdcall';
-
-procedure RemoveNonstandardListfiles(path: String);
-external 'RemoveNonstandardListfiles@files:HelperLib.dll stdcall';
-
-function GetDefaultDirName(Param: string): string;
-var
-  str: WideString;
-begin
-  FindInstallLocation(ExpandConstant('{src}'), 'Illusion', 'Koikatu', 'Koikatsu Party', str);
-  Result := str;
-end;
-
 function VRInstalled(): Boolean;
 begin
   Result := FileExists(ExpandConstant('{app}\KoikatuVR_Data\resources.assets')) or FileExists(ExpandConstant('{app}\Koikatsu Party VR_Data\resources.assets'));
@@ -475,8 +449,6 @@ begin
 end;
 
 procedure CurPageChanged(CurPageID: Integer);
-var
-  ResultCode: Integer;
 begin
   if CurPageID = wpSelectTasks then
   begin
@@ -487,25 +459,28 @@ begin
     if(FileExists(ExpandConstant('{app}\BepInEx\config\EC.Core.Fixes.MakerFPS.cfg')) or FileExists(ExpandConstant('{app}\BepInEx\CardCacher.dll')) or FileExists(ExpandConstant('{app}\BepInEx\0Harmony.dll')) or FileExists(ExpandConstant('{app}\BepInEx\TexResPatch.dll')) or FileExists(ExpandConstant('{app}\BepInEx\KK_GUIDMigration.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Sideloader.dll')) or FileExists(ExpandConstant('{app}\BepInEx\Assembly-CSharp.dll'))) then
     begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgInvalidModsDetected}'), mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
+      WizardForm.TasksList.CheckItem(2, coCheckWithChildren);
     end;
 
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\KoikPlugins.dll'))) then
+    begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgKplugDetected}'), mbError, MB_OK, 0);
+      WizardForm.TasksList.CheckItem(2, coCheckWithChildren);
+    end;
 
     if (FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifier.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudio.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\AdditionalBoneModifierStudioNEO.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\HSStudioNEOExtSave.dll')) or FileExists(ExpandConstant('{app}\BepInEx\FlashBangZ.dll')) or FileExists(ExpandConstant('{app}\BepInEx\IPA\KK_gaugeslider.dll'))) then
     begin
       SuppressibleMsgBox(ExpandConstant('{cm:MsgIncompatibleModsDetected}'), mbError, MB_OK, 0);
-      WizardForm.TasksList.CheckItem(WizardForm.TasksList.Items.Count - 8, coCheckWithChildren);
+      WizardForm.TasksList.CheckItem(2, coCheckWithChildren);
     end;
     
-    if (IsSteam() and IsComponentSelected('Patch\VR') and not VRInstalled()) then
+    if (IsSteam() and WizardIsComponentSelected('Patch\VR') and not VRInstalled()) then
     begin
       SuppressibleMsgBox('To install the VR module for Koikatsu Party you have to go to your Steam Library, open properties of Koikatsu Party, go to the DLC tab and enable the VR DLC there. You should do this before installing HF Patch.', mbInformation, MB_OK, 0);
     end;
     
-    WizardForm.TasksList.Checked[WizardForm.TasksList.Items.Count - 9] := IsSteam();
-    WizardForm.TasksList.ItemEnabled[WizardForm.TasksList.Items.Count - 9] := IsSteam();
+    WizardForm.TasksList.Checked[1] := IsSteam();
+    WizardForm.TasksList.ItemEnabled[1] := IsSteam();
   end;
 end;
 
@@ -517,7 +492,7 @@ begin
   if (CurStep = ssPostInstall) then
   begin
     // Removing this causes game to fall back to original font
-    if IsTaskSelected('partyfont') then begin
+    if WizardIsTaskSelected('partyfont') then begin
       try
         DeleteFile(ExpandConstant('{app}\abdata\localize\translate\1\font.unit-y3d'));
         //DeleteFile(ExpandConstant('{app}\abdata\localize\translate\2\font.unit-y3d'));
@@ -531,7 +506,7 @@ begin
     end;
     
     // Delete Japanese versions of cards and bgs if English versions are installed (only those with different names)
-    if IsComponentSelected('AT\TL\EnglishTranslation\UserData') then
+    if WizardIsComponentSelected('AT\TL\EnglishTranslation\UserData') then
     begin
         DeleteFile(ExpandConstant('{app}\UserData\bg\チャペル_夕.png'));
         DeleteFile(ExpandConstant('{app}\UserData\bg\チャペル_昼.png'));
@@ -634,158 +609,52 @@ begin
         DeleteFile(ExpandConstant('{app}\UserData\coordinate\魔法少女.png'));
     end;
         
-    FixConfigIllusion(ExpandConstant('{app}'));
-    FixConfigKoikatsu(ExpandConstant('{app}'));
+    FixConfigIllusion(ExpandConstant('{app}'), ExpandConstant('{src}'));
+    FixConfigKoikatsu(ExpandConstant('{app}'), ExpandConstant('{src}'));
     
-    WriteVersionFile(ExpandConstant('{app}'), '{#VERSION}');
+    WriteVersionFile(ExpandConstant('{app}'), ExpandConstant('{src}'), '{#VERSION}');
     
     // Prevent trying to install the redist again
     Exec('reg', 'add HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam\Apps\CommonRedist\DirectX\Jun2010 /v dxsetup /t REG_DWORD /d 1 /f /reg:32', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
   end;
 end;
 
-function IsCharValid(Value: Char): Boolean;
-begin
-  Result := Ord(Value) <= $007F;
-end;
-
-function IsDirNameValid(const Value: string): Boolean;
-var
-  I: Integer;
-begin
-  Result := False;
-  for I := 1 to Length(Value) do
-    if not IsCharValid(Value[I]) then
-      Exit;
-  Result := True;
-end;
-
 function NextButtonClick(CurPageID: Integer): Boolean;
-var
-  ResultCode: Integer;
 begin
   // allow the setup turning to the next page
   Result := True;
 
-  if (CurPageID = wpInfoBefore) then
-  begin
-      if (FileExists('C:\windows\system32\winecfg.exe')) then
-      begin
-          if (MsgBox('Since you are running under Linux you must perform additional steps at the end of the installation.'#13#10#13#10'Read the Linux guides linked on this page before continuing. Click No to continue.', mbError, MB_YESNO) = IDYES) then
-          begin
-            Result := False;
-          end;
-      end;
-  end;
-  
   if (CurPageID = wpSelectDir) then
   begin
-    if Result = True then
+    // Check for file corruptions
+    if (not FileExists(ExpandConstant('{app}\abdata\sound\setting\object\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\sound3dsettingdata\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\soundsettingdata\00.unity3d'))) then
     begin
-      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))) then
-      begin
-        MsgBox(ExpandConstant('{cm:MsgEmotionCreatorsDetected}'), mbError, MB_OK);
-        Result := False;
-      end
+      MsgBox(ExpandConstant('{cm:MsgMissingGameFiles}'), mbCriticalError, MB_OK);
+      Result := False;
     end;
 
     if Result = True then
     begin
-      if (FileExists(ExpandConstant('{app}\EmotionCreators.exe'))
-      or FileExists(ExpandConstant('{app}\KoikatsuSunshine.exe'))
-      or FileExists(ExpandConstant('{app}\KoiKoiMonogatari.exe'))
-      or FileExists(ExpandConstant('{app}\KoiKoiMonogatariVR.exe'))
-      or FileExists(ExpandConstant('{app}\PlayHome.exe'))
-      or FileExists(ExpandConstant('{app}\HoneySelect2.exe'))
-      or FileExists(ExpandConstant('{app}\VR_Kanojo.exe'))
-      or FileExists(ExpandConstant('{app}\AI-Syoujyo.exe'))
-      or FileExists(ExpandConstant('{app}\AI-Shoujo.exe'))) then
+      // Check for missing paid DLC
+      if not SummerExpInstalled() then
+        SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC1}'), mbInformation, MB_OK, 0);
+      if not AfterSchoolInstalled() then
+        SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC2}'), mbInformation, MB_OK, 0);
+      if not YoyakuInstalled() and not IsSteam() then
+        SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC3}'), mbInformation, MB_OK, 0);
+      if not DarknessInstalled() and not IsSteam() then
+        SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC4}'), mbInformation, MB_OK, 0);
+      
+      // If both KK and KKP files are present, remove the KK files
+      if (KoikatuInstalled() and IsSteam()) then
       begin
-        MsgBox(ExpandConstant('{cm:MsgDifferentGameDetected}'), mbError, MB_OK);
-        Result := False;
-      end
-    end;
-    
-    if (not KoikatuInstalled() and not IsSteam()) then
-    begin
-      if(SuppressibleMsgBox(ExpandConstant('{cm:MsgExeNotFound}'), mbError, MB_YESNO, 0) = IDNO) then
-        Result := False;
-    end;
-
-    if Result = True then
-    begin
-      if (Length(ExpandConstant('{app}')) > 100) then
-      begin
-        MsgBox(ExpandConstant('{cm:MsgPathTooLong}'), mbError, MB_OK);
-        Result := False;
-      end
-    end;
-
-    if Result = True then
-    begin
-      if not IsDirNameValid(ExpandConstant('{app}')) then
-      begin
-        MsgBox(ExpandConstant('{cm:MsgPathNonLatin}'), mbError, MB_OK);
-      end;
-    end;
-
-    if Result = True then
-    begin
-      if (Pos(LowerCase(ExpandConstant('{app}\')), LowerCase(ExpandConstant('{src}\'))) > 0) then
-      begin
-        MsgBox('This patch is inside of the game directory you are attempting to install to. You have to move the patch files outside of the game directory and try again.', mbError, MB_OK);
-        Result := False;
-      end
-    end;
-    
-    // If both KK and KKP files are present, remove the KK files
-    if (KoikatuInstalled() and IsSteam()) then
-    begin
-      if (MsgBox(ExpandConstant('{cm:MsgKKandKKPdetected}'), mbConfirmation, MB_YESNO) = IDYES) then
-      begin
-        DeleteFile(ExpandConstant('{app}\Koikatu.exe'));
-        DelTree(ExpandConstant('{app}\Koikatu_Data'), True, True, True);
-        DeleteFile(ExpandConstant('{app}\KoikatuVR.exe'));
-        DelTree(ExpandConstant('{app}\KoikatuVR_Data'), True, True, True);
-      end;
-    end;
-
-    if Result = True then
-    begin
-      // Check for file corruptions
-      if (not FileExists(ExpandConstant('{app}\abdata\sound\setting\object\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\sound3dsettingdata\00.unity3d')) or not FileExists(ExpandConstant('{app}\abdata\sound\setting\soundsettingdata\00.unity3d'))) then
-      begin
-        MsgBox(ExpandConstant('{cm:MsgMissingGameFiles}'), mbError, MB_OK);
-        Result := False;
-      end
-      else
-      begin
-        // Check for missing paid DLC
-        if not SummerExpInstalled() then
+        if (MsgBox(ExpandConstant('{cm:MsgKKandKKPdetected}'), mbConfirmation, MB_YESNO) = IDYES) then
         begin
-          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC1}'), mbInformation, MB_OK, 0);
+          DeleteFile(ExpandConstant('{app}\Koikatu.exe'));
+          DelTree(ExpandConstant('{app}\Koikatu_Data'), True, True, True);
+          DeleteFile(ExpandConstant('{app}\KoikatuVR.exe'));
+          DelTree(ExpandConstant('{app}\KoikatuVR_Data'), True, True, True);
         end;
-        if not AfterSchoolInstalled() then
-        begin
-          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC2}'), mbInformation, MB_OK, 0);
-        end;
-        if not YoyakuInstalled() and not IsSteam() then
-        begin
-          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC3}'), mbInformation, MB_OK, 0);
-        end;
-        if not DarknessInstalled() and not IsSteam() then
-        begin
-          SuppressibleMsgBox(ExpandConstant('{cm:MsgMissingDLC4}'), mbInformation, MB_OK, 0);
-        end;
-      end;
-    end;
-
-    if Result = True then
-    begin
-      // Check for extracted zipmods
-      if FileExists(ExpandConstant('{app}\manifest.xml')) then
-      begin
-        SuppressibleMsgBox(ExpandConstant('{cm:MsgExtractedZipmod}'), mbError, MB_OK, 0);
       end;
     end;
     
@@ -796,71 +665,6 @@ begin
   end;
 end;
 
-
-// SFW page
-var
-  PageSFWmode: TWizardPage;
-  DescLabelFull: TLabel;
-  DescLabelSafe: TLabel;
-  ModeRadioButtonFull: TNewRadioButton;  
-  ModeRadioButtonSafe: TNewRadioButton;  
-procedure CreateSfwPage;     
-begin
-  PageSFWmode := CreateCustomPage(wpSelectTasks, ExpandConstant('{cm:SfwTitle}'), ExpandConstant('{cm:SfwTitleDescription}'));
-  ModeRadioButtonFull := TNewRadioButton.Create(WizardForm);
-  ModeRadioButtonFull.Parent := PageSFWmode.Surface;
-  ModeRadioButtonFull.Checked := True;
-  ModeRadioButtonFull.Top := 16;
-  ModeRadioButtonFull.Width := PageSFWmode.SurfaceWidth;
-  ModeRadioButtonFull.Font.Style := [fsBold];
-  ModeRadioButtonFull.Font.Size := 9;
-  ModeRadioButtonFull.Caption := ExpandConstant('{cm:SfwOptNsfw}');
-  DescLabelFull := TLabel.Create(WizardForm);
-  DescLabelFull.Parent := PageSFWmode.Surface;
-  DescLabelFull.Left := 8;
-  DescLabelFull.Top := ModeRadioButtonFull.Top + ModeRadioButtonFull.Height + 8;
-  DescLabelFull.Width := PageSFWmode.SurfaceWidth - 10; 
-  DescLabelFull.Height := 60;
-  DescLabelFull.AutoSize := False;
-  DescLabelFull.Wordwrap := True;
-  DescLabelFull.Caption := ExpandConstant('{cm:SfwOptNsfwDescription}');
-  ModeRadioButtonSafe := TNewRadioButton.Create(WizardForm);
-  ModeRadioButtonSafe.Parent := PageSFWmode.Surface;
-  ModeRadioButtonSafe.Top := DescLabelFull.Top + DescLabelFull.Height + 16;
-  ModeRadioButtonSafe.Width := PageSFWmode.SurfaceWidth;
-  ModeRadioButtonSafe.Font.Style := [fsBold];
-  ModeRadioButtonSafe.Font.Size := 9;
-  ModeRadioButtonSafe.Caption := ExpandConstant('{cm:SfwOptSfw}');
-  DescLabelSafe := TLabel.Create(WizardForm);
-  DescLabelSafe.Parent := PageSFWmode.Surface;
-  DescLabelSafe.Left := 8;
-  DescLabelSafe.Top := ModeRadioButtonSafe.Top + ModeRadioButtonSafe.Height + 8;
-  DescLabelSafe.Width := PageSFWmode.SurfaceWidth - 10;
-  DescLabelSafe.Height := 60;
-  DescLabelSafe.AutoSize := False;
-  DescLabelSafe.Wordwrap := True;
-  DescLabelSafe.Caption := ExpandConstant('{cm:SfwOptSfwDescription}') ;
-end;
-
-function ShouldSkipPage(PageID: Integer): Boolean;
-begin
-  Result := False;
-  if PageID = PageSFWmode.ID then
-    Result := not IsComponentSelected('Feature\KK_SFW');
-end;
-
-function SFWmode(): Boolean;
-begin
-  Result := ModeRadioButtonSafe.Checked;
-end;
-function NSFWmode(): Boolean;
-begin
-  Result := ModeRadioButtonFull.Checked;
-end;
-
-
-procedure VerifyFiles(srcexe: String; out errormsg: WideString);
-external 'VerifyFiles@files:HelperLib.dll stdcall';
 
 // Set up a custom prepare to install page with progress
 var
@@ -875,8 +679,6 @@ begin
   StringChange(S, '[name]', '{#NAME} HF Patch');
   A := S;
   PrepareToInstallWithProgressPage := CreateOutputProgressPage(SetupMessage(msgWizardPreparing), A);
-  
-  CreateSfwPage();
 end;
 
 function PrepareToInstall(var NeedsRestart: Boolean): String;
@@ -902,30 +704,20 @@ begin
   end
   else
   begin
+    PrepareToInstallWithProgressPage.SetProgress(4, 10);
+    PrepareToInstallWithProgressPage.SetText('Exiting running game processes', '');
+    
+    // Close the game if it's running
+    MassTaskKill(['CharaStudio.exe', 'Koikatu.exe', 'Koikatsu Party.exe', 'KoikatuVR.exe', 'Koikatsu Party VR.exe', 
+                  'InitSetting.exe', 'InitSettingEN.exe', 'InitSettingGameStudioVR.exe', 'Initial Settings.exe', 
+                  'BepInEx.Patcher.exe', 'KKManager.exe', 'StandaloneUpdater.exe']);
+    
+    PrepareToInstallWithProgressPage.SetProgress(5, 10);
+    PrepareToInstallWithProgressPage.SetText('Fixing file permissions of game directory', '');
+
     try
-      PrepareToInstallWithProgressPage.SetProgress(4, 10);
-      PrepareToInstallWithProgressPage.SetText('Exiting running game processes', '');
-      
-      // Close the game if it's running
-      Exec('taskkill', '/F /IM CharaStudio.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM Koikatu.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM Koikatsu Party.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM KoikatuVR.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM Koikatsu Party VR.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-  
-      Exec('taskkill', '/F /IM InitSetting.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM InitSettingEN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM InitSettingGameStudioVREN.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM Initial Settings.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM BepInEx.Patcher.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM KKManager.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-      Exec('taskkill', '/F /IM StandaloneUpdater.exe', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
-
-      PrepareToInstallWithProgressPage.SetProgress(5, 10);
-      PrepareToInstallWithProgressPage.SetText('Fixing file permissions of game directory', '');
-
       // Fix file permissions
-      FixPermissions(ExpandConstant('{app}'));
+      FixPermissions(ExpandConstant('{app}'), ExpandConstant('{src}'));
     except
       ShowExceptionMessage();
     end;
@@ -933,64 +725,30 @@ begin
     PrepareToInstallWithProgressPage.SetProgress(6, 10);
     PrepareToInstallWithProgressPage.SetText('Creating a plugin backup', '');
 
-    CreateBackup(ExpandConstant('{app}'));
+    CreateBackup(ExpandConstant('{app}'), ExpandConstant('{src}'));
 
     PrepareToInstallWithProgressPage.SetProgress(8, 10);
     PrepareToInstallWithProgressPage.SetText('Changing plugin configuration', '');
     
-    // Backup plugin settings
-    if (not IsTaskSelected('delete\Config') and FileExists(ExpandConstant('{app}\BepInEx\config.ini'))) then
-      FileCopy(ExpandConstant('{app}\BepInEx\config.ini'), ExpandConstant('{app}\config.ini'), false);
-
-    // Remove BepInEx folder
-    if (IsTaskSelected('delete\Config') and IsTaskSelected('delete\Plugins')) then begin
-      DelTree(ExpandConstant('{app}\BepInEx'), True, True, True);
-    end
-    else
-    begin
-      // Or only remove plugins
-      if (IsTaskSelected('delete\Plugins')) then begin
-        DelTree(ExpandConstant('{app}\BepInEx\plugins'), True, True, True);
-        DelTree(ExpandConstant('{app}\BepInEx\patchers'), True, True, True);
-        DelTree(ExpandConstant('{app}\BepInEx\IPA'), True, True, True);
-        Exec(ExpandConstant('{cmd}'), '/c del *.dll', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
-        Exec(ExpandConstant('{cmd}'), '/c del *.dl_', ExpandConstant('{app}\BepInEx'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
-      end;
-    end;
-    
-    if (not IsTaskSelected('delete\Config')) then
-    begin
-      // Restore the settings and remove the backup
-      CreateDir(ExpandConstant('{app}\BepInEx'));
-      if(FileExists(ExpandConstant('{app}\config.ini'))) then
-      begin
-        FileCopy(ExpandConstant('{app}\config.ini'), ExpandConstant('{app}\BepInEx\config.ini'), false);
-        DeleteFile(ExpandConstant('{app}\config.ini'));
-      end;
-    end
-    else
-    begin
-      // Or remove settings
-      DeleteFile(ExpandConstant('{app}\BepInEx\config.ini'));
-    end;
+    DeletePluginsAndConfig(WizardIsTaskSelected('delete\Config'), WizardIsTaskSelected('delete\Plugins'));
 
     PrepareToInstallWithProgressPage.SetProgress(9, 10);
     PrepareToInstallWithProgressPage.SetText('Cleaning up old mods and scripts', '');
 
-    if (IsTaskSelected('delete\Sidemods')) then
-      RemoveModsExceptModpacks(ExpandConstant('{app}'));
+    if (WizardIsTaskSelected('delete\Sidemods')) then
+      RemoveModsExceptModpacks(ExpandConstant('{app}'), ExpandConstant('{src}'));
 
-    if (IsTaskSelected('delete\Listfiles')) then
-      RemoveNonstandardListfiles(ExpandConstant('{app}'));
+    if (WizardIsTaskSelected('delete\Listfiles')) then
+      RemoveNonstandardListfiles(ExpandConstant('{app}'), ExpandConstant('{src}'));
 
-    if (IsTaskSelected('delete\scripts')) then
+    if (WizardIsTaskSelected('delete\scripts')) then
       DelTree(ExpandConstant('{app}\scripts'), True, True, True);
 
-    if (IsTaskSelected('PW')) then
+    if (WizardIsTaskSelected('PW')) then
     begin
       DelTree(ExpandConstant('{app}\Plugins'), True, True, True);
       DelTree(ExpandConstant('{app}\patchwork'), True, True, True);
-      Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_SHOW, ewWaitUntilTerminated, ResultCode);
+      Exec(ExpandConstant('{cmd}'), '/c del patchwork_*', ExpandConstant('{app}'), SW_HIDE, ewWaitUntilTerminated, ResultCode);
     end;
   end;
   
