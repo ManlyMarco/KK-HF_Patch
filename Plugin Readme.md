@@ -133,7 +133,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.SplashScreen
 
-# BepisPlugins v21.1.3
+# BepisPlugins v21.1.4.1
 - Short description: Collection of essential plugins
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -523,7 +523,7 @@
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
 
-# Image Embed v1.0.3
+# Image Embed v1.0.4
 - Short description: Embeds custom images in scene files so others can load them
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -563,7 +563,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# KK Better Penetration v5.1
+# KK Better Penetration v5.1.1
 - Short description: Improves how penetration looks in H scenes
 - Author(s):         Animal42069
 - More information:  https://www.patreon.com/Animal42069
@@ -618,12 +618,12 @@
 - Author(s):         Starstorm
 - More information:  KK Discord
 
-# KK_VR v2.7
+# KK_VR v2.7.1
 - Short description: Allows you to play both the main game and studio in VR
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KKS_VR
 
-# KK_VR v2.7
+# KK_VR v2.7.1
 - Short description: Allows you to play both the main game and studio in VR
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/KKS_VR
@@ -647,6 +647,11 @@
 - Short description: Advanced studio controls
 - Author(s):         joan6694
 - More information:  https://www.patreon.com/joan6694
+
+# KKPRim Controller v1.8
+- Short description: Adds a window to control KKPRim on the selected characters/objects in studio
+- Author(s):         RikkiBalboa
+- More information:  https://github.com/RikkiBalboa/Rikki-Koi-Plugins
 
 # KKShadowPatcher.Koikatu v1.0.0.9
 - Short description: Increases the maximum shadow resolution for KK lights
@@ -713,7 +718,7 @@
 - Author(s):         Keelhauled
 - More information:  https://github.com/Keelhauled/KeelPlugins
 
-# LoveMachine v4.4.0
+# LoveMachine v4.5.0
 - Short description: Adds support for buttplug.io compatible strokers and vibrators
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/LoveMachine
@@ -723,7 +728,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Maker/Studio Browser Folders v4.0.1
+# Maker/Studio Browser Folders v4.0.2
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -768,7 +773,7 @@
 - Author(s):         Starstorm
 - More information:  https://github.com/starstormhun/StarPlugins/
 
-# Material Editor v4.0.3
+# Material Editor v5.0
 - Short description: Adds advanced material controls to maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -798,7 +803,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.47
+# Modding API v1.48.1
 - Short description: API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI
@@ -948,7 +953,7 @@
 - Author(s):         RSkoi
 - More information:  https://github.com/RSkoi/ComponentUtil
 
-# Runtime Unity Editor v6.3
+# Runtime Unity Editor v6.3.2
 - Short description: Debugging and development tool
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
@@ -968,7 +973,7 @@
 - Author(s):         Shallty
 - More information:  https://github.com/ShalltyB/SceneEffectsPresets
 
-# Sex Faces v1.3.0
+# Sex Faces v1.4.0
 - Short description: Adds the ability to set custom facial expressions to be displayed during H scenes
 - Author(s):         Sauceke
 - More information:  https://github.com/Sauceke/SexFaces/releases/tag/v1.3.0
@@ -991,9 +996,9 @@
 # Shallty Utils v1.3.1
 - Short description: A utility plugin focused on enhancing Timeline to improve animator's workflows (may cause issues)
 - Author(s):         Shallty
-- More information:  ???
+- More information:  https://github.com/Lusiocc/ShalltyUtils
 
-# Skin Overlay Mod v7.1.2.1
+# Skin Overlay Mod v7.1.3
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
@@ -1009,9 +1014,9 @@
 - More information:  ???
 
 # SpawnLocker v1.0.0
-- Short description: Lets you lock characters to always appear in free roam
-- Author(s):         ???
-- More information:  KK discord
+- Short description: Allows you to select certain characters that you want to always appear in free roam
+- Author(s):         IllusionMods
+- More information:  https://github.com/IllusionMods/KK_Plugins
 
 # Stiletto v2.4.2.1
 - Short description: Support for high heels
@@ -1113,6 +1118,11 @@
 - Author(s):         krypto4863
 - More information:  https://github.com/krypto5863/Illusion.StudioNodeTweaks
 
+# StudioPseudoMaker v1.5.2.0
+- Short description: Brings most maker functionality to studio
+- Author(s):         RikkiBalboa
+- More information:  https://github.com/RikkiBalboa/Rikki-Koi-Plugins
+
 # StudioSceneSettings v1.3.2
 - Short description: Adds more effect settings for scenes
 - Author(s):         DeathWeasel1337
@@ -1158,7 +1168,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/TranslationTools
 
-# The Bird of Hermes v5.5.1.0
+# The Bird of Hermes v5.6.0
 - Short description: Timeline addon, allows loading an audio file, and get a waveform of the audio
 - Author(s):         Rinu Nalo
 - More information:  KK Discord/
@@ -1197,11 +1207,6 @@
 - Short description: Extension for AT, needed for some translations
 - Author(s):         GeBo
 - More information:  https://github.com/GeBo1/GeBoPlugins
-
-# TreeNodeNaming v1.2.0
-- Short description: Allows the renaming of nodes in studio treeview
-- Author(s):         Njaecha
-- More information:  ???
 
 # TreeNodeOrdering v3.0.0
 - Short description: Allows parenting and changing the order of TreeNodes in Studio
@@ -1253,7 +1258,7 @@
 - Author(s):         GFanon
 - More information:  ???
 
-# XUnity Auto Translator v5.6.1
+# XUnity Auto Translator v5.6.2
 - Short description: Translation loader
 - Author(s):         bbepis and others
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator

@@ -7,7 +7,7 @@
 ;-------------Full game name for naming patch itself and desktop icons
 #define NAME "Koikatsu"
 ;---------------------------------------------Current HF Patch version
-#define VERSION "4.1.1"
+#define VERSION "4.2"
 ;-----------------------------------------Sideloader modpack directory
 #define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
 ;#define GameDir "F:\Games\KoikatsuP"
@@ -16,7 +16,7 @@
 ;---Skip file verification for easier testing, COMMENT OUT FOR RELEASE
 ;#define NOVERIFY
 ;------------Don't include general, studio and map sideloader modpacks
-;#define LITE
+#define LITE
 ;--------------------------------------------------------Configuration
 ; The main executable name without the .exe
 #define GameName "Koikatu"
@@ -128,6 +128,7 @@ Source: "{#GameDir}\mods\Sideloader Modpack - Animations\*";         DestDir: "{
 Source: "{#GameDir}\mods\Sideloader Modpack - Fixes\*";              DestDir: "{app}\mods\Sideloader Modpack - Fixes";               Flags: ignoreversion recursesubdirs; Components: Modpack\Fixes
 Source: "{#GameDir}\mods\Sideloader Modpack - KK_MaterialEditor\*";  DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor";   Flags: ignoreversion recursesubdirs; Components: Modpack\MaterialEditor
 Source: "{#GameDir}\mods\Sideloader Modpack - KK_UncensorSelector\*";DestDir: "{app}\mods\Sideloader Modpack - KK_UncensorSelector"; Flags: ignoreversion recursesubdirs; Components: Modpack\UncensorSelector
+Source: "{#GameDir}\mods\MyMods\*";                                   DestDir: "{app}\mods\MyMods"; Flags: ignoreversion recursesubdirs; 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "{#GameDir}\BepInEx\cache\sideloader_zipmod_cache.bin*"; DestDir: "{app}\BepinEx\cache"; Flags: ignoreversion recursesubdirs createallsubdirs;           
 ; Make sure this is never missing in case the plugin archive doesn't have it included. Also solidbreak to split off the modpacks
@@ -170,6 +171,7 @@ Source: "Input\US_config_BP.cfg";                   DestDir: "{app}\BepInEx\conf
 Source: "Input\itemblacklist.xml";                  DestDir: "{app}\UserData\save"; Flags: onlyifdoesntexist
 ; Other default config
 Source: "Input\marco.kkapi.cfg";                    DestDir: "{app}\BepInEx\config"; DestName: "marco.kkapi.cfg";        Flags: onlyifdoesntexist
+Source: "Input\Mods_readme.txt";                    DestDir: "{app}\mods"; DestName: "Mods_readme.txt"; Flags: onlyifdoesntexist solidbreak
 Source: "Input\MK.KK_BetterSquirt.cfg";             DestDir: "{app}\BepInEx\config"; DestName: "MK.KK_BetterSquirt.cfg";                      Components: Feature\KK_BetterSquirt
 Source: "Input\AniMorph.ABMX.cfg";                  DestDir: "{app}\BepInEx\config"; DestName: "AniMorph.ABMX.cfg";      Flags: solidbreak;   Components: Content\AnisotropicMorph
 Source: "Input\essuhauled.animationloader.cfg";                  DestDir: "{app}\BepInEx\config"; DestName: "essuhauled.animationloader.cfg";      Flags: solidbreak;   Components: API\AnimationLoader_Koikatu
@@ -380,6 +382,10 @@ begin
   Result := FileExists(ExpandConstant('{app}\abdata\BRConvert\OK.txt'));
 end;
 
+function PseudoMaker(): Boolean;
+begin
+ Result := WizardIsComponentSelected('Feature\Bra') and WizardIsComponentSelected('Content\MoreAccessories') and WizardIsComponentSelected('Content\KK_HairAccessoryCustomizer') and WizardIsComponentSelected('Content\KK_MaterialEditor') and WizardIsComponentSelected('Content\KK_MoreOutfits') and WizardIsComponentSelected('API\KKAPI')
+end;
 // --------------------------------------------------------------------------------------- Installation Events
 
 function OnInstallLocationTest(): Boolean; // Additional validity checks (.exe checks are already passed)
